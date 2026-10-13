@@ -5,6 +5,8 @@ import Encabezado from '../../components/Encabezado.astro';
 import Aviso from '../../components/Aviso.astro';
 import LineaTiempo from '../../components/LineaTiempo.astro';
 import TroncoComun from '../../components/TroncoComun.astro';
+import BarraProgreso from '../../components/BarraProgreso.astro';
+import Tareas from '../../components/Tareas.astro';
 import { todosLosPlanes, TRONCO_COMUN, type Plan } from '../../lib/datos';
 import { ruta } from '../../lib/ruta';
 
@@ -17,6 +19,7 @@ interface Props {
   plan: Plan;
 }
 const { plan } = Astro.props;
+const totalItems = plan.semanas.length + plan.tareas.length;
 ---
 
 <Base titulo={plan.titulo} descripcion={plan.resumen}>
@@ -42,12 +45,14 @@ const { plan } = Astro.props;
 
   {
     plan.tipo === 'plan' ? (
-      <>
+      <div data-progreso={plan.slug}>
+        <BarraProgreso total={totalItems} />
         <p class="no-imprimir mb-4">
           La primera semana es el <a href={ruta(`/planes/${TRONCO_COMUN}`)}>tronco común</a>, que se repasa en la última.
         </p>
         <LineaTiempo plan={plan} />
-      </>
+        <Tareas plan={plan} />
+      </div>
     ) : (
       <TroncoComun plan={plan} />
     )
@@ -57,3 +62,47 @@ const { plan } = Astro.props;
     <button type="button" class="boton" onclick="window.print()">Imprimir este plan</button>
   </div>
 </Base>
+
+<script>
+  import { CLAVES, borrar, escribir, leer } from '../../lib/almacen';
+  import { filtrarVigentes, resumir } from '../../lib/progreso';
+
+  const raiz = document.querySelector<HTMLElement>('[data-progreso]');
+  if (raiz?.dataset.progreso) {
+    const clave = CLAVES.progreso(raiz.dataset.progreso);
+    const casillas = [...raiz.querySelectorAll<HTMLInputElement>('input[data-item]')];
+    const ids = casillas.map((c) => c.dataset.item!);
+    const texto = raiz.querySelector('[data-texto-progreso]');
+    const barra = raiz.querySelector<HTMLElement>('[data-relleno-contenedor]');
+    const relleno = raiz.querySelector<HTMLElement>('[data-relleno]');
+
+    const hechos = new Set(filtrarVigentes(leer<unknown>(clave, []), ids));
+
+    function pintar() {
+      for (const c of casillas) c.checked = hechos.has(c.dataset.item!);
+      const r = resumir(hechos.size, ids.length);
+      if (texto) texto.textContent = `${r.hechos} de ${r.total} completados (${r.porcentaje} %)`;
+      barra?.setAttribute('aria-valuenow', String(r.hechos));
+      if (relleno) relleno.style.width = `${r.porcentaje}%`;
+    }
+
+    raiz.addEventListener('change', (e) => {
+      const c = e.target as HTMLInputElement;
+      if (!c.dataset.item) return;
+      if (c.checked) hechos.add(c.dataset.item);
+      else hechos.delete(c.dataset.item);
+      escribir(clave, [...hechos]);
+      pintar();
+    });
+
+    raiz.querySelector('[data-reiniciar]')?.addEventListener('click', () => {
+      if (hechos.size === 0) return;
+      if (!window.confirm('¿Desmarcar todas las semanas y tareas de este plan?')) return;
+      hechos.clear();
+      borrar(clave);
+      pintar();
+    });
+
+    pintar();
+  }
+</script>

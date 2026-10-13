@@ -256,3 +256,11 @@ a {
   color: var(--texto-suave);
   background: var(--superficie-2);
 }
+
+.casilla {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  accent-color: var(--exito);
+  cursor: pointer;
+}

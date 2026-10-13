@@ -1,0 +1,30 @@
+---
+interface Props {
+  total: number;
+}
+const { total } = Astro.props;
+---
+
+<section aria-labelledby="titulo-progreso" class="tarjeta mb-6" data-barra-progreso>
+  <div class="flex flex-wrap items-baseline justify-between gap-2">
+    <h2 id="titulo-progreso" class="text-lg font-bold">Progreso del plan</h2>
+    <p class="tabular-nums text-suave" aria-live="polite" data-texto-progreso>0 de {total} completados</p>
+  </div>
+  <div
+    class="mt-2 h-3 w-full overflow-hidden rounded-full bg-superficie-2 border border-borde"
+    role="progressbar"
+    aria-labelledby="titulo-progreso"
+    aria-valuemin="0"
+    aria-valuemax={total}
+    aria-valuenow="0"
+    data-relleno-contenedor
+  >
+    <div class="h-full bg-exito transition-[width] duration-300" style="width: 0%" data-relleno></div>
+  </div>
+  <p class="mt-2 text-sm text-suave">
+    El avance se guarda solo en este navegador. Si borra los datos del sitio o cambia de dispositivo, empieza de cero.
+  </p>
+  <div class="no-imprimir mt-3">
+    <button type="button" class="boton" data-reiniciar>Reiniciar progreso</button>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import { idItemTarea, type Plan } from '../lib/datos';
+
+interface Props {
+  plan: Plan;
+}
+const { plan } = Astro.props;
+---
+
+{
+  plan.tareas.length > 0 && (
+    <section aria-labelledby="titulo-tareas" class="mt-8">
+      <h2 id="titulo-tareas" class="text-2xl font-bold mb-3">
+        Tareas
+      </h2>
+      <ul class="space-y-2">
+        {plan.tareas.map((t) => (
+          <li class="tarjeta">
+            <label class="flex gap-3 items-start cursor-pointer">
+              <input type="checkbox" class="casilla mt-1" data-item={idItemTarea(t.id)} />
+              <span>{t.texto}</span>
+            </label>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
