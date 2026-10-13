@@ -1,3 +1,97 @@
 ---
-// TODO(búsqueda): integrar Pagefind.
+// Búsqueda estática con Pagefind. El índice se genera en `pnpm build`
+// (pagefind --site dist), así que en `pnpm dev` la búsqueda no está disponible.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
+
+<button
+  type="button"
+  id="boton-buscar"
+  class="p-2 rounded hover:bg-superficie-2 text-texto"
+  aria-label="Buscar en el sitio"
+  title="Buscar"
+  aria-haspopup="dialog"
+>
+  <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="11" cy="11" r="7"></circle>
+    <path d="m20 20-3.5-3.5"></path>
+  </svg>
+</button>
+
+<dialog
+  id="dialogo-buscar"
+  aria-labelledby="titulo-buscar"
+  class="buscador m-auto mt-16 w-[min(40rem,calc(100vw-2rem))] max-h-[80vh] rounded-xl border border-borde bg-superficie text-texto p-0 backdrop:bg-black/50"
+  data-base={base}
+>
+  <div class="flex items-center justify-between px-4 pt-3">
+    <h2 id="titulo-buscar" class="text-lg font-bold">Buscar</h2>
+    <button type="button" class="p-2 rounded hover:bg-superficie-2" data-cerrar aria-label="Cerrar búsqueda">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 6l12 12M18 6 6 18"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="px-4 pb-4 overflow-y-auto max-h-[calc(80vh-3.5rem)]">
+    <div id="pagefind"></div>
+    <p class="text-suave mt-2" data-sin-indice hidden>
+      La búsqueda solo funciona en el sitio construido (<code>pnpm build</code> y <code>pnpm preview</code>).
+    </p>
+  </div>
+</dialog>
+
+<script>
+  declare global {
+    interface Window {
+      PagefindUI?: new (opciones: Record<string, unknown>) => unknown;
+    }
+  }
+
+  const boton = document.getElementById('boton-buscar');
+  const dialogo = document.getElementById('dialogo-buscar') as HTMLDialogElement | null;
+  const base = dialogo?.dataset.base ?? '';
+  let cargado: Promise<void> | undefined;
+
+  function cargarPagefind(): Promise<void> {
+    cargado ??= new Promise<void>((resolver, rechazar) => {
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = `${base}/pagefind/pagefind-ui.css`;
+      document.head.append(css);
+
+      const js = document.createElement('script');
+      js.src = `${base}/pagefind/pagefind-ui.js`;
+      js.onload = () => {
+        if (!window.PagefindUI) return rechazar(new Error('Pagefind no se cargó'));
+        new window.PagefindUI({
+          element: '#pagefind',
+          baseUrl: `${base}/`,
+          showSubResults: true,
+          showImages: false,
+          resetStyles: false,
+        });
+        resolver();
+      };
+      js.onerror = () => rechazar(new Error('Sin índice de Pagefind'));
+      document.head.append(js);
+    });
+    return cargado;
+  }
+
+  boton?.addEventListener('click', async () => {
+    if (!dialogo) return;
+    dialogo.showModal();
+    try {
+      await cargarPagefind();
+      dialogo.querySelector<HTMLInputElement>('#pagefind input')?.focus();
+    } catch {
+      dialogo.querySelector<HTMLElement>('[data-sin-indice]')!.hidden = false;
+    }
+  });
+
+  dialogo?.querySelector('[data-cerrar]')?.addEventListener('click', () => dialogo.close());
+  // Cerrar al tocar fuera del cuadro.
+  dialogo?.addEventListener('click', (e) => {
+    if (e.target === dialogo) dialogo.close();
+  });
+</script>

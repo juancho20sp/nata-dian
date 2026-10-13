@@ -264,3 +264,18 @@ a {
   accent-color: var(--exito);
   cursor: pointer;
 }
+
+/* Pagefind usa los colores del sitio en claro y oscuro */
+.buscador {
+  --pagefind-ui-primary: var(--primario);
+  --pagefind-ui-text: var(--texto);
+  --pagefind-ui-background: var(--superficie);
+  --pagefind-ui-border: var(--borde);
+  --pagefind-ui-tag: var(--superficie-2);
+  --pagefind-ui-font: inherit;
+  --pagefind-ui-scale: 0.9;
+}
+.buscador mark {
+  background: var(--resalte);
+  color: inherit;
+}
