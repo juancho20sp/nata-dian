@@ -1,0 +1,161 @@
+---
+name: Estudio DIAN 2676
+status: final
+sources:
+  - fuentes/contenido-dossier.md
+updated: 2026-10-13
+---
+
+# Estudio DIAN 2676: experiencia
+
+## Foundation
+
+Sitio web estático (Astro + Tailwind), mobile-first, en español de Colombia. Sin sistema de UI externo; las clases y variables de `src/styles/global.css` son la base. `DESIGN.md` es la referencia visual; este documento define cómo se organiza y se comporta.
+
+**Trabajo principal: consulta.** El sitio responde preguntas puntuales sobre la prueba; el plan de estudio es secundario. **Restricción:** no se agrega contenido; el dossier sigue siendo la única fuente. El rediseño reorganiza, resume con frases del propio dossier y pliega.
+
+**Protagonista.** Abogado de 27 años, cursa una maestría y tiene amplia experiencia en propiedad intelectual. Lee normas con soltura, pero el procedimiento tributario, el aduanero y la estructura de la DIAN son terreno nuevo. [ASSUMPTION] Estudia en ratos cortos en el celular entre clases y en sesiones largas el fin de semana. En los recorridos se le llama Andrea (nombre provisional).
+
+## Information Architecture
+
+Hoy hay 9 secciones en la navegación. Pasan a **5 destinos y búsqueda**:
+
+| Destino | Ruta | Reúne | Propósito |
+|---|---|---|---|
+| Inicio | `/` | Inicio actual | Cuenta regresiva, lo que falta y las preguntas frecuentes como puerta de entrada |
+| La prueba | `/prueba` | La prueba + Recursos | Cómo es y cómo se califica; cómo practicar |
+| Normativa | `/normativa` | Normativa + contexto normativo | Qué norma estudiar según el tema y el empleo |
+| Convocatoria | `/convocatoria` | Convocatoria y empleos | Proceso, cronograma, empleos para abogados, cargo de Gestor |
+| Mi plan | `/plan` | Hoy + Elige tu plan + plan detallado | Esta semana, el plan elegido y el progreso |
+| Buscar | diálogo | Pagefind | Cualquier término |
+
+Los 5 destinos van en la barra: Inicio, La prueba, Normativa, Convocatoria y Mi plan (último, por ser secundario). "Fuentes" pasa al pie. "Recursos" deja de ser sección y se vuelve la subpágina "Practicar".
+
+### Subpáginas
+
+| Ruta | Contenido | Viene de |
+|---|---|---|
+| `/prueba` | Lo esencial, estructura, calificación (ponderación plegada) | La prueba |
+| `/prueba/dia` | Logística del día como lista: horarios, documento, qué llevar, qué no, reclamaciones | La prueba, "Día de la prueba" |
+| `/prueba/practicar` | Cómo resolver un ítem de juicio situacional, recursos (solo oficiales por defecto) | La prueba + Recursos |
+| `/normativa` | Lo esencial (2 avisos de contexto), chips por empleo, áreas plegables | Normativa |
+| `/convocatoria` | Lo esencial, cronograma plegado, empleos para abogados, cargo de Gestor | Convocatoria |
+| `/plan` | Esta semana del plan elegido, luego semanas y tareas | Hoy + plan detallado |
+| `/plan/elegir` | Selector de plan | Elige tu plan |
+| `/planes/[slug]` | Vista completa e imprimible de un plan | Se conserva para imprimir y compartir |
+
+Rutas anteriores (`/hoy`, `/planes`, `/recursos`, `/fuentes`) redirigen a la nueva ubicación. `/fuentes` sigue existiendo, enlazada desde el pie.
+
+### Preguntas de entrada (Inicio)
+
+[ASSUMPTION] Las cinco consultas más frecuentes, cada una como tarjeta-pregunta:
+
+1. ¿Qué llevo y a qué hora llego el día de la prueba? → `/prueba/dia`
+2. ¿Cómo se califica y cuánto necesito? → `/prueba#calificacion`
+3. ¿Qué norma estudio para este tema? → `/normativa`
+4. ¿Qué empleos aplican para un abogado? → `/convocatoria#empleos`
+5. ¿Dónde practico con preguntas oficiales? → `/prueba/practicar`
+
+## Voice and Tone
+
+| Hacer | No hacer |
+|---|---|
+| Títulos como preguntas o tareas: "¿Qué llevo el día de la prueba?" | Títulos institucionales sin pista: "Logística" |
+| Primero la respuesta corta, después el detalle | Abrir con contexto histórico |
+| Cifras con unidad: "70/100", "4 horas", "5 días hábiles" | "Un mínimo establecido" |
+| Advertencia en una frase: "Dato de terceros; verifique en SIMO." | Párrafos de advertencia repetidos |
+| Usted (como el dossier) | Tuteo mezclado con usted |
+
+Los textos de Lo esencial se arman con frases del dossier, sin agregar datos.
+
+## Component Patterns
+
+Las especificaciones visuales están en `DESIGN.md.Components`.
+
+| Componente | Dónde | Reglas de comportamiento |
+|---|---|---|
+| Lo esencial | Toda página de consulta | Siempre visible y arriba. 3 a 5 viñetas. Cada viñeta puede enlazar a su sección. |
+| Sección plegable | Páginas de consulta, Mi plan | Cerrada por defecto, salvo si la URL trae su ancla (`#calificacion`), que la abre y desplaza. Su resumen se ve aun cerrada. Pagefind indexa el contenido plegado. |
+| Tarjeta-pregunta | Inicio | Toda la tarjeta es el enlace. |
+| Aviso | Páginas con datos de terceros, inferidos o aproximados | Uno por página, agrupado. Primera frase visible; detalle plegado. La nota de que SIMO y el Acuerdo 21 prevalecen sigue en el pie de todas las páginas. |
+| Chips de filtro | Normativa, Practicar | Selección única por grupo. "Todos" es el estado inicial en Normativa; "Solo oficiales" está activo por defecto en Practicar. El filtro se refleja en la URL (`?empleo=`) para poder compartirlo. |
+| Barra inferior | Global, móvil | 5 destinos fijos abajo. La búsqueda y el tema siguen en la barra superior. |
+| Esta semana | Mi plan, Inicio (versión de una línea) | Muestra la semana que corre del plan elegido. En Inicio es una sola línea con enlace a Mi plan. |
+
+## State Patterns
+
+| Estado | Superficie | Tratamiento |
+|---|---|---|
+| Sin plan elegido | Mi plan | Usa el plan por defecto y lo dice: "Plan mixto (por defecto) · Cambiar". |
+| Antes del 12 de octubre | Mi plan | "El plan empieza el lunes 12 de octubre." Enlace al tronco común. |
+| Día de la prueba | Inicio, Mi plan | Inicio pone arriba la tarjeta de logística; Mi plan muestra "Hoy es la prueba" y enlaza a `/prueba/dia`. |
+| Después del 8 de noviembre | Inicio, Mi plan | La cuenta regresiva cambia a "La prueba terminó"; Mi plan muestra reclamaciones. |
+| Sin JavaScript | Mi plan, filtros | Mi plan muestra el plan por defecto completo; los filtros muestran todo. |
+| Filtro sin resultados | Normativa | "Ninguna norma para este empleo." Botón "Ver todas". |
+| Ancla en la URL | Páginas de consulta | Abre la sección plegable correspondiente. |
+
+## Interaction Primitives
+
+- Tocar para abrir y cerrar secciones. Sin acordeón exclusivo: abrir una no cierra las demás.
+- Filtros con chips, sin `select`.
+- La búsqueda abre un diálogo; Escape lo cierra.
+- **Prohibido:** carruseles, pestañas que oculten contenido indexable, más de una tabla abierta al cargar, ventanas emergentes de bienvenida.
+
+## Accessibility Floor
+
+- Las secciones plegables usan `details` y `summary` nativos (teclado y lector de pantalla sin código).
+- Los chips son botones con `aria-pressed`; el número de resultados se anuncia con `aria-live`.
+- La barra inferior es un `nav` con `aria-current="page"` en el destino activo; objetivos táctiles de 44 px o más.
+- Al abrir una sección por ancla, el foco va a su `summary`.
+- Se mantienen el salto al contenido, el contraste AA y el respeto de `prefers-reduced-motion`.
+
+## Responsive & Platform
+
+| Ancho | Comportamiento |
+|---|---|
+| < 1024 px | Barra inferior con 5 destinos; barra superior solo con nombre, búsqueda y tema. |
+| ≥ 1024 px | Sin barra inferior; los destinos pasan a la barra superior. Columna de lectura centrada. |
+| Impresión | `/planes/[slug]` con todo desplegado; sin barras. |
+
+## Inspiration & Anti-patterns
+
+- **Rechazado: el portal institucional.** Muchas secciones con nombres administrativos y todo abierto a la vez. Es lo que hoy se percibe como sobrecarga.
+- **Rechazado: gamificación.** Ni rachas ni insignias; el progreso es una barra y casillas.
+
+## Key Flows
+
+### Flujo 1: consulta rápida entre clases (Andrea, martes, 15 minutos libres, celular)
+
+1. Andrea abre el sitio y cae en Inicio.
+2. Ve cuántos días faltan y, debajo, cinco preguntas.
+3. Toca "¿Cómo se califica y cuánto necesito?".
+4. `/prueba` abre la sección de calificación: Lo esencial dice que la funcional es eliminatoria, exige 70/100 y pesa 60 % a 70 %.
+5. **Clímax:** en menos de un minuto tiene la cifra que buscaba, sin desplazarse por la estructura ni por la logística. La tabla de ponderación por modalidad queda plegada por si la necesita.
+
+### Flujo 2: ¿qué norma estudio? (Andrea, primera semana, sin saber nada de cobro coactivo)
+
+1. Andrea entra a Normativa desde la barra inferior.
+2. Lo esencial le dice en dos líneas qué cambió (Decreto Ley 071 derogado; base: Ley 2277 de 2022).
+3. Toca el chip de su tipo de empleo; las áreas se reducen.
+4. Abre el área de cobro y ve las normas con su enlace.
+5. **Clímax:** sabe qué leer esta semana y dónde está, sin haber visto la tabla completa de todas las áreas.
+
+### Flujo 3: sesión de estudio del sábado (Andrea, portátil, 3 horas)
+
+1. Andrea entra a Mi plan.
+2. Arriba ve "Semana 2 de 4" con los temas de la semana y la rutina (60/30/10) plegada.
+3. Marca la semana anterior como completada; la barra sube.
+4. **Clímax:** el plan le dice exactamente qué toca hoy, y el resto de las semanas espera plegado.
+
+### Flujo 4: la víspera (Andrea, sábado 7 de noviembre por la noche)
+
+1. Andrea abre Inicio; la tarjeta "¿Qué llevo y a qué hora llego?" está primera.
+2. `/prueba/dia` muestra la lista: puertas 7:15, inicio 8:00, cierre 8:30; documento válido; qué llevar.
+3. **Clímax:** revisa la lista punto por punto y cierra el celular tranquilo.
+
+## Open Questions
+
+- [ASSUMPTION] Nombre del protagonista y hábitos de estudio (dispositivo, momentos).
+- [ASSUMPTION] Las cinco preguntas de entrada.
+
+- [ASSUMPTION] Se mantiene la identidad visual actual.
