@@ -33,12 +33,15 @@ const accesos = [
     </h1>
 
     <div class="tarjeta mt-5" aria-live="polite" id="cuenta-regresiva">
-      <p class="text-sm font-semibold uppercase tracking-wide text-suave">Faltan</p>
+      <p class="text-sm font-semibold uppercase tracking-wide text-suave" data-faltan>Faltan</p>
       <div class="flex items-end gap-6 mt-1" data-activo hidden>
         <p><span class="text-5xl font-bold tabular-nums" data-dias>—</span> <span class="text-lg">días</span></p>
         <p><span class="text-5xl font-bold tabular-nums" data-horas>—</span> <span class="text-lg">horas</span></p>
       </div>
-      <p class="text-2xl font-bold mt-1" data-terminada hidden>La prueba ya empezó o terminó.</p>
+      <p class="text-2xl font-bold mt-1" data-fase="en-curso" hidden>La prueba está en curso (termina a la 1:00 p. m.).</p>
+      <p class="text-2xl font-bold mt-1" data-fase="terminada" hidden>
+        La prueba terminó. Los resultados y las reclamaciones van por <a href="https://simo.cnsc.gov.co/" rel="noopener">SIMO</a>.
+      </p>
       <noscript><p class="mt-1">Active JavaScript para ver la cuenta regresiva.</p></noscript>
       <p class="text-sm text-suave mt-2">Hora de Colombia (UTC−5). Puertas abren 7:15 a. m. y cierran 8:30 a. m.</p>
     </div>
@@ -96,22 +99,28 @@ const accesos = [
 </Base>
 
 <script>
-  import { cuentaRegresiva } from '../lib/fechas';
+  import { cuentaRegresiva, fasePrueba } from '../lib/fechas';
 
   const caja = document.getElementById('cuenta-regresiva');
   const activo = caja?.querySelector<HTMLElement>('[data-activo]');
-  const terminada = caja?.querySelector<HTMLElement>('[data-terminada]');
+  const faltan = caja?.querySelector<HTMLElement>('[data-faltan]');
+  const fases = [...(caja?.querySelectorAll<HTMLElement>('[data-fase]') ?? [])];
+  let temporizador: ReturnType<typeof setInterval> | undefined;
   const dias = caja?.querySelector('[data-dias]');
   const horas = caja?.querySelector('[data-horas]');
 
   function actualizar() {
-    const r = cuentaRegresiva(new Date());
-    if (activo) activo.hidden = r.terminada;
-    if (terminada) terminada.hidden = !r.terminada;
+    const ahora = new Date();
+    const r = cuentaRegresiva(ahora);
+    const fase = fasePrueba(ahora);
+    if (activo) activo.hidden = fase !== 'pendiente';
+    if (faltan) faltan.hidden = fase !== 'pendiente';
+    for (const f of fases) f.hidden = f.dataset.fase !== fase;
+    if (fase === 'terminada' && temporizador) clearInterval(temporizador);
     if (dias) dias.textContent = String(r.dias);
     if (horas) horas.textContent = String(r.horas);
   }
 
+  temporizador = setInterval(actualizar, 30_000);
   actualizar();
-  setInterval(actualizar, 30_000);
 </script>

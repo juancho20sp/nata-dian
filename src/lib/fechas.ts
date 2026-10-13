@@ -9,8 +9,17 @@ export const ZONA_COLOMBIA = 'America/Bogota';
 /** Inicio de la prueba escrita: domingo 8 de noviembre de 2026, 8:00 a. m. hora de Colombia. */
 export const INICIO_PRUEBA = new Date('2026-11-08T08:00:00-05:00');
 
+/** Fin de la sesión: 4 horas, hasta la 1:00 p. m. hora de Colombia. */
+export const FIN_PRUEBA = new Date('2026-11-08T13:00:00-05:00');
+
 /** Fecha de la prueba en formato ISO (AAAA-MM-DD). */
 export const FECHA_PRUEBA = '2026-11-08';
+
+/**
+ * Fecha de corte del contenido del dossier. Es la única fuente de la leyenda
+ * "Información actualizada al …" del pie: cámbiela aquí al actualizar el dossier.
+ */
+export const ACTUALIZADO_AL = '2026-10-12';
 
 const MESES = [
   'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
@@ -51,6 +60,12 @@ export function diaDeLaSemana(iso: string): number {
 export function fechaLarga(iso: string): string {
   const f = aUTC(iso);
   return `${DIAS[f.getUTCDay()]} ${f.getUTCDate()} de ${MESES[f.getUTCMonth()]}`;
+}
+
+/** "12 de octubre de 2026" */
+export function fechaConAnio(iso: string): string {
+  const f = aUTC(iso);
+  return `${f.getUTCDate()} de ${MESES[f.getUTCMonth()]} de ${f.getUTCFullYear()}`;
 }
 
 /** "12 al 18 de octubre" o "26 de octubre al 1 de noviembre" */
@@ -113,4 +128,14 @@ export function cuentaRegresiva(instante: Date, objetivo: Date = INICIO_PRUEBA):
     minutos: Math.floor((totalSegundos % 3_600) / 60),
     segundos: totalSegundos % 60,
   };
+}
+
+export type FasePrueba = 'pendiente' | 'en-curso' | 'terminada';
+
+/** Si en `instante` la prueba aún no empieza, se está presentando o ya terminó. */
+export function fasePrueba(instante: Date): FasePrueba {
+  const t = instante.getTime();
+  if (t < INICIO_PRUEBA.getTime()) return 'pendiente';
+  if (t < FIN_PRUEBA.getTime()) return 'en-curso';
+  return 'terminada';
 }

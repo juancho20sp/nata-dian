@@ -1,11 +1,12 @@
 ---
+import { ACTUALIZADO_AL, fechaConAnio } from '../lib/fechas';
 import { ruta } from '../lib/ruta';
 ---
 
 <footer class="border-t border-borde bg-superficie text-sm text-suave">
   <div class="max-w-5xl mx-auto px-4 py-6 space-y-2">
     <p class="font-semibold text-texto">
-      Información actualizada al 12 de octubre de 2026. Verifique siempre en SIMO y en la CNSC.
+      Información actualizada al {fechaConAnio(ACTUALIZADO_AL)}. Verifique siempre en SIMO y en la CNSC.
     </p>
     <p>
       Sitio de estudio <strong>no oficial</strong>. No está afiliado a la DIAN, la CNSC ni Areandina. Lo publicado en

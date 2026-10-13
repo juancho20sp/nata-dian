@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import {
+  FIN_PRUEBA,
   INICIO_PRUEBA,
   cuentaRegresiva,
+  fasePrueba,
+  fechaConAnio,
   diaDeLaSemana,
   fechaEnColombia,
   rangoLegible,
@@ -94,7 +97,27 @@ describe('cuentaRegresiva', () => {
   });
 });
 
+describe('fasePrueba', () => {
+  it('está pendiente hasta las 8:00 a. m. de Colombia', () => {
+    expect(fasePrueba(new Date('2026-11-08T07:59:59-05:00'))).toBe('pendiente');
+  });
+
+  it('está en curso de 8:00 a. m. a 1:00 p. m. de Colombia', () => {
+    expect(fasePrueba(INICIO_PRUEBA)).toBe('en-curso');
+    expect(fasePrueba(new Date('2026-11-08T17:59:00Z'))).toBe('en-curso');
+    expect(FIN_PRUEBA.toISOString()).toBe('2026-11-08T18:00:00.000Z');
+  });
+
+  it('termina a la 1:00 p. m. de Colombia', () => {
+    expect(fasePrueba(FIN_PRUEBA)).toBe('terminada');
+  });
+});
+
 describe('utilidades de calendario', () => {
+  it('formatea la fecha de actualización con el año', () => {
+    expect(fechaConAnio('2026-10-12')).toBe('12 de octubre de 2026');
+  });
+
   it('suma días cruzando de mes', () => {
     expect(sumarDias('2026-10-31', 1)).toBe('2026-11-01');
   });
