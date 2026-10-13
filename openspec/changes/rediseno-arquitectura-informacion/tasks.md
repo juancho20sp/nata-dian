@@ -33,9 +33,9 @@
 
 ## 5. Inicio y redirecciones
 
-- [ ] 5.1 Reescribir Inicio: cuenta regresiva, Lo que falta, 5 tarjetas-pregunta (enlace en toda la tarjeta), línea de semana en curso del plan elegido con enlace a `/plan`, y bloque del día de la prueba primero, visible solo el 8 de noviembre en hora de Colombia; verificar que la tarjeta de calificación abre `/prueba#calificacion`
-- [ ] 5.2 Declarar en `astro.config.mjs` las redirecciones `/hoy`, `/planes` y `/recursos`, y borrar `hoy.astro`, `recursos.astro` y `planes/index.astro`; verificar en `dist/hoy/index.html` que el destino incluye `/nata-dian` y que Pagefind no indexa esas páginas
-- [ ] 5.3 Actualizar el README (tabla "Quiero cambiar…" con `esencial.json`, `resumen` y `aviso`, y las nuevas rutas); verificar que cada archivo citado existe
+- [x] 5.1 Reescribir Inicio: cuenta regresiva, Lo que falta, 5 tarjetas-pregunta (enlace en toda la tarjeta), línea de semana en curso del plan elegido con enlace a `/plan`, y bloque del día de la prueba primero, visible solo el 8 de noviembre en hora de Colombia; verificar que la tarjeta de calificación abre `/prueba#calificacion`
+- [x] 5.2 Declarar en `astro.config.mjs` las redirecciones `/hoy`, `/planes` y `/recursos`, y borrar `hoy.astro`, `recursos.astro` y `planes/index.astro`; verificar en `dist/hoy/index.html` que el destino incluye `/nata-dian` y que Pagefind no indexa esas páginas
+- [x] 5.3 Actualizar el README (tabla "Quiero cambiar…" con `esencial.json`, `resumen` y `aviso`, y las nuevas rutas); verificar que cada archivo citado existe
 
 ## 6. Verificación integral
 

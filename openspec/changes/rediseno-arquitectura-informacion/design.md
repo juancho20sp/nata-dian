@@ -43,7 +43,7 @@ Nuevo componente `Plegable.astro` (props: `id`, `titulo`, `resumen`, `aviso?`, s
 ### 4. Redirecciones con `redirects` de Astro
 `astro.config.mjs` declara `'/hoy': '/plan'`, `'/planes': '/plan/elegir'` y `'/recursos': '/prueba/practicar'`. En build estático Astro genera HTML con `meta refresh` y enlace. Se borran `hoy.astro`, `recursos.astro` y `planes/index.astro`.
 - *Por qué:* funciona sin JavaScript y queda fuera del índice, porque esas páginas no tienen `data-pagefind-body`.
-- *Riesgo:* hay que confirmar que Astro antepone `base` (`/nata-dian`) al destino; si no, se declaran con el `base` incluido.
+- *Comprobado:* Astro no antepone `base` al destino, así que `astro.config.mjs` arma los destinos con el `base` incluido (`conBase`).
 
 ### 5. `/plan` redirige en el cliente al plan elegido
 `plan/index.astro` lleva un script en línea en el `head` que lee `dian2676:plan`, lo valida contra la lista de planes seleccionables (incrustada en el build) y hace `location.replace` a `/planes/<slug>/`. Un `noscript` ofrece los enlaces al plan por defecto y al selector. `plan/elegir.astro` es el selector actual movido (`planes/index.astro`).
@@ -73,7 +73,7 @@ Cada viñeta de `esencial.json` se copia o se recorta de una frase del dossier. 
 - [`/plan` parpadea al redirigir] → el script va en línea en el `head`, antes de pintar.
 - [Esta semana depende de JavaScript] → sin JavaScript la página del plan sigue mostrando todas las semanas en la línea de tiempo.
 - [La barra inferior tapa contenido o choca con el gesto de inicio en iOS] → `padding-bottom` del `body` y `safe-area-inset-bottom`.
-- [Redirecciones sin `base`] → verificar en `dist/hoy/index.html` tras el build (Decisión 4).
+- [Redirecciones sin `base`] → resuelto con `conBase` en `astro.config.mjs` (Decisión 4).
 
 ## Migration Plan
 

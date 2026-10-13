@@ -28,8 +28,20 @@ Otros comandos:
 | Comando        | Qué hace                                                                       |
 | -------------- | ------------------------------------------------------------------------------ |
 | `pnpm check`   | Revisión de tipos (`astro check`)                                              |
-| `pnpm test`    | Pruebas con Vitest (semana actual, cuenta regresiva, progreso)                 |
-| `pnpm validar` | Verifica que cada plan cubra del 12-oct al 7-nov sin huecos y que los ids de tareas sean únicos |
+| `pnpm test`    | Pruebas con Vitest (fechas, Esta semana, progreso, navegación, filtros, origen de Lo esencial) |
+| `pnpm validar` | Verifica que cada plan cubra del 12-oct al 7-nov sin huecos, que los ids de tareas sean únicos y que las advertencias estén declaradas |
+
+## Estructura del sitio
+
+| Destino | Ruta | Contenido |
+| --- | --- | --- |
+| Inicio | `/` | Cuenta regresiva, semana en curso, preguntas frecuentes y lo que falta |
+| La prueba | `/prueba`, `/prueba/dia`, `/prueba/practicar` | Estructura y calificación; día de la prueba; práctica y recursos |
+| Normativa | `/normativa` | Normas por área, filtrables por tipo de empleo (`?empleo=`) |
+| Convocatoria | `/convocatoria` | Proceso, empleos para abogados (`#empleos`) y cargo de Gestor (`#gestor`) |
+| Mi plan | `/plan`, `/plan/elegir`, `/planes/<slug>` | Lleva al plan elegido; selector; plan con Esta semana, semanas y progreso |
+
+`/fuentes` se enlaza desde el pie. `/hoy`, `/planes` y `/recursos` redirigen a su nueva ubicación. El diseño y el comportamiento están en `_bmad-output/planning-artifacts/ux-designs/ux-nata-dian-2026-10-13/` (DESIGN.md y EXPERIENCE.md).
 
 ## Editar el contenido
 
@@ -44,8 +56,19 @@ Todo está en `src/content/`. Al guardar, `pnpm dev` recarga y Zod avisa si un d
 | Ponderación por modalidad               | `src/content/ponderacion.json` (cada fila debe sumar 100 %)     |
 | Fuentes                                 | `src/content/fuentes.json`                                      |
 | Textos narrativos (convocatoria, día de la prueba, cargo de Gestor, contexto normativo…) | `src/content/paginas/*.md` |
+| El bloque "Lo esencial" de una página de consulta | `src/content/esencial.json` |
+| La línea de resumen de una sección plegable | `resumen` en el frontmatter de `src/content/paginas/*.md` |
+| La marca de advertencia de una sección | `aviso` en el frontmatter de `src/content/paginas/*.md` |
+| Las preguntas de entrada y "Lo que falta" de Inicio | `src/pages/index.astro` |
+| Los destinos de la navegación | `src/lib/destinos.ts` |
+| Las redirecciones de rutas antiguas | `redirects` en `astro.config.mjs` |
 | Fecha "Información actualizada al…"     | `ACTUALIZADO_AL` en `src/lib/fechas.ts`                         |
 | Hora de inicio o fin de la prueba       | `INICIO_PRUEBA` y `FIN_PRUEBA` en `src/lib/fechas.ts`           |
+
+Reglas para las páginas de consulta:
+
+- Cada viñeta de `esencial.json` debe copiar una frase del dossier: `pnpm test` comprueba que su texto aparece en `fuentes/contenido-dossier.md`. Cada página lleva de 3 a 5 viñetas, y en el celular el bloque debe caber en la primera pantalla (360 × 640).
+- Si un Markdown de `paginas/` tiene una advertencia (`> **Dato inferido.** …`), su rótulo debe estar en `aviso`; `pnpm validar` lo comprueba.
 
 Reglas para los planes:
 
