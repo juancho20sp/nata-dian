@@ -39,9 +39,9 @@
 
 ## 6. Verificación integral
 
-- [ ] 6.1 Correr `pnpm validar`, `pnpm test` y `pnpm build` sin errores ni advertencias; verificar que Pagefind encuentra "Likert" en `/prueba`
-- [ ] 6.2 Recorrer en `pnpm preview` a 360 px y a 1280 px, en modo claro y oscuro, los cuatro flujos de EXPERIENCE.md (consulta rápida, qué norma estudio, sesión del sábado, la víspera), y comprobar que no hay scroll horizontal
-- [ ] 6.3 Comprobar que no se agregó contenido fuera del dossier: revisar el diff de `src/content/` y de los textos de las páginas
+- [x] 6.1 Correr `pnpm validar`, `pnpm test` y `pnpm build` sin errores ni advertencias; verificar que Pagefind encuentra "Likert" en `/prueba`
+- [x] 6.2 Recorrer en `pnpm preview` a 360 px y a 1280 px, en modo claro y oscuro, los cuatro flujos de EXPERIENCE.md (consulta rápida, qué norma estudio, sesión del sábado, la víspera), y comprobar que no hay scroll horizontal
+- [x] 6.3 Comprobar que no se agregó contenido fuera del dossier: revisar el diff de `src/content/` y de los textos de las páginas
 
 ## Workflow follow-up
 
