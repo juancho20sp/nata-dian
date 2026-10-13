@@ -1,0 +1,100 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import LoEsencial from '../../components/LoEsencial.astro';
+import Plegable from '../../components/Plegable.astro';
+import Chips from '../../components/Chips.astro';
+import { troncoComun } from '../../lib/datos';
+import { ruta } from '../../lib/ruta';
+
+const tronco = await troncoComun();
+const recursos = (await getCollection('recursos')).map((e) => e.data);
+const oficiales = recursos.filter((r) => r.oficial).length;
+const intro = await getEntry('paginas', 'recursos-intro');
+if (!intro) throw new Error('Falta src/content/paginas/recursos-intro.md');
+const { Content: Intro } = await render(intro);
+---
+
+<Base titulo="Practicar" descripcion="Cómo resolver un ítem de juicio situacional y dónde encontrar guías y simulacros oficiales.">
+  <nav aria-label="Migas" class="no-imprimir text-sm mb-1">
+    <a href={ruta('/prueba')}>← La prueba</a>
+  </nav>
+  <h1 class="text-3xl font-bold mb-2">Practicar</h1>
+
+  <LoEsencial pagina="prueba-practicar" />
+
+  <Plegable
+    id="juicio-situacional"
+    titulo="Cómo resolver un ítem de juicio situacional"
+    resumen="El método en tres pasos y la trampa más común."
+  >
+    <p class="max-w-[70ch] text-lg">{tronco.juicioSituacional}</p>
+    <h3 class="text-lg font-bold mt-5 mb-1">Comportamentales e integridad</h3>
+    <p class="max-w-[70ch]">{tronco.comportamentales}</p>
+  </Plegable>
+
+  <Plegable id="recursos" titulo={intro.data.titulo} resumen={intro.data.resumen} aviso={intro.data.aviso}>
+    <div class="prose prose-lg max-w-none">
+      <Intro />
+    </div>
+
+    <div class="mt-5 mb-3 flex flex-wrap items-center gap-3">
+      <Chips
+        id="chips-recursos"
+        etiqueta="Mostrar recursos"
+        activo="oficiales"
+        opciones={[
+          { valor: 'oficiales', texto: 'Solo oficiales' },
+          { valor: 'todos', texto: 'Todos' },
+        ]}
+      />
+      <p class="text-sm text-suave" aria-live="polite" id="conteo-recursos" data-total={recursos.length} data-oficiales={oficiales}>
+        {recursos.length} recursos
+      </p>
+    </div>
+
+    <ul class="space-y-3" id="lista-recursos">
+      {
+        recursos.map((r) => (
+          <li class="border-t border-borde pt-3 first:border-t-0 first:pt-0" data-oficial={String(r.oficial)}>
+            <a href={r.url} rel="noopener" class="font-semibold">
+              {r.nombre}
+            </a>
+            <span
+              class:list={[
+                'ml-2 inline-block rounded px-2 py-0.5 text-xs font-semibold align-middle',
+                r.oficial ? 'bg-primario-suave text-primario' : 'bg-superficie-2 text-suave',
+              ]}
+            >
+              {r.tipo}
+            </span>
+            <p class="mt-1 text-suave">{r.uso}</p>
+            {r.advertencia && <p class="mt-1 text-sm text-aviso-texto bg-aviso-fondo rounded px-2 py-1">{r.advertencia}</p>}
+          </li>
+        ))
+      }
+    </ul>
+  </Plegable>
+</Base>
+
+<script>
+  import { alCambiarChip } from '../../lib/chips';
+  import { recursoVisible, type ModoRecursos } from '../../lib/filtros';
+
+  const grupo = document.getElementById('chips-recursos');
+  const items = [...document.querySelectorAll<HTMLElement>('#lista-recursos > li')];
+  const conteo = document.getElementById('conteo-recursos');
+
+  function filtrar(modo: ModoRecursos) {
+    let visibles = 0;
+    for (const li of items) {
+      li.hidden = !recursoVisible(li.dataset.oficial === 'true', modo);
+      if (!li.hidden) visibles++;
+    }
+    if (conteo) conteo.textContent = `${visibles} ${visibles === 1 ? 'recurso' : 'recursos'}${modo === 'oficiales' ? ' oficiales' : ''}`;
+  }
+
+  // Sin JavaScript se ven todos; con JavaScript se arranca en "Solo oficiales".
+  filtrar('oficiales');
+  if (grupo) alCambiarChip(grupo, (valor) => filtrar(valor as ModoRecursos));
+</script>

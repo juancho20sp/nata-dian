@@ -12,7 +12,7 @@ if (!entrada) throw new Error(`Falta "${pagina}" en src/content/esencial.json`);
 
 <section aria-labelledby={`esencial-${pagina}`} class="lo-esencial">
   <h2 id={`esencial-${pagina}`} class="text-sm font-bold uppercase tracking-wide text-primario">Lo esencial</h2>
-  <ul class="mt-2 space-y-2">
+  <ul class="mt-1.5">
     {
       entrada.data.vinetas.map((v) => (
         <li class="flex gap-2">

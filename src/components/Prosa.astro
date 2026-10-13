@@ -7,6 +7,8 @@ interface Props {
   pagina: string;
   /** Id de la sección (ancla). Por defecto, el nombre del archivo. */
   id?: string;
+  /** Reemplaza el título del frontmatter (p. ej. cuando repetiría el de la página). */
+  titulo?: string;
   /** Muestra el Markdown dentro de una sección plegable (por defecto) o abierto. */
   plegable?: boolean;
   /** Solo sin plegable: muestra el título del frontmatter como encabezado. */
@@ -14,7 +16,7 @@ interface Props {
   nivel?: 'h1' | 'h2';
 }
 
-const { pagina, id = pagina, plegable = true, conTitulo = true, nivel = 'h2' } = Astro.props;
+const { pagina, id = pagina, titulo, plegable = true, conTitulo = true, nivel = 'h2' } = Astro.props;
 const entrada = await getEntry('paginas', pagina);
 if (!entrada) throw new Error(`No existe src/content/paginas/${pagina}.md`);
 const { Content } = await render(entrada);
@@ -23,7 +25,7 @@ const Encabezado = nivel;
 
 {
   plegable ? (
-    <Plegable id={id} titulo={entrada.data.titulo} resumen={entrada.data.resumen} aviso={entrada.data.aviso}>
+    <Plegable id={id} titulo={titulo ?? entrada.data.titulo} resumen={entrada.data.resumen} aviso={entrada.data.aviso}>
       <div class="prose prose-lg max-w-none">
         <Content />
       </div>
@@ -32,7 +34,7 @@ const Encabezado = nivel;
     <section aria-labelledby={conTitulo ? id : undefined} class="mt-8 first:mt-0">
       {conTitulo && (
         <Encabezado id={id} class={nivel === 'h1' ? 'text-3xl font-bold mb-4' : 'text-2xl font-bold mb-3'}>
-          {entrada.data.titulo}
+          {titulo ?? entrada.data.titulo}
         </Encabezado>
       )}
       <div class="prose prose-lg max-w-none">

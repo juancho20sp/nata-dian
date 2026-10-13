@@ -28,6 +28,7 @@ Restricción: el dossier es la única fuente; no se agregan datos.
 Nueva colección `esencial` (`src/content/esencial.json`, cargador `file`): una entrada por página (`prueba`, `prueba-dia`, `prueba-practicar`, `normativa`, `convocatoria`) con `vinetas` (Zod: mínimo 3, máximo 5), y cada viñeta con `texto` y `ancla` opcional.
 - *Por qué:* Lo esencial resume una página entera, que reúne varios Markdown; ponerlo en uno de ellos lo ataría a una sección. El esquema hace cumplir el rango 3–5 en el build.
 - *Alternativa descartada:* frontmatter de cada Markdown. Obliga a elegir un Markdown "dueño" por página.
+- *Tamaño:* con frases completas del dossier el bloque no cabía en 360 × 640. Se resolvió (decisión del usuario) con texto de 15 px, interlineado 1,45 y espaciado compacto solo en este bloque, en vez de recortar las frases. Además se compactó el margen superior en móvil, y en Convocatoria se dejaron 4 viñetas (la del operador Areandina sigue en la sección de convocatoria y cronograma) porque con 5 no cabía.
 
 ### 2. Metadatos de sección en el frontmatter de `paginas`
 El esquema de `paginas` gana `resumen` (una línea, obligatoria) y `aviso` (lista, por defecto vacía, de rótulos `AVISOS`: "Datos de terceros", "Dato inferido", "Dato aproximado", "Fecha no oficial", "Lista construida", "Precaución", "Verifique el enlace"). Es una lista porque una misma sección puede traer dos advertencias (empleos para abogados, cargo de Gestor). `pnpm validar` comprueba que los rótulos de los blockquotes y los declarados coinciden.

@@ -284,9 +284,15 @@ a {
 .lo-esencial {
   background: var(--primario-suave);
   border-radius: 0.75rem;
-  padding: 1rem 1.25rem;
+  padding: 0.75rem 1rem;
   margin-bottom: 1.5rem;
   max-width: 42rem;
+  /* 15 px y espaciado compacto para que quepa en el primer pantallazo (360 × 640). */
+  font-size: 15px;
+  line-height: 1.4;
+}
+.lo-esencial ul > li + li {
+  margin-top: 0.35rem;
 }
 
 /* Secciones plegables */
@@ -394,4 +400,18 @@ a {
 .chip:focus-visible {
   outline: 3px solid var(--primario);
   outline-offset: 2px;
+}
+.lo-esencial a {
+  color: inherit;
+  text-decoration-color: color-mix(in srgb, var(--primario) 55%, transparent);
+}
+/* Fila de chips desplazable: deja ver que hay más y no corta el anillo de foco */
+.chips-desplazables {
+  padding: 3px 3px 6px;
+  margin: -3px -3px 0;
+  scrollbar-width: thin;
+  scroll-snap-type: x proximity;
+}
+.chips-desplazables > .chip {
+  scroll-snap-align: start;
 }

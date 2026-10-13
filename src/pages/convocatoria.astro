@@ -1,13 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
 import Prosa from '../components/Prosa.astro';
+import LoEsencial from '../components/LoEsencial.astro';
 ---
 
 <Base titulo="Convocatoria y empleos">
-  <h1 class="text-3xl font-bold mb-6">Convocatoria y empleos</h1>
-  <Prosa pagina="convocatoria" />
-  <Prosa pagina="empleos-abogados" />
-  <div id="gestor" class="scroll-mt-20">
-    <Prosa pagina="cargo-gestor" />
-  </div>
+  <h1 class="text-3xl font-bold mb-2">Convocatoria</h1>
+
+  <LoEsencial pagina="convocatoria" />
+
+  <Prosa pagina="convocatoria" id="cronograma" />
+  <Prosa pagina="empleos-abogados" id="empleos" />
+  <Prosa pagina="cargo-gestor" id="gestor" />
 </Base>

@@ -2,21 +2,33 @@
 /**
  * Grupo de chips de selección única. Al tocar uno, marca aria-pressed y emite
  * en el contenedor el evento `cambio-chip` con `detail.valor`.
- * Sin JavaScript los chips no hacen nada y la página muestra todo.
+ * Sin JavaScript el grupo queda oculto (hidden) y la página muestra todo.
  */
 interface Props {
   id: string;
   etiqueta: string;
   opciones: readonly { valor: string; texto: string }[];
   activo: string;
+  /** En móvil, una sola fila que se desplaza de lado (para grupos largos). */
+  desplazable?: boolean;
 }
-const { id, etiqueta, opciones, activo } = Astro.props;
+const { id, etiqueta, opciones, activo, desplazable = false } = Astro.props;
 ---
 
-<div id={id} role="group" aria-label={etiqueta} class="no-imprimir flex flex-wrap gap-2" data-chips>
+<div
+  id={id}
+  role="group"
+  aria-label={etiqueta}
+  class:list={[
+    'no-imprimir flex gap-2',
+    desplazable ? 'chips-desplazables flex-nowrap overflow-x-auto sm:flex-wrap sm:overflow-visible' : 'flex-wrap',
+  ]}
+  data-chips
+  hidden
+>
   {
     opciones.map((o) => (
-      <button type="button" class="chip" data-valor={o.valor} aria-pressed={o.valor === activo ? 'true' : 'false'}>
+      <button type="button" class="chip shrink-0" data-valor={o.valor} aria-pressed={o.valor === activo ? 'true' : 'false'}>
         {o.texto}
       </button>
     ))
@@ -25,6 +37,7 @@ const { id, etiqueta, opciones, activo } = Astro.props;
 
 <script>
   for (const grupo of document.querySelectorAll<HTMLElement>('[data-chips]')) {
+    grupo.hidden = false;
     grupo.addEventListener('click', (e) => {
       const chip = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-valor]');
       if (!chip || chip.getAttribute('aria-pressed') === 'true') return;

@@ -48,6 +48,11 @@ typography:
     fontSize: 17px
     fontWeight: '400'
     lineHeight: '1.6'
+  esencial:
+    fontFamily: system-ui
+    fontSize: 15px
+    fontWeight: '400'
+    lineHeight: '1.45'
   etiqueta:
     fontFamily: system-ui
     fontSize: 13px
@@ -145,7 +150,7 @@ Sin sombras salvo en el diálogo de búsqueda y la barra inferior fija. La jerar
 
 ## Components
 
-- **Lo esencial**: bloque de 3 a 5 viñetas cortas que resume la pantalla. Fondo {colors.primario-suave}, sin borde. Uno por pantalla, siempre arriba.
+- **Lo esencial**: bloque de 3 a 5 viñetas que resume la pantalla. Fondo {colors.primario-suave}, sin borde. Uno por pantalla, siempre arriba. Texto en {typography.esencial} (15 px, compacto) para que el bloque completo quepa en el primer pantallazo; es la única excepción al cuerpo de 17 px.
 - **Sección plegable**: `details/summary` con título {typography.titulo-seccion} y una línea de resumen en {colors.texto-suave} visible aun cerrada. Chevron a la derecha.
 - **Tarjeta-pregunta**: enlace a una consulta frecuente, redactado como pregunta ("¿Qué llevo el día de la prueba?"). Pregunta en {colors.primario}, una línea de respuesta corta debajo.
 - **Aviso**: borde izquierdo {colors.aviso-borde}. Una frase visible; el detalle, plegado.

@@ -17,11 +17,11 @@
 
 ## 3. Páginas de consulta
 
-- [ ] 3.1 Reescribir `/prueba` como `src/pages/prueba/index.astro`: Lo esencial, sección de estructura y sección `#calificacion` con la tabla de ponderación y su nota, y enlaces a Día de la prueba y Practicar; verificar a 360 × 640 que no hay ninguna tabla visible sin abrir una sección
-- [ ] 3.2 Crear `/prueba/dia` con Lo esencial (horarios, documento, qué llevar) y el detalle de `dia-prueba.md` plegado con su marca "Fecha no oficial"; verificar que las horas 7:15, 8:00 y 8:30 aparecen en Lo esencial
-- [ ] 3.3 Crear `/prueba/practicar` con el método de juicio situacional, comportamentales e integridad, y los recursos con chips "Solo oficiales" (activo al cargar) y "Todos", más la precaución de `recursos-intro.md` visible; verificar que el conteo cambia al tocar "Todos" y que sin JavaScript se ven todos los recursos
-- [ ] 3.4 Reescribir `/normativa`: Lo esencial con el contexto normativo, chips por empleo sincronizados con `?empleo=`, cada área como `Plegable` con normas y enlace, y el mensaje "Ninguna norma para este empleo." con "Ver todas"; verificar que abrir `/normativa?empleo=<tipo>` aplica el filtro y que sin JavaScript se ven todas las áreas
-- [ ] 3.5 Reescribir `/convocatoria`: Lo esencial y tres secciones plegables (cronograma, `#empleos`, `#gestor`); verificar que `/convocatoria#empleos` y `/convocatoria#gestor` abren su sección
+- [x] 3.1 Reescribir `/prueba` como `src/pages/prueba/index.astro`: Lo esencial, sección de estructura y sección `#calificacion` con la tabla de ponderación y su nota, y enlaces a Día de la prueba y Practicar; verificar a 360 × 640 que no hay ninguna tabla visible sin abrir una sección
+- [x] 3.2 Crear `/prueba/dia` con Lo esencial (horarios, documento, qué llevar) y el detalle de `dia-prueba.md` plegado con su marca "Fecha no oficial"; verificar que las horas 7:15, 8:00 y 8:30 aparecen en Lo esencial
+- [x] 3.3 Crear `/prueba/practicar` con el método de juicio situacional, comportamentales e integridad, y los recursos con chips "Solo oficiales" (activo al cargar) y "Todos", más la precaución de `recursos-intro.md` visible; verificar que el conteo cambia al tocar "Todos" y que sin JavaScript se ven todos los recursos
+- [x] 3.4 Reescribir `/normativa`: Lo esencial con el contexto normativo, chips por empleo sincronizados con `?empleo=`, cada área como `Plegable` con normas y enlace, y el mensaje "Ninguna norma para este empleo." con "Ver todas"; verificar que abrir `/normativa?empleo=<tipo>` aplica el filtro y que sin JavaScript se ven todas las áreas
+- [x] 3.5 Reescribir `/convocatoria`: Lo esencial y tres secciones plegables (cronograma, `#empleos`, `#gestor`); verificar que `/convocatoria#empleos` y `/convocatoria#gestor` abren su sección
 
 ## 4. Mi plan
 

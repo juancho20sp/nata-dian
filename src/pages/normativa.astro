@@ -2,87 +2,104 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Prosa from '../components/Prosa.astro';
+import LoEsencial from '../components/LoEsencial.astro';
+import Plegable from '../components/Plegable.astro';
+import Chips from '../components/Chips.astro';
+import { TODOS, tiposDeEmpleo } from '../lib/filtros';
 
-const filas = (await getCollection('normativa')).map((e) => e.data);
-const areas = filas.map((f) => f.area);
-const empleos = [...new Set(filas.flatMap((f) => f.empleos))].filter((e) => e !== 'Todos').sort((a, b) => a.localeCompare(b, 'es'));
+const areas = (await getCollection('normativa')).map((e) => e.data);
+const tipos = tiposDeEmpleo(areas);
+const paraQuien = (empleos: string[]) => (empleos.includes(TODOS) ? 'Para todos los empleos' : `Para: ${empleos.join(', ')}`);
 ---
 
 <Base titulo="Normativa">
-  <Prosa pagina="normativa-intro" nivel="h1" />
+  <h1 class="text-3xl font-bold mb-2">Normativa</h1>
 
-  <form class="no-imprimir mt-6 mb-4 grid grid-cols-1 sm:grid-cols-2 gap-3" id="filtros-normativa" aria-label="Filtrar normativa">
-    <div>
-      <label for="filtro-area" class="block font-semibold mb-1">Área</label>
-      <select id="filtro-area" class="w-full min-h-11 rounded-lg border border-borde bg-superficie text-texto px-3 py-2">
-        <option value="">Todas las áreas</option>
-        {areas.map((a) => <option value={a}>{a}</option>)}
-      </select>
-    </div>
-    <div>
-      <label for="filtro-empleo" class="block font-semibold mb-1">Tipo de empleo</label>
-      <select id="filtro-empleo" class="w-full min-h-11 rounded-lg border border-borde bg-superficie text-texto px-3 py-2">
-        <option value="">Todos los empleos</option>
-        {empleos.map((e) => <option value={e}>{e}</option>)}
-      </select>
-    </div>
-  </form>
-  <p class="text-sm text-suave mb-3" aria-live="polite" id="conteo-normativa">{filas.length} áreas</p>
+  <LoEsencial pagina="normativa" />
 
-  <table class="tabla tabla-tarjetas">
-    <thead>
-      <tr><th scope="col">Área</th><th scope="col">Normas clave</th><th scope="col">Para qué empleos</th></tr>
-    </thead>
-    <tbody>
-      {
-        filas.map((f) => (
-          <tr data-area={f.area} data-empleos={JSON.stringify(f.empleos)}>
-            <td data-label="Área" class="font-semibold">{f.area}</td>
-            <td data-label="Normas clave">
-              {f.normas}
-              {f.enlace && (
-                <span class="block mt-1">
-                  <a href={f.enlace.url} rel="noopener">{f.enlace.texto}</a>
-                </span>
-              )}
-            </td>
-            <td data-label="Para qué empleos">{f.empleos.join(', ')}</td>
-          </tr>
-        ))
-      }
-    </tbody>
-  </table>
-  <p class="hidden mt-3" id="sin-resultados">No hay normas para esa combinación de filtros.</p>
+  <div class="mt-6 mb-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+    <h2 class="text-xl font-bold" id="areas">Normas por área</h2>
+    <a href="#origen" class="marca-aviso no-underline"><span aria-hidden="true">⚠</span> Lista construida</a>
+  </div>
+  <Chips
+    id="chips-empleo"
+    etiqueta="Filtrar por tipo de empleo"
+    activo=""
+    desplazable
+    opciones={[{ valor: '', texto: 'Todos' }, ...tipos.map((t) => ({ valor: t, texto: t }))]}
+  />
+  <p class="text-sm text-suave mt-2 mb-3" aria-live="polite" id="conteo-areas">{areas.length} áreas</p>
 
-  <Prosa pagina="contexto-normativo" />
+  <div id="lista-areas" data-tipos={JSON.stringify(tipos)}>
+    {
+      areas.map((a) => (
+        <div data-empleos={JSON.stringify(a.empleos)}>
+          <Plegable id={`area-${a.id}`} titulo={a.area} resumen={paraQuien(a.empleos)} nivel="h3">
+            <p>{a.normas}</p>
+            {a.enlace && (
+              <p class="mt-2">
+                <a href={a.enlace.url} rel="noopener">
+                  {a.enlace.texto}
+                </a>
+              </p>
+            )}
+          </Plegable>
+        </div>
+      ))
+    }
+  </div>
+  <div id="sin-areas" class="tarjeta" hidden>
+    <p>Ninguna norma para este empleo.</p>
+    <button type="button" class="boton mt-2" id="ver-todas">Ver todas</button>
+  </div>
+
+  <h2 class="text-xl font-bold mt-8 mb-2">Contexto</h2>
+  <Prosa pagina="normativa-intro" id="origen" titulo="De dónde sale esta lista" />
+  <Prosa pagina="contexto-normativo" id="contexto" />
 </Base>
 
 <script>
-  const area = document.getElementById('filtro-area') as HTMLSelectElement;
-  const empleo = document.getElementById('filtro-empleo') as HTMLSelectElement;
-  const filas = [...document.querySelectorAll<HTMLTableRowElement>('tr[data-area]')];
-  const conteo = document.getElementById('conteo-normativa');
-  const vacio = document.getElementById('sin-resultados');
+  import { alCambiarChip, marcarChip } from '../lib/chips';
+  import { areaVisible, empleoDeLaUrl } from '../lib/filtros';
 
-  function filtrar() {
-    let visibles = 0;
-    for (const fila of filas) {
-      let empleos: string[] = [];
-      try {
-        empleos = JSON.parse(fila.dataset.empleos ?? '[]');
-      } catch {
-        /* fila sin empleos */
-      }
-      // Las normas para "Todos" aplican a cualquier tipo de empleo.
-      const okArea = !area.value || fila.dataset.area === area.value;
-      const okEmpleo = !empleo.value || empleos.includes(empleo.value) || empleos.includes('Todos');
-      fila.hidden = !(okArea && okEmpleo);
-      if (!fila.hidden) visibles++;
-    }
-    if (conteo) conteo.textContent = `${visibles} ${visibles === 1 ? 'área' : 'áreas'}`;
-    vacio?.classList.toggle('hidden', visibles > 0);
+  const lista = document.getElementById('lista-areas')!;
+  const grupo = document.getElementById('chips-empleo')!;
+  const conteo = document.getElementById('conteo-areas');
+  const vacio = document.getElementById('sin-areas')!;
+  const bloques = [...lista.querySelectorAll<HTMLElement>(':scope > [data-empleos]')];
+  let tipos: string[] = [];
+  try {
+    tipos = JSON.parse(lista.dataset.tipos ?? '[]');
+  } catch {
+    /* sin tipos: no se filtra */
   }
 
-  area.addEventListener('change', filtrar);
-  empleo.addEventListener('change', filtrar);
+  function filtrar(empleo: string | null) {
+    let visibles = 0;
+    for (const b of bloques) {
+      let empleos: string[] = [];
+      try {
+        empleos = JSON.parse(b.dataset.empleos ?? '[]');
+      } catch {
+        /* área sin empleos */
+      }
+      b.hidden = !areaVisible(empleos, empleo);
+      if (!b.hidden) visibles++;
+    }
+    if (conteo) conteo.textContent = `${visibles} ${visibles === 1 ? 'área' : 'áreas'}${empleo ? ` para ${empleo}` : ''}`;
+    vacio.hidden = visibles > 0;
+    const url = new URL(location.href);
+    if (empleo) url.searchParams.set('empleo', empleo);
+    else url.searchParams.delete('empleo');
+    history.replaceState(history.state, '', url);
+  }
+
+  const inicial = empleoDeLaUrl(location.search, tipos);
+  marcarChip(grupo, inicial ?? '');
+  if (inicial) filtrar(inicial);
+  alCambiarChip(grupo, (valor) => filtrar(valor || null));
+  document.getElementById('ver-todas')?.addEventListener('click', () => {
+    marcarChip(grupo, '');
+    filtrar(null);
+  });
 </script>

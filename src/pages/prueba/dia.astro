@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import Prosa from '../../components/Prosa.astro';
+import LoEsencial from '../../components/LoEsencial.astro';
+import { ruta } from '../../lib/ruta';
+---
+
+<Base titulo="Día de la prueba" descripcion="Horarios, documento, qué llevar y reclamaciones de la prueba escrita DIAN 2676.">
+  <nav aria-label="Migas" class="no-imprimir text-sm mb-1">
+    <a href={ruta('/prueba')}>← La prueba</a>
+  </nav>
+  <h1 class="text-3xl font-bold mb-2">Día de la prueba</h1>
+
+  <LoEsencial pagina="prueba-dia" />
+
+  <Prosa pagina="dia-prueba" id="detalle" titulo="Detalle, citación y reclamaciones" />
+</Base>
