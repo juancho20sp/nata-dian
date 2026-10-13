@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Prosa from '../components/Prosa.astro';
+
+const recursos = (await getCollection('recursos')).map((e) => e.data);
+---
+
+<Base titulo="Recursos">
+  <Prosa pagina="recursos-intro" nivel="h1" />
+
+  <div class="no-imprimir mt-6 mb-4 flex items-center gap-3">
+    <input type="checkbox" id="solo-oficiales" class="w-5 h-5 accent-primario" />
+    <label for="solo-oficiales" class="font-semibold">Solo oficiales</label>
+    <span class="text-sm text-suave" aria-live="polite" id="conteo-recursos">{recursos.length} recursos</span>
+  </div>
+
+  <table class="tabla tabla-tarjetas">
+    <thead>
+      <tr><th scope="col">Recurso</th><th scope="col">Tipo</th><th scope="col">Uso</th></tr>
+    </thead>
+    <tbody>
+      {
+        recursos.map((r) => (
+          <tr data-oficial={String(r.oficial)}>
+            <td data-label="Recurso">
+              <a href={r.url} rel="noopener" class="font-semibold">{r.nombre}</a>
+              {r.advertencia && <span class="block mt-1 text-sm text-aviso-texto bg-aviso-fondo rounded px-2 py-1">{r.advertencia}</span>}
+            </td>
+            <td data-label="Tipo">
+              <span class:list={['inline-block rounded px-2 py-0.5 text-sm font-semibold', r.oficial ? 'bg-primario-suave text-primario' : 'bg-superficie-2 text-suave']}>
+                {r.tipo}
+              </span>
+            </td>
+            <td data-label="Uso">{r.uso}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</Base>
+
+<script>
+  const casilla = document.getElementById('solo-oficiales') as HTMLInputElement;
+  const filas = [...document.querySelectorAll<HTMLTableRowElement>('tr[data-oficial]')];
+  const conteo = document.getElementById('conteo-recursos');
+
+  function filtrar() {
+    let visibles = 0;
+    for (const fila of filas) {
+      fila.hidden = casilla.checked && fila.dataset.oficial !== 'true';
+      if (!fila.hidden) visibles++;
+    }
+    if (conteo) conteo.textContent = `${visibles} recursos`;
+  }
+  casilla.addEventListener('change', filtrar);
+  filtrar();
+</script>

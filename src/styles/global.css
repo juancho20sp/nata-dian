@@ -129,6 +129,7 @@ a {
   table.tabla-tarjetas,
   table.tabla-tarjetas tbody,
   table.tabla-tarjetas tr,
+  table.tabla-tarjetas tbody th,
   table.tabla-tarjetas td {
     display: block;
     width: 100%;
@@ -140,6 +141,7 @@ a {
     padding: 0.75rem 1rem;
     margin-bottom: 0.75rem;
   }
+  table.tabla-tarjetas tbody th,
   table.tabla-tarjetas td {
     border: 0;
     padding: 0.25rem 0;
@@ -188,4 +190,69 @@ a {
   .semana {
     break-inside: avoid;
   }
+}
+
+/* Los blockquote de las páginas Markdown son advertencias del dossier */
+.prose blockquote {
+  font-style: normal;
+  font-weight: 400;
+  background: var(--aviso-fondo);
+  color: var(--aviso-texto);
+  border-left: 4px solid var(--aviso-borde);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  quotes: none;
+}
+.prose blockquote p {
+  margin: 0;
+}
+.prose blockquote a,
+.prose blockquote strong {
+  color: inherit;
+}
+
+.tarjeta {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--primario);
+  color: var(--primario);
+  background: transparent;
+  cursor: pointer;
+}
+.boton-primario {
+  background: var(--primario);
+  color: var(--primario-texto);
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tabla th,
+.tabla td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--borde);
+}
+.tabla th {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--texto-suave);
+  background: var(--superficie-2);
 }

@@ -1,0 +1,59 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import Encabezado from '../../components/Encabezado.astro';
+import Aviso from '../../components/Aviso.astro';
+import LineaTiempo from '../../components/LineaTiempo.astro';
+import TroncoComun from '../../components/TroncoComun.astro';
+import { todosLosPlanes, TRONCO_COMUN, type Plan } from '../../lib/datos';
+import { ruta } from '../../lib/ruta';
+
+export const getStaticPaths = (async () => {
+  const planes = await todosLosPlanes();
+  return planes.map((plan) => ({ params: { slug: plan.slug }, props: { plan } }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  plan: Plan;
+}
+const { plan } = Astro.props;
+---
+
+<Base titulo={plan.titulo} descripcion={plan.resumen}>
+  <nav aria-label="Migas" class="no-imprimir text-sm mb-3">
+    <a href={ruta('/planes')}>← Todos los planes</a>
+  </nav>
+
+  <Encabezado titulo={plan.titulo} bajada={plan.resumen} />
+
+  {plan.notas.map((n) => <p class="mb-4">{n}</p>)}
+
+  {
+    plan.todo.length > 0 && (
+      <Aviso titulo="Pendiente (TODO)">
+        <ul class="list-disc pl-5">
+          {plan.todo.map((t) => (
+            <li>{t}</li>
+          ))}
+        </ul>
+      </Aviso>
+    )
+  }
+
+  {
+    plan.tipo === 'plan' ? (
+      <>
+        <p class="no-imprimir mb-4">
+          La primera semana es el <a href={ruta(`/planes/${TRONCO_COMUN}`)}>tronco común</a>, que se repasa en la última.
+        </p>
+        <LineaTiempo plan={plan} />
+      </>
+    ) : (
+      <TroncoComun plan={plan} />
+    )
+  }
+
+  <div class="no-imprimir mt-8">
+    <button type="button" class="boton" onclick="window.print()">Imprimir este plan</button>
+  </div>
+</Base>

@@ -1,8 +1,117 @@
 ---
 import Base from '../layouts/Base.astro';
+import { ruta } from '../lib/ruta';
+
+const datosClave = [
+  { valor: 'DIAN 2676', etiqueta: 'Proceso de selección de la CNSC, operador Areandina' },
+  { valor: '70/100', etiqueta: 'Mínimo en la prueba funcional, que es eliminatoria' },
+  { valor: '4 horas', etiqueta: 'Sesión única: de 8:00 a. m. a 1:00 p. m.' },
+  { valor: '3 opciones', etiqueta: 'Por pregunta (A, B, C), con una sola correcta' },
+];
+
+const pendientes = [
+  'Número de OPEC y denominación del empleo inscrito (SIMO, "Mis empleos inscritos").',
+  'Indicadores temáticos del empleo, descargados del portal de Areandina con el número de inscripción.',
+  'Confirmar la citación en SIMO (sitio y hora) apenas se publique.',
+];
+
+const accesos = [
+  { href: '/hoy', titulo: 'Hoy', texto: 'Qué semana corre y qué estudiar hoy.' },
+  { href: '/planes', titulo: 'Elige tu plan', texto: 'Plan mixto por defecto o uno de los cuatro casos.' },
+  { href: '/prueba', titulo: 'La prueba', texto: 'Estructura, ponderación y logística del día.' },
+  { href: '/convocatoria', titulo: 'Convocatoria y empleos', texto: 'Vacantes, empleos para abogados y el cargo de Gestor.' },
+  { href: '/normativa', titulo: 'Normativa', texto: 'Normas por área y por tipo de empleo.' },
+  { href: '/recursos', titulo: 'Recursos', texto: 'Guías oficiales, simulacros y cursos.' },
+];
 ---
 
 <Base titulo="Inicio">
-  <h1 class="text-2xl font-bold">Estudio DIAN 2676</h1>
-  <p>En construcción.</p>
+  <section aria-labelledby="titulo-inicio" class="mb-8">
+    <p class="text-suave font-medium">Prueba escrita · Proceso de Selección DIAN 2676</p>
+    <h1 id="titulo-inicio" class="text-3xl sm:text-4xl font-bold leading-tight mt-1">
+      Domingo 8 de noviembre de 2026, 8:00 a. m.
+    </h1>
+
+    <div class="tarjeta mt-5" aria-live="polite" id="cuenta-regresiva">
+      <p class="text-sm font-semibold uppercase tracking-wide text-suave">Faltan</p>
+      <div class="flex items-end gap-6 mt-1" data-activo hidden>
+        <p><span class="text-5xl font-bold tabular-nums" data-dias>—</span> <span class="text-lg">días</span></p>
+        <p><span class="text-5xl font-bold tabular-nums" data-horas>—</span> <span class="text-lg">horas</span></p>
+      </div>
+      <p class="text-2xl font-bold mt-1" data-terminada hidden>La prueba ya empezó o terminó.</p>
+      <noscript><p class="mt-1">Active JavaScript para ver la cuenta regresiva.</p></noscript>
+      <p class="text-sm text-suave mt-2">Hora de Colombia (UTC−5). Puertas abren 7:15 a. m. y cierran 8:30 a. m.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="titulo-datos" class="mb-8">
+    <h2 id="titulo-datos" class="text-2xl font-bold mb-3">Datos clave</h2>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {
+        datosClave.map((d) => (
+          <li class="tarjeta">
+            <p class="text-2xl font-bold text-primario">{d.valor}</p>
+            <p class="text-suave">{d.etiqueta}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section aria-labelledby="titulo-falta" class="mb-8">
+    <h2 id="titulo-falta" class="text-2xl font-bold mb-3">Lo que falta</h2>
+    <div class="tarjeta border-l-4 border-l-aviso-borde">
+      <ul class="space-y-2">
+        {
+          pendientes.map((p) => (
+            <li class="flex gap-3">
+              <span aria-hidden="true" class="mt-1 inline-block w-4 h-4 shrink-0 rounded border-2 border-suave" />
+              <span>{p}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-3 text-sm text-suave">
+        Sin la OPEC no se sabe a qué subproceso pertenece el empleo. Mientras tanto, use el
+        <a href={ruta('/planes/por-defecto')}>plan por defecto</a>.
+      </p>
+    </div>
+  </section>
+
+  <section aria-labelledby="titulo-secciones">
+    <h2 id="titulo-secciones" class="text-2xl font-bold mb-3">Secciones</h2>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {
+        accesos.map((a) => (
+          <li>
+            <a href={ruta(a.href)} class="tarjeta block h-full no-underline hover:border-primario">
+              <span class="block text-lg font-semibold text-primario">{a.titulo} →</span>
+              <span class="block text-suave">{a.texto}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </Base>
+
+<script>
+  import { cuentaRegresiva } from '../lib/fechas';
+
+  const caja = document.getElementById('cuenta-regresiva');
+  const activo = caja?.querySelector<HTMLElement>('[data-activo]');
+  const terminada = caja?.querySelector<HTMLElement>('[data-terminada]');
+  const dias = caja?.querySelector('[data-dias]');
+  const horas = caja?.querySelector('[data-horas]');
+
+  function actualizar() {
+    const r = cuentaRegresiva(new Date());
+    if (activo) activo.hidden = r.terminada;
+    if (terminada) terminada.hidden = !r.terminada;
+    if (dias) dias.textContent = String(r.dias);
+    if (horas) horas.textContent = String(r.horas);
+  }
+
+  actualizar();
+  setInterval(actualizar, 30_000);
+</script>

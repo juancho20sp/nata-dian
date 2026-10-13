@@ -1,0 +1,60 @@
+---
+import type { Plan } from '../lib/datos';
+
+interface Props {
+  plan: Plan;
+}
+const { plan } = Astro.props;
+---
+
+<section aria-labelledby="titulo-temas-tronco" class="mb-8">
+  <h2 id="titulo-temas-tronco" class="text-2xl font-bold mb-3">Temas</h2>
+  <table class="tabla tabla-tarjetas">
+    <thead>
+      <tr><th scope="col">Tema</th><th scope="col">Qué dominar</th><th scope="col">Norma</th></tr>
+    </thead>
+    <tbody>
+      {
+        plan.temas?.map((t) => (
+          <tr>
+            <td data-label="Tema" class="font-semibold">{t.tema}</td>
+            <td data-label="Qué dominar">{t.dominar}</td>
+            <td data-label="Norma">{t.norma}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</section>
+
+{
+  plan.rutina && (
+    <section aria-labelledby="titulo-rutina" class="mb-8">
+      <h2 id="titulo-rutina" class="text-2xl font-bold mb-3">Rutina diaria sugerida</h2>
+      <p class="mb-2 text-suave">{plan.rutina.horas}</p>
+      <ol class="list-decimal pl-6 space-y-1">
+        {plan.rutina.pasos.map((p) => (
+          <li>{p}</li>
+        ))}
+      </ol>
+    </section>
+  )
+}
+
+{
+  plan.juicioSituacional && (
+    <section aria-labelledby="titulo-juicio" class="mb-8">
+      <h2 id="titulo-juicio" class="text-2xl font-bold mb-3">Cómo resolver un ítem de juicio situacional</h2>
+      <p class="max-w-[70ch]">{plan.juicioSituacional}</p>
+    </section>
+  )
+}
+
+{
+  plan.comportamentales && (
+    <section aria-labelledby="titulo-comportamentales">
+      <h2 id="titulo-comportamentales" class="text-2xl font-bold mb-3">Comportamentales e integridad</h2>
+      <p class="max-w-[70ch]">{plan.comportamentales}</p>
+    </section>
+  )
+}

@@ -1,0 +1,18 @@
+---
+interface Props {
+  titulo?: string;
+  tipo?: 'aviso' | 'info';
+}
+const { titulo, tipo = 'aviso' } = Astro.props;
+---
+
+<div
+  class:list={[
+    'rounded-lg border-l-4 px-4 py-3 my-4',
+    tipo === 'aviso' ? 'bg-aviso-fondo border-aviso-borde text-aviso-texto' : 'bg-primario-suave border-primario text-texto',
+  ]}
+  role="note"
+>
+  {titulo && <p class="font-semibold mb-1">{titulo}</p>}
+  <div class="[&_a]:text-inherit [&_a]:underline"><slot /></div>
+</div>

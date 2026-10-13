@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Prosa from '../components/Prosa.astro';
+
+const filas = (await getCollection('normativa')).map((e) => e.data);
+const areas = filas.map((f) => f.area);
+const empleos = [...new Set(filas.flatMap((f) => f.empleos))].filter((e) => e !== 'Todos').sort((a, b) => a.localeCompare(b, 'es'));
+---
+
+<Base titulo="Normativa">
+  <Prosa pagina="normativa-intro" nivel="h1" />
+
+  <form class="no-imprimir mt-6 mb-4 grid grid-cols-1 sm:grid-cols-2 gap-3" id="filtros-normativa" aria-label="Filtrar normativa">
+    <div>
+      <label for="filtro-area" class="block font-semibold mb-1">Área</label>
+      <select id="filtro-area" class="w-full min-h-11 rounded-lg border border-borde bg-superficie text-texto px-3 py-2">
+        <option value="">Todas las áreas</option>
+        {areas.map((a) => <option value={a}>{a}</option>)}
+      </select>
+    </div>
+    <div>
+      <label for="filtro-empleo" class="block font-semibold mb-1">Tipo de empleo</label>
+      <select id="filtro-empleo" class="w-full min-h-11 rounded-lg border border-borde bg-superficie text-texto px-3 py-2">
+        <option value="">Todos los empleos</option>
+        {empleos.map((e) => <option value={e}>{e}</option>)}
+      </select>
+    </div>
+  </form>
+  <p class="text-sm text-suave mb-3" aria-live="polite" id="conteo-normativa">{filas.length} áreas</p>
+
+  <table class="tabla tabla-tarjetas">
+    <thead>
+      <tr><th scope="col">Área</th><th scope="col">Normas clave</th><th scope="col">Para qué empleos</th></tr>
+    </thead>
+    <tbody>
+      {
+        filas.map((f) => (
+          <tr data-area={f.area} data-empleos={JSON.stringify(f.empleos)}>
+            <td data-label="Área" class="font-semibold">{f.area}</td>
+            <td data-label="Normas clave">
+              {f.normas}
+              {f.enlace && (
+                <span class="block mt-1">
+                  <a href={f.enlace.url} rel="noopener">{f.enlace.texto}</a>
+                </span>
+              )}
+            </td>
+            <td data-label="Para qué empleos">{f.empleos.join(', ')}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+  <p class="hidden mt-3" id="sin-resultados">No hay normas para esa combinación de filtros.</p>
+
+  <Prosa pagina="contexto-normativo" />
+</Base>
+
+<script>
+  const area = document.getElementById('filtro-area') as HTMLSelectElement;
+  const empleo = document.getElementById('filtro-empleo') as HTMLSelectElement;
+  const filas = [...document.querySelectorAll<HTMLTableRowElement>('tr[data-area]')];
+  const conteo = document.getElementById('conteo-normativa');
+  const vacio = document.getElementById('sin-resultados');
+
+  function filtrar() {
+    let visibles = 0;
+    for (const fila of filas) {
+      let empleos: string[] = [];
+      try {
+        empleos = JSON.parse(fila.dataset.empleos ?? '[]');
+      } catch {
+        /* fila sin empleos */
+      }
+      // Las normas para "Todos" aplican a cualquier tipo de empleo.
+      const okArea = !area.value || fila.dataset.area === area.value;
+      const okEmpleo = !empleo.value || empleos.includes(empleo.value) || empleos.includes('Todos');
+      fila.hidden = !(okArea && okEmpleo);
+      if (!fila.hidden) visibles++;
+    }
+    if (conteo) conteo.textContent = `${visibles} ${visibles === 1 ? 'área' : 'áreas'}`;
+    vacio?.classList.toggle('hidden', visibles > 0);
+  }
+
+  area.addEventListener('change', filtrar);
+  empleo.addEventListener('change', filtrar);
+</script>

@@ -1,0 +1,91 @@
+---
+import type { Plan } from '../lib/datos';
+import { rangoLegible } from '../lib/fechas';
+import { ruta } from '../lib/ruta';
+
+interface Props {
+  plan: Plan;
+}
+const { plan } = Astro.props;
+const semanasJSON = JSON.stringify(plan.semanas.map(({ id, inicio, fin }) => ({ id, inicio, fin })));
+---
+
+<section aria-labelledby="titulo-semanas">
+  <h2 id="titulo-semanas" class="text-2xl font-bold mb-1">Semanas</h2>
+  {plan.notaNormas && <p class="text-sm text-suave mb-3">Normas: {plan.notaNormas}.</p>}
+
+  <ol class="relative border-l-2 border-borde ml-2 space-y-5" data-linea-tiempo data-semanas={semanasJSON}>
+    {
+      plan.semanas.map((s, i) => (
+        <li
+          class="semana relative pl-6 group"
+          data-semana={s.id}
+        >
+          <span
+            aria-hidden="true"
+            class="absolute -left-[0.6rem] top-5 w-4 h-4 rounded-full border-2 border-borde bg-superficie group-data-[actual]:bg-primario group-data-[actual]:border-primario"
+          />
+          <article class="tarjeta group-data-[actual]:border-primario group-data-[actual]:border-2 group-data-[actual]:shadow-md">
+            <header class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <h3 class="text-lg font-bold">
+                Semana {i + 1}: {rangoLegible(s.inicio, s.fin)}
+              </h3>
+              <span class="hidden group-data-[actual]:inline text-xs font-semibold uppercase tracking-wide bg-primario text-primario-texto rounded px-2 py-0.5">
+                Semana actual
+              </span>
+              {s.horas && <span class="text-sm text-suave">≈ {s.horas} horas</span>}
+            </header>
+            <p class="mt-2">{s.temas}</p>
+            {s.normas.length > 0 && (
+              <div class="mt-2">
+                <p class="text-sm font-semibold text-suave">Normas</p>
+                <ul class="list-disc pl-5">
+                  {s.normas.map((n) =>
+                    n === 'Ver tabla del tronco común' ? (
+                      <li>
+                        <a href={ruta('/planes/tronco-comun')}>Ver tabla del tronco común</a>
+                      </li>
+                    ) : (
+                      <li>{n}</li>
+                    ),
+                  )}
+                </ul>
+              </div>
+            )}
+            {s.tronco === 'estudio' && s.normas.length === 0 && (
+              <p class="mt-2 text-sm">
+                <a href={ruta('/planes/tronco-comun')}>Ver tabla del tronco común</a>
+              </p>
+            )}
+            {s.tronco === 'repaso' && (
+              <p class="mt-2 text-sm text-suave">
+                Esta semana también se repasa el <a href={ruta('/planes/tronco-comun')}>tronco común</a>.
+              </p>
+            )}
+          </article>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<script>
+  import { semanaActual, type RangoSemana } from '../lib/fechas';
+
+  for (const lista of document.querySelectorAll<HTMLElement>('[data-linea-tiempo]')) {
+    let semanas: RangoSemana[] = [];
+    try {
+      semanas = JSON.parse(lista.dataset.semanas ?? '[]');
+    } catch {
+      continue;
+    }
+    if (semanas.length === 0) continue;
+    const r = semanaActual(semanas, new Date());
+    if (r.estado !== 'durante') continue;
+    const item = lista.querySelector<HTMLElement>(`[data-semana="${r.semana.id}"]`);
+    if (item) {
+      item.setAttribute('data-actual', '');
+      item.setAttribute('aria-current', 'date');
+    }
+  }
+</script>

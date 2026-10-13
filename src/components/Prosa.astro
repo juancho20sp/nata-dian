@@ -1,0 +1,30 @@
+---
+import { getEntry, render } from 'astro:content';
+
+interface Props {
+  /** Nombre del archivo en src/content/paginas sin extensión. */
+  pagina: string;
+  /** Muestra el título del frontmatter como encabezado. */
+  conTitulo?: boolean;
+  nivel?: 'h1' | 'h2';
+}
+
+const { pagina, conTitulo = true, nivel = 'h2' } = Astro.props;
+const entrada = await getEntry('paginas', pagina);
+if (!entrada) throw new Error(`No existe src/content/paginas/${pagina}.md`);
+const { Content } = await render(entrada);
+const Encabezado = nivel;
+---
+
+<section aria-labelledby={`sec-${pagina}`} class="mt-8 first:mt-0">
+  {
+    conTitulo && (
+      <Encabezado id={`sec-${pagina}`} class={nivel === 'h1' ? 'text-3xl font-bold mb-4' : 'text-2xl font-bold mb-3'}>
+        {entrada.data.titulo}
+      </Encabezado>
+    )
+  }
+  <div class="prose prose-lg max-w-none">
+    <Content />
+  </div>
+</section>

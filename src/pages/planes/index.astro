@@ -1,0 +1,86 @@
+---
+import Base from '../../layouts/Base.astro';
+import Encabezado from '../../components/Encabezado.astro';
+import { planesSeleccionables, PLAN_POR_DEFECTO, TRONCO_COMUN } from '../../lib/datos';
+import { ruta } from '../../lib/ruta';
+
+const planes = await planesSeleccionables();
+---
+
+<Base titulo="Elige tu plan">
+  <Encabezado
+    titulo="Elige tu plan"
+    bajada="Sin la OPEC no se sabe a qué subproceso pertenece el empleo de Gestor, así que hay un plan para cada uno de los cuatro casos más probables para un abogado. Todos comparten un tronco común y van del 12 de octubre al 7 de noviembre de 2026 (27 días)."
+  />
+
+  <p class="tarjeta bg-primario-suave mb-6">
+    <strong>¿Por qué el plan por defecto es el mixto?</strong> Porque el Libro V del Estatuto Tributario aparece en
+    fiscalización, cobranzas y defensa judicial; aduanas se estudia solo en nivel panorámico.
+  </p>
+
+  <p class="mb-4" id="estado-eleccion" aria-live="polite">
+    Plan elegido: <strong data-nombre-elegido>Mixto (por defecto)</strong>
+  </p>
+
+  <ul class="space-y-3" id="lista-planes">
+    {
+      planes.map((p) => (
+        <li class="tarjeta data-[elegido]:border-primario data-[elegido]:border-2" data-plan={p.slug} data-nombre={p.tituloCorto}>
+          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h2 class="text-xl font-bold">{p.titulo}</h2>
+            {p.slug === PLAN_POR_DEFECTO && (
+              <span class="text-xs font-semibold uppercase tracking-wide bg-primario-suave text-primario rounded px-2 py-0.5">
+                Recomendado sin OPEC
+              </span>
+            )}
+          </div>
+          <p class="mt-1 text-suave">{p.resumen}</p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <button type="button" class="boton" data-elegir={p.slug} aria-pressed="false">
+              Elegir este plan
+            </button>
+            <a href={ruta(`/planes/${p.slug}`)} class="boton">
+              Ver semanas
+            </a>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class="mt-6">
+    Todos los planes empiezan por el <a href={ruta(`/planes/${TRONCO_COMUN}`)}>tronco común</a>.
+  </p>
+</Base>
+
+<script>
+  import { CLAVES, escribir, leer } from '../../lib/almacen';
+
+  const POR_DEFECTO = 'por-defecto';
+  const tarjetas = [...document.querySelectorAll<HTMLElement>('[data-plan]')];
+  const nombreElegido = document.querySelector('[data-nombre-elegido]');
+
+  function pintar(slug: string) {
+    const valido = tarjetas.some((t) => t.dataset.plan === slug) ? slug : POR_DEFECTO;
+    for (const t of tarjetas) {
+      const elegido = t.dataset.plan === valido;
+      t.toggleAttribute('data-elegido', elegido);
+      const boton = t.querySelector<HTMLButtonElement>('[data-elegir]');
+      if (boton) {
+        boton.setAttribute('aria-pressed', String(elegido));
+        boton.textContent = elegido ? '✓ Plan elegido' : 'Elegir este plan';
+        boton.classList.toggle('boton-primario', elegido);
+      }
+      if (elegido && nombreElegido) nombreElegido.textContent = t.dataset.nombre ?? '';
+    }
+  }
+
+  pintar(leer<string>(CLAVES.plan, POR_DEFECTO));
+
+  document.getElementById('lista-planes')?.addEventListener('click', (e) => {
+    const boton = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-elegir]');
+    if (!boton?.dataset.elegir) return;
+    escribir(CLAVES.plan, boton.dataset.elegir);
+    pintar(boton.dataset.elegir);
+  });
+</script>

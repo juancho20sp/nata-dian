@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Encabezado from '../components/Encabezado.astro';
+import Aviso from '../components/Aviso.astro';
+
+const fuentes = (await getCollection('fuentes')).map((e) => e.data);
+---
+
+<Base titulo="Fuentes">
+  <Encabezado titulo="Fuentes" bajada="Fuentes del dossier de investigación con el que se construyó este sitio." />
+  <ul class="space-y-3">
+    {
+      fuentes.map((f) => (
+        <li class="tarjeta">
+          <a href={f.url} rel="noopener" class="font-semibold">{f.titulo}</a>
+          <span class="block text-sm text-suave break-all">{new URL(f.url).hostname}</span>
+        </li>
+      ))
+    }
+  </ul>
+  <Aviso titulo="Advertencia">
+    Las páginas de la CNSC y SIMO no se pudieron abrir directamente durante la investigación; sus datos vienen de resúmenes de
+    terceros que citan esos documentos. Ante cualquier diferencia, prevalece SIMO y el Acuerdo 21.
+  </Aviso>
+</Base>
