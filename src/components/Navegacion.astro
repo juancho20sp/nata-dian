@@ -1,23 +1,9 @@
 ---
+import { DESTINOS, destinoActivo } from '../lib/destinos';
 import { ruta } from '../lib/ruta';
 import Buscador from './Buscador.astro';
 
-const enlaces = [
-  { href: '/', texto: 'Inicio' },
-  { href: '/hoy', texto: 'Hoy' },
-  { href: '/planes', texto: 'Planes' },
-  { href: '/prueba', texto: 'La prueba' },
-  { href: '/convocatoria', texto: 'Convocatoria' },
-  { href: '/normativa', texto: 'Normativa' },
-  { href: '/recursos', texto: 'Recursos' },
-  { href: '/fuentes', texto: 'Fuentes' },
-];
-
-const actual = Astro.url.pathname.replace(/\/$/, '') || '/';
-const esActual = (href: string) => {
-  const destino = ruta(href).replace(/\/$/, '') || '/';
-  return href === '/' ? actual === destino : actual === destino || actual.startsWith(destino + '/');
-};
+const activo = destinoActivo(Astro.url.pathname, import.meta.env.BASE_URL);
 ---
 
 <header class="no-imprimir sticky top-0 z-40 border-b border-borde bg-superficie/95 backdrop-blur">
@@ -29,14 +15,14 @@ const esActual = (href: string) => {
       </a>
       <ul class="hidden lg:flex items-center gap-1 text-[0.95rem]">
         {
-          enlaces.map((e) => (
+          DESTINOS.map((d) => (
             <li>
               <a
-                href={ruta(e.href)}
-                aria-current={esActual(e.href) ? 'page' : undefined}
+                href={ruta(d.href)}
+                aria-current={d === activo ? 'page' : undefined}
                 class="px-2 py-1.5 rounded no-underline text-texto hover:bg-superficie-2 aria-[current=page]:bg-primario-suave aria-[current=page]:text-primario aria-[current=page]:font-semibold"
               >
-                {e.texto}
+                {d.texto}
               </a>
             </li>
           ))
@@ -54,34 +40,7 @@ const esActual = (href: string) => {
           <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"></path>
         </svg>
       </button>
-      <button
-        type="button"
-        id="boton-menu"
-        class="lg:hidden p-2 rounded hover:bg-superficie-2 text-texto"
-        aria-expanded="false"
-        aria-controls="menu-movil"
-        aria-label="Abrir menú"
-      >
-        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
     </div>
-    <ul id="menu-movil" class="lg:hidden hidden grid grid-cols-2 gap-1 pb-3">
-      {
-        enlaces.map((e) => (
-          <li>
-            <a
-              href={ruta(e.href)}
-              aria-current={esActual(e.href) ? 'page' : undefined}
-              class="block px-3 py-2.5 rounded no-underline text-texto bg-superficie-2 aria-[current=page]:bg-primario aria-[current=page]:text-primario-texto"
-            >
-              {e.texto}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
   </nav>
 </header>
 
@@ -96,14 +55,5 @@ const esActual = (href: string) => {
     const nuevo = oscuroAhora ? 'light' : 'dark';
     raiz.dataset.theme = nuevo;
     escribir(CLAVES.tema, nuevo);
-  });
-
-  const botonMenu = document.getElementById('boton-menu');
-  const menu = document.getElementById('menu-movil');
-  botonMenu?.addEventListener('click', () => {
-    const abierto = botonMenu.getAttribute('aria-expanded') === 'true';
-    botonMenu.setAttribute('aria-expanded', String(!abierto));
-    botonMenu.setAttribute('aria-label', abierto ? 'Abrir menú' : 'Cerrar menú');
-    menu?.classList.toggle('hidden', abierto);
   });
 </script>

@@ -2,10 +2,10 @@
 
 ## 1. Navegación de cinco destinos
 
-- [ ] 1.1 Crear `src/lib/destinos.ts` con la lista `DESTINOS` (Inicio, La prueba, Normativa, Convocatoria, Mi plan) y una función de destino activo por prefijo de ruta; verificar con pruebas Vitest en `tests/destinos.test.ts` que `/prueba/dia` activa La prueba, que `/planes/caso-b-cobranzas` y `/plan/elegir` activan Mi plan, que `/` solo activa Inicio, y que todo funciona con y sin `base`
-- [ ] 1.2 Crear `BarraInferior.astro` (5 destinos con icono y etiqueta, `aria-current`, objetivos de 44 px o más, visible por debajo de `lg`) y añadir al `body` el `padding-bottom` con `safe-area-inset-bottom`; verificar en `pnpm preview` a 360 px que no hay scroll horizontal y que el pie queda visible por encima de la barra
-- [ ] 1.3 Simplificar `Navegacion.astro`: quitar el menú hamburguesa, mostrar los 5 destinos solo en `lg` y dejar nombre, búsqueda y tema en todos los anchos; verificar que el diálogo de búsqueda abre a 360 px y a 1280 px
-- [ ] 1.4 Mover el enlace a Fuentes y la nota de SIMO y Acuerdo 21 al pie (`Pie.astro`) si falta alguno; verificar en `dist/` que todas las páginas los contienen
+- [x] 1.1 Crear `src/lib/destinos.ts` con la lista `DESTINOS` (Inicio, La prueba, Normativa, Convocatoria, Mi plan) y una función de destino activo por prefijo de ruta; verificar con pruebas Vitest en `tests/destinos.test.ts` que `/prueba/dia` activa La prueba, que `/planes/caso-b-cobranzas` y `/plan/elegir` activan Mi plan, que `/` solo activa Inicio, y que todo funciona con y sin `base`
+- [x] 1.2 Crear `BarraInferior.astro` (5 destinos con icono y etiqueta, `aria-current`, objetivos de 44 px o más, visible por debajo de `lg`) y añadir al `body` el `padding-bottom` con `safe-area-inset-bottom`; verificar en `pnpm preview` a 360 px que no hay scroll horizontal y que el pie queda visible por encima de la barra
+- [x] 1.3 Simplificar `Navegacion.astro`: quitar el menú hamburguesa, mostrar los 5 destinos solo en `lg` y dejar nombre, búsqueda y tema en todos los anchos; verificar que el diálogo de búsqueda abre a 360 px y a 1280 px
+- [x] 1.4 Mover el enlace a Fuentes y la nota de SIMO y Acuerdo 21 al pie (`Pie.astro`) si falta alguno; verificar en `dist/` que todas las páginas los contienen
 
 ## 2. Componentes de consulta
 
