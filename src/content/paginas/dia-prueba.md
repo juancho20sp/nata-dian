@@ -1,5 +1,8 @@
 ---
 titulo: Día de la prueba
+resumen: "Horarios, citación, qué llevar, documento y reclamaciones."
+aviso:
+  - Fecha no oficial
 ---
 
 Según la Guía de Orientación al Aspirante (GOA):

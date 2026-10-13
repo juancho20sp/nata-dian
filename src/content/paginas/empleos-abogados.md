@@ -1,5 +1,9 @@
 ---
 titulo: Empleos para abogados
+resumen: "Gestor o Inspector con Derecho y afines; salarios de ejemplo y subprocesos."
+aviso:
+  - Datos de terceros
+  - Dato inferido
 ---
 
 Un abogado compite en el **nivel profesional**, en empleos de denominación **Gestor (I a IV)** o **Inspector (I a IV)** cuya OPEC incluya el núcleo básico de conocimiento **Derecho y afines**. No hay una lista pública de "empleos para abogados": cada OPEC define su proceso, sus funciones y las carreras que acepta, y muchas admiten Derecho junto con Contaduría, Economía o Administración.

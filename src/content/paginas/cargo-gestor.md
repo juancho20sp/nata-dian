@@ -1,5 +1,9 @@
 ---
 titulo: Si el cargo es Gestor
+resumen: "Funciones del Gestor, grados I a IV y qué confirmar en la OPEC."
+aviso:
+  - Dato inferido
+  - Verifique el enlace
 ---
 
 El empleo es de **Gestor**, el cargo profesional de base de la DIAN. Tiene cuatro grados (I a IV). En ingreso hay vacantes de Gestor I a IV dentro de los 81 empleos profesionales, y la mayoría acepta Derecho entre sus carreras.

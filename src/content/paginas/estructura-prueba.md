@@ -1,5 +1,8 @@
 ---
 titulo: Estructura de la prueba
+resumen: "Funcionales eliminatoria (70/100), comportamentales, integridad y tiempo."
+aviso:
+  - Dato aproximado
 ---
 
 La prueba que decide todo es **Competencias Funcionales**: es eliminatoria, exige **70,00 sobre 100** y pesa entre 60 % y 70 %. En este proceso no hay prueba de competencias básicas; el 8 de noviembre se aplican Funcionales, Comportamentales e Integridad en un solo cuadernillo.

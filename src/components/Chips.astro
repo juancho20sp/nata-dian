@@ -1,0 +1,35 @@
+---
+/**
+ * Grupo de chips de selección única. Al tocar uno, marca aria-pressed y emite
+ * en el contenedor el evento `cambio-chip` con `detail.valor`.
+ * Sin JavaScript los chips no hacen nada y la página muestra todo.
+ */
+interface Props {
+  id: string;
+  etiqueta: string;
+  opciones: readonly { valor: string; texto: string }[];
+  activo: string;
+}
+const { id, etiqueta, opciones, activo } = Astro.props;
+---
+
+<div id={id} role="group" aria-label={etiqueta} class="no-imprimir flex flex-wrap gap-2" data-chips>
+  {
+    opciones.map((o) => (
+      <button type="button" class="chip" data-valor={o.valor} aria-pressed={o.valor === activo ? 'true' : 'false'}>
+        {o.texto}
+      </button>
+    ))
+  }
+</div>
+
+<script>
+  for (const grupo of document.querySelectorAll<HTMLElement>('[data-chips]')) {
+    grupo.addEventListener('click', (e) => {
+      const chip = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-valor]');
+      if (!chip || chip.getAttribute('aria-pressed') === 'true') return;
+      for (const b of grupo.querySelectorAll('button[data-valor]')) b.setAttribute('aria-pressed', String(b === chip));
+      grupo.dispatchEvent(new CustomEvent('cambio-chip', { detail: { valor: chip.dataset.valor } }));
+    });
+  }
+</script>

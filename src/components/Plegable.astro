@@ -1,0 +1,44 @@
+---
+/**
+ * Sección plegable (details/summary nativos). El id va en el encabezado para que
+ * las anclas (#id) y los subresultados de Pagefind apunten a la sección; el script
+ * de Base.astro abre el details que contiene el destino del ancla.
+ */
+interface Props {
+  id: string;
+  titulo: string;
+  resumen: string;
+  aviso?: readonly string[];
+  nivel?: 'h2' | 'h3';
+  abierto?: boolean;
+  class?: string;
+}
+const { id, titulo, resumen, aviso = [], nivel = 'h2', abierto = false, class: clase } = Astro.props;
+const Encabezado = nivel;
+---
+
+<details class:list={['plegable', clase]} open={abierto} data-plegable>
+  <summary>
+    <span class="flex-1 min-w-0">
+      <Encabezado id={id} class:list={['plegable-titulo', nivel === 'h3' && 'plegable-titulo-h3']}>{titulo}</Encabezado>
+      <span class="plegable-resumen">{resumen}</span>
+      {
+        aviso.length > 0 && (
+          <span class="mt-1.5 flex flex-wrap gap-1.5">
+            {aviso.map((a) => (
+              <span class="marca-aviso">
+                <span aria-hidden="true">⚠</span> {a}
+              </span>
+            ))}
+          </span>
+        )
+      }
+    </span>
+    <svg class="plegable-chevron" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      ><path d="m6 9 6 6 6-6"></path></svg
+    >
+  </summary>
+  <div class="plegable-cuerpo">
+    <slot />
+  </div>
+</details>

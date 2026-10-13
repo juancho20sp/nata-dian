@@ -1,5 +1,6 @@
 ---
 titulo: Contexto que suele preguntarse
+resumen: "Decreto Ley 071 derogado, sin reforma tributaria nueva y dónde está la doctrina."
 ---
 
 - El **Decreto Ley 071 de 2020** ya no rige la carrera DIAN: fue derogado por el artículo 152 del Decreto Ley 927 de 2023 ([normograma DIAN](https://normograma.dian.gov.co/dian/compilacion/docs/decreto_0071_2020.htm)). Estudiar el 927.

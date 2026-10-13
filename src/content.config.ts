@@ -110,11 +110,45 @@ const fuentes = defineCollection({
   }),
 });
 
+/** Rótulos de las advertencias del dossier (el texto en negrita que abre cada blockquote). */
+export const AVISOS = [
+  'Datos de terceros',
+  'Dato inferido',
+  'Dato aproximado',
+  'Fecha no oficial',
+  'Lista construida',
+  'Precaución',
+  'Verifique el enlace',
+] as const;
+
 const paginas = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/paginas' }),
   schema: z.object({
     titulo: z.string(),
+    /** Una línea que se ve con la sección plegada. */
+    resumen: z.string().min(10).max(140),
+    /** Advertencias que contiene la sección; se marcan en su encabezado. */
+    aviso: z.array(z.enum(AVISOS)).default([]),
   }),
 });
 
-export const collections = { planes, normativa, recursos, ponderacion, fuentes, paginas };
+/** Bloque "Lo esencial" de cada página de consulta: frases copiadas del dossier. */
+const esencial = defineCollection({
+  loader: file('src/content/esencial.json'),
+  schema: z.object({
+    id: z.enum(['prueba', 'prueba-dia', 'prueba-practicar', 'normativa', 'convocatoria']),
+    vinetas: z
+      .array(
+        z.object({
+          texto: z.string(),
+          /** Id de la sección plegable de la misma página a la que lleva la viñeta. */
+          ancla: idEstable.optional(),
+          aviso: z.enum(AVISOS).optional(),
+        }),
+      )
+      .min(3, 'Lo esencial necesita al menos 3 viñetas')
+      .max(5, 'Lo esencial admite como máximo 5 viñetas'),
+  }),
+});
+
+export const collections = { planes, normativa, recursos, ponderacion, fuentes, paginas, esencial };

@@ -2,7 +2,9 @@
  * Valida los planes de estudio:
  * - cada plan de tipo "plan" tiene semanas contiguas del 2026-10-12 al 2026-11-07;
  * - los ids de semanas son únicos dentro de cada plan;
- * - los ids de tareas son únicos en todo el sitio.
+ * - los ids de tareas son únicos en todo el sitio;
+ * - cada advertencia de src/content/paginas (blockquote que empieza con **Rótulo.**)
+ *   está declarada en el `aviso` del frontmatter, y viceversa.
  *
  * Uso: pnpm validar
  */
@@ -75,8 +77,20 @@ for (const archivo of archivos) {
   }
 }
 
+// Advertencias de las páginas narrativas
+const DIR_PAGINAS = join(import.meta.dirname, '..', 'src', 'content', 'paginas');
+const paginas = readdirSync(DIR_PAGINAS).filter((f) => f.endsWith('.md')).sort();
+for (const archivo of paginas) {
+  const texto = readFileSync(join(DIR_PAGINAS, archivo), 'utf8');
+  const [, frontmatter = '', cuerpo = ''] = texto.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/) ?? [];
+  const declarados = new Set([...frontmatter.matchAll(/^\s+-\s+(.+)$/gm)].map((m) => m[1]!.trim()));
+  const presentes = new Set([...cuerpo.matchAll(/^>\s*\*\*([^*]+?)\.\*\*/gm)].map((m) => m[1]!.trim()));
+  for (const a of presentes) if (!declarados.has(a)) errores.push(`paginas/${archivo}: la advertencia "${a}" no está en aviso`);
+  for (const a of declarados) if (!presentes.has(a)) errores.push(`paginas/${archivo}: aviso declara "${a}" pero el texto no la tiene`);
+}
+
 if (errores.length > 0) {
   console.error(`✗ ${errores.length} problema(s) en los planes:\n` + errores.map((e) => `  - ${e}`).join('\n'));
   process.exit(1);
 }
-console.log(`✓ ${archivos.length} planes válidos; ${tareasVistas.size} tareas con id único.`);
+console.log(`✓ ${archivos.length} planes válidos; ${tareasVistas.size} tareas con id único; advertencias de ${paginas.length} páginas declaradas.`);

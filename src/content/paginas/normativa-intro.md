@@ -1,5 +1,8 @@
 ---
 titulo: Normativa a estudiar
+resumen: "El temario oficial son los indicadores temáticos de la OPEC."
+aviso:
+  - Lista construida
 ---
 
 El temario oficial son los **indicadores temáticos de la OPEC** del aspirante; la GOA solo dice que entran **normas vigentes expedidas antes del 19 de junio de 2026**. Mientras se consultan esos indicadores, esta es la base normativa que cubre los subprocesos jurídicos de la DIAN.

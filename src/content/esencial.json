@@ -1,0 +1,51 @@
+[
+  {
+    "id": "prueba",
+    "vinetas": [
+      { "texto": "La prueba que decide todo es Competencias Funcionales: es eliminatoria, exige 70,00 sobre 100 y pesa entre 60 % y 70 %.", "ancla": "calificacion" },
+      { "texto": "El 8 de noviembre se aplican Funcionales, Comportamentales e Integridad en un solo cuadernillo." },
+      { "texto": "Cada ítem trae un caso, un enunciado y tres opciones (A, B, C) con una sola correcta.", "ancla": "estructura" },
+      { "texto": "4 horas para todo el cuadernillo." },
+      { "texto": "Aprobar no basta: la lista de elegibles se ordena por puntaje ponderado y solo quedan nombrados quienes ocupen los primeros lugares de su OPEC." }
+    ]
+  },
+  {
+    "id": "prueba-dia",
+    "vinetas": [
+      { "texto": "Puertas abren 7:15 a. m., inicio 8:00 a. m., cierre de puertas 8:30 a. m." },
+      { "texto": "Duración 4 horas, hasta la 1:00 p. m." },
+      { "texto": "Documento: cédula amarilla con holograma, cédula digital, pasaporte vigente o contraseña de la Registraduría con código QR." },
+      { "texto": "Solo se permite lápiz N.º 2, sacapuntas y borrador. Celular apagado y guardado, sin calculadora, sin comida." },
+      { "texto": "La citación sale en SIMO con mínimo 5 días hábiles de anticipación, con sitio según la ciudad inscrita." }
+    ]
+  },
+  {
+    "id": "prueba-practicar",
+    "vinetas": [
+      { "texto": "Identificar el rol del Gestor en el caso, ubicar la norma y el término que aplican, y elegir la opción que cumple el procedimiento sin exceder la competencia del cargo.", "ancla": "juicio-situacional" },
+      { "texto": "Las opciones que resuelven el problema saltando un paso legal suelen ser la trampa." },
+      { "texto": "El material más valioso es oficial y gratuito: la GOA, los indicadores temáticos de la OPEC y las guías de procesos DIAN anteriores, que muestran el mismo formato de pregunta.", "ancla": "recursos" },
+      { "texto": "Los cursos pagos sirven para practicar volumen de casos, no como fuente de temario." }
+    ]
+  },
+  {
+    "id": "normativa",
+    "vinetas": [
+      { "texto": "El temario oficial son los indicadores temáticos de la OPEC del aspirante." },
+      { "texto": "La GOA solo dice que entran normas vigentes expedidas antes del 19 de junio de 2026." },
+      { "texto": "El Decreto Ley 071 de 2020 ya no rige la carrera DIAN: fue derogado por el artículo 152 del Decreto Ley 927 de 2023.", "ancla": "contexto" },
+      { "texto": "No hubo reforma tributaria estructural nueva.", "ancla": "contexto" },
+      { "texto": "La base sigue siendo la Ley 2277 de 2022." }
+    ]
+  },
+  {
+    "id": "convocatoria",
+    "vinetas": [
+      { "texto": "El examen del 8 de noviembre de 2026 corresponde al Proceso de Selección DIAN 2676 de la CNSC, regido por el Acuerdo CNSC No. 21 del 7 de noviembre de 2025 y su Anexo." },
+      { "texto": "El operador de las etapas restantes (VRM y pruebas) es la Fundación Universitaria del Área Andina (Areandina)." },
+      { "texto": "Vacantes: 1.850 en 256 empleos: 743 por ascenso y 1.107 por ingreso (abierto).", "aviso": "Datos de terceros", "ancla": "cronograma" },
+      { "texto": "Un abogado compite en el nivel profesional, en empleos de denominación Gestor (I a IV) o Inspector (I a IV) cuya OPEC incluya el núcleo básico de conocimiento Derecho y afines.", "ancla": "empleos" },
+      { "texto": "Número de OPEC y denominación del empleo inscrito (SIMO, \"Mis empleos inscritos\").", "ancla": "gestor" }
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+---
+import { getEntry } from 'astro:content';
+
+interface Props {
+  /** Id de la entrada en src/content/esencial.json. */
+  pagina: 'prueba' | 'prueba-dia' | 'prueba-practicar' | 'normativa' | 'convocatoria';
+}
+const { pagina } = Astro.props;
+const entrada = await getEntry('esencial', pagina);
+if (!entrada) throw new Error(`Falta "${pagina}" en src/content/esencial.json`);
+---
+
+<section aria-labelledby={`esencial-${pagina}`} class="lo-esencial">
+  <h2 id={`esencial-${pagina}`} class="text-sm font-bold uppercase tracking-wide text-primario">Lo esencial</h2>
+  <ul class="mt-2 space-y-2">
+    {
+      entrada.data.vinetas.map((v) => (
+        <li class="flex gap-2">
+          <span aria-hidden="true" class="text-primario font-bold">·</span>
+          <span>
+            {v.ancla ? <a href={`#${v.ancla}`} class="text-texto decoration-primario/50 underline-offset-4">{v.texto}</a> : v.texto}
+            {v.aviso && (
+              <span class="marca-aviso ml-1">
+                <span aria-hidden="true">⚠</span> {v.aviso}
+              </span>
+            )}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+</section>

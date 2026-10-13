@@ -279,3 +279,119 @@ a {
   background: var(--resalte);
   color: inherit;
 }
+
+/* Lo esencial: un solo bloque destacado por página (DESIGN.md) */
+.lo-esencial {
+  background: var(--primario-suave);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  max-width: 42rem;
+}
+
+/* Secciones plegables */
+.plegable {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.plegable > summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  list-style: none;
+  min-height: 2.75rem;
+}
+.plegable > summary::-webkit-details-marker {
+  display: none;
+}
+.plegable > summary:focus-visible {
+  outline: 3px solid var(--primario);
+  outline-offset: 2px;
+  border-radius: 0.75rem;
+}
+.plegable-titulo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  scroll-margin-top: 5rem;
+}
+.plegable-titulo-h3 {
+  font-size: 1.05rem;
+}
+.plegable-resumen {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.plegable-chevron {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  color: var(--texto-suave);
+  transition: transform 150ms;
+}
+.plegable[open] > summary .plegable-chevron {
+  transform: rotate(180deg);
+}
+.plegable-cuerpo {
+  padding: 0 1rem 1rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .plegable-chevron {
+    transition: none;
+  }
+}
+
+.marca-aviso {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+  padding: 0.1rem 0.5rem;
+  border-radius: 9999px;
+  background: var(--aviso-fondo);
+  color: var(--aviso-texto);
+  border: 1px solid var(--aviso-borde);
+}
+
+/* Al imprimir, las secciones plegadas salen desplegadas aunque el navegador no
+   dispare beforeprint (ver src/lib/plegables.ts). */
+@media print {
+  details::details-content {
+    content-visibility: visible;
+    display: block;
+  }
+  .plegable-chevron {
+    display: none;
+  }
+}
+
+/* Chips de filtro */
+.chip {
+  min-height: 2.75rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  border: 1px solid var(--borde);
+  background: var(--superficie-2);
+  color: var(--texto);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.chip[aria-pressed='true'] {
+  background: var(--primario);
+  border-color: var(--primario);
+  color: var(--primario-texto);
+  font-weight: 600;
+}
+.chip:focus-visible {
+  outline: 3px solid var(--primario);
+  outline-offset: 2px;
+}

@@ -30,7 +30,7 @@ Nueva colección `esencial` (`src/content/esencial.json`, cargador `file`): una 
 - *Alternativa descartada:* frontmatter de cada Markdown. Obliga a elegir un Markdown "dueño" por página.
 
 ### 2. Metadatos de sección en el frontmatter de `paginas`
-El esquema de `paginas` gana `resumen` (una línea, obligatoria) y `aviso` (opcional: `"Dato de terceros"`, `"Dato inferido"`, `"Dato aproximado"`, `"Fecha no oficial"`, `"Lista construida"`, `"Precaución"`). Cada Markdown con un blockquote de advertencia declara su `aviso`.
+El esquema de `paginas` gana `resumen` (una línea, obligatoria) y `aviso` (lista, por defecto vacía, de rótulos `AVISOS`: "Datos de terceros", "Dato inferido", "Dato aproximado", "Fecha no oficial", "Lista construida", "Precaución", "Verifique el enlace"). Es una lista porque una misma sección puede traer dos advertencias (empleos para abogados, cargo de Gestor). `pnpm validar` comprueba que los rótulos de los blockquotes y los declarados coinciden.
 - *Por qué:* la marca de advertencia debe verse con la sección cerrada (spec `paginas-consulta`), y detectarla leyendo el HTML del blockquote sería frágil.
 
 ### 3. Secciones plegables con `details` y `summary` nativos

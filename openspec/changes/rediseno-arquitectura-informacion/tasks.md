@@ -9,11 +9,11 @@
 
 ## 2. Componentes de consulta
 
-- [ ] 2.1 Ampliar el esquema de `paginas` en `src/content.config.ts` con `resumen` (obligatorio) y `aviso` (enum opcional), y completar el frontmatter de los 9 Markdown de `src/content/paginas/`, declarando `aviso` donde haya un blockquote de advertencia; verificar que `pnpm check` pasa y que el build falla si se borra un `resumen`
-- [ ] 2.2 Crear la colección `esencial` (`src/content/esencial.json`, Zod con 3 a 5 viñetas, `ancla` opcional) con las entradas de `prueba`, `prueba-dia`, `prueba-practicar`, `normativa` y `convocatoria`, copiadas de frases del dossier; verificar cada viñeta contra `fuentes/contenido-dossier.md` y que el build falla con 2 o con 6 viñetas
-- [ ] 2.3 Crear `LoEsencial.astro` y `Plegable.astro` (`details` y `summary`, título, resumen, marca de aviso) según DESIGN.md, y hacer que `Prosa.astro` renderice dentro de un `Plegable` por defecto; verificar con teclado que Enter abre y cierra, y que abrir una sección no cierra otra
-- [ ] 2.4 Agregar en `Base.astro` el script de apertura por ancla (al cargar y en `hashchange`, con desplazamiento y foco en el `summary`) y el despliegue en `beforeprint` y `afterprint`; verificar que `/prueba#calificacion` abre la sección y que la vista previa de impresión muestra todo desplegado
-- [ ] 2.5 Crear `Chips.astro` (botones con `aria-pressed`, uno activo, conteo con `aria-live`) y la función pura de filtrado de normativa en `src/lib/filtros.ts`; verificar con pruebas Vitest que un área de "Todos" aparece con cualquier empleo y que un empleo desconocido muestra solo esas áreas
+- [x] 2.1 Ampliar el esquema de `paginas` en `src/content.config.ts` con `resumen` (obligatorio) y `aviso` (enum opcional), y completar el frontmatter de los 9 Markdown de `src/content/paginas/`, declarando `aviso` donde haya un blockquote de advertencia; verificar que `pnpm check` pasa y que el build falla si se borra un `resumen`
+- [x] 2.2 Crear la colección `esencial` (`src/content/esencial.json`, Zod con 3 a 5 viñetas, `ancla` opcional) con las entradas de `prueba`, `prueba-dia`, `prueba-practicar`, `normativa` y `convocatoria`, copiadas de frases del dossier; verificar cada viñeta contra `fuentes/contenido-dossier.md` y que el build falla con 2 o con 6 viñetas
+- [x] 2.3 Crear `LoEsencial.astro` y `Plegable.astro` (`details` y `summary`, título, resumen, marca de aviso) según DESIGN.md, y hacer que `Prosa.astro` renderice dentro de un `Plegable` por defecto; verificar con teclado que Enter abre y cierra, y que abrir una sección no cierra otra
+- [x] 2.4 Agregar en `Base.astro` el script de apertura por ancla (al cargar y en `hashchange`, con desplazamiento y foco en el `summary`) y el despliegue en `beforeprint` y `afterprint`; verificar que `/prueba#calificacion` abre la sección y que la vista previa de impresión muestra todo desplegado
+- [x] 2.5 Crear `Chips.astro` (botones con `aria-pressed`, uno activo, conteo con `aria-live`) y la función pura de filtrado de normativa en `src/lib/filtros.ts`; verificar con pruebas Vitest que un área de "Todos" aparece con cualquier empleo y que un empleo desconocido muestra solo esas áreas
 
 ## 3. Páginas de consulta
 

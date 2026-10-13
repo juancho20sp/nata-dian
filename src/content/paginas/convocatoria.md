@@ -1,5 +1,8 @@
 ---
 titulo: Convocatoria y cronograma
+resumen: "Acuerdo 21, operador Areandina y vacantes por modalidad."
+aviso:
+  - Datos de terceros
 ---
 
 El examen del 8 de noviembre de 2026 corresponde al **Proceso de Selección DIAN 2676** de la CNSC, regido por el **Acuerdo CNSC No. 21 del 7 de noviembre de 2025** y su Anexo. El operador de las etapas restantes (VRM y pruebas) es la **Fundación Universitaria del Área Andina (Areandina)**, contrato CNSC-PAMC-006-2026.
