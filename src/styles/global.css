@@ -1,0 +1,191 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* Paleta sobria. Contraste AA verificado sobre --fondo y --superficie. */
+:root {
+  color-scheme: light;
+  --fondo: #f6f7f9;
+  --superficie: #ffffff;
+  --superficie-2: #eef1f5;
+  --texto: #1a2230;
+  --texto-suave: #4a5565;
+  --borde: #cfd6df;
+  --primario: #1d4e89;
+  --primario-texto: #ffffff;
+  --primario-suave: #e3ecf7;
+  --aviso-fondo: #fff6e0;
+  --aviso-borde: #c98a00;
+  --aviso-texto: #5c3d00;
+  --exito: #1f6b3a;
+  --resalte: #fff1b8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --fondo: #10151c;
+    --superficie: #18202a;
+    --superficie-2: #212b37;
+    --texto: #e7eaef;
+    --texto-suave: #aab4c2;
+    --borde: #33404f;
+    --primario: #8fb8f0;
+    --primario-texto: #0d1520;
+    --primario-suave: #1c2c42;
+    --aviso-fondo: #2e2510;
+    --aviso-borde: #d9a227;
+    --aviso-texto: #f5dfa8;
+    --exito: #7fd39b;
+    --resalte: #3a3214;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --fondo: #10151c;
+  --superficie: #18202a;
+  --superficie-2: #212b37;
+  --texto: #e7eaef;
+  --texto-suave: #aab4c2;
+  --borde: #33404f;
+  --primario: #8fb8f0;
+  --primario-texto: #0d1520;
+  --primario-suave: #1c2c42;
+  --aviso-fondo: #2e2510;
+  --aviso-borde: #d9a227;
+  --aviso-texto: #f5dfa8;
+  --exito: #7fd39b;
+  --resalte: #3a3214;
+}
+
+@theme inline {
+  --color-fondo: var(--fondo);
+  --color-superficie: var(--superficie);
+  --color-superficie-2: var(--superficie-2);
+  --color-texto: var(--texto);
+  --color-suave: var(--texto-suave);
+  --color-borde: var(--borde);
+  --color-primario: var(--primario);
+  --color-primario-texto: var(--primario-texto);
+  --color-primario-suave: var(--primario-suave);
+  --color-aviso-fondo: var(--aviso-fondo);
+  --color-aviso-borde: var(--aviso-borde);
+  --color-aviso-texto: var(--aviso-texto);
+  --color-exito: var(--exito);
+  --color-resalte: var(--resalte);
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html {
+  font-size: 106.25%; /* 17 px de base */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+a {
+  color: var(--primario);
+  text-underline-offset: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--primario);
+  outline-offset: 2px;
+}
+
+/* Prosa del contenido Markdown con los colores del tema */
+.prose {
+  --tw-prose-body: var(--texto);
+  --tw-prose-headings: var(--texto);
+  --tw-prose-links: var(--primario);
+  --tw-prose-bold: var(--texto);
+  --tw-prose-bullets: var(--texto-suave);
+  --tw-prose-counters: var(--texto-suave);
+  --tw-prose-hr: var(--borde);
+  --tw-prose-quotes: var(--texto);
+  --tw-prose-quote-borders: var(--borde);
+  --tw-prose-th-borders: var(--borde);
+  --tw-prose-td-borders: var(--borde);
+  --tw-prose-code: var(--texto);
+  max-width: 70ch;
+}
+
+/* Tablas que se vuelven tarjetas en pantallas pequeñas */
+@media (max-width: 47.99rem) {
+  table.tabla-tarjetas thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  table.tabla-tarjetas,
+  table.tabla-tarjetas tbody,
+  table.tabla-tarjetas tr,
+  table.tabla-tarjetas td {
+    display: block;
+    width: 100%;
+  }
+  table.tabla-tarjetas tr {
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+  }
+  table.tabla-tarjetas td {
+    border: 0;
+    padding: 0.25rem 0;
+  }
+  table.tabla-tarjetas td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--texto-suave);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+}
+
+@media print {
+  :root,
+  :root[data-theme='dark'] {
+    --fondo: #fff;
+    --superficie: #fff;
+    --superficie-2: #fff;
+    --texto: #000;
+    --texto-suave: #333;
+    --borde: #999;
+    --primario: #000;
+    --primario-suave: #fff;
+    --resalte: #fff;
+    --aviso-fondo: #fff;
+    --aviso-texto: #000;
+  }
+  html {
+    font-size: 11pt;
+  }
+  .no-imprimir {
+    display: none !important;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+  main a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    word-break: break-all;
+  }
+  .semana {
+    break-inside: avoid;
+  }
+}
