@@ -1,0 +1,46 @@
+{
+  "slug": "caso-a-fiscalizacion",
+  "tipo": "plan",
+  "orden": 1,
+  "titulo": "Caso A: fiscalización y liquidación tributaria",
+  "tituloCorto": "A · Fiscalización",
+  "resumen": "Es el caso más probable para un Gestor abogado. El examen pondrá al aspirante a decidir qué acto procede, en qué término y con qué sanción.",
+  "notaNormas": "Estatuto Tributario salvo indicación",
+  "semanas": [
+    {
+      "id": "s1",
+      "inicio": "2026-10-12",
+      "fin": "2026-10-18",
+      "temas": "Tronco común",
+      "normas": ["Ver tabla del tronco común"],
+      "tronco": "estudio"
+    },
+    {
+      "id": "s2",
+      "inicio": "2026-10-19",
+      "fin": "2026-10-25",
+      "temas": "Obligación sustancial y deberes formales: RUT, obligados a declarar, declaraciones no presentadas, correcciones, información exógena, facturación electrónica; nociones de renta, IVA y retención",
+      "normas": ["555-2, 574-580, 588-589, 615-618, 631", "420 (IVA)", "365-368 (retención)", "Ley 2277 de 2022", "Res. DIAN 000165 de 2023"]
+    },
+    {
+      "id": "s3",
+      "inicio": "2026-10-26",
+      "fin": "2026-11-01",
+      "temas": "Fiscalización: facultades, emplazamientos, requerimiento especial, liquidación oficial de revisión, aforo y corrección aritmética, firmeza; régimen probatorio; sanciones y gradualidad",
+      "normas": ["684-686, 697-719, 714, 742-795", "634-682 (641, 643, 644, 647, 648, 651 y 640)"]
+    },
+    {
+      "id": "s4",
+      "inicio": "2026-11-02",
+      "fin": "2026-11-07",
+      "temas": "Discusión: recurso de reconsideración, términos para fallar, silencio positivo; delitos fiscales; dos simulacros completos",
+      "normas": ["720-741", "Código Penal 402, 434A y 434B"],
+      "tronco": "repaso"
+    }
+  ],
+  "tareas": [
+    { "id": "a-linea-tiempo-terminos", "texto": "Hacer una línea de tiempo con todos los términos: emplazamiento, respuesta al requerimiento, liquidación oficial, reconsideración y fallo." },
+    { "id": "a-casos-sancion-gradualidad", "texto": "Resolver al menos 10 casos de sanción por inexactitud y extemporaneidad con gradualidad." },
+    { "id": "a-concepto-unificado-procedimiento", "texto": "Leer el Concepto General Unificado de procedimiento tributario en el normograma DIAN." }
+  ]
+}

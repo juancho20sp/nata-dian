@@ -1,0 +1,108 @@
+[
+  {
+    "id": "goa-2676-resumen",
+    "nombre": "GOA DIAN 2676 (resumen)",
+    "url": "https://grupogeard.com/co/guias/guia-orientacion-aspirante-presentacion-pruebas-escritas-dian-2676/",
+    "tipo": "Oficial (resumen de tercero)",
+    "uso": "Reglas, ponderación, ejemplos de ítems",
+    "oficial": false,
+    "advertencia": "Es un resumen de un tercero sobre la guía oficial; el PDF oficial está en la página de la convocatoria en la CNSC."
+  },
+  {
+    "id": "cnsc-convocatoria-2676",
+    "nombre": "Página de la convocatoria DIAN 2676 en la CNSC",
+    "url": "https://www.cnsc.gov.co/convocatorias/dian2676",
+    "tipo": "Oficial",
+    "uso": "Acuerdo, Anexo, avisos y GOA en PDF",
+    "oficial": true
+  },
+  {
+    "id": "indicadores-areandina",
+    "nombre": "Indicadores temáticos (Areandina)",
+    "url": "http://dian-2676-areandina.com.co/indicadores-dian-2667/",
+    "tipo": "Oficial",
+    "uso": "Temario del empleo, con número de inscripción",
+    "oficial": true,
+    "advertencia": "La dirección termina en «indicadores-dian-2667» aunque el proceso es el 2676; se conserva tal como aparece en el dossier. Verifíquela en la página de la CNSC."
+  },
+  {
+    "id": "goa-dian-2022",
+    "nombre": "GOA pruebas escritas DIAN 2022",
+    "url": "https://cnsc.gov.co/node/21312",
+    "tipo": "Oficial, proceso anterior",
+    "uso": "Ejemplos de juicio situacional DIAN",
+    "oficial": true
+  },
+  {
+    "id": "goa-acceso-dian-2667",
+    "nombre": "GOA acceso a pruebas DIAN 2667 (2025)",
+    "url": "https://www.cnsc.gov.co/sites/default/files/2025-07/goa_aplicacion-y-acceso-pruebas-escritas-dian-2667.pdf",
+    "tipo": "Oficial, proceso hermano",
+    "uso": "Formato reciente de cuadernillo y reclamación",
+    "oficial": true
+  },
+  {
+    "id": "normograma-dian",
+    "nombre": "Normograma DIAN",
+    "url": "https://normograma.dian.gov.co/dian/",
+    "tipo": "Oficial",
+    "uso": "ET, decretos y doctrina actualizados",
+    "oficial": true
+  },
+  {
+    "id": "simulacro-dian-1",
+    "nombre": "Simulacro DIAN-1",
+    "url": "https://www.academia.edu/106985007/SIMULACRO_DIAN_1",
+    "tipo": "No oficial",
+    "uso": "Práctica de casos",
+    "oficial": false
+  },
+  {
+    "id": "curso-grupo-geard",
+    "nombre": "Curso: Grupo Geard",
+    "url": "https://grupogeard.com/co/cursos/curso-completo-convocatoria-dian-2025-profesional/",
+    "tipo": "Pago",
+    "uso": "Bancos de preguntas y simulacros cronometrados",
+    "oficial": false
+  },
+  {
+    "id": "curso-construyendo-meritos",
+    "nombre": "Curso: Construyendo Méritos",
+    "url": "https://www.construyendomeritos.com/seminarios/curso-virtual-convocatoria-dian-2025---proceso-de-seleccion-2676-de-2025",
+    "tipo": "Pago",
+    "uso": "Bancos de preguntas y simulacros cronometrados",
+    "oficial": false
+  },
+  {
+    "id": "curso-talento-publico",
+    "nombre": "Curso: Talento Público",
+    "url": "https://talentopublico.com/una-nueva-puerta-que-se-abre-convocatoria-dian-2676/",
+    "tipo": "Pago",
+    "uso": "Bancos de preguntas y simulacros cronometrados",
+    "oficial": false
+  },
+  {
+    "id": "curso-senpro",
+    "nombre": "Curso: Senpro",
+    "url": "https://senpro.com.co/courses/curso-convocat-dian-2676-2025-senpro-cnsc/",
+    "tipo": "Pago",
+    "uso": "Bancos de preguntas y simulacros cronometrados",
+    "oficial": false
+  },
+  {
+    "id": "curso-cesjul",
+    "nombre": "Curso: CESJUL",
+    "url": "https://cesjul.org/cursos/2026007/",
+    "tipo": "Pago",
+    "uso": "Bancos de preguntas y simulacros cronometrados",
+    "oficial": false
+  },
+  {
+    "id": "video-goa-8-noviembre",
+    "nombre": "Video sobre la GOA y el 8 de noviembre",
+    "url": "https://www.youtube.com/watch?v=RD1vh9t-IUo",
+    "tipo": "No oficial",
+    "uso": "Repaso de logística",
+    "oficial": false
+  }
+]

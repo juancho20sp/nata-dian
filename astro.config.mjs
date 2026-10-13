@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import rehypeTablaTarjetas from './plugins/rehype-tabla-tarjetas.mjs';
 
 // En GitHub Actions, GITHUB_REPOSITORY vale "dueño/repositorio".
 // En local se usa el repositorio de origen de este proyecto.
@@ -11,6 +12,9 @@ export default defineConfig({
   site: `https://${owner}.github.io`,
   base: esSitioDeUsuario ? '/' : `/${repo}`,
   trailingSlash: 'ignore',
+  markdown: {
+    rehypePlugins: [rehypeTablaTarjetas],
+  },
   vite: {
     plugins: [tailwindcss()],
   },

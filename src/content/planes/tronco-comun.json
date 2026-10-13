@@ -1,0 +1,53 @@
+{
+  "slug": "tronco-comun",
+  "tipo": "tronco",
+  "orden": 5,
+  "titulo": "Tronco común (todos los casos)",
+  "tituloCorto": "Tronco común",
+  "resumen": "El tronco común ocupa la primera semana de cualquier plan y se repasa en la última. Cubre lo que cualquier Gestor debe aplicar en un caso, sea cual sea su subproceso.",
+  "semanas": [],
+  "tareas": [],
+  "temas": [
+    {
+      "tema": "Constitución",
+      "dominar": "Principios tributarios (legalidad, equidad, progresividad, irretroactividad), debido proceso, deber de contribuir, función administrativa",
+      "norma": "Arts. 29, 95-9, 209, 338, 363"
+    },
+    {
+      "tema": "Estructura DIAN",
+      "dominar": "Naturaleza, direcciones seccionales, competencias de cada dependencia",
+      "norma": "Decreto 1742 de 2020"
+    },
+    {
+      "tema": "Carrera DIAN",
+      "dominar": "Ingreso, período de prueba, evaluación",
+      "norma": "Decreto Ley 927 de 2023"
+    },
+    {
+      "tema": "Procedimiento administrativo",
+      "dominar": "Actuación administrativa, notificación, recursos, revocatoria directa, silencio administrativo, derecho de petición",
+      "norma": "CPACA (Ley 1437 de 2011, Ley 2080 de 2021), Ley 1755 de 2015"
+    },
+    {
+      "tema": "Disciplinario e integridad",
+      "dominar": "Faltas, deberes y prohibiciones del servidor, conflicto de intereses",
+      "norma": "Ley 1952 de 2019, Ley 2094 de 2021, Ley 2016 de 2020"
+    },
+    {
+      "tema": "Transparencia",
+      "dominar": "Reserva tributaria, acceso a la información, datos personales",
+      "norma": "ET art. 583, Ley 1712 de 2014, Ley 1581 de 2012"
+    }
+  ],
+  "rutina": {
+    "horas": "3 horas entre semana, 6 a 8 los fines de semana",
+    "pasos": [
+      "60 % lectura de la norma del día, anotando plazos, términos y competencias.",
+      "30 % preguntas de juicio situacional sobre esa norma.",
+      "10 % repaso de los errores del día anterior.",
+      "Cada domingo, un simulacro cronometrado."
+    ]
+  },
+  "juicioSituacional": "Identificar el rol del Gestor en el caso, ubicar la norma y el término que aplican, y elegir la opción que cumple el procedimiento sin exceder la competencia del cargo. Las opciones que resuelven el problema saltando un paso legal suelen ser la trampa.",
+  "comportamentales": "No se estudian como temario. Basta leer el Código de Integridad y responder con coherencia, porque las subescalas de control penalizan las respuestas contradictorias o idealizadas."
+}

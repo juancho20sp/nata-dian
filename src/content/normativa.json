@@ -1,0 +1,63 @@
+[
+  {
+    "id": "transversal-dian",
+    "area": "Transversal DIAN",
+    "normas": "Constitución (arts. 2, 6, 29, 95-9, 122-130, 209, 338, 363); Decreto 1742 de 2020 (estructura DIAN); Decreto Ley 927 de 2023 (carrera DIAN); MERF Res. 000067 de 2024; Código de Integridad (Ley 2016 de 2020)",
+    "empleos": ["Todos"],
+    "enlace": { "texto": "Decreto Ley 927 de 2023 (Función Pública)", "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma_pdf.php?i=211570" }
+  },
+  {
+    "id": "administrativo",
+    "area": "Administrativo",
+    "normas": "CPACA, Ley 1437 de 2011 y Ley 2080 de 2021; derecho de petición, Ley 1755 de 2015; transparencia, Ley 1712 de 2014; datos personales, Ley 1581 de 2012; antitrámites, Decreto 2106 de 2019",
+    "empleos": ["Todos"]
+  },
+  {
+    "id": "procedimiento-tributario",
+    "area": "Procedimiento tributario",
+    "normas": "Estatuto Tributario Libro V: RUT (555-2), declaraciones (574-580), correcciones (588-589), sanciones y gradualidad (634-682), fiscalización y liquidación oficial (684-719), firmeza (714), recursos (720-741), pruebas (742-795), prescripción (817), devoluciones (850-865)",
+    "empleos": ["Fiscalización", "Liquidación", "Discusión"]
+  },
+  {
+    "id": "cobro",
+    "area": "Cobro",
+    "normas": "ET arts. 823-849 (cobro administrativo coactivo), acuerdos de pago (814), insolvencia (Ley 1116 de 2006)",
+    "empleos": ["Recaudo y cobranzas"]
+  },
+  {
+    "id": "tributario-sustancial",
+    "area": "Tributario sustancial",
+    "normas": "ET Libro I (renta), Libro III (IVA), retención en la fuente; Ley 2277 de 2022; DUR tributario Decreto 1625 de 2016; facturación electrónica Res. 000165 de 2023; Decreto 240 de 2026 (impuesto al patrimonio de personas jurídicas)",
+    "empleos": ["Fiscalización", "Gestión masiva"]
+  },
+  {
+    "id": "aduanero",
+    "area": "Aduanero",
+    "normas": "Ley 1609 de 2013 (ley marco); Decreto 1165 de 2019 (régimen aduanero) y sus modificaciones; Decreto Ley 920 de 2023 (sanciones y decomiso); arancel, Decreto 1881 de 2021",
+    "empleos": ["Control y fiscalización aduanera"]
+  },
+  {
+    "id": "cambiario",
+    "area": "Cambiario",
+    "normas": "Ley 9 de 1991; Decreto 1068 de 2015 (parte cambiaria); Decreto Ley 2245 de 2011 (régimen sancionatorio cambiario de la DIAN); Res. Externa 1 de 2018 del Banco de la República",
+    "empleos": ["Control cambiario"]
+  },
+  {
+    "id": "penal-fiscal",
+    "area": "Penal fiscal",
+    "normas": "Código Penal: omisión del agente retenedor (402), contrabando y favorecimiento (319-322), omisión de activos y defraudación fiscal (434A, 434B)",
+    "empleos": ["Fiscalización", "Representación externa"]
+  },
+  {
+    "id": "defensa-judicial",
+    "area": "Defensa judicial",
+    "normas": "CPACA medios de control (nulidad y restablecimiento, art. 138); CGP, Ley 1564 de 2012; conciliación, Ley 2220 de 2022; jurisprudencia de la Sección Cuarta del Consejo de Estado",
+    "empleos": ["Representación externa"]
+  },
+  {
+    "id": "disciplinario-contratacion",
+    "area": "Disciplinario y contratación",
+    "normas": "Código General Disciplinario, Ley 1952 de 2019 y Ley 2094 de 2021; Ley 80 de 1993, Ley 1150 de 2007, Decreto 1082 de 2015; Estatuto Anticorrupción, Ley 1474 de 2011",
+    "empleos": ["Asuntos disciplinarios", "Gestión administrativa"]
+  }
+]

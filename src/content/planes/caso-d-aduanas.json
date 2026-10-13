@@ -1,0 +1,45 @@
+{
+  "slug": "caso-d-aduanas",
+  "tipo": "plan",
+  "orden": 4,
+  "titulo": "Caso D: aduanas y control cambiario",
+  "tituloCorto": "D · Aduanas",
+  "resumen": "Es el caso con más norma nueva para un abogado sin experiencia en comercio exterior. Conviene empezar por el vocabulario aduanero antes de las sanciones.",
+  "semanas": [
+    {
+      "id": "s1",
+      "inicio": "2026-10-12",
+      "fin": "2026-10-18",
+      "temas": "Tronco común y conceptos aduaneros básicos: obligación aduanera, declarante, usuarios, mercancía, territorio aduanero",
+      "normas": ["Ley 1609 de 2013", "Decreto 1165 de 2019, títulos iniciales"],
+      "tronco": "estudio"
+    },
+    {
+      "id": "s2",
+      "inicio": "2026-10-19",
+      "fin": "2026-10-25",
+      "temas": "Regímenes: importación (consumo, temporal, perfeccionamiento), exportación, tránsito, depósito y zonas francas; declaración y levante; valoración y clasificación arancelaria en nivel general",
+      "normas": ["Decreto 1165 de 2019", "Decreto 1881 de 2021 (arancel)"]
+    },
+    {
+      "id": "s3",
+      "inicio": "2026-10-26",
+      "fin": "2026-11-01",
+      "temas": "Régimen sancionatorio y decomiso: infracciones, sanciones, aprehensión, decomiso, liquidación oficial aduanera, recursos",
+      "normas": ["Decreto Ley 920 de 2023", "Código Penal 319-322 (contrabando)"]
+    },
+    {
+      "id": "s4",
+      "inicio": "2026-11-02",
+      "fin": "2026-11-07",
+      "temas": "Régimen cambiario: operaciones de canalización obligatoria, competencias DIAN y Superintendencia de Sociedades, sanciones cambiarias; dos simulacros completos",
+      "normas": ["Ley 9 de 1991", "Decreto 1068 de 2015", "Decreto Ley 2245 de 2011", "Res. Externa 1 de 2018 del Banco de la República"],
+      "tronco": "repaso"
+    }
+  ],
+  "tareas": [
+    { "id": "d-glosario-aduanero", "texto": "Hacer un glosario de 40 términos aduaneros con su artículo." },
+    { "id": "d-flujo-aprehension-decomiso", "texto": "Diagramar el flujo de aprehensión, decomiso y recursos del Decreto Ley 920 de 2023." },
+    { "id": "d-confirmar-modificaciones-1165", "texto": "Confirmar en el normograma DIAN las modificaciones vigentes del Decreto 1165 de 2019 antes del 19 de junio de 2026." }
+  ]
+}

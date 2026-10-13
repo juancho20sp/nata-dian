@@ -1,0 +1,46 @@
+{
+  "slug": "caso-b-cobranzas",
+  "tipo": "plan",
+  "orden": 2,
+  "titulo": "Caso B: recaudo y cobranzas",
+  "tituloCorto": "B · Cobranzas",
+  "resumen": "El Gestor de cobranzas adelanta el cobro administrativo coactivo. Las preguntas giran sobre títulos ejecutivos, medidas cautelares, excepciones y prescripción.",
+  "notaNormas": "Estatuto Tributario salvo indicación",
+  "semanas": [
+    {
+      "id": "s1",
+      "inicio": "2026-10-12",
+      "fin": "2026-10-18",
+      "temas": "Tronco común",
+      "normas": ["Ver tabla del tronco común"],
+      "tronco": "estudio"
+    },
+    {
+      "id": "s2",
+      "inicio": "2026-10-19",
+      "fin": "2026-10-25",
+      "temas": "Extinción de la obligación: pago, compensación, prescripción de la acción de cobro, remisión; intereses moratorios; responsabilidad solidaria; facilidades y acuerdos de pago",
+      "normas": ["634-635, 793-794, 800-822 (814, 815, 817, 818, 820)"]
+    },
+    {
+      "id": "s3",
+      "inicio": "2026-10-26",
+      "fin": "2026-11-01",
+      "temas": "Procedimiento coactivo: competencia, títulos ejecutivos, mandamiento de pago y notificación, excepciones y su trámite, recursos, medidas cautelares y límites, remate",
+      "normas": ["823-843 (826, 828, 830-836, 837-840)", "CGP (Ley 1564 de 2012) como norma supletoria"]
+    },
+    {
+      "id": "s4",
+      "inicio": "2026-11-02",
+      "fin": "2026-11-07",
+      "temas": "Cobro frente a procesos concursales y liquidaciones; devoluciones y compensaciones; dos simulacros completos",
+      "normas": ["844-849", "Ley 1116 de 2006", "850-865"],
+      "tronco": "repaso"
+    }
+  ],
+  "tareas": [
+    { "id": "b-cuadro-excepciones-831", "texto": "Hacer un cuadro de las excepciones del artículo 831 con su efecto." },
+    { "id": "b-limites-embargos", "texto": "Memorizar límites de embargos y bienes inembargables." },
+    { "id": "b-casos-prescripcion-818", "texto": "Practicar casos de prescripción con interrupción y suspensión (art. 818)." }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "por-defecto",
+  "tipo": "plan",
+  "orden": 0,
+  "titulo": "Plan por defecto (sin OPEC): mixto",
+  "tituloCorto": "Mixto (por defecto)",
+  "resumen": "Si nunca se consigue la OPEC, el plan más rentable es el mixto: tronco común más procedimiento tributario como eje, porque el Libro V del Estatuto Tributario aparece en fiscalización, cobranzas y defensa judicial. Aduanas se estudia solo en nivel panorámico.",
+  "notas": [
+    "Con este reparto, el abogado cubre a fondo tres de los cuatro casos y tiene nociones del cuarto."
+  ],
+  "semanas": [
+    {
+      "id": "s1",
+      "inicio": "2026-10-12",
+      "fin": "2026-10-18",
+      "temas": "Tronco común completo (CPACA, Constitución, DIAN, disciplinario)",
+      "normas": [],
+      "horas": 22,
+      "tronco": "estudio"
+    },
+    {
+      "id": "s2",
+      "inicio": "2026-10-19",
+      "fin": "2026-10-25",
+      "temas": "Procedimiento tributario: RUT, declaraciones, fiscalización, liquidación oficial, firmeza, sanciones",
+      "normas": [],
+      "horas": 24
+    },
+    {
+      "id": "s3",
+      "inicio": "2026-10-26",
+      "fin": "2026-11-01",
+      "temas": "Recursos y discusión, cobro coactivo, prescripción, devoluciones; nulidad y restablecimiento",
+      "normas": [],
+      "horas": 24
+    },
+    {
+      "id": "s4",
+      "inicio": "2026-11-02",
+      "fin": "2026-11-07",
+      "temas": "Panorama aduanero y cambiario (1 día), dos simulacros de 4 horas, repaso de errores, descanso el 7",
+      "normas": [],
+      "horas": 18,
+      "tronco": "repaso"
+    }
+  ],
+  "tareas": [],
+  "todo": [
+    "El dossier no asigna normas por semana a este plan; consulte la página de Normativa.",
+    "El dossier no trae tareas para este plan; puede marcar cada semana como completada."
+  ]
+}

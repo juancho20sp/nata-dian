@@ -1,0 +1,45 @@
+{
+  "slug": "caso-c-juridica",
+  "tipo": "plan",
+  "orden": 3,
+  "titulo": "Caso C: gestión jurídica y representación externa",
+  "tituloCorto": "C · Jurídica",
+  "resumen": "Este Gestor defiende a la DIAN ante los jueces, resuelve recursos o proyecta doctrina. Pesa más el derecho procesal administrativo que el tributario sustancial.",
+  "semanas": [
+    {
+      "id": "s1",
+      "inicio": "2026-10-12",
+      "fin": "2026-10-18",
+      "temas": "Tronco común, con énfasis en CPACA",
+      "normas": ["Ver tabla del tronco común"],
+      "tronco": "estudio"
+    },
+    {
+      "id": "s2",
+      "inicio": "2026-10-19",
+      "fin": "2026-10-25",
+      "temas": "Medios de control: nulidad, nulidad y restablecimiento, reparación directa, controversias contractuales; caducidad; requisito de procedibilidad y conciliación; demanda y contestación",
+      "normas": ["CPACA arts. 137-164 y 161", "Ley 2220 de 2022"]
+    },
+    {
+      "id": "s3",
+      "inicio": "2026-10-26",
+      "fin": "2026-11-01",
+      "temas": "Proceso contencioso: medidas cautelares, audiencias, pruebas, sentencia, recursos, sentencias de unificación y extensión de jurisprudencia; procedimiento tributario que se discute en juicio (liquidación oficial, sanciones, firmeza)",
+      "normas": ["CPACA arts. 229-311", "ET 684-741 y 714"]
+    },
+    {
+      "id": "s4",
+      "inicio": "2026-11-02",
+      "fin": "2026-11-07",
+      "temas": "Doctrina DIAN y su obligatoriedad, acción de tutela y cumplimiento, defensa jurídica del Estado; dos simulacros completos",
+      "normas": ["Ley 2010 de 2019, art. 131 (doctrina DIAN)", "Decreto 2591 de 1991", "Ley 393 de 1997", "Decreto 1069 de 2015 (defensa jurídica)"],
+      "tronco": "repaso"
+    }
+  ],
+  "tareas": [
+    { "id": "c-tabla-caducidad", "texto": "Hacer una tabla de caducidad por medio de control." },
+    { "id": "c-sentencias-unificacion", "texto": "Leer cinco sentencias de unificación de la Sección Cuarta del Consejo de Estado sobre procedimiento tributario." },
+    { "id": "c-casos-recurso-medio-control", "texto": "Practicar casos de qué recurso o medio de control procede según el acto." }
+  ]
+}

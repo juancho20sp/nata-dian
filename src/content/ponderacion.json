@@ -1,0 +1,8 @@
+[
+  { "id": "ingreso-con-experiencia", "modalidad": "Ingreso", "tipoEmpleo": "Exige experiencia", "funcionales": 65, "comportamentales": 15, "integridad": 10, "antecedentes": 10 },
+  { "id": "ingreso-sin-experiencia", "modalidad": "Ingreso", "tipoEmpleo": "Sin experiencia", "funcionales": 70, "comportamentales": 20, "integridad": 10, "antecedentes": null },
+  { "id": "ingreso-reserva-discapacidad", "modalidad": "Ingreso", "tipoEmpleo": "Reserva discapacidad", "funcionales": 65, "comportamentales": 15, "integridad": 10, "antecedentes": 10 },
+  { "id": "ascenso-con-experiencia", "modalidad": "Ascenso", "tipoEmpleo": "Exige experiencia", "funcionales": 60, "comportamentales": 15, "integridad": 10, "antecedentes": 15 },
+  { "id": "ascenso-sin-experiencia", "modalidad": "Ascenso", "tipoEmpleo": "Sin experiencia", "funcionales": 65, "comportamentales": 20, "integridad": 10, "antecedentes": 5 },
+  { "id": "ascenso-reserva-discapacidad", "modalidad": "Ascenso", "tipoEmpleo": "Reserva discapacidad", "funcionales": 60, "comportamentales": 15, "integridad": 10, "antecedentes": 15 }
+]
