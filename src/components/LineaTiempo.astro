@@ -2,42 +2,36 @@
 import { idItemSemana, type Plan } from '../lib/datos';
 import { rangoLegible } from '../lib/fechas';
 import { ruta } from '../lib/ruta';
+import Plegable from './Plegable.astro';
 
 interface Props {
   plan: Plan;
 }
 const { plan } = Astro.props;
 const semanasJSON = JSON.stringify(plan.semanas.map(({ id, inicio, fin }) => ({ id, inicio, fin })));
+const resumenSemana = (s: Plan['semanas'][number]) => (s.horas ? `${s.temas} · ≈ ${s.horas} h` : s.temas);
 ---
 
 <section aria-labelledby="titulo-semanas">
   <h2 id="titulo-semanas" class="text-2xl font-bold mb-1">Semanas</h2>
   {plan.notaNormas && <p class="text-sm text-suave mb-3">Normas: {plan.notaNormas}.</p>}
 
-  <ol class="relative border-l-2 border-borde ml-2 space-y-5" data-linea-tiempo data-semanas={semanasJSON}>
+  <ol class="mt-3" data-linea-tiempo data-semanas={semanasJSON}>
     {
       plan.semanas.map((s, i) => (
-        <li
-          class="semana relative pl-6 group"
-          data-semana={s.id}
-        >
-          <span
-            aria-hidden="true"
-            class="absolute -left-[0.6rem] top-5 w-4 h-4 rounded-full border-2 border-borde bg-superficie group-data-[actual]:bg-primario group-data-[actual]:border-primario"
-          />
-          <article class="tarjeta group-data-[actual]:border-primario group-data-[actual]:border-2 group-data-[actual]:shadow-md">
-            <header class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h3 class="text-lg font-bold">
-                Semana {i + 1}: {rangoLegible(s.inicio, s.fin)}
-              </h3>
-              <span class="hidden group-data-[actual]:inline text-xs font-semibold uppercase tracking-wide bg-primario text-primario-texto rounded px-2 py-0.5">
-                Semana actual
-              </span>
-              {s.horas && <span class="text-sm text-suave">≈ {s.horas} horas</span>}
-            </header>
-            <p class="mt-2">{s.temas}</p>
+        <li data-semana={s.id} class="group">
+          <Plegable
+            id={`semana-${s.id}`}
+            titulo={`Semana ${i + 1}: ${rangoLegible(s.inicio, s.fin)}`}
+            resumen={resumenSemana(s)}
+            nivel="h3"
+            class="group-data-[actual]:border-primario group-data-[actual]:border-2"
+          >
+            <span slot="encabezado" class="hidden group-data-[actual]:inline-block mt-1.5 text-xs font-semibold uppercase tracking-wide bg-primario text-primario-texto rounded px-2 py-0.5">
+              Semana actual
+            </span>
             {s.normas.length > 0 && (
-              <div class="mt-2">
+              <div>
                 <p class="text-sm font-semibold text-suave">Normas</p>
                 <ul class="list-disc pl-5">
                   {s.normas.map((n) =>
@@ -53,12 +47,12 @@ const semanasJSON = JSON.stringify(plan.semanas.map(({ id, inicio, fin }) => ({ 
               </div>
             )}
             {s.tronco === 'estudio' && s.normas.length === 0 && (
-              <p class="mt-2 text-sm">
+              <p class="text-sm">
                 <a href={ruta('/planes/tronco-comun')}>Ver tabla del tronco común</a>
               </p>
             )}
             {s.tronco === 'repaso' && (
-              <p class="mt-2 text-sm text-suave">
+              <p class="text-sm text-suave">
                 Esta semana también se repasa el <a href={ruta('/planes/tronco-comun')}>tronco común</a>.
               </p>
             )}
@@ -66,7 +60,7 @@ const semanasJSON = JSON.stringify(plan.semanas.map(({ id, inicio, fin }) => ({ 
               <input type="checkbox" class="casilla" data-item={idItemSemana(s.id)} />
               <span>Semana completada</span>
             </label>
-          </article>
+          </Plegable>
         </li>
       ))
     }

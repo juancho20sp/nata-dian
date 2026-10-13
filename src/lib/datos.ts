@@ -3,7 +3,7 @@ import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 export type Plan = CollectionEntry<'planes'>['data'];
 
 /** Plan que se usa cuando el usuario aún no ha elegido uno. */
-export const PLAN_POR_DEFECTO = 'por-defecto';
+export { PLAN_POR_DEFECTO } from './plan-elegido';
 export const TRONCO_COMUN = 'tronco-comun';
 
 export async function todosLosPlanes(): Promise<Plan[]> {

@@ -25,11 +25,11 @@
 
 ## 4. Mi plan
 
-- [ ] 4.1 Crear `EstaSemana.astro` a partir de los paneles de `hoy.astro` (semana en curso, antes, día de la prueba, después, hueco, aviso de domingo y rutina plegada) y ponerlo primero en `planes/[slug].astro` para planes de tipo `plan`, con `no-imprimir`; verificar cambiando la fecha del sistema o con una prueba Vitest de la función que elige el panel (12-oct, 21-oct, domingo 25-oct, 8-nov, 9-nov)
-- [ ] 4.2 Añadir el encabezado del plan ("Plan elegido" o "Plan por defecto" y "Cambiar" a `/plan/elegir`); verificar que el texto cambia tras elegir otro plan
-- [ ] 4.3 Cambiar `LineaTiempo.astro` para que cada semana sea un `Plegable` (`id="semana-<id>"`), con la casilla "Semana completada" dentro y la semana en curso marcada en el `summary`; verificar que el progreso guardado antes del cambio sigue marcado (mismas claves `data-item`)
-- [ ] 4.4 Crear `/plan` (redirección en el cliente al plan guardado y validado, `noscript` con enlaces) y mover el selector a `/plan/elegir`; extraer la validación del slug a una función pura y verificar con Vitest que un slug inexistente o `tronco-comun` cae en `por-defecto`
-- [ ] 4.5 Verificar la impresión de `/planes/caso-a-fiscalizacion`: cuatro semanas desplegadas, tareas visibles, sin barras ni Esta semana
+- [x] 4.1 Crear `EstaSemana.astro` a partir de los paneles de `hoy.astro` (semana en curso, antes, día de la prueba, después, hueco, aviso de domingo y rutina plegada) y ponerlo primero en `planes/[slug].astro` para planes de tipo `plan`, con `no-imprimir`; verificar cambiando la fecha del sistema o con una prueba Vitest de la función que elige el panel (12-oct, 21-oct, domingo 25-oct, 8-nov, 9-nov)
+- [x] 4.2 Añadir el encabezado del plan ("Plan elegido" o "Plan por defecto" y "Cambiar" a `/plan/elegir`); verificar que el texto cambia tras elegir otro plan
+- [x] 4.3 Cambiar `LineaTiempo.astro` para que cada semana sea un `Plegable` (`id="semana-<id>"`), con la casilla "Semana completada" dentro y la semana en curso marcada en el `summary`; verificar que el progreso guardado antes del cambio sigue marcado (mismas claves `data-item`)
+- [x] 4.4 Crear `/plan` (redirección en el cliente al plan guardado y validado, `noscript` con enlaces) y mover el selector a `/plan/elegir`; extraer la validación del slug a una función pura y verificar con Vitest que un slug inexistente o `tronco-comun` cae en `por-defecto`
+- [x] 4.5 Verificar la impresión de `/planes/caso-a-fiscalizacion`: cuatro semanas desplegadas, tareas visibles, sin barras ni Esta semana
 
 ## 5. Inicio y redirecciones
 

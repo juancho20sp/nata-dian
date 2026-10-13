@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import { planesSeleccionables, PLAN_POR_DEFECTO } from '../../lib/datos';
+import { ruta } from '../../lib/ruta';
+
+const slugs = (await planesSeleccionables()).map((p) => p.slug);
+---
+
+<Base titulo="Mi plan" sinIndice>
+  <div id="abrir-plan" data-planes={JSON.stringify(slugs)} data-base={ruta('/planes/')}>
+    <h1 class="text-2xl font-bold">Mi plan</h1>
+    <p class="mt-2 text-suave" aria-live="polite">Abriendo su plan…</p>
+    <noscript>
+      <p class="mt-3">Sin JavaScript no se puede recordar su plan.</p>
+      <p class="mt-3 flex flex-wrap gap-3">
+        <a href={ruta(`/planes/${PLAN_POR_DEFECTO}`)} class="boton boton-primario">Ver el plan por defecto</a>
+        <a href={ruta('/plan/elegir')} class="boton">Elegir un plan</a>
+      </p>
+    </noscript>
+  </div>
+</Base>
+
+<script>
+  import { CLAVES, leer } from '../../lib/almacen';
+  import { planDestino } from '../../lib/plan-elegido';
+
+  const contenedor = document.getElementById('abrir-plan');
+  if (contenedor) {
+    let slugs: string[] = [];
+    try {
+      slugs = JSON.parse(contenedor.dataset.planes ?? '[]');
+    } catch {
+      /* sin lista: se usa el plan por defecto */
+    }
+    const destino = planDestino(leer<unknown>(CLAVES.plan, null), slugs);
+    location.replace(`${contenedor.dataset.base}${destino}/`);
+  }
+</script>

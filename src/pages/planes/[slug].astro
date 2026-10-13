@@ -1,13 +1,14 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
-import Encabezado from '../../components/Encabezado.astro';
 import Aviso from '../../components/Aviso.astro';
 import LineaTiempo from '../../components/LineaTiempo.astro';
 import TroncoComun from '../../components/TroncoComun.astro';
 import BarraProgreso from '../../components/BarraProgreso.astro';
 import Tareas from '../../components/Tareas.astro';
-import { todosLosPlanes, TRONCO_COMUN, type Plan } from '../../lib/datos';
+import EstaSemana from '../../components/EstaSemana.astro';
+import Plegable from '../../components/Plegable.astro';
+import { todosLosPlanes, PLAN_POR_DEFECTO, TRONCO_COMUN, type Plan } from '../../lib/datos';
 import { ruta } from '../../lib/ruta';
 
 export const getStaticPaths = (async () => {
@@ -23,29 +24,55 @@ const totalItems = plan.semanas.length + plan.tareas.length;
 ---
 
 <Base titulo={plan.titulo} descripcion={plan.resumen}>
-  <nav aria-label="Migas" class="no-imprimir text-sm mb-3">
-    <a href={ruta('/planes')}>← Todos los planes</a>
-  </nav>
+  {
+    plan.tipo === 'plan' ? (
+      <p class="no-imprimir text-sm mb-1 flex flex-wrap gap-x-2" data-estado-plan={plan.slug}>
+        <span data-texto-estado>{plan.slug === PLAN_POR_DEFECTO ? 'Plan por defecto' : 'Plan'}</span>
+        <span aria-hidden="true">·</span>
+        <a href={ruta('/plan/elegir')}>Cambiar</a>
+      </p>
+    ) : (
+      <nav aria-label="Migas" class="no-imprimir text-sm mb-1">
+        <a href={ruta('/plan')}>← Mi plan</a>
+      </nav>
+    )
+  }
 
-  <Encabezado titulo={plan.titulo} bajada={plan.resumen} />
+  <h1 class="text-2xl sm:text-3xl font-bold leading-tight mb-4">{plan.titulo}</h1>
 
-  {plan.notas.map((n) => <p class="mb-4">{n}</p>)}
+  {plan.tipo === 'plan' && <EstaSemana plan={plan} />}
 
   {
-    plan.todo.length > 0 && (
-      <Aviso titulo="Pendiente (TODO)">
-        <ul class="list-disc pl-5">
-          {plan.todo.map((t) => (
-            <li>{t}</li>
-          ))}
-        </ul>
-      </Aviso>
+    plan.tipo === 'plan' ? (
+      <Plegable
+        id="sobre-el-plan"
+        titulo="Sobre este plan"
+        resumen="Por qué este reparto y qué le falta al dossier."
+        aviso={plan.todo.length > 0 ? ['Pendiente'] : []}
+      >
+        <p>{plan.resumen}</p>
+        {plan.notas.map((n) => <p class="mt-3">{n}</p>)}
+        {plan.todo.length > 0 && (
+          <Aviso titulo="Pendiente (TODO)">
+            <ul class="list-disc pl-5">
+              {plan.todo.map((t) => (
+                <li>{t}</li>
+              ))}
+            </ul>
+          </Aviso>
+        )}
+      </Plegable>
+    ) : (
+      <>
+        <p class="mb-4 text-lg text-suave">{plan.resumen}</p>
+        {plan.notas.map((n) => <p class="mb-4">{n}</p>)}
+      </>
     )
   }
 
   {
     plan.tipo === 'plan' ? (
-      <div data-progreso={plan.slug}>
+      <div data-progreso={plan.slug} class="mt-6">
         <BarraProgreso total={totalItems} />
         <p class="no-imprimir mb-4">
           La primera semana es el <a href={ruta(`/planes/${TRONCO_COMUN}`)}>tronco común</a>, que se repasa en la última.
@@ -65,6 +92,19 @@ const totalItems = plan.semanas.length + plan.tareas.length;
 
 <script>
   import { CLAVES, borrar, escribir, leer } from '../../lib/almacen';
+
+  // Encabezado: ¿es el plan elegido?
+  const estado = document.querySelector<HTMLElement>('[data-estado-plan]');
+  if (estado?.dataset.estadoPlan) {
+    const slug = estado.dataset.estadoPlan;
+    const elegido = leer<string | null>(CLAVES.plan, null);
+    const texto = estado.querySelector('[data-texto-estado]');
+    if (texto) {
+      if (elegido === slug) texto.textContent = '✓ Su plan elegido';
+      else if (!elegido && slug === 'por-defecto') texto.textContent = 'Plan por defecto (no ha elegido otro)';
+      else texto.textContent = 'No es su plan elegido';
+    }
+  }
   import { filtrarVigentes, resumir } from '../../lib/progreso';
 
   const raiz = document.querySelector<HTMLElement>('[data-progreso]');

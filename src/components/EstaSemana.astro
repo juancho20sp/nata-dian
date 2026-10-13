@@ -1,0 +1,134 @@
+---
+/**
+ * Bloque "Esta semana" de un plan: el servidor genera un panel por semana y por
+ * estado (antes, día de la prueba, después, hueco), todos ocultos, y el script
+ * muestra el que corresponde a la fecha en Colombia. Sin JavaScript no se ve
+ * (la línea de tiempo del plan sigue completa).
+ */
+import type { Plan } from '../lib/datos';
+import { troncoComun } from '../lib/datos';
+import { rangoLegible } from '../lib/fechas';
+import { ruta } from '../lib/ruta';
+import Plegable from './Plegable.astro';
+
+interface Props {
+  plan: Plan;
+}
+const { plan } = Astro.props;
+const tronco = await troncoComun();
+const rangos = JSON.stringify(plan.semanas.map(({ id, inicio, fin }) => ({ id, inicio, fin })));
+const enlaceTronco = ruta('/planes/tronco-comun');
+---
+
+<section aria-labelledby="titulo-esta-semana" class="no-imprimir mb-6" id="esta-semana" data-semanas={rangos} hidden>
+  <h2 id="titulo-esta-semana" class="sr-only">Esta semana</h2>
+
+  {
+    plan.semanas.map((s, i) => (
+      <div class="tarjeta border-l-4 border-l-primario" data-panel={`semana:${s.id}`} hidden>
+        <p class="text-sm font-semibold uppercase tracking-wide text-suave">
+          Esta semana · Semana {i + 1} de {plan.semanas.length} · {rangoLegible(s.inicio, s.fin)}
+        </p>
+        <p class="text-xl font-bold mt-1">{s.temas}</p>
+        {s.horas && <p class="text-suave mt-1">≈ {s.horas} horas en la semana</p>}
+        {s.normas.length > 0 && (
+          <div class="mt-3">
+            <p class="font-semibold">Normas</p>
+            <ul class="list-disc pl-5">
+              {s.normas.map((n) =>
+                n === 'Ver tabla del tronco común' ? (
+                  <li>
+                    <a href={enlaceTronco}>Ver tabla del tronco común</a>
+                  </li>
+                ) : (
+                  <li>{n}</li>
+                ),
+              )}
+            </ul>
+            {plan.notaNormas && <p class="text-sm text-suave mt-1">{plan.notaNormas}.</p>}
+          </div>
+        )}
+        {s.tronco === 'estudio' && s.normas.length === 0 && (
+          <p class="mt-3">
+            <a href={enlaceTronco}>Ver tabla del tronco común</a>
+          </p>
+        )}
+        {s.tronco === 'repaso' && (
+          <p class="mt-3 text-suave">
+            Esta semana también se repasa el <a href={enlaceTronco}>tronco común</a>.
+          </p>
+        )}
+      </div>
+    ))
+  }
+
+  <div class="tarjeta" data-panel="antes" hidden>
+    <p class="text-xl font-bold">El plan empieza el lunes 12 de octubre.</p>
+    <p class="mt-1">La primera semana es el tronco común.</p>
+    <p class="mt-3"><a href={enlaceTronco} class="boton">Ver el tronco común</a></p>
+  </div>
+
+  <div class="tarjeta border-l-4 border-l-aviso-borde" data-panel="prueba" hidden>
+    <p class="text-xl font-bold">Hoy es la prueba</p>
+    <p class="mt-1">Puertas abren 7:15 a. m., inicio 8:00 a. m., cierre de puertas 8:30 a. m.</p>
+    <p class="mt-3"><a href={ruta('/prueba/dia')} class="boton boton-primario">Repasar el día de la prueba</a></p>
+  </div>
+
+  <div class="tarjeta" data-panel="despues" hidden>
+    <p class="text-xl font-bold">La prueba ya pasó</p>
+    <p class="mt-1">
+      Reclamaciones: solo por SIMO, dentro de los 5 días hábiles siguientes a la publicación de resultados; se puede pedir
+      acceso a la prueba y completar la reclamación en 2 días hábiles.
+    </p>
+  </div>
+
+  <div class="tarjeta" data-panel="hueco" hidden>
+    <p class="text-xl font-bold">No hay una semana asignada para hoy</p>
+    <p class="mt-1">Revise las semanas del plan.</p>
+  </div>
+
+  <p class="tarjeta bg-primario-suave font-semibold mt-3" data-domingo hidden>Hoy es domingo: toca simulacro cronometrado.</p>
+
+  {
+    tronco.rutina && (
+      <div class="mt-3" data-rutina hidden>
+        <Plegable id="rutina" titulo="Rutina diaria sugerida" resumen={`${tronco.rutina.horas}.`} nivel="h3">
+          <ol class="space-y-2">
+            {tronco.rutina.pasos.map((paso, i) => (
+              <li class="flex gap-3">
+                <span class="font-bold text-primario tabular-nums">{i + 1}.</span>
+                <span>{paso}</span>
+              </li>
+            ))}
+          </ol>
+        </Plegable>
+      </div>
+    )
+  }
+</section>
+
+<script>
+  import { clavePanel, panelDeHoy } from '../lib/esta-semana';
+  import type { RangoSemana } from '../lib/fechas';
+
+  const bloque = document.getElementById('esta-semana');
+  if (bloque) {
+    let semanas: RangoSemana[] = [];
+    try {
+      semanas = JSON.parse(bloque.dataset.semanas ?? '[]');
+    } catch {
+      /* sin datos */
+    }
+    if (semanas.length > 0) {
+      const panel = panelDeHoy(semanas, new Date());
+      const clave = clavePanel(panel);
+      for (const p of bloque.querySelectorAll<HTMLElement>('[data-panel]')) p.hidden = p.dataset.panel !== clave;
+      const enSemana = panel.tipo === 'semana';
+      const rutina = bloque.querySelector<HTMLElement>('[data-rutina]');
+      if (rutina) rutina.hidden = !enSemana;
+      const domingo = bloque.querySelector<HTMLElement>('[data-domingo]');
+      if (domingo) domingo.hidden = !(enSemana && panel.domingo);
+      bloque.hidden = false;
+    }
+  }
+</script>

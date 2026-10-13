@@ -22,6 +22,7 @@ const Encabezado = nivel;
     <span class="flex-1 min-w-0">
       <Encabezado id={id} class:list={['plegable-titulo', nivel === 'h3' && 'plegable-titulo-h3']}>{titulo}</Encabezado>
       <span class="plegable-resumen">{resumen}</span>
+      <slot name="encabezado" />
       {
         aviso.length > 0 && (
           <span class="mt-1.5 flex flex-wrap gap-1.5">
