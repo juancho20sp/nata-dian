@@ -18,7 +18,7 @@ Sitio web estático (Astro + Tailwind), mobile-first, en español de Colombia. S
 
 ## Information Architecture
 
-Hoy hay 9 secciones en la navegación. Pasan a **5 destinos y búsqueda**:
+Hoy hay 9 secciones en la navegación. Pasan a **6 destinos y búsqueda** (el sexto, Repasar, se agregó en la actualización de tarjetas):
 
 | Destino | Ruta | Reúne | Propósito |
 |---|---|---|---|
@@ -26,10 +26,11 @@ Hoy hay 9 secciones en la navegación. Pasan a **5 destinos y búsqueda**:
 | La prueba | `/prueba` | La prueba + Recursos | Cómo es y cómo se califica; cómo practicar |
 | Normativa | `/normativa` | Normativa + contexto normativo | Qué norma estudiar según el tema y el empleo |
 | Convocatoria | `/convocatoria` | Convocatoria y empleos | Proceso, cronograma, empleos para abogados, cargo de Gestor |
+| Repasar | `/repasar` | Nuevo | Tarjetas con repetición espaciada, quiz de normas, meta diaria y racha |
 | Mi plan | `/plan` | Hoy + Elige tu plan + plan detallado | Esta semana, el plan elegido y el progreso |
 | Buscar | diálogo | Pagefind | Cualquier término |
 
-Los 5 destinos van en la barra: Inicio, La prueba, Normativa, Convocatoria y Mi plan (último, por ser secundario). "Fuentes" pasa al pie. "Recursos" deja de ser sección y se vuelve la subpágina "Practicar".
+Los 6 destinos van en la barra con etiquetas cortas: Inicio, Prueba, Normas, Concurso, Repasar y Mi plan. Los títulos de página siguen completos (La prueba, Normativa, Convocatoria). "Fuentes" pasa al pie. "Recursos" deja de ser sección y se vuelve la subpágina "Practicar".
 
 ### Subpáginas
 
@@ -42,6 +43,10 @@ Los 5 destinos van en la barra: Inicio, La prueba, Normativa, Convocatoria y Mi 
 | `/convocatoria` | Lo esencial, cronograma plegado, empleos para abogados, cargo de Gestor | Convocatoria |
 | `/plan` | Esta semana del plan elegido, luego semanas y tareas | Hoy + plan detallado |
 | `/plan/elegir` | Selector de plan | Elige tu plan |
+| `/repasar` | Resumen: tarjetas para hoy, meta, racha, mazos y entrada a los dos modos | Nuevo |
+| `/repasar/tarjetas` | Sesión de tarjetas (todas las que tocan hoy o un mazo) | Nuevo |
+| `/repasar/quiz` | Quiz de 10 preguntas A/B/C | Nuevo |
+| `/repasar/mis-tarjetas` | Crear, editar y borrar tarjetas propias | Nuevo |
 | `/planes/[slug]` | Vista completa e imprimible de un plan | Se conserva para imprimir y compartir |
 
 Rutas anteriores (`/hoy`, `/planes`, `/recursos`, `/fuentes`) redirigen a la nueva ubicación. `/fuentes` sigue existiendo, enlazada desde el pie.
@@ -56,6 +61,16 @@ Rutas anteriores (`/hoy`, `/planes`, `/recursos`, `/fuentes`) redirigen a la nue
 4. ¿Qué empleos aplican para un abogado? → `/convocatoria#empleos`
 5. ¿Dónde practico con preguntas oficiales? → `/prueba/practicar`
 
+### Repasar: tarjetas y quiz
+
+**Mazos.** Tarjetas del dossier, agrupadas en mazos: La prueba (datos del examen y del día), Tronco común (tema → norma), Procedimiento tributario (concepto → artículos del ET), Cobro, Aduanero y cambiario, y Contexto (cambios normativos y datos que los blogs repiten mal). Más **Mis tarjetas**, que escribe el usuario y viven solo en su dispositivo. El reverso de una tarjeta del dossier es siempre un fragmento literal del dossier; el frente es una pregunta que lo pide. [ASSUMPTION] Los mazos y su número (unas 40 a 60 tarjetas).
+
+**Repetición espaciada.** Cajas Leitner 1 a 5. Acertar sube una caja; fallar vuelve a la caja 1. Intervalos 1, 2, 4, 7 y 14 días [ASSUMPTION], recortados para que del 5 al 7 de noviembre todas las tarjetas vuelvan una vez ("repaso final"). Una tarjeta "domina" cuando llega a la caja 5.
+
+**Quiz.** 10 preguntas de "¿qué norma regula…?" con tres opciones (A, B, C), como en la prueba. La correcta es el reverso de una tarjeta; las otras dos son reversos de otras tarjetas del mismo mazo. Al final, puntaje y repaso de las falladas. Las falladas vuelven a la caja 1 de su tarjeta.
+
+**Meta diaria y racha.** Meta de 10, 20 o 30 respuestas al día (por defecto 20), elegible en Repasar. Cada tarjeta respondida y cada pregunta del quiz suma 1. Un día cuenta para la racha si se cumple la meta (fecha de Colombia). La racha es indulgente: un día sin cumplir por semana (lunes a domingo) no la rompe. Nunca se muestran mensajes de culpa.
+
 ## Voice and Tone
 
 | Hacer | No hacer |
@@ -65,6 +80,9 @@ Rutas anteriores (`/hoy`, `/planes`, `/recursos`, `/fuentes`) redirigen a la nue
 | Cifras con unidad: "70/100", "4 horas", "5 días hábiles" | "Un mínimo establecido" |
 | Advertencia en una frase: "Dato de terceros; verifique en SIMO." | Párrafos de advertencia repetidos |
 | Usted (como el dossier) | Tuteo mezclado con usted |
+| "Meta de hoy: 12 de 20." / "Racha: 5 días." | "¡Vas genial! 🔥" / "Perdiste tu racha" |
+| "Le faltó un día esta semana; la racha sigue." | "No olvides estudiar" |
+| Tras fallar: "Vuelve mañana." | "Incorrecto ✗" en rojo |
 
 Los textos de Lo esencial se arman con frases del dossier, sin agregar datos.
 
@@ -79,7 +97,11 @@ Las especificaciones visuales están en `DESIGN.md.Components`.
 | Tarjeta-pregunta | Inicio | Toda la tarjeta es el enlace. |
 | Aviso | Páginas con datos de terceros, inferidos o aproximados | Uno por página, agrupado. Primera frase visible; detalle plegado. La nota de que SIMO y el Acuerdo 21 prevalecen sigue en el pie de todas las páginas. |
 | Chips de filtro | Normativa, Practicar | Selección única por grupo. "Todos" es el estado inicial en Normativa; "Solo oficiales" está activo por defecto en Practicar. El filtro se refleja en la URL (`?empleo=`) para poder compartirlo. |
-| Barra inferior | Global, móvil | 5 destinos fijos abajo. La búsqueda y el tema siguen en la barra superior. |
+| Barra inferior | Global, móvil | 6 destinos fijos abajo, con etiquetas cortas. La búsqueda y el tema siguen en la barra superior. |
+| Tarjeta | Repasar → Tarjetas | Muestra el frente; tocar o Espacio la voltea. Con el reverso visible aparecen "La sabía" y "No la sabía". La respuesta mueve la tarjeta de caja y pasa a la siguiente. Enlace "Ver en el sitio" a la sección de donde sale. |
+| Pregunta de quiz | Repasar → Quiz | Tres opciones A, B, C como botones. Elegir revela la correcta y la elegida; "Siguiente" avanza. Teclas 1, 2, 3 o A, B, C. |
+| Meta y racha | Repasar, Inicio (una línea) | Barra de meta "N de M" y número de días de racha. En Inicio, una línea: "Hoy: N tarjetas para repasar · racha de D días". |
+| Editor de tarjeta propia | Mis tarjetas | Frente y reverso (texto plano), mazo fijo "Mis tarjetas". Guardar, editar, borrar con confirmación. |
 | Esta semana | Mi plan, Inicio (versión de una línea) | Muestra la semana que corre del plan elegido. En Inicio es una sola línea con enlace a Mi plan. |
 
 ## State Patterns
@@ -93,12 +115,19 @@ Las especificaciones visuales están en `DESIGN.md.Components`.
 | Sin JavaScript | Mi plan, filtros | Mi plan muestra el plan por defecto completo; los filtros muestran todo. |
 | Filtro sin resultados | Normativa | "Ninguna norma para este empleo." Botón "Ver todas". |
 | Ancla en la URL | Páginas de consulta | Abre la sección plegable correspondiente. |
+| Nada para hoy | Repasar → Tarjetas | "No hay tarjetas para hoy." Ofrece repasar un mazo igual o hacer un quiz. |
+| Primera visita a Repasar | Repasar | Todas las tarjetas del dossier están en la caja 1 y tocan hoy. La meta por defecto es 20. |
+| Meta cumplida | Repasar, Inicio | "Meta de hoy cumplida." Se puede seguir repasando; no hay confeti. |
+| Sin almacenamiento | Repasar | Funciona en la sesión, con aviso de una línea: "Este navegador no guarda el avance." |
+| Sin JavaScript | Repasar | Mensaje: el repaso necesita JavaScript; enlace a las páginas de consulta. |
+| Después de la prueba | Repasar | Sigue disponible; la meta y la racha dejan de mostrarse. |
 
 ## Interaction Primitives
 
 - Tocar para abrir y cerrar secciones. Sin acordeón exclusivo: abrir una no cierra las demás.
 - Filtros con chips, sin `select`.
 - La búsqueda abre un diálogo; Escape lo cierra.
+- Tarjetas: tocar para voltear; Espacio o Enter voltea; 1 = no la sabía, 2 = la sabía.
 - **Prohibido:** carruseles, pestañas que oculten contenido indexable, más de una tabla abierta al cargar, ventanas emergentes de bienvenida.
 
 ## Accessibility Floor
@@ -107,20 +136,24 @@ Las especificaciones visuales están en `DESIGN.md.Components`.
 - Los chips son botones con `aria-pressed`; el número de resultados se anuncia con `aria-live`.
 - La barra inferior es un `nav` con `aria-current="page"` en el destino activo; objetivos táctiles de 44 px o más.
 - Al abrir una sección por ancla, el foco va a su `summary`.
+- La tarjeta es un botón; al voltear se anuncia el reverso (`aria-live`). Las opciones del quiz son botones; el resultado se anuncia como texto ("Correcta" / "La correcta era B"), no solo por color.
+- Con `prefers-reduced-motion`, la tarjeta cambia sin animación de giro.
 - Se mantienen el salto al contenido, el contraste AA y el respeto de `prefers-reduced-motion`.
 
 ## Responsive & Platform
 
 | Ancho | Comportamiento |
 |---|---|
-| < 1024 px | Barra inferior con 5 destinos; barra superior solo con nombre, búsqueda y tema. |
+| < 1024 px | Barra inferior con 6 destinos; barra superior solo con nombre, búsqueda y tema. |
 | ≥ 1024 px | Sin barra inferior; los destinos pasan a la barra superior. Columna de lectura centrada. |
 | Impresión | `/planes/[slug]` con todo desplegado; sin barras. |
 
 ## Inspiration & Anti-patterns
 
 - **Rechazado: el portal institucional.** Muchas secciones con nombres administrativos y todo abierto a la vez. Es lo que hoy se percibe como sobrecarga.
-- **Rechazado: gamificación.** Ni rachas ni insignias; el progreso es una barra y casillas.
+- **Aceptado (actualización de tarjetas): meta diaria y racha**, a pedido del usuario. La racha es indulgente y sin culpa.
+- **Rechazado: insignias, puntos, tablas de posiciones y confeti.** El refuerzo es el número de días y la meta cumplida.
+- **Inspiración: Anki y Leitner** para la repetición espaciada; el quiz copia el formato A/B/C de la prueba.
 
 ## Key Flows
 
@@ -153,9 +186,26 @@ Las especificaciones visuales están en `DESIGN.md.Components`.
 2. `/prueba/dia` muestra la lista: puertas 7:15, inicio 8:00, cierre 8:30; documento válido; qué llevar.
 3. **Clímax:** revisa la lista punto por punto y cierra el celular tranquilo.
 
+### Flujo 5: diez minutos de tarjetas en el bus (Andrea, jueves 22 de octubre, celular)
+
+1. Andrea abre Inicio y ve "Hoy: 18 tarjetas para repasar · racha de 4 días".
+2. Toca la línea y llega a Repasar; toca "Repasar tarjetas".
+3. Frente: "¿Qué decreto derogó el Decreto Ley 071 de 2020?" Toca para voltear.
+4. Reverso: "fue derogado por el artículo 152 del Decreto Ley 927 de 2023". Toca "La sabía".
+5. Sigue hasta llegar a 20; la barra dice "Meta de hoy cumplida".
+6. **Clímax:** la racha pasa a 5 días, y las tarjetas que falló volverán mañana, no dentro de dos semanas.
+
+### Flujo 6: quiz antes de dormir (Andrea, domingo, después del simulacro)
+
+1. Andrea entra a Repasar → Quiz.
+2. Diez preguntas "¿Qué norma regula…?" con opciones A, B y C.
+3. Falla dos; al final ve 8/10 y las dos falladas con la respuesta correcta.
+4. **Clímax:** las dos falladas quedan en la caja 1 y aparecen mañana entre sus tarjetas.
+
 ## Open Questions
 
 - [ASSUMPTION] Nombre del protagonista y hábitos de estudio (dispositivo, momentos).
 - [ASSUMPTION] Las cinco preguntas de entrada.
 
 - [ASSUMPTION] Se mantiene la identidad visual actual.
+- [ASSUMPTION] Mazos de tarjetas e intervalos Leitner (1, 2, 4, 7, 14 días con repaso final del 5 al 7 de noviembre).

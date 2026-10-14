@@ -106,6 +106,21 @@ components:
     background: '{colors.primario}'
     foreground: '{colors.primario-texto}'
     radius: '{rounded.sm}'
+  tarjeta-repaso:
+    background: '{colors.superficie}'
+    border: '1px solid {colors.borde}'
+    radius: '{rounded.md}'
+    min-height: 14rem
+  opcion-quiz:
+    background: '{colors.superficie}'
+    border: '1px solid {colors.borde}'
+    radius: '{rounded.sm}'
+    correcta: '{colors.exito}'
+    elegida-incorrecta: '{colors.aviso-borde}'
+  meta-diaria:
+    background: '{colors.superficie-2}'
+    fill: '{colors.exito}'
+    radius: '{rounded.full}'
   chip-filtro:
     background: '{colors.superficie-2}'
     active: '{colors.primario}'
@@ -154,8 +169,11 @@ Sin sombras salvo en el diálogo de búsqueda y la barra inferior fija. La jerar
 - **Sección plegable**: `details/summary` con título {typography.titulo-seccion} y una línea de resumen en {colors.texto-suave} visible aun cerrada. Chevron a la derecha.
 - **Tarjeta-pregunta**: enlace a una consulta frecuente, redactado como pregunta ("¿Qué llevo el día de la prueba?"). Pregunta en {colors.primario}, una línea de respuesta corta debajo.
 - **Aviso**: borde izquierdo {colors.aviso-borde}. Una frase visible; el detalle, plegado.
-- **Barra inferior** (móvil): 5 destinos con icono y etiqueta; activo en {colors.primario}. En escritorio pasa a la barra superior.
+- **Barra inferior** (móvil): 6 destinos con icono y etiqueta corta (Inicio, Prueba, Normas, Concurso, Repasar, Mi plan); activo en {colors.primario} con una línea superior, sin negrita (cambia el ancho). En escritorio pasa a la barra superior.
 - **Chip de filtro**: reemplaza los `select` de Normativa y el checkbox de Recursos.
+- **Tarjeta de repaso**: superficie con borde, alto mínimo de 14 rem, texto centrado en {typography.titulo-seccion}. Una etiqueta en {typography.etiqueta} dice el mazo y si es frente o reverso. Botones "No la sabía" (contorno) y "La sabía" ({components.boton-primario}) a todo el ancho en móvil.
+- **Opción de quiz**: botón a todo el ancho con la letra (A, B, C) en un círculo. Correcta: borde y letra en {colors.exito} con "Correcta". Elegida incorrecta: borde {colors.aviso-borde} con "Su respuesta". Nunca solo color.
+- **Meta y racha**: barra fina con relleno {colors.exito} y "N de M"; la racha es un número con "días", sin iconos de fuego.
 - **Tabla**: se mantiene la conversión a tarjetas en móvil; nunca más de una tabla abierta por pantalla.
 
 ## Do's and Don'ts
@@ -167,3 +185,4 @@ Sin sombras salvo en el diálogo de búsqueda y la barra inferior fija. La jerar
 | Un aviso agrupado por pantalla | Repetir la misma advertencia en cada sección |
 | Redactar accesos como preguntas | Nombres de sección institucionales sin pista del contenido |
 | Mantener el estilo sobrio actual | Logos, marcas o colores de la DIAN o la CNSC |
+| Racha como número y meta como barra | Fuego, confeti, insignias o rojo de error |
