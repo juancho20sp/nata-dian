@@ -14,7 +14,7 @@
 
 ## 3. Navegación de seis destinos
 
-- [ ] 3.1 Agregar Repasar y las etiquetas cortas en `src/lib/destinos.ts`, usar `corto` y 6 columnas en `BarraInferior.astro` con un icono nuevo, y actualizar `tests/destinos.test.ts`; verificar con Vitest que `/repasar/quiz` activa Repasar y, en el navegador a 320 y 360 px, que ninguna etiqueta se desborda ni se corta y no hay scroll horizontal
+- [x] 3.1 Agregar Repasar y las etiquetas cortas en `src/lib/destinos.ts`, usar `corto` y 6 columnas en `BarraInferior.astro` con un icono nuevo, y actualizar `tests/destinos.test.ts`; verificar con Vitest que `/repasar/quiz` activa Repasar y, en el navegador a 320 y 360 px, que ninguna etiqueta se desborda ni se corta y no hay scroll horizontal
 
 ## 4. Páginas de Repasar
 

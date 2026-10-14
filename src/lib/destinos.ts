@@ -1,21 +1,24 @@
 /** Destinos principales de la navegación (barra superior e inferior). */
 
-export type Icono = 'inicio' | 'prueba' | 'normativa' | 'convocatoria' | 'plan';
+export type Icono = 'inicio' | 'prueba' | 'normativa' | 'convocatoria' | 'repasar' | 'plan';
 
 export interface Destino {
   href: string;
   texto: string;
+  /** Etiqueta de la barra inferior: con seis destinos no caben los nombres completos a 360 px. */
+  corto: string;
   icono: Icono;
   /** Rutas (sin base) que pertenecen a este destino, además de `href`. */
   prefijos: readonly string[];
 }
 
 export const DESTINOS: readonly Destino[] = [
-  { href: '/', texto: 'Inicio', icono: 'inicio', prefijos: [] },
-  { href: '/prueba', texto: 'La prueba', icono: 'prueba', prefijos: ['/prueba'] },
-  { href: '/normativa', texto: 'Normativa', icono: 'normativa', prefijos: ['/normativa'] },
-  { href: '/convocatoria', texto: 'Convocatoria', icono: 'convocatoria', prefijos: ['/convocatoria'] },
-  { href: '/plan', texto: 'Mi plan', icono: 'plan', prefijos: ['/plan', '/planes'] },
+  { href: '/', texto: 'Inicio', corto: 'Inicio', icono: 'inicio', prefijos: [] },
+  { href: '/prueba', texto: 'La prueba', corto: 'Prueba', icono: 'prueba', prefijos: ['/prueba'] },
+  { href: '/normativa', texto: 'Normativa', corto: 'Normas', icono: 'normativa', prefijos: ['/normativa'] },
+  { href: '/convocatoria', texto: 'Convocatoria', corto: 'Concurso', icono: 'convocatoria', prefijos: ['/convocatoria'] },
+  { href: '/repasar', texto: 'Repasar', corto: 'Repasar', icono: 'repasar', prefijos: ['/repasar'] },
+  { href: '/plan', texto: 'Mi plan', corto: 'Mi plan', icono: 'plan', prefijos: ['/plan', '/planes'] },
 ];
 
 function normalizar(ruta: string): string {
