@@ -628,5 +628,805 @@
       "ruta": "/normativa",
       "ancla": "area-aduanero"
     }
+  },
+  {
+    "id": "ra-emplazamiento-corregir",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Emplazamiento para corregir: ¿en qué plazo puede corregir el contribuyente?",
+    "reverso": "dentro del mes siguiente a su notificación",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-emplazamiento-para-corregir-plazo-y-efecto"
+    }
+  },
+  {
+    "id": "ra-emplazamiento-sin-respuesta",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Qué pasa si el contribuyente no responde el emplazamiento para corregir?",
+    "reverso": "La no respuesta a este emplazamiento no ocasiona sanción alguna",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-emplazamiento-para-corregir-plazo-y-efecto"
+    }
+  },
+  {
+    "id": "ra-requerimiento-una-vez",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Cuántas veces se envía el requerimiento especial antes de la liquidación de revisión?",
+    "reverso": "por una sola vez",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-requerimiento-especial-requisito-previo-una-sola"
+    }
+  },
+  {
+    "id": "ra-requerimiento-notificacion",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Hasta cuándo debe notificarse el requerimiento especial?",
+    "reverso": "a más tardar dentro de los tres (3) años siguientes a la fecha de vencimiento del plazo para declarar",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-requerimiento-especial-termino-para-notificarlo"
+    }
+  },
+  {
+    "id": "ra-requerimiento-respuesta",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Plazo para responder el requerimiento especial?",
+    "reverso": "Dentro de los tres (3) meses siguientes, contados a partir de la fecha de notificación del requerimiento especial",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-respuesta-al-requerimiento"
+    }
+  },
+  {
+    "id": "ra-ampliacion",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿En qué plazo puede ordenarse la ampliación del requerimiento especial?",
+    "reverso": "dentro de los tres (3) meses siguientes a la fecha del vencimiento del plazo para responderlo",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-ampliacion-del-requerimiento"
+    }
+  },
+  {
+    "id": "ra-correccion-requerimiento",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Si el contribuyente corrige con ocasión del requerimiento especial, ¿cómo queda la sanción por inexactitud?",
+    "reverso": "se reducirá a la cuarta parte de la planteada por la Administración",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-correccion-provocada-por-el-requerimiento"
+    }
+  },
+  {
+    "id": "ra-liquidacion-revision",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Cuál es el término de la liquidación de revisión?",
+    "reverso": "Dentro de los seis meses siguientes a la fecha de vencimiento del término para dar respuesta al Requerimiento Especial o a su ampliación",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-liquidacion-de-revision-termino"
+    }
+  },
+  {
+    "id": "ra-correccion-liquidacion",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Si acepta los hechos de la liquidación de revisión dentro del término del recurso, ¿cómo queda la inexactitud?",
+    "reverso": "se reducirá a la mitad",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-correccion-provocada-por-la-liquidacion-de-revis"
+    }
+  },
+  {
+    "id": "ra-firmeza",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Regla general: ¿cuándo queda en firme una declaración tributaria?",
+    "reverso": "dentro de los tres (3) años siguientes a la fecha del vencimiento del plazo para declarar, no se ha notificado requerimiento especial",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-firmeza-general"
+    }
+  },
+  {
+    "id": "ra-emplazamiento-declarar",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Emplazamiento para declarar: ¿qué término tiene el contribuyente?",
+    "reverso": "en el término perentorio de un (1) mes",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-emplazamiento-por-no-declarar"
+    }
+  },
+  {
+    "id": "ra-aforo",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿En qué término puede proferirse la liquidación de aforo?",
+    "reverso": "dentro de los cinco (5) años siguientes al vencimiento del plazo señalado para declarar",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-no-declarar-tras-el-emplazamiento-y-aforo"
+    }
+  },
+  {
+    "id": "ra-correccion-aritmetica",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Hasta cuándo puede proferirse la liquidación de corrección aritmética?",
+    "reverso": "dentro de los dos años siguientes a la fecha de presentación de la respectiva declaración",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-correccion-aritmetica"
+    }
+  },
+  {
+    "id": "ra-reconsideracion",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Plazo para interponer el recurso de reconsideración tributario?",
+    "reverso": "dentro de los dos meses siguientes a la notificación",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-recurso-de-reconsideracion"
+    }
+  },
+  {
+    "id": "ra-per-saltum",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Si se atendió en debida forma el requerimiento especial, ¿en qué plazo se puede acudir directamente a la jurisdicción (per saltum)?",
+    "reverso": "dentro de los cuatro (4) meses",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-recurso-de-reconsideracion"
+    }
+  },
+  {
+    "id": "ra-fallo",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Cuánto tiempo tiene la DIAN para resolver el recurso de reconsideración?",
+    "reverso": "un (1) año para resolver",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-termino-para-fallar-y-silencio-positivo"
+    }
+  },
+  {
+    "id": "ra-silencio",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Qué pasa si vence el término para resolver el recurso de reconsideración?",
+    "reverso": "se entenderá fallado a favor del recurrente",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-termino-para-fallar-y-silencio-positivo"
+    }
+  },
+  {
+    "id": "ra-nulidad-incompetente",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Además de omitir el requerimiento especial previo, ¿qué otra causal de nulidad del acto de liquidación trae el ET?",
+    "reverso": "Cuando se practiquen por funcionario incompetente",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-nulidades"
+    }
+  },
+  {
+    "id": "ra-sancion-minima",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Cuál es la sanción mínima en materia tributaria?",
+    "reverso": "será equivalente a la suma de 10 uvt",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-sancion-minima"
+    }
+  },
+  {
+    "id": "ra-inexactitud",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Cuál es la sanción general por inexactitud?",
+    "reverso": "100 % de la diferencia",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-inexactitud"
+    }
+  },
+  {
+    "id": "rb-pagar-excepcionar",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Plazo para pagar o proponer excepciones contra el mandamiento de pago?",
+    "reverso": "Dentro de los quince (15) días siguientes a la notificación del mandamiento de pago",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-pagar-o-excepcionar"
+    }
+  },
+  {
+    "id": "rb-citacion",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Mandamiento de pago: ¿en qué término debe comparecer el deudor citado para la notificación personal?",
+    "reverso": "previa citación para que comparezca en un término de diez (10) días",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-mandamiento-de-pago-y-notificacion"
+    }
+  },
+  {
+    "id": "rb-decision-excepciones",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿En qué término se resuelven las excepciones propuestas?",
+    "reverso": "Dentro del mes siguiente a la presentación del escrito",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-tramite-de-excepciones"
+    }
+  },
+  {
+    "id": "rb-recurso-rechazo",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Qué recurso procede contra la resolución que rechaza las excepciones?",
+    "reverso": "únicamente el recurso de reposición… dentro del mes siguiente",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-recursos-en-el-cobro"
+    }
+  },
+  {
+    "id": "rb-actuaciones-tramite",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Proceden recursos contra las actuaciones del cobro coactivo?",
+    "reverso": "son de trámite y contra ellas no procede recurso alguno",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-recursos-en-el-cobro"
+    }
+  },
+  {
+    "id": "rb-orden-ejecucion",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Si no se proponen excepciones ni se paga, ¿procede recurso contra la resolución que ordena la ejecución?",
+    "reverso": "Contra esta resolución no procede recurso alguno",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-orden-de-ejecucion-sin-excepciones"
+    }
+  },
+  {
+    "id": "rb-demanda",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿La demanda contra la resolución que falla las excepciones suspende el cobro?",
+    "reverso": "la admisión de la demanda no suspende el proceso de cobro, pero el remate no se realizará",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-control-judicial"
+    }
+  },
+  {
+    "id": "rb-medidas",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Cuándo pueden decretarse el embargo y el secuestro preventivo?",
+    "reverso": "Previa o simultáneamente con el mandamiento de pago",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-medidas-cautelares"
+    }
+  },
+  {
+    "id": "rb-limite-embargos",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Cuál es el límite de los embargos en el cobro coactivo?",
+    "reverso": "no podrá exceder del doble de la deuda más sus intereses",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-limite-de-embargos"
+    }
+  },
+  {
+    "id": "rb-inembargable",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Qué monto es inembargable para una persona natural?",
+    "reverso": "25 SMMLV en la cuenta de ahorros más antigua",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-inembargabilidad"
+    }
+  },
+  {
+    "id": "rb-prescripcion",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿En cuánto tiempo prescribe la acción de cobro?",
+    "reverso": "prescribe en el término de cinco (5) años",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-prescripcion-de-la-accion-de-cobro"
+    }
+  },
+  {
+    "id": "rb-interrupcion",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Qué interrumpe la prescripción de la acción de cobro?",
+    "reverso": "por la notificación del mandamiento de pago, por el otorgamiento de facilidades para el pago, por la admisión de la solicitud del concordato y por la declaratoria oficial de la liquidación forzosa administrativa",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-interrupcion-y-suspension-de-la-prescripcion"
+    }
+  },
+  {
+    "id": "rb-facilidades",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿A qué plazo máximo pueden otorgarse facilidades de pago con garantía?",
+    "reverso": "Hasta 5 años con garantía",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-facilidades-de-pago"
+    }
+  },
+  {
+    "id": "rb-reorganizacion",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Qué pasa con el cobro coactivo desde el inicio de la reorganización (Ley 1116 de 2006)?",
+    "reverso": "no podrá admitirse ni continuarse demanda de ejecución o cualquier otro proceso de cobro en contra del deudor",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-reorganizacion-ley-1116"
+    }
+  },
+  {
+    "id": "rb-concursos",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Proceso concursal: ¿en qué plazo debe el juez o funcionario informar a Cobranzas?",
+    "reverso": "dentro de los diez (10) días siguientes",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-concursos-y-liquidaciones"
+    }
+  },
+  {
+    "id": "rc-caducidad-nyr",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Cuál es la caducidad de la nulidad y restablecimiento del derecho?",
+    "reverso": "cuatro (4) meses contados a partir del día siguiente al de la comunicación, notificación, ejecución o publicación del acto administrativo",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-caducidad-nulidad-y-restablecimiento"
+    }
+  },
+  {
+    "id": "rc-nulidad-simple",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Cuándo puede demandarse la nulidad simple del artículo 137?",
+    "reverso": "En cualquier tiempo",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-caducidad-nulidad-en-cualquier-tiempo"
+    }
+  },
+  {
+    "id": "rc-reparacion",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Cuál es la caducidad de la reparación directa?",
+    "reverso": "dos (2) años, contados a partir del día siguiente al de la ocurrencia de la acción u omisión",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-caducidad-reparacion-directa-y-contratos"
+    }
+  },
+  {
+    "id": "rc-tributario",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Son conciliables extrajudicialmente los conflictos tributarios?",
+    "reverso": "No son susceptibles de conciliación extrajudicial en asuntos de lo contencioso administrativo: 1. Los que versen sobre conflictos de carácter tributario",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-lo-tributario-no-se-concilia"
+    }
+  },
+  {
+    "id": "rc-sin-conciliacion",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Qué pasa si se demanda sin conciliación prejudicial cuando el asunto es conciliable?",
+    "reverso": "rechazo de plano de la demanda",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-conciliacion-como-requisito-de-procedibilidad"
+    }
+  },
+  {
+    "id": "rc-suspension",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Hasta cuándo suspende la caducidad la solicitud de conciliación?",
+    "reverso": "hasta… que se venza el término de tres (3) meses",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-suspension-de-la-caducidad-por-conciliacion"
+    }
+  },
+  {
+    "id": "rc-ministerio",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Ante quién se concilia extrajudicialmente en lo contencioso administrativo?",
+    "reverso": "los agentes del Ministerio Público",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-ante-quien-se-concilia-y-aprobacion"
+    }
+  },
+  {
+    "id": "rc-contestacion",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Cuál es el término de traslado para contestar la demanda?",
+    "reverso": "por el término de treinta (30) días",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-contestacion-de-la-demanda"
+    }
+  },
+  {
+    "id": "rc-cautelares",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Cuándo puede pedirse una medida cautelar en lo contencioso administrativo?",
+    "reverso": "antes de ser notificado, el auto admisorio de la demanda o en cualquier estado del proceso",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-medidas-cautelares"
+    }
+  },
+  {
+    "id": "rc-oferta-revocatoria",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Qué se necesita para ofrecer en juicio la revocatoria del acto demandado?",
+    "reverso": "previa aprobación del Comité de Conciliación de la entidad",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-oferta-de-revocatoria-en-juicio"
+    }
+  },
+  {
+    "id": "rc-doctrina",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Para quiénes es interpretación oficial la doctrina de la DIAN?",
+    "reverso": "constituyen interpretación oficial para los empleados públicos",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-obligatoriedad-de-la-doctrina-dian"
+    }
+  },
+  {
+    "id": "rc-recursos-obligatorios",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Qué recursos deben haberse agotado antes de demandar?",
+    "reverso": "los recursos que de acuerdo con la ley fueren obligatorios",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-agotar-recursos-obligatorios"
+    }
+  },
+  {
+    "id": "rc-per-saltum",
+    "mazo": "Caso C: jurídica",
+    "frente": "Per saltum tributario: con el requerimiento especial atendido en debida forma, ¿qué se puede hacer?",
+    "reverso": "demanda directa contra la liquidación oficial en 4 meses",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-per-saltum-tributario"
+    }
+  },
+  {
+    "id": "rd-aprehension",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Plazo para objetar la aprehensión?",
+    "reverso": "quince (15) días hábiles siguientes a la notificación del Acta de Aprehensión",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-objecion-a-la-aprehension"
+    }
+  },
+  {
+    "id": "rd-decomiso-fondo",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Plazo para decidir de fondo el proceso de decomiso?",
+    "reverso": "setenta (70) días hábiles para expedir y notificar el acto de fondo que decide sobre el proceso de decomiso",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-decision-de-fondo-del-decomiso"
+    }
+  },
+  {
+    "id": "rd-requerimiento",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Plazo para responder el requerimiento especial aduanero?",
+    "reverso": "dentro de los quince (15) días hábiles siguientes a su notificación",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-requerimiento-especial-aduanero-respuesta"
+    }
+  },
+  {
+    "id": "rd-reconsideracion-plazo",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Plazo para interponer la reconsideración aduanera?",
+    "reverso": "dentro de los quince (15) días hábiles siguientes a su notificación",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-reconsideracion-aduanera"
+    }
+  },
+  {
+    "id": "rd-reconsideracion-decision",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿En cuánto tiempo se decide la reconsideración aduanera?",
+    "reverso": "cinco (5) meses",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-reconsideracion-aduanera"
+    }
+  },
+  {
+    "id": "rd-silencio",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Qué ocurre si vence el plazo para decidir de fondo o resolver la reconsideración aduanera?",
+    "reverso": "dará lugar a la ocurrencia del silencio administrativo positivo",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-silencio-positivo-aduanero"
+    }
+  },
+  {
+    "id": "rd-caducidad",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿En cuánto caduca la facultad sancionatoria aduanera?",
+    "reverso": "caduca en el término de tres (3) años contados a partir de la comisión del hecho",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-caducidad-y-prescripcion-aduanera"
+    }
+  },
+  {
+    "id": "rd-firmeza-importacion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Cuándo queda en firme la declaración de importación?",
+    "reverso": "quedará en firme transcurridos tres (3) años contados a partir de la fecha de su presentación y aceptación",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-firmeza-de-la-declaracion-de-importacion"
+    }
+  },
+  {
+    "id": "rd-abandono",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Cuánto puede permanecer la mercancía en depósito antes del abandono legal?",
+    "reverso": "un (1) mes, contado desde la fecha de su llegada, prorrogable un mes",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-permanencia-en-deposito-y-abandono"
+    }
+  },
+  {
+    "id": "rd-decomiso-directo",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Qué recurso procede contra el acta de aprehensión y decomiso directo?",
+    "reverso": "procede únicamente el recurso de reconsideración",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-decomiso-directo"
+    }
+  },
+  {
+    "id": "rd-obligacion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Qué es la obligación aduanera?",
+    "reverso": "Es el vínculo jurídico entre la administración aduanera y cualquier persona directa o indirectamente relacionada con cualquier régimen, modalidad u operación aduanera",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-obligacion-aduanera"
+    }
+  },
+  {
+    "id": "rd-cambiario-responsabilidad",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Régimen sancionatorio cambiario: ¿cómo es la responsabilidad?",
+    "reverso": "es objetiva",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-cambiario-infraccion-y-responsabilidad"
+    }
+  },
+  {
+    "id": "rd-cambiario-cargos",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Cambiario: ¿en qué plazo debe notificarse el acto de formulación de cargos?",
+    "reverso": "dentro de los cinco (5) años siguientes a la fecha en que ocurrieron los hechos",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-cambiario-prescripcion-y-traslado"
+    }
+  },
+  {
+    "id": "rd-cambiario-traslado",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Cambiario: ¿cuánto dura el traslado para presentar descargos?",
+    "reverso": "dos (2) meses",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-cambiario-prescripcion-y-traslado"
+    }
+  },
+  {
+    "id": "rd-cambiario-recurso",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Cambiario: ¿plazo para interponer la reconsideración?",
+    "reverso": "dentro del mes siguiente a la notificación",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-cambiario-recurso-y-silencio"
+    }
+  },
+  {
+    "id": "rd-cambiario-resolver",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Cambiario: ¿en cuánto tiempo se resuelve la reconsideración?",
+    "reverso": "siete (7) meses",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-cambiario-recurso-y-silencio"
+    }
+  },
+  {
+    "id": "rt-peticion",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Plazo general para resolver un derecho de petición?",
+    "reverso": "dentro de los quince (15) días siguientes a su recepción",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-peticion-termino-general"
+    }
+  },
+  {
+    "id": "rt-documentos",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Plazo para resolver una petición de documentos e información?",
+    "reverso": "dentro de los diez (10) días",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-peticion-de-documentos-e-informacion"
+    }
+  },
+  {
+    "id": "rt-consultas",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Plazo para resolver una consulta?",
+    "reverso": "dentro de los treinta (30) días",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-consultas"
+    }
+  },
+  {
+    "id": "rt-prorroga",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Hasta cuánto puede ampliarse el plazo para responder una petición?",
+    "reverso": "que no podrá exceder del doble del inicialmente previsto",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-prorroga"
+    }
+  },
+  {
+    "id": "rt-incompleta",
+    "mazo": "Procedimiento administrativo",
+    "frente": "Petición incompleta: ¿en qué plazo se requiere al peticionario para que la complete?",
+    "reverso": "dentro de los diez (10) días siguientes a la fecha de radicación",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-peticion-incompleta"
+    }
+  },
+  {
+    "id": "rt-sin-competencia",
+    "mazo": "Procedimiento administrativo",
+    "frente": "Funcionario sin competencia: ¿en qué plazo informa y remite una petición escrita?",
+    "reverso": "dentro de los cinco (5) días siguientes al de la recepción",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-funcionario-sin-competencia"
+    }
+  },
+  {
+    "id": "rt-citacion",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿En qué plazo se envía la citación para la notificación personal?",
+    "reverso": "dentro de los cinco (5) días siguientes a la expedición del acto",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-citacion-y-aviso"
+    }
+  },
+  {
+    "id": "rt-aviso",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Cuándo queda surtida la notificación por aviso?",
+    "reverso": "al finalizar el día siguiente al de la entrega del aviso",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-citacion-y-aviso"
+    }
+  },
+  {
+    "id": "rt-recursos",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Plazo para interponer reposición y apelación?",
+    "reverso": "dentro de los diez (10) días siguientes",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-recursos-oportunidad"
+    }
+  },
+  {
+    "id": "rt-apelacion",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Es obligatoria la apelación para acceder a la jurisdicción?",
+    "reverso": "será obligatoria para acceder a la jurisdicción",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-recursos-oportunidad"
+    }
+  },
+  {
+    "id": "rt-silencio",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Cuándo se entiende negada una petición por silencio administrativo?",
+    "reverso": "Transcurridos tres (3) meses",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-silencio-negativo"
+    }
+  },
+  {
+    "id": "rt-revocatoria",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Hasta cuándo procede la revocatoria directa?",
+    "reverso": "siempre que no se haya notificado auto admisorio de la demanda",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-revocatoria-directa"
+    }
+  },
+  {
+    "id": "rt-revocatoria-consentimiento",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Puede revocarse un acto particular sin consentimiento de su titular?",
+    "reverso": "sin el consentimiento previo, expreso y escrito del respectivo titular",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-revocatoria-directa"
+    }
+  },
+  {
+    "id": "rt-disciplinaria",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿En cuánto prescribe la acción disciplinaria?",
+    "reverso": "La acción disciplinaria prescribirá en cinco (5) años",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-disciplinario-prescripcion"
+    }
+  },
+  {
+    "id": "rt-culpa-leve",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Es sancionable la culpa leve en lo disciplinario?",
+    "reverso": "La culpa leve no será sancionable",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-disciplinario-dolo-y-culpa"
+    }
+  },
+  {
+    "id": "rt-impedimento",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Cuándo debe declararse impedido un servidor?",
+    "reverso": "cuando tenga interés particular y directo",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-conflicto-de-intereses"
+    }
   }
 ]

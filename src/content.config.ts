@@ -200,6 +200,12 @@ export const MAZOS = [
   'Cobro',
   'Aduanero y cambiario',
   'Contexto',
+  // Mazos de reglas verificadas (fuentes/investigacion-casos.md)
+  'Caso A: fiscalización',
+  'Caso B: cobranzas',
+  'Caso C: jurídica',
+  'Caso D: aduanas y cambiario',
+  'Procedimiento administrativo',
 ] as const;
 
 /** Tarjetas de repaso: el reverso es siempre un fragmento literal del dossier (ver tests/tarjetas.test.ts). */
@@ -212,8 +218,14 @@ const tarjetas = defineCollection({
     reverso: z.string().min(1),
     /** Apta para el quiz de tres opciones. */
     quiz: z.boolean(),
-    /** Página y sección del sitio de donde sale el dato. */
-    fuente: z.object({ ruta: z.string().regex(/^\/[a-z0-9/-]*$/), ancla: idEstable.optional() }),
+    /**
+     * De dónde sale el dato: una página y sección del sitio (tarjetas del dossier)
+     * o una regla verificada de src/content/reglas.json (tarjetas de reglas).
+     */
+    fuente: z.union([
+      z.object({ ruta: z.string().regex(/^\/[a-z0-9/-]*$/), ancla: idEstable.optional() }),
+      z.object({ regla: idEstable }),
+    ]),
   }),
 });
 

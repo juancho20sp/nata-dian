@@ -9,7 +9,7 @@ const tarjetas = (await getCollection('tarjetas')).map(({ data: t }) => ({
   frente: t.frente,
   reverso: t.reverso,
   quiz: t.quiz,
-  enlace: ruta(t.fuente.ruta) + (t.fuente.ancla ? `#${t.fuente.ancla}` : ''),
+  enlace: 'ruta' in t.fuente ? ruta(t.fuente.ruta) + (t.fuente.ancla ? `#${t.fuente.ancla}` : '') : undefined,
 }));
 ---
 
