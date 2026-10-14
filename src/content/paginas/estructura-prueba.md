@@ -11,7 +11,7 @@ La prueba que decide todo es **Competencias Funcionales**: es eliminatoria, exig
 - **Comportamentales e Integridad:** autoinforme tipo Likert de cuatro niveles, sin respuestas correctas, con dos subescalas de control que detectan respuestas deseables o inconsistentes. Se basan en el Diccionario de Competencias de la DIAN y el Código de Integridad.
 - **Valoración de antecedentes:** no es escrita. Puntúa formación y experiencia por encima del mínimo, y solo se aplica a quien pase Funcionales.
 - **Calificación:** escala de 0 a 100 con dos decimales truncados. Los ítems que no cumplen criterios psicométricos se excluyen.
-- **Tiempo:** 4 horas para todo el cuadernillo. La GOA no publica el número de preguntas; en procesos anteriores de la CNSC rondaba 100 a 120 ítems en total.
+- **Tiempo:** cinco (5) horas para todo el cuadernillo, de 8:00 a. m. a 1:00 p. m. ([GOA 2676](https://www.cnsc.gov.co/sites/default/files/2026-10/dian-2676_guia_orientacion_aspirante_presentacion-pruebas-escritas_0.pdf), p. 23). La GOA no publica el número de preguntas; en procesos anteriores de la CNSC rondaba 100 a 120 ítems en total.
 
 > **Dato aproximado.** El número de 100 a 120 ítems no está confirmado para este proceso.
 

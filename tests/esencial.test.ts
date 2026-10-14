@@ -18,7 +18,15 @@ function normalizar(texto: string): string {
     .trim();
 }
 
-const dossierNormalizado = normalizar(dossier);
+/**
+ * Citas oficiales que corrigen al dossier: los textos entre comillas de la sección
+ * "Alertas" de fuentes/investigacion-casos.md (p. ej. la duración de la GOA 2676).
+ */
+const investigacion = readFileSync(join(raiz, 'fuentes', 'investigacion-casos.md'), 'utf8');
+const alertas = investigacion.split('## Alertas antes de hacer tarjetas')[1]!.split('\n---')[0]!;
+const citasOficiales = [...alertas.matchAll(/"([^"]+)"/g)].map((m) => m[1]!);
+
+const fuentesNormalizadas = [normalizar(dossier), ...citasOficiales.map(normalizar)];
 
 describe('Lo esencial', () => {
   for (const pagina of esencial) {
@@ -29,8 +37,8 @@ describe('Lo esencial', () => {
       });
 
       for (const v of pagina.vinetas) {
-        it(`sale del dossier: "${v.texto.slice(0, 50)}…"`, () => {
-          expect(dossierNormalizado).toContain(normalizar(v.texto));
+        it(`sale del dossier o de una cita oficial: "${v.texto.slice(0, 50)}…"`, () => {
+          expect(fuentesNormalizadas.some((f) => f.includes(normalizar(v.texto)))).toBe(true);
         });
       }
     });

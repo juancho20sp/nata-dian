@@ -76,7 +76,7 @@
     "id": "prueba-duracion",
     "mazo": "La prueba",
     "frente": "¿Cuánto tiempo hay para resolver la prueba?",
-    "reverso": "4 horas para todo el cuadernillo",
+    "reverso": "El aspirante dispondrá de cinco (5) horas para responder las pruebas escritas",
     "quiz": false,
     "fuente": {
       "ruta": "/prueba",

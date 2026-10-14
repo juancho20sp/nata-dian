@@ -22,6 +22,11 @@ function normalizar(texto: string): string {
 }
 const dossierNormalizado = ` ${normalizar(dossier)} `;
 
+/** Citas oficiales que corrigen al dossier (sección "Alertas" de la investigación). */
+const investigacion = readFileSync(join(raiz, 'fuentes', 'investigacion-casos.md'), 'utf8');
+const alertas = investigacion.split('## Alertas antes de hacer tarjetas')[1]!.split('\n---')[0]!;
+const citasOficiales = [...alertas.matchAll(/"([^"]+)"/g)].map((m) => ` ${normalizar(m[1]!)} `);
+
 describe('tarjetas del dossier', () => {
   it('hay entre 40 y 60', () => {
     expect(tarjetas.length).toBeGreaterThanOrEqual(40);
@@ -33,9 +38,10 @@ describe('tarjetas del dossier', () => {
   });
 
   for (const t of tarjetas) {
-    it(`el reverso sale del dossier: ${t.id}`, () => {
+    it(`el reverso sale del dossier o de una cita oficial: ${t.id}`, () => {
       // Con espacios a los lados, para que "714" no coincida dentro de "7140".
-      expect(dossierNormalizado).toContain(` ${normalizar(t.reverso)} `);
+      const buscado = ` ${normalizar(t.reverso)} `;
+      expect([dossierNormalizado, ...citasOficiales].some((f) => f.includes(buscado))).toBe(true);
     });
   }
 

@@ -9,7 +9,7 @@ export const ZONA_COLOMBIA = 'America/Bogota';
 /** Inicio de la prueba escrita: domingo 8 de noviembre de 2026, 8:00 a. m. hora de Colombia. */
 export const INICIO_PRUEBA = new Date('2026-11-08T08:00:00-05:00');
 
-/** Fin de la sesión: 4 horas, hasta la 1:00 p. m. hora de Colombia. */
+/** Fin de la sesión: cinco horas, hasta la 1:00 p. m. hora de Colombia (GOA 2676, p. 23). */
 export const FIN_PRUEBA = new Date('2026-11-08T13:00:00-05:00');
 
 /** Fecha de la prueba en formato ISO (AAAA-MM-DD). */

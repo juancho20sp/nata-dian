@@ -6,7 +6,8 @@
   "tituloCorto": "Mixto (por defecto)",
   "resumen": "Si nunca se consigue la OPEC, el plan más rentable es el mixto: tronco común más procedimiento tributario como eje, porque el Libro V del Estatuto Tributario aparece en fiscalización, cobranzas y defensa judicial. Aduanas se estudia solo en nivel panorámico.",
   "notas": [
-    "Con este reparto, el abogado cubre a fondo tres de los cuatro casos y tiene nociones del cuarto."
+    "Con este reparto, el abogado cubre a fondo tres de los cuatro casos y tiene nociones del cuarto.",
+    "Los simulacros duran 5 horas, como la prueba según la Guía de Orientación oficial (el dossier decía 4)."
   ],
   "semanas": [
     {
@@ -38,7 +39,7 @@
       "id": "s4",
       "inicio": "2026-11-02",
       "fin": "2026-11-07",
-      "temas": "Panorama aduanero y cambiario (1 día), dos simulacros de 4 horas, repaso de errores, descanso el 7",
+      "temas": "Panorama aduanero y cambiario (1 día), dos simulacros de 5 horas, repaso de errores, descanso el 7",
       "normas": [],
       "horas": 18,
       "tronco": "repaso"
