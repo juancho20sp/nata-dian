@@ -590,3 +590,34 @@ a {
   background: var(--aviso-fondo);
   color: var(--aviso-texto);
 }
+
+/* Términos por caso: lista ordenada con línea vertical */
+.linea-terminos {
+  list-style: none;
+  counter-reset: paso;
+  border-left: 2px solid var(--borde);
+  margin-left: 0.75rem;
+  padding-left: 0;
+}
+.linea-terminos > li {
+  counter-increment: paso;
+  position: relative;
+  padding: 0 0 1rem 1.5rem;
+}
+.linea-terminos > li::before {
+  content: counter(paso);
+  position: absolute;
+  left: -0.85rem;
+  top: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 9999px;
+  background: var(--superficie);
+  border: 2px solid var(--primario);
+  color: var(--primario);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -244,4 +244,17 @@ const casos = defineCollection({
   }),
 });
 
-export const collections = { planes, normativa, recursos, ponderacion, fuentes, paginas, esencial, tarjetas, reglas, casos };
+/** Líneas de tiempo de términos por caso; cada plazo sale de la cita de su regla (ver tests/terminos.test.ts). */
+const terminos = defineCollection({
+  loader: file('src/content/terminos.json'),
+  schema: z.object({
+    id: z.enum(['caso-a', 'caso-b', 'caso-c', 'caso-d', 'tronco']),
+    caso: z.enum(['A', 'B', 'C', 'D', 'T']),
+    titulo: z.string(),
+    pasos: z
+      .array(z.object({ acto: z.string(), plazo: z.string(), desde: z.string().optional(), regla: idEstable }))
+      .min(3),
+  }),
+});
+
+export const collections = { planes, normativa, recursos, ponderacion, fuentes, paginas, esencial, tarjetas, reglas, casos, terminos };

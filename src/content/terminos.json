@@ -1,0 +1,209 @@
+[
+  {
+    "id": "caso-a",
+    "caso": "A",
+    "titulo": "Caso A: fiscalización y liquidación",
+    "pasos": [
+      {
+        "acto": "Emplazamiento para corregir (opcional)",
+        "plazo": "dentro del mes siguiente a su notificación",
+        "regla": "a-emplazamiento-para-corregir-plazo-y-efecto"
+      },
+      {
+        "acto": "Notificar el requerimiento especial",
+        "plazo": "a más tardar dentro de los tres (3) años siguientes a la fecha de vencimiento del plazo para declarar",
+        "regla": "a-requerimiento-especial-termino-para-notificarlo"
+      },
+      {
+        "acto": "Respuesta al requerimiento especial",
+        "plazo": "Dentro de los tres (3) meses siguientes",
+        "regla": "a-respuesta-al-requerimiento",
+        "desde": "Desde la notificación del requerimiento especial"
+      },
+      {
+        "acto": "Ampliación del requerimiento (opcional, una sola vez)",
+        "plazo": "dentro de los tres (3) meses siguientes a la fecha del vencimiento del plazo para responderlo",
+        "regla": "a-ampliacion-del-requerimiento"
+      },
+      {
+        "acto": "Liquidación oficial de revisión",
+        "plazo": "Dentro de los seis meses siguientes",
+        "regla": "a-liquidacion-de-revision-termino",
+        "desde": "Desde el vencimiento del término para responder el requerimiento o su ampliación"
+      },
+      {
+        "acto": "Recurso de reconsideración",
+        "plazo": "dentro de los dos meses siguientes a la notificación",
+        "regla": "a-recurso-de-reconsideracion",
+        "desde": "Desde la notificación de la liquidación"
+      },
+      {
+        "acto": "Alternativa: demanda directa (per saltum), si se atendió en debida forma el requerimiento",
+        "plazo": "dentro de los cuatro (4) meses",
+        "regla": "a-recurso-de-reconsideracion"
+      },
+      {
+        "acto": "Fallo del recurso; si vence, silencio positivo",
+        "plazo": "un (1) año para resolver",
+        "regla": "a-termino-para-fallar-y-silencio-positivo",
+        "desde": "Desde la interposición en debida forma"
+      }
+    ]
+  },
+  {
+    "id": "caso-b",
+    "caso": "B",
+    "titulo": "Caso B: cobro administrativo coactivo",
+    "pasos": [
+      {
+        "acto": "Medidas cautelares (embargo y secuestro)",
+        "plazo": "Previa o simultáneamente con el mandamiento de pago",
+        "regla": "b-medidas-cautelares"
+      },
+      {
+        "acto": "Notificación personal del mandamiento de pago",
+        "plazo": "previa citación para que comparezca en un término de diez (10) días",
+        "regla": "b-mandamiento-de-pago-y-notificacion"
+      },
+      {
+        "acto": "Pagar o proponer excepciones",
+        "plazo": "Dentro de los quince (15) días siguientes a la notificación del mandamiento de pago",
+        "regla": "b-pagar-o-excepcionar"
+      },
+      {
+        "acto": "Decisión de las excepciones",
+        "plazo": "Dentro del mes siguiente a la presentación del escrito",
+        "regla": "b-tramite-de-excepciones"
+      },
+      {
+        "acto": "Reposición contra la resolución que rechaza las excepciones",
+        "plazo": "dentro del mes siguiente",
+        "regla": "b-recursos-en-el-cobro"
+      },
+      {
+        "acto": "Prescripción de la acción de cobro (se interrumpe con la notificación del mandamiento)",
+        "plazo": "prescribe en el término de cinco (5) años",
+        "regla": "b-prescripcion-de-la-accion-de-cobro"
+      }
+    ]
+  },
+  {
+    "id": "caso-c",
+    "caso": "C",
+    "titulo": "Caso C: jurídica y representación externa",
+    "pasos": [
+      {
+        "acto": "Conciliación extrajudicial (solo si el asunto es conciliable; lo tributario no lo es)",
+        "plazo": "hasta… que se venza el término de tres (3) meses",
+        "regla": "c-suspension-de-la-caducidad-por-conciliacion",
+        "desde": "La solicitud suspende la caducidad"
+      },
+      {
+        "acto": "Demanda de nulidad y restablecimiento del derecho",
+        "plazo": "cuatro (4) meses contados a partir del día siguiente al de la comunicación, notificación, ejecución o publicación del acto administrativo",
+        "regla": "c-caducidad-nulidad-y-restablecimiento"
+      },
+      {
+        "acto": "Medidas cautelares",
+        "plazo": "antes de ser notificado, el auto admisorio de la demanda o en cualquier estado del proceso",
+        "regla": "c-medidas-cautelares"
+      },
+      {
+        "acto": "Contestación de la demanda",
+        "plazo": "por el término de treinta (30) días",
+        "regla": "c-contestacion-de-la-demanda"
+      },
+      {
+        "acto": "Oferta de revocatoria, con aprobación del Comité de Conciliación",
+        "plazo": "Hasta antes de la sentencia de segunda instancia",
+        "regla": "c-oferta-de-revocatoria-en-juicio"
+      }
+    ]
+  },
+  {
+    "id": "caso-d",
+    "caso": "D",
+    "titulo": "Caso D: aduanas y control cambiario",
+    "pasos": [
+      {
+        "acto": "Objeción a la aprehensión",
+        "plazo": "quince (15) días hábiles siguientes a la notificación del Acta de Aprehensión",
+        "regla": "d-objecion-a-la-aprehension"
+      },
+      {
+        "acto": "Decisión de fondo del decomiso",
+        "plazo": "setenta (70) días hábiles",
+        "regla": "d-decision-de-fondo-del-decomiso"
+      },
+      {
+        "acto": "Recurso de reconsideración aduanero",
+        "plazo": "dentro de los quince (15) días hábiles siguientes a su notificación",
+        "regla": "d-reconsideracion-aduanera"
+      },
+      {
+        "acto": "Decisión de la reconsideración; si vence, silencio positivo",
+        "plazo": "cinco (5) meses",
+        "regla": "d-reconsideracion-aduanera"
+      },
+      {
+        "acto": "Cambiario: formulación de cargos",
+        "plazo": "dentro de los cinco (5) años siguientes a la fecha en que ocurrieron los hechos",
+        "regla": "d-cambiario-prescripcion-y-traslado"
+      },
+      {
+        "acto": "Cambiario: descargos (única oportunidad)",
+        "plazo": "dos (2) meses",
+        "regla": "d-cambiario-prescripcion-y-traslado"
+      },
+      {
+        "acto": "Cambiario: reconsideración",
+        "plazo": "dentro del mes siguiente a la notificación",
+        "regla": "d-cambiario-recurso-y-silencio"
+      },
+      {
+        "acto": "Cambiario: decisión del recurso; si vence, se entiende fallado a favor del recurrente",
+        "plazo": "siete (7) meses",
+        "regla": "d-cambiario-recurso-y-silencio"
+      }
+    ]
+  },
+  {
+    "id": "tronco",
+    "caso": "T",
+    "titulo": "Tronco común: peticiones y procedimiento administrativo",
+    "pasos": [
+      {
+        "acto": "Resolver una petición (regla general)",
+        "plazo": "dentro de los quince (15) días siguientes a su recepción",
+        "regla": "t-peticion-termino-general"
+      },
+      {
+        "acto": "Citación para notificación personal",
+        "plazo": "dentro de los cinco (5) días siguientes a la expedición del acto",
+        "regla": "t-citacion-y-aviso"
+      },
+      {
+        "acto": "Notificación por aviso (si no comparece)",
+        "plazo": "al finalizar el día siguiente al de la entrega del aviso",
+        "regla": "t-citacion-y-aviso",
+        "desde": "Queda surtida"
+      },
+      {
+        "acto": "Reposición y apelación",
+        "plazo": "dentro de los diez (10) días siguientes",
+        "regla": "t-recursos-oportunidad",
+        "desde": "Desde la notificación"
+      },
+      {
+        "acto": "Silencio negativo frente a una petición",
+        "plazo": "Transcurridos tres (3) meses",
+        "regla": "t-silencio-negativo"
+      },
+      {
+        "acto": "Silencio negativo frente a los recursos",
+        "plazo": "dos (2) meses",
+        "regla": "t-silencio-negativo"
+      }
+    ]
+  }
+]

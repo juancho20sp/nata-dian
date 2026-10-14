@@ -21,6 +21,10 @@ interface Props {
 }
 const { plan } = Astro.props;
 const totalItems = plan.semanas.length + plan.tareas.length;
+// Los planes de caso (caso-a-…, caso-b-…) enlazan a su línea de tiempo y a sus casos de práctica.
+const letraCaso = /^caso-([a-d])-/.exec(plan.slug)?.[1];
+const anclaTerminos = letraCaso ? `caso-${letraCaso}` : undefined;
+const casoPractica = letraCaso?.toUpperCase();
 ---
 
 <Base titulo={plan.titulo} descripcion={plan.resumen}>
@@ -41,6 +45,15 @@ const totalItems = plan.semanas.length + plan.tareas.length;
   <h1 class="text-2xl sm:text-3xl font-bold leading-tight mb-4">{plan.titulo}</h1>
 
   {plan.tipo === 'plan' && <EstaSemana plan={plan} />}
+
+  {
+    plan.tipo === 'plan' && (
+      <p class="no-imprimir mb-4 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+        <a href={ruta(`/repasar/terminos${anclaTerminos ? `#${anclaTerminos}` : ''}`)}>Términos del caso →</a>
+        <a href={ruta(`/repasar/casos${casoPractica ? `?caso=${casoPractica}` : ''}`)}>Casos de práctica →</a>
+      </p>
+    )
+  }
 
   {
     plan.tipo === 'plan' ? (
