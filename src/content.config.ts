@@ -151,4 +151,29 @@ const esencial = defineCollection({
   }),
 });
 
-export const collections = { planes, normativa, recursos, ponderacion, fuentes, paginas, esencial };
+/** Mazos de las tarjetas de repaso. "Mis tarjetas" no está aquí: esas viven en el navegador. */
+export const MAZOS = [
+  'La prueba',
+  'Tronco común',
+  'Procedimiento tributario',
+  'Cobro',
+  'Aduanero y cambiario',
+  'Contexto',
+] as const;
+
+/** Tarjetas de repaso: el reverso es siempre un fragmento literal del dossier (ver tests/tarjetas.test.ts). */
+const tarjetas = defineCollection({
+  loader: file('src/content/tarjetas.json'),
+  schema: z.object({
+    id: idEstable,
+    mazo: z.enum(MAZOS),
+    frente: z.string().min(5),
+    reverso: z.string().min(1),
+    /** Apta para el quiz de tres opciones. */
+    quiz: z.boolean(),
+    /** Página y sección del sitio de donde sale el dato. */
+    fuente: z.object({ ruta: z.string().regex(/^\/[a-z0-9/-]*$/), ancla: idEstable.optional() }),
+  }),
+});
+
+export const collections = { planes, normativa, recursos, ponderacion, fuentes, paginas, esencial, tarjetas };

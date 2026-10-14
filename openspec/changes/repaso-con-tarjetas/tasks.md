@@ -2,8 +2,8 @@
 
 ## 1. Datos de tarjetas
 
-- [ ] 1.1 Agregar la colección `tarjetas` en `src/content.config.ts` (id, mazo con enum de 6 mazos, frente, reverso, quiz, fuente con ruta y ancla opcional); verificar que `pnpm check` pasa y que un mazo inexistente hace fallar el build
-- [ ] 1.2 Curar `src/content/tarjetas.json` con 40 a 60 tarjetas de los 6 mazos, con reversos copiados del dossier y `fuente` apuntando a la sección del sitio; verificar con `tests/tarjetas.test.ts` que cada reverso está en el dossier, que los id son únicos, que cada mazo tiene al menos 3 aptas para quiz y que no se repiten reversos aptos dentro de un mazo
+- [x] 1.1 Agregar la colección `tarjetas` en `src/content.config.ts` (id, mazo con enum de 6 mazos, frente, reverso, quiz, fuente con ruta y ancla opcional); verificar que `pnpm check` pasa y que un mazo inexistente hace fallar el build
+- [x] 1.2 Curar `src/content/tarjetas.json` con 40 a 60 tarjetas de los 6 mazos, con reversos copiados del dossier y `fuente` apuntando a la sección del sitio; verificar con `tests/tarjetas.test.ts` que cada reverso está en el dossier, que los id son únicos, que cada mazo tiene al menos 3 aptas para quiz y que no se repiten reversos aptos dentro de un mazo
 
 ## 2. Lógica de repaso
 

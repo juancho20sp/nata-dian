@@ -1,0 +1,621 @@
+[
+  {
+    "id": "prueba-puertas",
+    "mazo": "La prueba",
+    "frente": "Día de la prueba: ¿a qué hora abren las puertas?",
+    "reverso": "7:15 a. m.",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/prueba/dia"
+    }
+  },
+  {
+    "id": "prueba-inicio",
+    "mazo": "La prueba",
+    "frente": "Día de la prueba: ¿a qué hora empieza?",
+    "reverso": "8:00 a. m.",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/prueba/dia"
+    }
+  },
+  {
+    "id": "prueba-cierre",
+    "mazo": "La prueba",
+    "frente": "Día de la prueba: ¿a qué hora cierran las puertas?",
+    "reverso": "8:30 a. m.",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/prueba/dia"
+    }
+  },
+  {
+    "id": "prueba-fin",
+    "mazo": "La prueba",
+    "frente": "Día de la prueba: ¿hasta qué hora dura la sesión?",
+    "reverso": "1:00 p. m.",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/prueba/dia"
+    }
+  },
+  {
+    "id": "prueba-minimo",
+    "mazo": "La prueba",
+    "frente": "¿Qué puntaje mínimo exige la prueba de Competencias Funcionales?",
+    "reverso": "70,00 sobre 100",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba",
+      "ancla": "calificacion"
+    }
+  },
+  {
+    "id": "prueba-peso",
+    "mazo": "La prueba",
+    "frente": "¿Cuánto pesa la prueba de Competencias Funcionales en el total?",
+    "reverso": "pesa entre 60 % y 70 %",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba",
+      "ancla": "calificacion"
+    }
+  },
+  {
+    "id": "prueba-opciones",
+    "mazo": "La prueba",
+    "frente": "¿Cómo es cada ítem de la prueba funcional?",
+    "reverso": "un caso, un enunciado y tres opciones (A, B, C) con una sola correcta",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba",
+      "ancla": "estructura"
+    }
+  },
+  {
+    "id": "prueba-duracion",
+    "mazo": "La prueba",
+    "frente": "¿Cuánto tiempo hay para resolver la prueba?",
+    "reverso": "4 horas para todo el cuadernillo",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba",
+      "ancla": "estructura"
+    }
+  },
+  {
+    "id": "prueba-basicas",
+    "mazo": "La prueba",
+    "frente": "¿Hay prueba de competencias básicas en este proceso?",
+    "reverso": "En este proceso no hay prueba de competencias básicas",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba",
+      "ancla": "estructura"
+    }
+  },
+  {
+    "id": "prueba-documento",
+    "mazo": "La prueba",
+    "frente": "¿Qué documentos de identidad sirven el día de la prueba?",
+    "reverso": "cédula amarilla con holograma, cédula digital, pasaporte vigente o contraseña de la Registraduría con código QR",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba/dia"
+    }
+  },
+  {
+    "id": "prueba-permitido",
+    "mazo": "La prueba",
+    "frente": "¿Qué útiles se permiten en la prueba?",
+    "reverso": "Solo se permite lápiz N.º 2, sacapuntas y borrador",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba/dia"
+    }
+  },
+  {
+    "id": "prueba-citacion",
+    "mazo": "La prueba",
+    "frente": "¿Con cuánta anticipación sale la citación?",
+    "reverso": "La citación sale en SIMO con mínimo 5 días hábiles de anticipación",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba/dia"
+    }
+  },
+  {
+    "id": "prueba-ausencia",
+    "mazo": "La prueba",
+    "frente": "¿Qué pasa si no se presenta a la prueba?",
+    "reverso": "No presentarse es causal de exclusión",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba/dia"
+    }
+  },
+  {
+    "id": "prueba-reclamaciones",
+    "mazo": "La prueba",
+    "frente": "¿Cómo y en qué plazo se reclama?",
+    "reverso": "solo por SIMO, dentro de los 5 días hábiles siguientes a la publicación de resultados",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba/dia",
+      "ancla": "detalle"
+    }
+  },
+  {
+    "id": "tc-constitucion",
+    "mazo": "Tronco común",
+    "frente": "Constitución: ¿qué artículos cubren principios tributarios, debido proceso, deber de contribuir y función administrativa?",
+    "reverso": "Arts. 29, 95-9, 209, 338, 363",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/planes/tronco-comun"
+    }
+  },
+  {
+    "id": "tc-estructura",
+    "mazo": "Tronco común",
+    "frente": "¿Qué norma fija la estructura de la DIAN (naturaleza, direcciones seccionales, competencias)?",
+    "reverso": "Decreto 1742 de 2020",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/planes/tronco-comun"
+    }
+  },
+  {
+    "id": "tc-carrera",
+    "mazo": "Tronco común",
+    "frente": "¿Qué norma regula la carrera DIAN (ingreso, período de prueba, evaluación)?",
+    "reverso": "Decreto Ley 927 de 2023",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/planes/tronco-comun"
+    }
+  },
+  {
+    "id": "tc-procedimiento",
+    "mazo": "Tronco común",
+    "frente": "¿Qué normas rigen el procedimiento administrativo (notificación, recursos, revocatoria directa, silencio, petición)?",
+    "reverso": "CPACA (Ley 1437 de 2011, Ley 2080 de 2021), Ley 1755 de 2015",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/planes/tronco-comun"
+    }
+  },
+  {
+    "id": "tc-disciplinario",
+    "mazo": "Tronco común",
+    "frente": "¿Qué normas regulan lo disciplinario y la integridad del servidor?",
+    "reverso": "Ley 1952 de 2019, Ley 2094 de 2021, Ley 2016 de 2020",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/planes/tronco-comun"
+    }
+  },
+  {
+    "id": "tc-transparencia",
+    "mazo": "Tronco común",
+    "frente": "¿Qué normas cubren reserva tributaria, acceso a la información y datos personales?",
+    "reverso": "ET art. 583, Ley 1712 de 2014, Ley 1581 de 2012",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/planes/tronco-comun"
+    }
+  },
+  {
+    "id": "tc-juicio",
+    "mazo": "Tronco común",
+    "frente": "¿Cómo se resuelve un ítem de juicio situacional?",
+    "reverso": "identificar el rol del Gestor en el caso, ubicar la norma y el término que aplican, y elegir la opción que cumple el procedimiento sin exceder la competencia del cargo",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba/practicar",
+      "ancla": "juicio-situacional"
+    }
+  },
+  {
+    "id": "tc-trampa",
+    "mazo": "Tronco común",
+    "frente": "¿Cuál suele ser la trampa en un ítem de juicio situacional?",
+    "reverso": "Las opciones que resuelven el problema saltando un paso legal suelen ser la trampa",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba/practicar",
+      "ancla": "juicio-situacional"
+    }
+  },
+  {
+    "id": "tc-integridad",
+    "mazo": "Tronco común",
+    "frente": "¿Cómo se preparan las pruebas comportamentales y de integridad?",
+    "reverso": "No se estudian como temario. Basta leer el Código de Integridad y responder con coherencia",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba/practicar",
+      "ancla": "juicio-situacional"
+    }
+  },
+  {
+    "id": "pt-rut",
+    "mazo": "Procedimiento tributario",
+    "frente": "Estatuto Tributario: ¿en qué artículos está el RUT?",
+    "reverso": "555-2",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-procedimiento-tributario"
+    }
+  },
+  {
+    "id": "pt-declaraciones",
+    "mazo": "Procedimiento tributario",
+    "frente": "Estatuto Tributario: ¿en qué artículos están las declaraciones?",
+    "reverso": "574-580",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-procedimiento-tributario"
+    }
+  },
+  {
+    "id": "pt-correcciones",
+    "mazo": "Procedimiento tributario",
+    "frente": "Estatuto Tributario: ¿en qué artículos están las correcciones?",
+    "reverso": "588-589",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-procedimiento-tributario"
+    }
+  },
+  {
+    "id": "pt-sanciones",
+    "mazo": "Procedimiento tributario",
+    "frente": "Estatuto Tributario: ¿en qué artículos está el régimen de sanciones y gradualidad?",
+    "reverso": "634-682",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-procedimiento-tributario"
+    }
+  },
+  {
+    "id": "pt-fiscalizacion",
+    "mazo": "Procedimiento tributario",
+    "frente": "Estatuto Tributario: ¿en qué artículos está la fiscalización y liquidación oficial?",
+    "reverso": "684-719",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-procedimiento-tributario"
+    }
+  },
+  {
+    "id": "pt-firmeza",
+    "mazo": "Procedimiento tributario",
+    "frente": "Estatuto Tributario: ¿en qué artículo está la firmeza?",
+    "reverso": "714",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-procedimiento-tributario"
+    }
+  },
+  {
+    "id": "pt-recursos",
+    "mazo": "Procedimiento tributario",
+    "frente": "Estatuto Tributario: ¿en qué artículos está los recursos (discusión)?",
+    "reverso": "720-741",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-procedimiento-tributario"
+    }
+  },
+  {
+    "id": "pt-pruebas",
+    "mazo": "Procedimiento tributario",
+    "frente": "Estatuto Tributario: ¿en qué artículos está el régimen probatorio?",
+    "reverso": "742-795",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-procedimiento-tributario"
+    }
+  },
+  {
+    "id": "pt-prescripcion",
+    "mazo": "Procedimiento tributario",
+    "frente": "Estatuto Tributario: ¿en qué artículos está la prescripción?",
+    "reverso": "817",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-procedimiento-tributario"
+    }
+  },
+  {
+    "id": "pt-devoluciones",
+    "mazo": "Procedimiento tributario",
+    "frente": "Estatuto Tributario: ¿en qué artículos está las devoluciones?",
+    "reverso": "850-865",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-procedimiento-tributario"
+    }
+  },
+  {
+    "id": "cobro-coactivo",
+    "mazo": "Cobro",
+    "frente": "Estatuto Tributario: ¿qué artículos regulan el cobro administrativo coactivo?",
+    "reverso": "823-849",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-cobro"
+    }
+  },
+  {
+    "id": "cobro-acuerdos",
+    "mazo": "Cobro",
+    "frente": "Estatuto Tributario: ¿qué artículo regula los acuerdos de pago?",
+    "reverso": "814",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-cobro"
+    }
+  },
+  {
+    "id": "cobro-excepciones",
+    "mazo": "Cobro",
+    "frente": "Cobro coactivo: ¿qué artículo del Estatuto Tributario trae las excepciones?",
+    "reverso": "831",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/planes/caso-b-cobranzas"
+    }
+  },
+  {
+    "id": "cobro-prescripcion",
+    "mazo": "Cobro",
+    "frente": "Estatuto Tributario: ¿qué artículo regula la interrupción y suspensión de la prescripción?",
+    "reverso": "818",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/planes/caso-b-cobranzas"
+    }
+  },
+  {
+    "id": "cobro-insolvencia",
+    "mazo": "Cobro",
+    "frente": "¿Qué ley regula la insolvencia frente al cobro?",
+    "reverso": "Ley 1116 de 2006",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-cobro"
+    }
+  },
+  {
+    "id": "cobro-supletoria",
+    "mazo": "Cobro",
+    "frente": "¿Qué norma se aplica como supletoria en el procedimiento coactivo?",
+    "reverso": "Ley 1564 de 2012",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/planes/caso-b-cobranzas"
+    }
+  },
+  {
+    "id": "ac-marco",
+    "mazo": "Aduanero y cambiario",
+    "frente": "¿Cuál es la ley marco aduanera?",
+    "reverso": "Ley 1609 de 2013",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-aduanero"
+    }
+  },
+  {
+    "id": "ac-regimen",
+    "mazo": "Aduanero y cambiario",
+    "frente": "¿Qué decreto contiene el régimen aduanero?",
+    "reverso": "Decreto 1165 de 2019",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-aduanero"
+    }
+  },
+  {
+    "id": "ac-sanciones",
+    "mazo": "Aduanero y cambiario",
+    "frente": "¿Qué decreto ley regula las sanciones aduaneras y el decomiso?",
+    "reverso": "Decreto Ley 920 de 2023",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-aduanero"
+    }
+  },
+  {
+    "id": "ac-arancel",
+    "mazo": "Aduanero y cambiario",
+    "frente": "¿Qué decreto contiene el arancel?",
+    "reverso": "Decreto 1881 de 2021",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-aduanero"
+    }
+  },
+  {
+    "id": "ac-contrabando",
+    "mazo": "Aduanero y cambiario",
+    "frente": "Código Penal: ¿qué artículos tratan el contrabando y su favorecimiento?",
+    "reverso": "319-322",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-penal-fiscal"
+    }
+  },
+  {
+    "id": "ac-cambiario-ley",
+    "mazo": "Aduanero y cambiario",
+    "frente": "Régimen cambiario: ¿qué ley de 1991 encabeza la lista de normas?",
+    "reverso": "Ley 9 de 1991",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-cambiario"
+    }
+  },
+  {
+    "id": "ac-cambiario-decreto",
+    "mazo": "Aduanero y cambiario",
+    "frente": "¿Qué decreto contiene la parte cambiaria?",
+    "reverso": "Decreto 1068 de 2015",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-cambiario"
+    }
+  },
+  {
+    "id": "ac-cambiario-sanciones",
+    "mazo": "Aduanero y cambiario",
+    "frente": "¿Qué decreto ley es el régimen sancionatorio cambiario de la DIAN?",
+    "reverso": "Decreto Ley 2245 de 2011",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-cambiario"
+    }
+  },
+  {
+    "id": "ac-banrep",
+    "mazo": "Aduanero y cambiario",
+    "frente": "¿Qué resolución del Banco de la República está en el régimen cambiario?",
+    "reverso": "Res. Externa 1 de 2018",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-cambiario"
+    }
+  },
+  {
+    "id": "ctx-071",
+    "mazo": "Contexto",
+    "frente": "¿Qué derogó el Decreto Ley 071 de 2020?",
+    "reverso": "el artículo 152 del Decreto Ley 927 de 2023",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "contexto"
+    }
+  },
+  {
+    "id": "ctx-base",
+    "mazo": "Contexto",
+    "frente": "Sin reforma tributaria estructural nueva, ¿cuál sigue siendo la base?",
+    "reverso": "Ley 2277 de 2022",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "contexto"
+    }
+  },
+  {
+    "id": "ctx-240",
+    "mazo": "Contexto",
+    "frente": "¿Qué decreto de 2026 trae el impuesto al patrimonio de personas jurídicas y sigue en revisión?",
+    "reverso": "Decreto 240 de 2026",
+    "quiz": true,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "contexto"
+    }
+  },
+  {
+    "id": "ctx-reforma-2025",
+    "mazo": "Contexto",
+    "frente": "¿Qué pasó con la reforma tributaria de 2025?",
+    "reverso": "se hundió en el Senado el 9 de diciembre de 2025",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "contexto"
+    }
+  },
+  {
+    "id": "ctx-emergencia",
+    "mazo": "Contexto",
+    "frente": "¿Qué pasó con los decretos de emergencia 1390 y 1474 de 2025?",
+    "reverso": "fueron declarados inexequibles",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "contexto"
+    }
+  },
+  {
+    "id": "ctx-minimo-65",
+    "mazo": "Contexto",
+    "frente": "Algunos blogs dicen que el mínimo es 65. ¿Qué dice la GOA?",
+    "reverso": "la GOA dice 70,00",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/prueba",
+      "ancla": "calificacion"
+    }
+  },
+  {
+    "id": "ctx-aduanero-vigente",
+    "mazo": "Contexto",
+    "frente": "Los blogs citan el Decreto 390 de 2016 como código aduanero. ¿Cuál es el régimen aduanero vigente?",
+    "reverso": "Decreto 1165 de 2019 (régimen aduanero)",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-aduanero"
+    }
+  },
+  {
+    "id": "ctx-fecha-normas",
+    "mazo": "Contexto",
+    "frente": "¿Qué normas entran en la prueba según la GOA?",
+    "reverso": "normas vigentes expedidas antes del 19 de junio de 2026",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/normativa"
+    }
+  },
+  {
+    "id": "ctx-temario",
+    "mazo": "Contexto",
+    "frente": "¿Cuál es el temario oficial de la prueba?",
+    "reverso": "los indicadores temáticos de la OPEC",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/normativa"
+    }
+  },
+  {
+    "id": "ctx-doctrina",
+    "mazo": "Contexto",
+    "frente": "¿Dónde están la doctrina oficial y el ET actualizado?",
+    "reverso": "normograma de la DIAN",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "contexto"
+    }
+  }
+]
