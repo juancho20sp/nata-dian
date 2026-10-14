@@ -18,8 +18,8 @@
 
 ## 4. Casos de práctica
 
-- [ ] 4.1 Crear `src/lib/casos.ts` (`ordenarCasos`, `registrarCaso`) y la clave `casosAvance`; verificar con Vitest que los fallados van primero, que "Todos" alterna A, B, C, D y T en cada ronda y que no se repite un caso hasta mostrar todos
-- [ ] 4.2 Escribir `src/content/casos.json` (al menos 4 por caso A, B, C, D y T) a partir de los patrones de la investigación, con distractores que contradicen una cita y explicación con la norma; verificar con `tests/casos.test.ts` (3 opciones distintas, correcta en rango, reglas existentes, norma en la explicación, cobertura)
+- [x] 4.1 Crear `src/lib/casos.ts` (`ordenarCasos`, `registrarCaso`) y la clave `casosAvance`; verificar con Vitest que los fallados van primero, que "Todos" alterna A, B, C, D y T en cada ronda y que no se repite un caso hasta mostrar todos
+- [x] 4.2 Escribir `src/content/casos.json` (al menos 4 por caso A, B, C, D y T) a partir de los patrones de la investigación, con distractores que contradicen una cita y explicación con la norma; verificar con `tests/casos.test.ts` (3 opciones distintas, correcta en rango, reglas existentes, norma en la explicación, cobertura)
 - [ ] 4.3 Crear `/repasar/casos` (rótulo de caso elaborado, nota de que las preguntas reales no se publican, chips con `?caso=`, opciones con teclas, marcas "Correcta" y "Su respuesta", explicación con enlaces oficiales, avance "N de M acertados", suma a la meta); verificar en el navegador un caso fallado que vuelve primero y la alternancia de cinco seguidos
 
 ## 5. Términos y accesos

@@ -229,4 +229,19 @@ const tarjetas = defineCollection({
   }),
 });
 
-export const collections = { planes, normativa, recursos, ponderacion, fuentes, paginas, esencial, tarjetas, reglas };
+/** Casos de práctica elaborados para el sitio, sustentados en reglas verificadas (ver tests/casos.test.ts). */
+const casos = defineCollection({
+  loader: file('src/content/casos.json'),
+  schema: z.object({
+    id: idEstable,
+    caso: z.enum(['A', 'B', 'C', 'D', 'T']),
+    situacion: z.string(),
+    pregunta: z.string(),
+    opciones: z.tuple([z.string(), z.string(), z.string()]),
+    correcta: z.number().int().min(0).max(2),
+    explicacion: z.string(),
+    reglas: z.array(idEstable).min(1),
+  }),
+});
+
+export const collections = { planes, normativa, recursos, ponderacion, fuentes, paginas, esencial, tarjetas, reglas, casos };

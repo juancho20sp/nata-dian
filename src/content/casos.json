@@ -1,0 +1,417 @@
+[
+  {
+    "id": "a-respuesta-extemporanea",
+    "caso": "A",
+    "situacion": "La DIAN notificó un requerimiento especial a una sociedad el 1 de marzo. La sociedad radica su respuesta el 10 de junio.",
+    "pregunta": "¿Qué debe hacer el Gestor?",
+    "opciones": [
+      "Conceder un nuevo plazo para que la sociedad complete la respuesta.",
+      "Continuar el trámite: la respuesta es extemporánea y la liquidación de revisión debe proferirse dentro de los seis meses siguientes al vencimiento del plazo para responder.",
+      "Archivar la actuación, porque la sociedad respondió."
+    ],
+    "correcta": 1,
+    "explicacion": "El ET 707 da tres (3) meses desde la notificación del requerimiento especial para responder, así que el plazo vencía el 1 de junio. El ET 710 fija la liquidación de revisión dentro de los seis meses siguientes al vencimiento de ese término. Conceder plazos o archivar no hace parte del procedimiento.",
+    "reglas": [
+      "a-respuesta-al-requerimiento",
+      "a-liquidacion-de-revision-termino"
+    ]
+  },
+  {
+    "id": "a-firmeza",
+    "caso": "A",
+    "situacion": "El plazo para declarar renta de un contribuyente venció el 10 de mayo de 2023. Declaró a tiempo, sin saldo a favor ni pérdidas. El 15 de mayo de 2026 la DIAN quiere notificarle un requerimiento especial.",
+    "pregunta": "¿Qué procede?",
+    "opciones": [
+      "Abstenerse: la declaración quedó en firme, porque pasaron tres años desde el vencimiento del plazo para declarar sin que se notificara requerimiento especial.",
+      "Notificar un emplazamiento para corregir, que no tiene término.",
+      "Notificar el requerimiento, porque aún no han pasado cinco años."
+    ],
+    "correcta": 0,
+    "explicacion": "Según el ET 705 y el ET 714, el requerimiento especial debe notificarse dentro de los tres (3) años siguientes al vencimiento del plazo para declarar; si no se notifica, la declaración queda en firme. El 10 de mayo de 2026 se cumplieron los tres años.",
+    "reglas": [
+      "a-requerimiento-especial-termino-para-notificarlo",
+      "a-firmeza-general"
+    ]
+  },
+  {
+    "id": "a-gradualidad",
+    "caso": "A",
+    "situacion": "Al responder el requerimiento especial, el contribuyente acepta los hechos, corrige su declaración y prueba el pago.",
+    "pregunta": "¿Cómo queda la sanción por inexactitud propuesta?",
+    "opciones": [
+      "Se mantiene completa, porque ya se había propuesto.",
+      "Se reduce a la mitad.",
+      "Se reduce a la cuarta parte de la planteada por la Administración."
+    ],
+    "correcta": 2,
+    "explicacion": "El ET 709 reduce la inexactitud a la cuarta parte cuando se corrige con ocasión del requerimiento especial y se prueba el pago o el acuerdo de pago. La reducción a la mitad (ET 713) corresponde a la aceptación de los hechos de la liquidación de revisión.",
+    "reglas": [
+      "a-correccion-provocada-por-el-requerimiento",
+      "a-correccion-provocada-por-la-liquidacion-de-revis"
+    ]
+  },
+  {
+    "id": "a-omiso",
+    "caso": "A",
+    "situacion": "Un contribuyente obligado a declarar no presentó la declaración. Se le emplazó y no declaró dentro del mes siguiente.",
+    "pregunta": "¿Qué procede?",
+    "opciones": [
+      "Proferir un requerimiento especial.",
+      "Imponer la sanción por no declarar y proferir la liquidación de aforo dentro de los cinco años siguientes al vencimiento del plazo para declarar.",
+      "Esperar a que presente la declaración voluntariamente."
+    ],
+    "correcta": 1,
+    "explicacion": "El emplazamiento para declarar da un (1) mes (ET 715). Vencido, procede la sanción por no declarar (ET 716) y la liquidación de aforo dentro de los cinco (5) años siguientes al vencimiento del plazo para declarar (ET 717). El requerimiento especial (ET 703) es previo a la liquidación de revisión de una declaración presentada.",
+    "reglas": [
+      "a-emplazamiento-por-no-declarar",
+      "a-no-declarar-tras-el-emplazamiento-y-aforo",
+      "a-requerimiento-especial-requisito-previo-una-sola"
+    ]
+  },
+  {
+    "id": "a-silencio-positivo",
+    "caso": "A",
+    "situacion": "Un contribuyente interpuso en debida forma el recurso de reconsideración el 2 de febrero de 2025. El 10 de febrero de 2026 la DIAN no lo ha resuelto, y no hubo inspección tributaria.",
+    "pregunta": "¿Qué procede?",
+    "opciones": [
+      "Reconocer que el recurso se entiende fallado a favor del recurrente.",
+      "Pedir al contribuyente que vuelva a presentar el recurso.",
+      "Resolver el recurso confirmando la liquidación."
+    ],
+    "correcta": 0,
+    "explicacion": "El ET 732 da un (1) año para resolver, contado desde la interposición en debida forma. Vencido ese término, el ET 734 dispone que el recurso se entiende fallado a favor del recurrente (silencio positivo).",
+    "reglas": [
+      "a-termino-para-fallar-y-silencio-positivo"
+    ]
+  },
+  {
+    "id": "b-excepcion-improcedente",
+    "caso": "B",
+    "situacion": "Notificado el mandamiento de pago, el deudor propone como excepción su inconformidad con la liquidación oficial que sirve de título.",
+    "pregunta": "¿Qué debe hacer el Gestor?",
+    "opciones": [
+      "Suspender el cobro hasta que el deudor demande.",
+      "Revisar de nuevo la liquidación oficial y modificarla.",
+      "Rechazar la excepción, porque no está entre las del ET 831, y seguir la ejecución; contra esa decisión solo procede reposición dentro del mes siguiente."
+    ],
+    "correcta": 2,
+    "explicacion": "Las excepciones contra el mandamiento de pago son las del ET 831 (pago, acuerdo de pago, falta de ejecutoria del título, prescripción, entre otras); la inconformidad con la liquidación no está en la lista. Contra la resolución que rechaza excepciones, el ET 834 permite únicamente el recurso de reposición dentro del mes siguiente.",
+    "reglas": [
+      "b-excepciones-lista-cerrada",
+      "b-recursos-en-el-cobro"
+    ]
+  },
+  {
+    "id": "b-prescripcion",
+    "caso": "B",
+    "situacion": "Una declaración presentada a tiempo venció en abril de 2021. No hubo facilidades de pago, concordato ni liquidación forzosa. El mandamiento de pago se notifica en mayo de 2026, y el deudor propone la prescripción.",
+    "pregunta": "¿Qué procede?",
+    "opciones": [
+      "Rechazar la excepción, porque la acción de cobro prescribe en diez años.",
+      "Declarar probada la excepción: la acción de cobro prescribe en cinco años desde el vencimiento del plazo, y ese término pasó sin interrupción.",
+      "Rechazar la excepción, porque la prescripción no puede alegarse en el cobro coactivo."
+    ],
+    "correcta": 1,
+    "explicacion": "El ET 817 fija la prescripción de la acción de cobro en cinco (5) años desde el vencimiento del plazo. El ET 818 la interrumpe con la notificación del mandamiento de pago, que aquí llegó después de los cinco años. La prescripción es excepción del ET 831.",
+    "reglas": [
+      "b-prescripcion-de-la-accion-de-cobro",
+      "b-interrupcion-y-suspension-de-la-prescripcion",
+      "b-excepciones-lista-cerrada"
+    ]
+  },
+  {
+    "id": "b-embargo-excesivo",
+    "caso": "B",
+    "situacion": "En un cobro coactivo, los bienes embargados triplican el valor de la deuda más sus intereses.",
+    "pregunta": "¿Qué debe hacer el Gestor?",
+    "opciones": [
+      "Reducir los embargos, porque no pueden exceder del doble de la deuda más sus intereses.",
+      "Rematar de inmediato los bienes para cubrir la deuda.",
+      "Mantener los embargos para asegurar el pago."
+    ],
+    "correcta": 0,
+    "explicacion": "El ET 838 dispone que el valor de los bienes embargados no podrá exceder del doble de la deuda más sus intereses.",
+    "reglas": [
+      "b-limite-de-embargos"
+    ]
+  },
+  {
+    "id": "b-reorganizacion",
+    "caso": "B",
+    "situacion": "Se inicia el proceso de reorganización (Ley 1116 de 2006) de una sociedad que tiene un cobro coactivo en curso con bienes embargados.",
+    "pregunta": "¿Qué debe hacer el Gestor?",
+    "opciones": [
+      "Continuar el cobro coactivo, porque es una deuda tributaria.",
+      "Rematar los bienes antes de que avance el concurso.",
+      "No continuar el cobro: el proceso se remite al concurso y las medidas quedan a disposición del juez del concurso."
+    ],
+    "correcta": 2,
+    "explicacion": "La Ley 1116 de 2006, art. 20: desde el inicio de la reorganización no podrá admitirse ni continuarse demanda de ejecución o cualquier otro proceso de cobro contra el deudor; los procesos se remiten al concurso y las medidas quedan a disposición del juez del concurso.",
+    "reglas": [
+      "b-reorganizacion-ley-1116"
+    ]
+  },
+  {
+    "id": "b-titulo-no-ejecutoriado",
+    "caso": "B",
+    "situacion": "Se pretende cobrar una liquidación oficial contra la que el contribuyente interpuso recurso de reconsideración, todavía sin decidir.",
+    "pregunta": "¿Qué procede?",
+    "opciones": [
+      "Librar mandamiento de pago, porque toda liquidación oficial es título ejecutivo.",
+      "No librar mandamiento de pago: solo son título las liquidaciones oficiales ejecutoriadas, y esta no lo está mientras el recurso no se decida.",
+      "Librar mandamiento y decretar embargos para asegurar el pago."
+    ],
+    "correcta": 1,
+    "explicacion": "El ET 828 num. 2 reconoce como título ejecutivo las liquidaciones oficiales ejecutoriadas. Según el ET 829, el acto queda ejecutoriado cuando los recursos se deciden en forma definitiva. La falta de ejecutoria del título es excepción del ET 831.",
+    "reglas": [
+      "b-titulos-ejecutivos",
+      "b-ejecutoria-del-titulo",
+      "b-excepciones-lista-cerrada"
+    ]
+  },
+  {
+    "id": "c-conciliacion-tributaria",
+    "caso": "C",
+    "situacion": "Antes de demandar, un contribuyente pide conciliación extrajudicial sobre una liquidación oficial de renta.",
+    "pregunta": "¿Cuál es la posición correcta de la DIAN?",
+    "opciones": [
+      "Señalar que el asunto no es conciliable, por tratarse de un conflicto de carácter tributario.",
+      "Conciliar la mitad del valor en discusión.",
+      "Conciliar, porque la conciliación siempre es requisito para demandar."
+    ],
+    "correcta": 0,
+    "explicacion": "La Ley 2220 de 2022, art. 90 num. 1, excluye de la conciliación extrajudicial en lo contencioso administrativo los conflictos de carácter tributario. La conciliación es requisito de procedibilidad solo cuando los asuntos son conciliables (art. 92).",
+    "reglas": [
+      "c-lo-tributario-no-se-concilia",
+      "c-conciliacion-como-requisito-de-procedibilidad"
+    ]
+  },
+  {
+    "id": "c-caducidad",
+    "caso": "C",
+    "situacion": "El acto que resolvió el recurso contra una liquidación oficial se notificó el 3 de febrero. El contribuyente radica demanda de nulidad y restablecimiento del derecho el 10 de junio.",
+    "pregunta": "Al contestar la demanda, ¿qué debe hacer el Gestor?",
+    "opciones": [
+      "Pedir que se suspenda el proceso para conciliar.",
+      "Contestar solo sobre el fondo del asunto.",
+      "Proponer la caducidad: el plazo era de cuatro meses contados desde el día siguiente a la notificación."
+    ],
+    "correcta": 2,
+    "explicacion": "El CPACA, art. 164 num. 2 lit. d, da cuatro (4) meses desde el día siguiente al de la notificación para la nulidad y restablecimiento. Como el asunto es tributario, no es conciliable (Ley 2220, art. 90), así que no hubo suspensión del término por conciliación.",
+    "reglas": [
+      "c-caducidad-nulidad-y-restablecimiento",
+      "c-lo-tributario-no-se-concilia"
+    ]
+  },
+  {
+    "id": "c-doctrina",
+    "caso": "C",
+    "situacion": "Un funcionario de fiscalización quiere aplicar una interpretación distinta a la de un concepto vigente de la Subdirección de Normativa y Doctrina.",
+    "pregunta": "¿Qué debe hacer?",
+    "opciones": [
+      "Aplicar su propia interpretación de la ley.",
+      "Aplicar el concepto, que constituye interpretación oficial y es obligatorio para los empleados públicos de la DIAN.",
+      "Esperar a que un juez decida antes de actuar."
+    ],
+    "correcta": 1,
+    "explicacion": "La Ley 2010 de 2019, art. 131, dispone que los conceptos de la Dirección de Gestión Jurídica o de la Subdirección de Normativa y Doctrina constituyen interpretación oficial para los empleados públicos y tienen carácter obligatorio para ellos.",
+    "reglas": [
+      "c-obligatoriedad-de-la-doctrina-dian"
+    ]
+  },
+  {
+    "id": "c-contestacion",
+    "caso": "C",
+    "situacion": "La DIAN es notificada de una demanda de nulidad y restablecimiento del derecho.",
+    "pregunta": "¿De qué término dispone para contestarla?",
+    "opciones": [
+      "Treinta (30) días de traslado, para contestar, proponer excepciones, pedir pruebas y llamar en garantía.",
+      "Cuatro (4) meses.",
+      "Diez (10) días."
+    ],
+    "correcta": 0,
+    "explicacion": "El CPACA, art. 172, corre traslado de la demanda por el término de treinta (30) días para contestar, proponer excepciones, solicitar pruebas y llamar en garantía.",
+    "reglas": [
+      "c-contestacion-de-la-demanda"
+    ]
+  },
+  {
+    "id": "c-oferta-revocatoria",
+    "caso": "C",
+    "situacion": "En segunda instancia, la DIAN advierte que el acto demandado tiene un vicio evidente. Ya se notificó el auto admisorio de la demanda.",
+    "pregunta": "¿Qué puede hacer?",
+    "opciones": [
+      "Esperar la sentencia sin actuar.",
+      "Revocar el acto directamente.",
+      "Formular oferta de revocatoria, previa aprobación del Comité de Conciliación, antes de la sentencia de segunda instancia."
+    ],
+    "correcta": 2,
+    "explicacion": "La revocatoria directa procede siempre que no se haya notificado el auto admisorio de la demanda (CPACA, art. 95). En el proceso, el parágrafo del art. 95 permite la oferta de revocatoria hasta antes de la sentencia de segunda instancia, previa aprobación del Comité de Conciliación.",
+    "reglas": [
+      "c-oferta-de-revocatoria-en-juicio",
+      "t-revocatoria-directa"
+    ]
+  },
+  {
+    "id": "d-objecion-extemporanea",
+    "caso": "D",
+    "situacion": "El interesado presenta el escrito de objeción a la aprehensión 20 días hábiles después de notificada el acta de aprehensión.",
+    "pregunta": "¿Qué debe hacer el Gestor?",
+    "opciones": [
+      "Tramitar la objeción como si fuera oportuna.",
+      "Tenerla por extemporánea, porque el plazo era de quince días hábiles desde la notificación del acta, y seguir hacia la decisión de fondo.",
+      "Devolver la mercancía por la demora del trámite."
+    ],
+    "correcta": 1,
+    "explicacion": "La Ley 2586 de 2026, art. 45 (igual al art. 88 del Decreto Ley 920 de 2023), da quince (15) días hábiles siguientes a la notificación del acta de aprehensión para el escrito de objeción. Luego viene la decisión de fondo, para la que hay setenta (70) días hábiles (Ley 2586, art. 47).",
+    "reglas": [
+      "d-objecion-a-la-aprehension",
+      "d-decision-de-fondo-del-decomiso"
+    ]
+  },
+  {
+    "id": "d-abandono",
+    "caso": "D",
+    "situacion": "Una mercancía lleva un mes y diez días en depósito desde su llegada, sin levante y sin prórroga.",
+    "pregunta": "¿Qué ocurrió?",
+    "opciones": [
+      "Operó el abandono legal; la mercancía puede rescatarse dentro del mes siguiente.",
+      "Procede su destrucción inmediata.",
+      "Nada todavía: el plazo de permanencia es de tres meses."
+    ],
+    "correcta": 0,
+    "explicacion": "El Decreto 1165 de 2019, art. 171, permite la permanencia en depósito hasta un (1) mes desde la llegada, prorrogable por un mes. Vencido sin levante, opera el abandono legal, con rescate dentro del mes siguiente.",
+    "reglas": [
+      "d-permanencia-en-deposito-y-abandono"
+    ]
+  },
+  {
+    "id": "d-allanamiento",
+    "caso": "D",
+    "situacion": "Después de notificado el requerimiento especial aduanero y antes de la decisión de fondo, el importador reconoce la infracción.",
+    "pregunta": "¿A cuánto se reduce la sanción?",
+    "opciones": [
+      "Al 20 %.",
+      "Sin sanción.",
+      "Al 40 %."
+    ],
+    "correcta": 2,
+    "explicacion": "La Ley 2586 de 2026, art. 19, reduce la sanción al 40 % cuando se reconoce después del requerimiento especial aduanero y antes de la decisión de fondo; el Decreto Ley 920 de 2023, art. 24, tenía el mismo 40 %. \"Sin sanción\" (solo en la Ley 2586) y 20 % corresponden a reconocer antes del requerimiento.",
+    "reglas": [
+      "d-allanamiento-cambio-en-la-ley-2586"
+    ]
+  },
+  {
+    "id": "d-silencio-aduanero",
+    "caso": "D",
+    "situacion": "Vencen los cinco meses sin que la DIAN resuelva la reconsideración interpuesta contra un decomiso.",
+    "pregunta": "¿Qué procede?",
+    "opciones": [
+      "Resolver tarde el recurso, confirmando el decomiso.",
+      "Reconocer el silencio administrativo positivo.",
+      "Pedir al recurrente que presente un nuevo recurso."
+    ],
+    "correcta": 1,
+    "explicacion": "La reconsideración aduanera se decide en cinco (5) meses (Ley 2586, art. 94; DL 920, art. 136). Vencido el plazo, se produce el silencio administrativo positivo (Ley 2586, art. 96; DL 920, art. 138).",
+    "reglas": [
+      "d-reconsideracion-aduanera",
+      "d-silencio-positivo-aduanero"
+    ]
+  },
+  {
+    "id": "d-descargos-cambiarios",
+    "caso": "D",
+    "situacion": "Un investigado por una infracción cambiaria presenta descargos tres meses después de notificado el acto de formulación de cargos.",
+    "pregunta": "¿Qué debe hacer el Gestor?",
+    "opciones": [
+      "No tenerlos como descargos oportunos: el traslado de dos meses era la única oportunidad.",
+      "Abrir un nuevo traslado de dos meses.",
+      "Valorarlos como descargos oportunos."
+    ],
+    "correcta": 0,
+    "explicacion": "El Decreto Ley 2245 de 2011, art. 21, da un traslado de dos (2) meses, que es la única oportunidad para presentar descargos.",
+    "reglas": [
+      "d-cambiario-prescripcion-y-traslado"
+    ]
+  },
+  {
+    "id": "t-peticion-copias",
+    "caso": "T",
+    "situacion": "Llega una petición de copias de documentos, y la dependencia la responde el día 12.",
+    "pregunta": "¿Qué pasó?",
+    "opciones": [
+      "La petición se entiende negada por silencio.",
+      "La respuesta es oportuna, porque el plazo general es de 15 días.",
+      "Fue tardía: el plazo era de diez días, la petición se entiende aceptada y las copias se entregan en tres días."
+    ],
+    "correcta": 2,
+    "explicacion": "El CPACA, art. 14 num. 1, da diez (10) días para las peticiones de documentos e información; si no se responden, se entienden aceptadas y las copias se entregan en tres días.",
+    "reglas": [
+      "t-peticion-de-documentos-e-informacion"
+    ]
+  },
+  {
+    "id": "t-sin-competencia",
+    "caso": "T",
+    "situacion": "Llega por escrito a la DIAN una petición que corresponde a otra entidad.",
+    "pregunta": "¿Qué debe hacer el funcionario?",
+    "opciones": [
+      "Archivarla.",
+      "Informar al peticionario y remitirla a la entidad competente dentro de los cinco días siguientes a su recepción.",
+      "Resolverla de fondo dentro de quince días."
+    ],
+    "correcta": 1,
+    "explicacion": "El CPACA, art. 21, ordena informar y remitir dentro de los cinco (5) días siguientes al de la recepción, si la petición llegó por escrito.",
+    "reglas": [
+      "t-funcionario-sin-competencia"
+    ]
+  },
+  {
+    "id": "t-impedimento",
+    "caso": "T",
+    "situacion": "Al Gestor le asignan proyectar un acto sobre la empresa de su primo hermano (pariente en cuarto grado de consanguinidad).",
+    "pregunta": "¿Qué debe hacer?",
+    "opciones": [
+      "Declararse impedido.",
+      "Pedir a su primo que desista del trámite.",
+      "Proyectarlo con especial cuidado."
+    ],
+    "correcta": 0,
+    "explicacion": "La Ley 1952 de 2019, art. 44, obliga a declararse impedido cuando hay interés particular y directo, también por parientes hasta el cuarto grado de consanguinidad.",
+    "reglas": [
+      "t-conflicto-de-intereses"
+    ]
+  },
+  {
+    "id": "t-revocatoria-particular",
+    "caso": "T",
+    "situacion": "Un acto particular que reconoció un derecho resulta contrario a la ley, y su titular no da su consentimiento para revocarlo.",
+    "pregunta": "¿Qué debe hacer la entidad?",
+    "opciones": [
+      "Suspenderlo hasta que el titular acepte.",
+      "Revocarlo directamente.",
+      "No revocarlo sin el consentimiento previo, expreso y escrito del titular."
+    ],
+    "correcta": 2,
+    "explicacion": "El CPACA, art. 97, dispone que un acto particular no puede revocarse sin el consentimiento previo, expreso y escrito del respectivo titular.",
+    "reglas": [
+      "t-revocatoria-directa"
+    ]
+  },
+  {
+    "id": "t-recursos",
+    "caso": "T",
+    "situacion": "Un acto que niega una solicitud se notificó personalmente. El interesado quiere interponer reposición y apelación.",
+    "pregunta": "¿En qué plazo?",
+    "opciones": [
+      "Dentro de los dos meses siguientes.",
+      "Dentro de los diez días siguientes a la notificación.",
+      "Dentro de los tres días siguientes."
+    ],
+    "correcta": 1,
+    "explicacion": "El CPACA, arts. 74 y 76: reposición y apelación se interponen dentro de los diez (10) días siguientes a la notificación.",
+    "reglas": [
+      "t-recursos-oportunidad"
+    ]
+  }
+]

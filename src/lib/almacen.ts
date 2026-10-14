@@ -11,6 +11,7 @@ export const CLAVES = {
   tarjetasPropias: 'dian2676:tarjetas:propias',
   repasoMeta: 'dian2676:repaso:meta',
   repasoDias: 'dian2676:repaso:dias',
+  casosAvance: 'dian2676:casos:avance',
 } as const;
 
 /** true si el navegador deja escribir en localStorage (falla en modo privado o con datos bloqueados). */
