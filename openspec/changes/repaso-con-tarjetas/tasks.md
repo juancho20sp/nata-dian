@@ -7,10 +7,10 @@
 
 ## 2. Lógica de repaso
 
-- [ ] 2.1 Crear `src/lib/repaso.ts` (`responder`, `limitarAntesDeLaPrueba`, `tocaHoy`, `resumenMazo`); verificar con Vitest los escenarios de la spec: caja 2 a 3 el 20-oct vuelve el 24-oct, fallo a caja 1 al día siguiente, 30-oct caja 4 a 5 vuelve el 5-nov, después del 5-nov vuelve hoy, y tarjeta sin estado toca hoy
-- [ ] 2.2 Crear `src/lib/quiz.ts` (`armarQuiz` con `azar` inyectable); verificar con Vitest y semilla fija: 10 preguntas sin repetir, 3 opciones distintas del mismo mazo con exactamente una correcta, mazos con menos de 3 aptas excluidos, y prioridad para las que tocan hoy
-- [ ] 2.3 Crear `src/lib/racha.ts` (`sumar` con poda a 60 días, `avanceDeHoy`, `racha`); verificar con Vitest los cinco escenarios de racha de la spec (días seguidos, un hueco, dos huecos seguidos, dos huecos sueltos, hoy sin cumplir) y el cambio de día en hora de Colombia
-- [ ] 2.4 Crear `src/lib/tarjetas-propias.ts` (`crear`, `validar`) y las claves nuevas y `almacenDisponible()` en `src/lib/almacen.ts`; verificar con Vitest el rechazo de campos vacíos, el recorte de espacios, el límite de 300 caracteres y que las claves existentes no cambian
+- [x] 2.1 Crear `src/lib/repaso.ts` (`responder`, `limitarAntesDeLaPrueba`, `tocaHoy`, `resumenMazo`); verificar con Vitest los escenarios de la spec: caja 2 a 3 el 20-oct vuelve el 24-oct, fallo a caja 1 al día siguiente, 30-oct caja 4 a 5 vuelve el 5-nov, después del 5-nov vuelve hoy, y tarjeta sin estado toca hoy
+- [x] 2.2 Crear `src/lib/quiz.ts` (`armarQuiz` con `azar` inyectable); verificar con Vitest y semilla fija: 10 preguntas sin repetir, 3 opciones distintas del mismo mazo con exactamente una correcta, mazos con menos de 3 aptas excluidos, y prioridad para las que tocan hoy
+- [x] 2.3 Crear `src/lib/racha.ts` (`sumar` con poda a 60 días, `avanceDeHoy`, `racha`); verificar con Vitest los cinco escenarios de racha de la spec (días seguidos, un hueco, dos huecos seguidos, dos huecos sueltos, hoy sin cumplir) y el cambio de día en hora de Colombia
+- [x] 2.4 Crear `src/lib/tarjetas-propias.ts` (`crear`, `validar`) y las claves nuevas y `almacenDisponible()` en `src/lib/almacen.ts`; verificar con Vitest el rechazo de campos vacíos, el recorte de espacios, el límite de 300 caracteres y que las claves existentes no cambian
 
 ## 3. Navegación de seis destinos
 
