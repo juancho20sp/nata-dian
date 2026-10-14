@@ -26,8 +26,8 @@
 
 ## 5. Inicio y documentación
 
-- [ ] 5.1 Agregar en Inicio la línea "Hoy: N tarjetas para repasar · racha de D días" con enlace a `/repasar`, oculta después del 8 de noviembre; verificar en el navegador con el reloj el 22-oct y el 9-nov
-- [ ] 5.2 Actualizar el README (tabla "Quiero cambiar…" con `tarjetas.json`, regla de reverso literal, claves nuevas de localStorage y la ruta `/repasar`); verificar que cada archivo citado existe
+- [x] 5.1 Agregar en Inicio la línea "Hoy: N tarjetas para repasar · racha de D días" con enlace a `/repasar`, oculta después del 8 de noviembre; verificar en el navegador con el reloj el 22-oct y el 9-nov
+- [x] 5.2 Actualizar el README (tabla "Quiero cambiar…" con `tarjetas.json`, regla de reverso literal, claves nuevas de localStorage y la ruta `/repasar`); verificar que cada archivo citado existe
 
 ## 6. Verificación integral
 

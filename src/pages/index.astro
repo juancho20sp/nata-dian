@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
 import { planesSeleccionables } from '../lib/datos';
 import { FECHA_PRUEBA } from '../lib/fechas';
 import { ruta } from '../lib/ruta';
@@ -25,6 +26,7 @@ const pendientes = [
   'Confirmar la citación en SIMO (sitio y hora) apenas se publique.',
 ];
 
+const idsTarjetas = (await getCollection('tarjetas')).map((e) => e.data.id);
 const planes = await planesSeleccionables();
 const datosPlanes = JSON.stringify(
   Object.fromEntries(
@@ -68,6 +70,13 @@ const datosPlanes = JSON.stringify(
         }
       </ul>
     </div>
+
+    <p class="mt-3" id="linea-repaso" data-ids={JSON.stringify(idsTarjetas)} hidden>
+      <a href={ruta('/repasar')} class="block no-underline">
+        <span class="block text-sm font-semibold uppercase tracking-wide text-suave">Repasar</span>
+        <span class="block text-texto underline decoration-primario/50 underline-offset-4" data-texto-repaso></span>
+      </a>
+    </p>
 
     <p class="mt-3" id="linea-semana" data-planes={datosPlanes} hidden>
       <a href={ruta('/plan')} class="block no-underline">
@@ -117,8 +126,11 @@ const datosPlanes = JSON.stringify(
 <script>
   import { CLAVES, leer } from '../lib/almacen';
   import { panelDeHoy } from '../lib/esta-semana';
-  import { cuentaRegresiva, fasePrueba, fechaEnColombia, type RangoSemana } from '../lib/fechas';
+  import { FECHA_PRUEBA, cuentaRegresiva, fasePrueba, fechaEnColombia, type RangoSemana } from '../lib/fechas';
   import { planDestino } from '../lib/plan-elegido';
+  import { metaValida, racha, type Registro } from '../lib/racha';
+  import { estadosVigentes, tocaHoy } from '../lib/repaso';
+  import { propiasValidas } from '../lib/tarjetas-propias';
 
   // Cuenta regresiva
   const caja = document.getElementById('cuenta-regresiva');
@@ -147,6 +159,27 @@ const datosPlanes = JSON.stringify(
   // El día de la prueba, la logística va primero
   const bloqueDia = document.getElementById('bloque-dia-prueba');
   if (bloqueDia) bloqueDia.hidden = fechaEnColombia(new Date()) !== bloqueDia.dataset.fecha;
+
+  // Repaso: tarjetas para hoy y racha (se oculta después del día de la prueba)
+  const lineaRepaso = document.getElementById('linea-repaso');
+  const diaHoy = fechaEnColombia(new Date());
+  if (lineaRepaso && diaHoy <= FECHA_PRUEBA) {
+    let ids: string[] = [];
+    try {
+      ids = JSON.parse(lineaRepaso.dataset.ids ?? '[]');
+    } catch {
+      /* sin tarjetas */
+    }
+    ids = [...ids, ...propiasValidas(leer<unknown>(CLAVES.tarjetasPropias, [])).map((t) => t.id)];
+    const estados = estadosVigentes(leer<unknown>(CLAVES.tarjetasEstado, {}), ids);
+    const registroGuardado = leer<unknown>(CLAVES.repasoDias, {});
+    const registro = registroGuardado && typeof registroGuardado === 'object' ? (registroGuardado as Registro) : {};
+    const n = ids.filter((id) => tocaHoy(estados[id], diaHoy)).length;
+    const d = racha(registro, metaValida(leer<unknown>(CLAVES.repasoMeta, null)), diaHoy).dias;
+    lineaRepaso.querySelector('[data-texto-repaso]')!.textContent =
+      `Hoy: ${n} ${n === 1 ? 'tarjeta' : 'tarjetas'} para repasar · racha de ${d} ${d === 1 ? 'día' : 'días'}`;
+    lineaRepaso.hidden = false;
+  }
 
   // Semana en curso del plan elegido (o del plan por defecto)
   const linea = document.getElementById('linea-semana');

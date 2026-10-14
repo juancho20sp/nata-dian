@@ -28,7 +28,7 @@ Otros comandos:
 | Comando        | Qué hace                                                                       |
 | -------------- | ------------------------------------------------------------------------------ |
 | `pnpm check`   | Revisión de tipos (`astro check`)                                              |
-| `pnpm test`    | Pruebas con Vitest (fechas, Esta semana, progreso, navegación, filtros, origen de Lo esencial) |
+| `pnpm test`    | Pruebas con Vitest (fechas, Esta semana, progreso, navegación, filtros, origen de Lo esencial y de las tarjetas, repaso, quiz, racha) |
 | `pnpm validar` | Verifica que cada plan cubra del 12-oct al 7-nov sin huecos, que los ids de tareas sean únicos y que las advertencias estén declaradas |
 
 ## Estructura del sitio
@@ -39,6 +39,7 @@ Otros comandos:
 | La prueba | `/prueba`, `/prueba/dia`, `/prueba/practicar` | Estructura y calificación; día de la prueba; práctica y recursos |
 | Normativa | `/normativa` | Normas por área, filtrables por tipo de empleo (`?empleo=`) |
 | Convocatoria | `/convocatoria` | Proceso, empleos para abogados (`#empleos`) y cargo de Gestor (`#gestor`) |
+| Repasar | `/repasar`, `/repasar/tarjetas`, `/repasar/quiz`, `/repasar/mis-tarjetas` | Tarjetas con repetición espaciada, quiz de normas A/B/C, meta diaria, racha y tarjetas propias |
 | Mi plan | `/plan`, `/plan/elegir`, `/planes/<slug>` | Lleva al plan elegido; selector; plan con Esta semana, semanas y progreso |
 
 `/fuentes` se enlaza desde el pie. `/hoy`, `/planes` y `/recursos` redirigen a su nueva ubicación. El diseño y el comportamiento están en `_bmad-output/planning-artifacts/ux-designs/ux-nata-dian-2026-10-13/` (DESIGN.md y EXPERIENCE.md).
@@ -60,7 +61,10 @@ Todo está en `src/content/`. Al guardar, `pnpm dev` recarga y Zod avisa si un d
 | La línea de resumen de una sección plegable | `resumen` en el frontmatter de `src/content/paginas/*.md` |
 | La marca de advertencia de una sección | `aviso` en el frontmatter de `src/content/paginas/*.md` |
 | Las preguntas de entrada y "Lo que falta" de Inicio | `src/pages/index.astro` |
-| Los destinos de la navegación | `src/lib/destinos.ts` |
+| Los destinos de la navegación (y sus etiquetas cortas) | `src/lib/destinos.ts` |
+| Las tarjetas de repaso y sus mazos | `src/content/tarjetas.json` (mazos en `MAZOS`, `src/content.config.ts`) |
+| Intervalos de repaso y fechas del repaso final | `INTERVALOS`, `ULTIMO_DIA` y `REPASO_FINAL` en `src/lib/repaso.ts` |
+| Metas diarias disponibles | `METAS` en `src/lib/racha.ts` |
 | Las redirecciones de rutas antiguas | `redirects` en `astro.config.mjs` |
 | Fecha "Información actualizada al…"     | `ACTUALIZADO_AL` en `src/lib/fechas.ts`                         |
 | Hora de inicio o fin de la prueba       | `INICIO_PRUEBA` y `FIN_PRUEBA` en `src/lib/fechas.ts`           |
@@ -69,6 +73,13 @@ Reglas para las páginas de consulta:
 
 - Cada viñeta de `esencial.json` debe copiar una frase del dossier: `pnpm test` comprueba que su texto aparece en `fuentes/contenido-dossier.md`. Cada página lleva de 3 a 5 viñetas, y en el celular el bloque debe caber en la primera pantalla (360 × 640).
 - Si un Markdown de `paginas/` tiene una advertencia (`> **Dato inferido.** …`), su rótulo debe estar en `aviso`; `pnpm validar` lo comprueba.
+
+Reglas para las tarjetas de repaso:
+
+- El `reverso` de cada tarjeta debe ser un fragmento literal del dossier: `pnpm test` lo comprueba (`tests/tarjetas.test.ts`). El `frente` es una pregunta que no debe afirmar nada que el dossier no diga.
+- `quiz: true` la hace apta para el quiz. Cada mazo necesita al menos 3 tarjetas aptas, sin reversos repetidos, porque las opciones incorrectas salen del mismo mazo.
+- `fuente` es la página (y sección) de donde sale el dato; se usa para el enlace "Ver en el sitio".
+- Los `id` son estables: el avance de cada tarjeta se guarda por `id`.
 
 Reglas para los planes:
 
@@ -82,6 +93,22 @@ Reglas para los planes:
 2. Pasar los indicadores temáticos al plan correspondiente (`temas`, `normas`, `tareas`) y quitar los `todo` resueltos.
 3. Quitar lo resuelto de "Lo que falta" en `src/pages/index.astro`.
 4. Actualizar `ACTUALIZADO_AL` y el dossier.
+
+## Datos guardados en el navegador
+
+Todo se guarda en `localStorage` con el prefijo `dian2676:` (ver `CLAVES` en `src/lib/almacen.ts`):
+
+| Clave | Contenido |
+| --- | --- |
+| `dian2676:plan` | Plan elegido |
+| `dian2676:tema` | Tema claro u oscuro elegido a mano |
+| `dian2676:progreso:<slug>` | Semanas y tareas marcadas de cada plan |
+| `dian2676:tarjetas:estado` | Caja y próxima fecha de cada tarjeta |
+| `dian2676:tarjetas:propias` | Tarjetas escritas por el usuario |
+| `dian2676:repaso:meta` | Meta diaria (10, 20 o 30) |
+| `dian2676:repaso:dias` | Respuestas por día de los últimos 60 días (para la meta y la racha) |
+
+Si el navegador bloquea el almacenamiento, el sitio funciona igual pero no recuerda nada entre visitas.
 
 ## Desplegar en GitHub Pages
 
