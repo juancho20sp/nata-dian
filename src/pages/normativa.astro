@@ -34,8 +34,9 @@ const paraQuien = (empleos: string[]) => (empleos.includes(TODOS) ? 'Para todos 
     {
       areas.map((a) => (
         <div data-empleos={JSON.stringify(a.empleos)}>
-          <Plegable id={`area-${a.id}`} titulo={a.area} resumen={paraQuien(a.empleos)} nivel="h3">
+          <Plegable id={`area-${a.id}`} titulo={a.area} resumen={paraQuien(a.empleos)} aviso={a.aviso} nivel="h3">
             <p>{a.normas}</p>
+            {a.nota && <p class="mt-2 rounded px-3 py-2 text-sm bg-aviso-fondo text-aviso-texto">{a.nota}</p>}
             {a.enlace && (
               <p class="mt-2">
                 <a href={a.enlace.url} rel="noopener">

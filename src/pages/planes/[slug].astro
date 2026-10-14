@@ -48,7 +48,7 @@ const totalItems = plan.semanas.length + plan.tareas.length;
         id="sobre-el-plan"
         titulo="Sobre este plan"
         resumen="Por qué este reparto y qué le falta al dossier."
-        aviso={plan.todo.length > 0 ? ['Pendiente'] : []}
+        aviso={[...plan.aviso, ...(plan.todo.length > 0 ? ['Pendiente'] : [])]}
       >
         <p>{plan.resumen}</p>
         {plan.notas.map((n) => <p class="mt-3">{n}</p>)}

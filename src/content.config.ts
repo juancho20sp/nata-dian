@@ -5,6 +5,18 @@ import { z } from 'astro/zod';
 const fechaISO = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Use el formato AAAA-MM-DD');
 const idEstable = z.string().regex(/^[a-z0-9-]+$/, 'Solo minúsculas, números y guiones');
 
+/** Rótulos de las advertencias del dossier (el texto en negrita que abre cada blockquote). */
+export const AVISOS = [
+  'Datos de terceros',
+  'Dato inferido',
+  'Dato aproximado',
+  'Fecha no oficial',
+  'Lista construida',
+  'Precaución',
+  'Verifique el enlace',
+  'Vigencia',
+] as const;
+
 export const semanaSchema = z.object({
   id: idEstable,
   inicio: fechaISO,
@@ -38,6 +50,8 @@ const planes = defineCollection({
       tareas: z.array(tareaSchema),
       /** Pendientes visibles: datos que el dossier no trae. */
       todo: z.array(z.string()).default([]),
+      /** Advertencias que se marcan en "Sobre este plan". */
+      aviso: z.array(z.enum(AVISOS)).default([]),
       // Solo para el tronco común
       temas: z
         .array(z.object({ tema: z.string(), dominar: z.string(), norma: z.string() }))
@@ -64,6 +78,9 @@ const normativa = defineCollection({
     normas: z.string(),
     empleos: z.array(z.string()).min(1),
     enlace: z.object({ texto: z.string(), url: z.url() }).optional(),
+    aviso: z.array(z.enum(AVISOS)).default([]),
+    /** Texto del aviso, visible dentro del área. */
+    nota: z.string().optional(),
   }),
 });
 
@@ -110,16 +127,6 @@ const fuentes = defineCollection({
   }),
 });
 
-/** Rótulos de las advertencias del dossier (el texto en negrita que abre cada blockquote). */
-export const AVISOS = [
-  'Datos de terceros',
-  'Dato inferido',
-  'Dato aproximado',
-  'Fecha no oficial',
-  'Lista construida',
-  'Precaución',
-  'Verifique el enlace',
-] as const;
 
 const paginas = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/paginas' }),

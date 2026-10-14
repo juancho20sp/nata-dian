@@ -11,7 +11,10 @@
       "inicio": "2026-10-12",
       "fin": "2026-10-18",
       "temas": "Tronco común y conceptos aduaneros básicos: obligación aduanera, declarante, usuarios, mercancía, territorio aduanero",
-      "normas": ["Ley 1609 de 2013", "Decreto 1165 de 2019, títulos iniciales"],
+      "normas": [
+        "Ley 1609 de 2013",
+        "Decreto 1165 de 2019, títulos iniciales"
+      ],
       "tronco": "estudio"
     },
     {
@@ -19,27 +22,53 @@
       "inicio": "2026-10-19",
       "fin": "2026-10-25",
       "temas": "Regímenes: importación (consumo, temporal, perfeccionamiento), exportación, tránsito, depósito y zonas francas; declaración y levante; valoración y clasificación arancelaria en nivel general",
-      "normas": ["Decreto 1165 de 2019", "Decreto 1881 de 2021 (arancel)"]
+      "normas": [
+        "Decreto 1165 de 2019",
+        "Decreto 1881 de 2021 (arancel)"
+      ]
     },
     {
       "id": "s3",
       "inicio": "2026-10-26",
       "fin": "2026-11-01",
       "temas": "Régimen sancionatorio y decomiso: infracciones, sanciones, aprehensión, decomiso, liquidación oficial aduanera, recursos",
-      "normas": ["Decreto Ley 920 de 2023", "Código Penal 319-322 (contrabando)"]
+      "normas": [
+        "Decreto Ley 920 de 2023 y Ley 2586 de 2026 (ver Vigencia)",
+        "Código Penal 319-322 (contrabando)"
+      ]
     },
     {
       "id": "s4",
       "inicio": "2026-11-02",
       "fin": "2026-11-07",
       "temas": "Régimen cambiario: operaciones de canalización obligatoria, competencias DIAN y Superintendencia de Sociedades, sanciones cambiarias; dos simulacros completos",
-      "normas": ["Ley 9 de 1991", "Decreto 1068 de 2015", "Decreto Ley 2245 de 2011", "Res. Externa 1 de 2018 del Banco de la República"],
+      "normas": [
+        "Ley 9 de 1991",
+        "Decreto 1068 de 2015",
+        "Decreto Ley 2245 de 2011",
+        "Res. Externa 1 de 2018 del Banco de la República"
+      ],
       "tronco": "repaso"
     }
   ],
   "tareas": [
-    { "id": "d-glosario-aduanero", "texto": "Hacer un glosario de 40 términos aduaneros con su artículo." },
-    { "id": "d-flujo-aprehension-decomiso", "texto": "Diagramar el flujo de aprehensión, decomiso y recursos del Decreto Ley 920 de 2023." },
-    { "id": "d-confirmar-modificaciones-1165", "texto": "Confirmar en el normograma DIAN las modificaciones vigentes del Decreto 1165 de 2019 antes del 19 de junio de 2026." }
+    {
+      "id": "d-glosario-aduanero",
+      "texto": "Hacer un glosario de 40 términos aduaneros con su artículo."
+    },
+    {
+      "id": "d-flujo-aprehension-decomiso",
+      "texto": "Diagramar el flujo de aprehensión, decomiso y recursos del Decreto Ley 920 de 2023 y su equivalente en la Ley 2586 de 2026."
+    },
+    {
+      "id": "d-confirmar-modificaciones-1165",
+      "texto": "Confirmar en el normograma DIAN las modificaciones vigentes del Decreto 1165 de 2019 antes del 19 de junio de 2026."
+    }
+  ],
+  "notas": [
+    "Vigencia: El Decreto Ley 920 de 2023 fue derogado por el artículo 114 de la Ley 2586 de 2026 (19 de junio de 2026). La prueba solo incluye normas expedidas antes del 19 de junio de 2026, así que puede preguntar por el Decreto Ley 920; donde los textos coinciden, se citan ambos."
+  ],
+  "aviso": [
+    "Vigencia"
   ]
 }

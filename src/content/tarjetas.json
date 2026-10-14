@@ -436,7 +436,7 @@
   {
     "id": "ac-sanciones",
     "mazo": "Aduanero y cambiario",
-    "frente": "¿Qué decreto ley regula las sanciones aduaneras y el decomiso?",
+    "frente": "¿Qué decreto ley regulaba las sanciones aduaneras y el decomiso hasta junio de 2026?",
     "reverso": "Decreto Ley 920 de 2023",
     "quiz": true,
     "fuente": {
@@ -616,6 +616,17 @@
     "fuente": {
       "ruta": "/normativa",
       "ancla": "contexto"
+    }
+  },
+  {
+    "id": "ctx-2586",
+    "mazo": "Contexto",
+    "frente": "¿Qué norma derogó el Decreto Ley 920 de 2023 (sanciones aduaneras)?",
+    "reverso": "el artículo 114 de la Ley 2586 de 2026",
+    "quiz": false,
+    "fuente": {
+      "ruta": "/normativa",
+      "ancla": "area-aduanero"
     }
   }
 ]

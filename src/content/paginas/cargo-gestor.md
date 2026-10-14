@@ -4,6 +4,7 @@ resumen: "Funciones del Gestor, grados I a IV y qué confirmar en la OPEC."
 aviso:
   - Dato inferido
   - Verifique el enlace
+  - Vigencia
 ---
 
 El empleo es de **Gestor**, el cargo profesional de base de la DIAN. Tiene cuatro grados (I a IV). En ingreso hay vacantes de Gestor I a IV dentro de los 81 empleos profesionales, y la mayoría acepta Derecho entre sus carreras.
@@ -12,7 +13,9 @@ El empleo es de **Gestor**, el cargo profesional de base de la DIAN. Tiene cuatr
 - **Requisitos de referencia:** en el proceso DIAN anterior, Gestor II pedía título profesional (Derecho, Contaduría, Administración, entre otras) y 12 meses de experiencia profesional no relacionada ([Construyendo Méritos](https://www.construyendomeritos.com/blog/empleo-gestor-ii-en-la-convocatoria-dian-2024-todo-lo-que-necesitas-saber)). Gestor III pagaba $9.346.562 en este proceso ([Noticias RCN](https://www.noticiasrcn.com/economia/dian-vacantes-de-empleo-en-2026-con-salarios-de-12-millones-980952)).
 - **Lo que no cambia con el grado:** el tipo de prueba y la ponderación. Lo que sí cambia es el subproceso (fiscalización, cobranzas, jurídica, aduanas), y eso define los indicadores temáticos.
 
-Para un Gestor abogado, el núcleo probable es el procedimiento tributario del ET Libro V, el CPACA y, si el empleo es aduanero, el Decreto 1165 de 2019 y el Decreto Ley 920 de 2023.
+Para un Gestor abogado, el núcleo probable es el procedimiento tributario del ET Libro V, el CPACA y, si el empleo es aduanero, el Decreto 1165 de 2019 y el Decreto Ley 920 de 2023, hoy [Ley 2586 de 2026](https://normograma.dian.gov.co/dian/compilacion/docs/ley_2586_2026.htm).
+
+> **Vigencia.** El Decreto Ley 920 de 2023 fue derogado por el artículo 114 de la Ley 2586 de 2026 (19 de junio de 2026). La prueba solo incluye normas expedidas antes del 19 de junio de 2026, así que puede preguntar por el Decreto Ley 920; donde los textos coinciden, se citan ambos.
 
 > **Dato inferido.** Esto es una inferencia; lo confirma el grado y el subproceso que aparecen en la OPEC.
 
