@@ -151,6 +151,40 @@ const esencial = defineCollection({
   }),
 });
 
+/** Dominios oficiales admitidos como fuente de una regla. */
+export const DOMINIOS_OFICIALES = [
+  'secretariasenado.gov.co',
+  'normograma.dian.gov.co',
+  'funcionpublica.gov.co',
+  'suin-juriscol.gov.co',
+  'cnsc.gov.co',
+] as const;
+
+const urlOficial = z.url().refine(
+  (u) => DOMINIOS_OFICIALES.some((d) => new URL(u).hostname === d || new URL(u).hostname.endsWith(`.${d}`)),
+  'La URL debe ser de un dominio oficial',
+);
+
+/**
+ * Reglas verificadas contra el texto oficial de la norma, copiadas de las filas
+ * "Verificado" de fuentes/investigacion-casos.md (ver tests/reglas.test.ts).
+ */
+const reglas = defineCollection({
+  loader: file('src/content/reglas.json'),
+  schema: z.object({
+    id: idEstable,
+    /** A fiscalización, B cobranzas, C jurídica, D aduanas y cambiario, T tronco común. */
+    caso: z.enum(['A', 'B', 'C', 'D', 'T']),
+    regla: z.string(),
+    cita: z.string().min(5),
+    norma: z.string(),
+    url: urlOficial,
+    url2: urlOficial.optional(),
+    /** Texto igual en la Ley 2586 de 2026 y en el Decreto Ley 920 de 2023. */
+    ambasNormasAduaneras: z.boolean().optional(),
+  }),
+});
+
 /** Mazos de las tarjetas de repaso. "Mis tarjetas" no está aquí: esas viven en el navegador. */
 export const MAZOS = [
   'La prueba',
@@ -176,4 +210,4 @@ const tarjetas = defineCollection({
   }),
 });
 
-export const collections = { planes, normativa, recursos, ponderacion, fuentes, paginas, esencial, tarjetas };
+export const collections = { planes, normativa, recursos, ponderacion, fuentes, paginas, esencial, tarjetas, reglas };

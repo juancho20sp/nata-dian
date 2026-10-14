@@ -1,0 +1,805 @@
+[
+  {
+    "id": "a-emplazamiento-para-corregir-plazo-y-efecto",
+    "caso": "A",
+    "regla": "Emplazamiento para corregir: plazo y efecto",
+    "cita": "\"dentro del mes siguiente a su notificación… corrija la declaración\"; \"La no respuesta a este emplazamiento no ocasiona sanción alguna\"",
+    "norma": "ET 685",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr028.html"
+  },
+  {
+    "id": "a-requerimiento-especial-requisito-previo-una-sola",
+    "caso": "A",
+    "regla": "Requerimiento especial: requisito previo, una sola vez",
+    "cita": "\"Antes de efectuar la liquidación de revisión, la Administración enviará… por una sola vez, un requerimiento especial que contenga todos los puntos que se proponga modificar\"",
+    "norma": "ET 703",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-requerimiento-especial-termino-para-notificarlo",
+    "caso": "A",
+    "regla": "Requerimiento especial: término para notificarlo",
+    "cita": "\"deberá notificarse a más tardar dentro de los tres (3) años siguientes a la fecha de vencimiento del plazo para declarar\"; si la declaración fue extemporánea, desde su presentación; si hay saldo a favor, 3 años desde la solicitud de devolución o compensación",
+    "norma": "ET 705 (mod. L. 1819/2016)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-suspension-del-termino-del-requerimiento",
+    "caso": "A",
+    "regla": "Suspensión del término del requerimiento",
+    "cita": "Inspección de oficio: \"por el término de tres meses\"; \"durante el mes siguientes a la notificación del emplazamiento para corregir\"",
+    "norma": "ET 706",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-respuesta-al-requerimiento",
+    "caso": "A",
+    "regla": "Respuesta al requerimiento",
+    "cita": "\"Dentro de los tres (3) meses siguientes, contados a partir de la fecha de notificación del requerimiento especial\"",
+    "norma": "ET 707",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-ampliacion-del-requerimiento",
+    "caso": "A",
+    "regla": "Ampliación del requerimiento",
+    "cita": "\"dentro de los tres (3) meses siguientes a la fecha del vencimiento del plazo para responderlo, ordenar su ampliación, por una sola vez\"; respuesta en no menos de 3 ni más de 6 meses",
+    "norma": "ET 708",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-correccion-provocada-por-el-requerimiento",
+    "caso": "A",
+    "regla": "Corrección provocada por el requerimiento",
+    "cita": "La sanción por inexactitud \"se reducirá a la cuarta parte de la planteada por la Administración\", siempre que se corrija y se pruebe el pago o acuerdo de pago",
+    "norma": "ET 709",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-liquidacion-de-revision-termino",
+    "caso": "A",
+    "regla": "Liquidación de revisión: término",
+    "cita": "\"Dentro de los seis meses siguientes a la fecha de vencimiento del término para dar respuesta al Requerimiento Especial o a su ampliación\"",
+    "norma": "ET 710",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-correccion-provocada-por-la-liquidacion-de-revis",
+    "caso": "A",
+    "regla": "Corrección provocada por la liquidación de revisión",
+    "cita": "Aceptando los hechos dentro del término del recurso, la inexactitud \"se reducirá a la mitad\"",
+    "norma": "ET 713",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-firmeza-general",
+    "caso": "A",
+    "regla": "Firmeza general",
+    "cita": "\"quedará en firme sí, dentro de los tres (3) años siguientes a la fecha del vencimiento del plazo para declarar, no se ha notificado requerimiento especial\"; con saldo a favor, 3 años desde la solicitud de devolución o compensación; con pérdida fiscal, el mismo término que hay para compensarla",
+    "norma": "ET 714 (mod. L. 1819/2016)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-beneficio-de-auditoria-firmeza-abreviada",
+    "caso": "A",
+    "regla": "Beneficio de auditoría (firmeza abreviada)",
+    "cita": "Firmeza en 6 meses si el impuesto neto de renta aumenta al menos 35 %, o en 12 meses si aumenta al menos 25 %, con declaración y pago oportunos; periodos 2022 y 2023 \"<2024, 2025, 2026>\"",
+    "norma": "ET 689-3 (adic. L. 2155/2021; prórroga anotada)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr028.html"
+  },
+  {
+    "id": "a-emplazamiento-por-no-declarar",
+    "caso": "A",
+    "regla": "Emplazamiento por no declarar",
+    "cita": "\"para que lo hagan en el término perentorio de un (1) mes\"; si declara después del emplazamiento, sanción por extemporaneidad del art. 642",
+    "norma": "ET 715",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-no-declarar-tras-el-emplazamiento-y-aforo",
+    "caso": "A",
+    "regla": "No declarar tras el emplazamiento y aforo",
+    "cita": "Vencido el emplazamiento, sanción por no declarar (ET 716). Aforo \"dentro de los cinco (5) años siguientes al vencimiento del plazo señalado para declarar\"",
+    "norma": "ET 716, 717",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-correccion-aritmetica",
+    "caso": "A",
+    "regla": "Corrección aritmética",
+    "cita": "Error aritmético (ET 697); se profiere \"dentro de los dos años siguientes a la fecha de presentación de la respectiva declaración\"",
+    "norma": "ET 697, 699",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-correccion-voluntaria",
+    "caso": "A",
+    "regla": "Corrección voluntaria",
+    "cita": "Que aumente el impuesto: \"dentro de los tres (3) años siguientes al vencimiento del plazo para declarar y antes de que se les haya notificado requerimiento especial o pliego de cargos\". Que lo disminuya: \"dentro del año siguiente al vencimiento del término\"",
+    "norma": "ET 588 (mod. L. 2010/2019), 589",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr024.html"
+  },
+  {
+    "id": "a-sancion-por-correccion",
+    "caso": "A",
+    "regla": "Sanción por corrección",
+    "cita": "10 % antes del emplazamiento o del auto de inspección; 20 % después y antes del requerimiento o pliego; +5 % si la declaración inicial fue extemporánea",
+    "norma": "ET 644",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr026.html"
+  },
+  {
+    "id": "a-extemporaneidad",
+    "caso": "A",
+    "regla": "Extemporaneidad",
+    "cita": "5 % por mes o fracción, tope 100 % (ET 641). Después del emplazamiento: 10 % por mes, tope 200 % (ET 642)",
+    "norma": "ET 641, 642",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr026.html"
+  },
+  {
+    "id": "a-sancion-por-no-declarar",
+    "caso": "A",
+    "regla": "Sanción por no declarar",
+    "cita": "Renta: 20 % de consignaciones o ingresos brutos. IVA/consumo: 10 %. Si declara dentro del término del recurso, se reduce al 50 % (par. 2)",
+    "norma": "ET 643",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr026.html"
+  },
+  {
+    "id": "a-inexactitud",
+    "caso": "A",
+    "regla": "Inexactitud",
+    "cita": "100 % de la diferencia; 200 % si se omiten activos o se incluyen pasivos inexistentes; 160 % si hay proveedores ficticios o abuso",
+    "norma": "ET 647, 648",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr026.html"
+  },
+  {
+    "id": "a-gradualidad",
+    "caso": "A",
+    "regla": "Gradualidad",
+    "cita": "Liquidada por el contribuyente: al 50 % sin reincidencia en 2 años y sin pliego, requerimiento ni emplazamiento; al 75 % sin reincidencia en 1 año. Impuesta por la DIAN: al 50 % o 75 % si se acepta y subsana. Reincidencia: +100 %",
+    "norma": "ET 640 (mod. L. 1819/2016)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr026.html"
+  },
+  {
+    "id": "a-sancion-minima",
+    "caso": "A",
+    "regla": "Sanción mínima",
+    "cita": "\"será equivalente a la suma de 10 uvt\"",
+    "norma": "ET 639",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr026.html"
+  },
+  {
+    "id": "a-prescripcion-de-la-facultad-sancionatoria",
+    "caso": "A",
+    "regla": "Prescripción de la facultad sancionatoria",
+    "cita": "En liquidación oficial, el mismo término de esta. En resolución independiente, pliego de cargos \"dentro de los dos años siguientes\" a la declaración de renta del periodo; no declarar e intereses: 5 años; 6 meses para sancionar tras la respuesta al pliego",
+    "norma": "ET 638",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr026.html"
+  },
+  {
+    "id": "a-recurso-de-reconsideracion",
+    "caso": "A",
+    "regla": "Recurso de reconsideración",
+    "cita": "\"dentro de los dos meses siguientes a la notificación\"; *per saltum*: \"Cuando se hubiere atendido en debida forma el requerimiento especial… podrá prescindir del recurso… y acudir directamente… dentro de los cuatro (4) meses\"",
+    "norma": "ET 720 (par. adic. L. 223/1995)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-requisitos-del-recurso",
+    "caso": "A",
+    "regla": "Requisitos del recurso",
+    "cita": "Por escrito con \"expresión concreta de los motivos de inconformidad\"; en tiempo; por el interesado o apoderado acreditado; agente oficioso solo si es abogado, con ratificación en 2 meses",
+    "norma": "ET 722",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-inadmision-del-recurso",
+    "caso": "A",
+    "regla": "Inadmisión del recurso",
+    "cita": "Auto \"dentro del mes siguiente a la interposición\"; reposición en 10 días; si en 15 días hábiles no hay auto, \"se entenderá admitido\"",
+    "norma": "ET 726",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "a-termino-para-fallar-y-silencio-positivo",
+    "caso": "A",
+    "regla": "Término para fallar y silencio positivo",
+    "cita": "\"un (1) año para resolver… contado a partir de su interposición en debida forma\"; si vence, \"se entenderá fallado a favor del recurrente\"",
+    "norma": "ET 732, 734 (suspensión: ET 733)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr030.html"
+  },
+  {
+    "id": "a-nulidades",
+    "caso": "A",
+    "regla": "Nulidades",
+    "cita": "Son nulos los actos \"Cuando se practiquen por funcionario incompetente\" o \"Cuando se omita el requerimiento especial previo… o se pretermita el término señalado para la respuesta\"; se alegan dentro del término del recurso",
+    "norma": "ET 730, 731",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr030.html"
+  },
+  {
+    "id": "a-notificacion",
+    "caso": "A",
+    "regla": "Notificación",
+    "cita": "Actos \"deben notificarse de manera electrónica, personalmente o a través de la red oficial de correos\"; los que deciden recursos, personalmente o por edicto si no comparece en 10 días",
+    "norma": "ET 565 (mod. L. 2010/2019), 566-1",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr023.html"
+  },
+  {
+    "id": "a-correo-devuelto",
+    "caso": "A",
+    "regla": "Correo devuelto",
+    "cita": "Aviso en el portal; para el contribuyente, el término corre \"desde el día hábil siguiente a la publicación del aviso\"",
+    "norma": "ET 568",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr023.html"
+  },
+  {
+    "id": "b-titulos-ejecutivos",
+    "caso": "B",
+    "regla": "Títulos ejecutivos",
+    "cita": "\"1. Las liquidaciones privadas y sus correcciones… desde el vencimiento de la fecha para su cancelación. 2. Las liquidaciones oficiales ejecutoriadas. 3. Los demás actos… debidamente ejecutoriados… 4. Las garantías y cauciones… 5. Las sentencias…\"",
+    "norma": "ET 828",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr033.html"
+  },
+  {
+    "id": "b-ejecutoria-del-titulo",
+    "caso": "B",
+    "regla": "Ejecutoria del título",
+    "cita": "Sin recurso procedente; vencido el término sin recurso o sin debida forma; renuncia o desistimiento; recursos o acciones decididos en forma definitiva",
+    "norma": "ET 829",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr033.html"
+  },
+  {
+    "id": "b-mandamiento-de-pago-y-notificacion",
+    "caso": "B",
+    "regla": "Mandamiento de pago y notificación",
+    "cita": "Notificación personal \"previa citación para que comparezca en un término de diez (10) días\"; si no comparece, por correo. Puede referirse a varios títulos del mismo deudor. Desde la L. 2010/2019 también procede la notificación electrónica, también en el proceso de cobro (ET 566-1)",
+    "norma": "ET 826; ET 566-1",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr033.html",
+    "url2": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr023.html"
+  },
+  {
+    "id": "b-pagar-o-excepcionar",
+    "caso": "B",
+    "regla": "Pagar o excepcionar",
+    "cita": "\"Dentro de los quince (15) días siguientes a la notificación del mandamiento de pago\"",
+    "norma": "ET 830",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr033.html"
+  },
+  {
+    "id": "b-excepciones-lista-cerrada",
+    "caso": "B",
+    "regla": "Excepciones (lista cerrada)",
+    "cita": "1. pago efectivo; 2. acuerdo de pago; 3. falta de ejecutoria del título; 4. pérdida de ejecutoria por revocación o suspensión provisional; 5. demanda de restablecimiento o revisión ante lo contencioso; 6. prescripción de la acción de cobro; 7. falta de título o incompetencia. Deudor solidario: calidad de solidario e indebida tasación",
+    "norma": "ET 831",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr033.html"
+  },
+  {
+    "id": "b-tramite-de-excepciones",
+    "caso": "B",
+    "regla": "Trámite de excepciones",
+    "cita": "Decisión \"Dentro del mes siguiente a la presentación del escrito\". Si se prueban: terminación y levantamiento de medidas. Si se prueban sobre algunos títulos: sigue por los demás",
+    "norma": "ET 832, 833",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr034.html"
+  },
+  {
+    "id": "b-recursos-en-el-cobro",
+    "caso": "B",
+    "regla": "Recursos en el cobro",
+    "cita": "Las actuaciones \"son de trámite y contra ellas no procede recurso alguno\" salvo norma expresa. Contra la resolución que rechaza excepciones, \"únicamente el recurso de reposición… dentro del mes siguiente\", que se resuelve en un mes",
+    "norma": "ET 833-1, 834",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr034.html"
+  },
+  {
+    "id": "b-orden-de-ejecucion-sin-excepciones",
+    "caso": "B",
+    "regla": "Orden de ejecución sin excepciones",
+    "cita": "Si no se excepciona ni se paga, resolución de ejecución y remate; \"Contra esta resolución no procede recurso alguno\"",
+    "norma": "ET 836",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr034.html"
+  },
+  {
+    "id": "b-control-judicial",
+    "caso": "B",
+    "regla": "Control judicial",
+    "cita": "Solo son demandables las resoluciones que fallan excepciones y ordenan la ejecución; \"la admisión de la demanda no suspende el proceso de cobro, pero el remate no se realizará\" hasta el fallo definitivo",
+    "norma": "ET 835",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr034.html"
+  },
+  {
+    "id": "b-medidas-cautelares",
+    "caso": "B",
+    "regla": "Medidas cautelares",
+    "cita": "\"Previa o simultáneamente con el mandamiento de pago, el funcionario podrá decretar el embargo y secuestro preventivo\". Se levantan si se demuestra demanda admitida contra el título, o con garantía bancaria o de seguros si se demandó la resolución de excepciones",
+    "norma": "ET 837",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr034.html"
+  },
+  {
+    "id": "b-limite-de-embargos",
+    "caso": "B",
+    "regla": "Límite de embargos",
+    "cita": "\"no podrá exceder del doble de la deuda más sus intereses\"",
+    "norma": "ET 838",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr034.html"
+  },
+  {
+    "id": "b-inembargabilidad",
+    "caso": "B",
+    "regla": "Inembargabilidad",
+    "cita": "Personas naturales: 25 SMMLV en la cuenta de ahorros más antigua. Personas jurídicas: sin límite. No se embargan inmuebles con patrimonio de familia o afectación a vivienda familiar ni cuentas en el Banco de la República",
+    "norma": "ET 837-1 (adic. L. 1066/2006, mod. L. 1430/2010)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr034.html"
+  },
+  {
+    "id": "b-prescripcion-de-la-accion-de-cobro",
+    "caso": "B",
+    "regla": "Prescripción de la acción de cobro",
+    "cita": "\"prescribe en el término de cinco (5) años\", contados desde el vencimiento del plazo (declaración oportuna), la presentación (extemporánea), la corrección (mayores valores) o la ejecutoria del acto",
+    "norma": "ET 817 (mod. L. 1739/2014)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr033.html"
+  },
+  {
+    "id": "b-interrupcion-y-suspension-de-la-prescripcion",
+    "caso": "B",
+    "regla": "Interrupción y suspensión de la prescripción",
+    "cita": "\"se interrumpe por la notificación del mandamiento de pago, por el otorgamiento de facilidades para el pago, por la admisión de la solicitud del concordato y por la declaratoria oficial de la liquidación forzosa administrativa\"; se suspende desde el auto que suspende el remate",
+    "norma": "ET 818",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr033.html"
+  },
+  {
+    "id": "b-facilidades-de-pago",
+    "caso": "B",
+    "regla": "Facilidades de pago",
+    "cita": "Hasta 5 años con garantía; garantías personales si la deuda ≤ 3.000 UVT; sin garantía si el plazo ≤ 1 año y no hubo incumplimiento el año anterior",
+    "norma": "ET 814 (incisos mod. L. 2277/2022, art. 81)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr033.html"
+  },
+  {
+    "id": "b-reorganizacion-ley-1116",
+    "caso": "B",
+    "regla": "Reorganización (Ley 1116)",
+    "cita": "\"A partir de la fecha de inicio del proceso de reorganización no podrá admitirse ni continuarse demanda de ejecución o cualquier otro proceso de cobro en contra del deudor\"; los procesos se remiten al concurso y las medidas quedan a disposición del juez del concurso",
+    "norma": "Ley 1116 de 2006, art. 20",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1116_2006.html"
+  },
+  {
+    "id": "b-concursos-y-liquidaciones",
+    "caso": "B",
+    "regla": "Concursos y liquidaciones",
+    "cita": "El juez o funcionario informa a Cobranzas \"dentro de los diez (10) días siguientes\"; en disolución, aviso del representante legal en 10 días. Si omite, responsabilidad solidaria",
+    "norma": "ET 846, 847",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr034.html"
+  },
+  {
+    "id": "c-nulidad-simple",
+    "caso": "C",
+    "regla": "Nulidad simple",
+    "cita": "Contra actos generales; excepcionalmente particulares (sin restablecimiento automático, bienes de uso público, grave afectación, ley expresa)",
+    "norma": "CPACA 137",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr003.html"
+  },
+  {
+    "id": "c-nulidad-y-restablecimiento",
+    "caso": "C",
+    "regla": "Nulidad y restablecimiento",
+    "cita": "\"Toda persona que se crea lesionada en un derecho subjetivo… podrá pedir que se declare la nulidad del acto administrativo particular, expreso o presunto, y se le restablezca el derecho\"",
+    "norma": "CPACA 138",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr003.html"
+  },
+  {
+    "id": "c-caducidad-nulidad-en-cualquier-tiempo",
+    "caso": "C",
+    "regla": "Caducidad: nulidad en cualquier tiempo",
+    "cita": "\"En cualquier tiempo, cuando: a) Se pretenda la nulidad en los términos del artículo 137\"; también contra actos producto del silencio administrativo (lit. d)",
+    "norma": "CPACA 164 num. 1",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr004.html"
+  },
+  {
+    "id": "c-caducidad-nulidad-y-restablecimiento",
+    "caso": "C",
+    "regla": "Caducidad: nulidad y restablecimiento",
+    "cita": "\"cuatro (4) meses contados a partir del día siguiente al de la comunicación, notificación, ejecución o publicación del acto administrativo\"",
+    "norma": "CPACA 164 num. 2 lit. d",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr004.html"
+  },
+  {
+    "id": "c-caducidad-reparacion-directa-y-contratos",
+    "caso": "C",
+    "regla": "Caducidad: reparación directa y contratos",
+    "cita": "Reparación directa: \"dos (2) años, contados a partir del día siguiente al de la ocurrencia de la acción u omisión\". Contratos: 2 años",
+    "norma": "CPACA 164 num. 2 lits. i, j",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr004.html"
+  },
+  {
+    "id": "c-agotar-recursos-obligatorios",
+    "caso": "C",
+    "regla": "Agotar recursos obligatorios",
+    "cita": "\"deberán haberse ejercido y decidido los recursos que de acuerdo con la ley fueren obligatorios\"; con silencio negativo frente a la primera petición se puede demandar el acto presunto",
+    "norma": "CPACA 161 num. 2",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr004.html"
+  },
+  {
+    "id": "c-conciliacion-como-requisito-de-procedibilidad",
+    "caso": "C",
+    "regla": "Conciliación como requisito de procedibilidad",
+    "cita": "\"Cuando los asuntos sean conciliables, el trámite de la conciliación extrajudicial constituirá requisito de procedibilidad\" en nulidad y restablecimiento, reparación directa y contractuales; sin ella, \"rechazo de plano de la demanda\"",
+    "norma": "Ley 2220 de 2022, art. 92; CPACA 161 num. 1",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2220_2022_pr002.html"
+  },
+  {
+    "id": "c-lo-tributario-no-se-concilia",
+    "caso": "C",
+    "regla": "Lo tributario no se concilia",
+    "cita": "\"No son susceptibles de conciliación extrajudicial en asuntos de lo contencioso administrativo: 1. Los que versen sobre conflictos de carácter tributario\"; tampoco cuando caducó la acción o no se agotó el procedimiento administrativo",
+    "norma": "Ley 2220 de 2022, art. 90",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2220_2022_pr002.html"
+  },
+  {
+    "id": "c-suspension-de-la-caducidad-por-conciliacion",
+    "caso": "C",
+    "regla": "Suspensión de la caducidad por conciliación",
+    "cita": "La solicitud \"suspende el término de prescripción o de caducidad… hasta… que se venza el término de tres (3) meses\"; opera \"por una sola vez y será improrrogable\"",
+    "norma": "Ley 2220 de 2022, art. 56",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2220_2022_pr001.html"
+  },
+  {
+    "id": "c-ante-quien-se-concilia-y-aprobacion",
+    "caso": "C",
+    "regla": "Ante quién se concilia y aprobación",
+    "cita": "Ante \"los agentes del Ministerio Público\" (art. 95). El acta va al juez para aprobación dentro de 3 días (art. 113). Funciones del Comité de Conciliación (arts. 115, 120)",
+    "norma": "Ley 2220 de 2022, arts. 95, 113, 120",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2220_2022_pr002.html"
+  },
+  {
+    "id": "c-contestacion-de-la-demanda",
+    "caso": "C",
+    "regla": "Contestación de la demanda",
+    "cita": "Traslado \"por el término de treinta (30) días\" para contestar, proponer excepciones, pedir pruebas y llamar en garantía",
+    "norma": "CPACA 172",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr004.html"
+  },
+  {
+    "id": "c-medidas-cautelares",
+    "caso": "C",
+    "regla": "Medidas cautelares",
+    "cita": "Procede \"antes de ser notificado, el auto admisorio de la demanda o en cualquier estado del proceso, a petición de parte debidamente sustentada\" (229). Suspensión provisional: violación que surja de confrontar el acto con las normas invocadas (231). Traslado de 5 días (233). De urgencia, sin notificación previa (234)",
+    "norma": "CPACA 229, 231, 233, 234",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr005.html"
+  },
+  {
+    "id": "c-oferta-de-revocatoria-en-juicio",
+    "caso": "C",
+    "regla": "Oferta de revocatoria en juicio",
+    "cita": "Hasta antes de la sentencia de segunda instancia, \"previa aprobación del Comité de Conciliación de la entidad\"",
+    "norma": "CPACA 95 par.",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr002.html"
+  },
+  {
+    "id": "c-obligatoriedad-de-la-doctrina-dian",
+    "caso": "C",
+    "regla": "Obligatoriedad de la doctrina DIAN",
+    "cita": "Los conceptos de la Dirección de Gestión Jurídica o la Subdirección de Normativa y Doctrina \"constituyen interpretación oficial para los empleados públicos… tendrán carácter obligatorio para los mismos\". \"Los contribuyentes podrán sustentar sus actuaciones… con base en la ley\" (aparte subrayado: \"CONDICIONALMENTE exequible\")",
+    "norma": "Ley 2010 de 2019, art. 131",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2010_2019.html",
+    "url2": "https://normograma.dian.gov.co/dian/compilacion/docs/ley_2010_2019.htm"
+  },
+  {
+    "id": "c-per-saltum-tributario",
+    "caso": "C",
+    "regla": "Per saltum tributario",
+    "cita": "Con el requerimiento especial atendido en debida forma, demanda directa contra la liquidación oficial en 4 meses",
+    "norma": "ET 720 par.",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario_pr029.html"
+  },
+  {
+    "id": "d-ley-marco-reparto-de-competencias",
+    "caso": "D",
+    "regla": "Ley marco: reparto de competencias",
+    "cita": "El Gobierno, al modificar el régimen de aduanas, \"no podrá exceder los términos establecidos en la presente ley\" (art. 1). Circulares o conceptos tienen \"naturaleza… de criterios auxiliares de interpretación\" (art. 2 par. 1). Principios: debido proceso, buena fe, prevalencia de lo sustancial, entre otros (art. 4)",
+    "norma": "Ley 1609 de 2013, arts. 1, 2, 4",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1609_2013.html"
+  },
+  {
+    "id": "d-obligacion-aduanera",
+    "caso": "D",
+    "regla": "Obligación aduanera",
+    "cita": "\"Es el vínculo jurídico entre la administración aduanera y cualquier persona directa o indirectamente relacionada con cualquier régimen, modalidad u operación aduanera\"",
+    "norma": "Decreto 1165 de 2019, art. 4",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_1165_2019.htm"
+  },
+  {
+    "id": "d-permanencia-en-deposito-y-abandono",
+    "caso": "D",
+    "regla": "Permanencia en depósito y abandono",
+    "cita": "Hasta \"un (1) mes, contado desde la fecha de su llegada\", prorrogable un mes. Vencido sin levante, \"operará el abandono legal\"; rescate dentro del mes siguiente",
+    "norma": "D. 1165, art. 171",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_1165_2019.htm"
+  },
+  {
+    "id": "d-firmeza-de-la-declaracion-de-importacion",
+    "caso": "D",
+    "regla": "Firmeza de la declaración de importación",
+    "cita": "\"quedará en firme transcurridos tres (3) años contados a partir de la fecha de su presentación y aceptación, salvo que se haya notificado Requerimiento Especial Aduanero\"",
+    "norma": "D. 1165, art. 188 (inciso 2 con modificación diferida por D. 659 de 2024)",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_1165_2019.htm"
+  },
+  {
+    "id": "d-correccion-voluntaria-de-la-declaracion",
+    "caso": "D",
+    "regla": "Corrección voluntaria de la declaración",
+    "cita": "Solo para los errores listados (subpartida, tarifas, tasa de cambio, valor…), \"por una sola vez\" y dentro del término de firmeza",
+    "norma": "D. 1165, art. 296",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_1165_2019.htm"
+  },
+  {
+    "id": "d-legalizacion",
+    "caso": "D",
+    "regla": "Legalización",
+    "cita": "Mercancía con obligación incumplida que da lugar a aprehensión \"podrán ser declaradas… en forma voluntaria o provocada\"",
+    "norma": "D. 1165, art. 290",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_1165_2019.htm"
+  },
+  {
+    "id": "d-objecion-a-la-aprehension",
+    "caso": "D",
+    "regla": "Objeción a la aprehensión",
+    "cita": "\"quince (15) días hábiles siguientes a la notificación del Acta de Aprehensión\" para presentar el escrito con pruebas de legal introducción o permanencia",
+    "norma": "Ley 2586/2026 art. 45; DL 920/2023 art. 88 (igual)",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/ley_2586_2026.htm",
+    "url2": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_0920_2023.htm",
+    "ambasNormasAduaneras": true
+  },
+  {
+    "id": "d-pruebas-en-el-decomiso",
+    "caso": "D",
+    "regla": "Pruebas en el decomiso",
+    "cita": "Auto de pruebas dentro de 20 días hábiles; reposición en 10 días hábiles contra la negativa; práctica en 2 meses (3 si es en el exterior)",
+    "norma": "Ley 2586 art. 46",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/ley_2586_2026.htm"
+  },
+  {
+    "id": "d-decision-de-fondo-del-decomiso",
+    "caso": "D",
+    "regla": "Decisión de fondo del decomiso",
+    "cita": "\"setenta (70) días hábiles para expedir y notificar el acto de fondo que decide sobre el proceso de decomiso\"",
+    "norma": "Ley 2586 art. 47; DL 920 art. 90",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/ley_2586_2026.htm",
+    "url2": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_0920_2023.htm",
+    "ambasNormasAduaneras": true
+  },
+  {
+    "id": "d-decomiso-directo",
+    "caso": "D",
+    "regla": "Decomiso directo",
+    "cita": "El acta de aprehensión y decomiso directo \"es una decisión de fondo y contra la cual procede únicamente el recurso de reconsideración\"; el avalúo \"será definitivo\"",
+    "norma": "Ley 2586 art. 49",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/ley_2586_2026.htm"
+  },
+  {
+    "id": "d-requerimiento-especial-aduanero-respuesta",
+    "caso": "D",
+    "regla": "Requerimiento especial aduanero: respuesta",
+    "cita": "\"dentro de los quince (15) días hábiles siguientes a su notificación\"; ampliable sin superar 70 días hábiles para acreditar restricciones legales",
+    "norma": "Ley 2586 art. 70; DL 920 art. 111",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/ley_2586_2026.htm",
+    "url2": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_0920_2023.htm",
+    "ambasNormasAduaneras": true
+  },
+  {
+    "id": "d-decision-de-fondo-sancion-o-liquidacion",
+    "caso": "D",
+    "regla": "Decisión de fondo (sanción o liquidación)",
+    "cita": "\"setenta (70) días hábiles para expedir y notificar el acto administrativo que decida de fondo\"",
+    "norma": "Ley 2586 art. 72; DL 920 art. 113 (\"setenta (70) días\")",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/ley_2586_2026.htm",
+    "url2": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_0920_2023.htm",
+    "ambasNormasAduaneras": true
+  },
+  {
+    "id": "d-reconsideracion-aduanera",
+    "caso": "D",
+    "regla": "Reconsideración aduanera",
+    "cita": "Contra liquidaciones oficiales, decomisos y sanciones, \"dentro de los quince (15) días hábiles siguientes a su notificación\"; se decide en \"cinco (5) meses\"",
+    "norma": "Ley 2586 arts. 88, 94; DL 920 arts. 130, 136",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/ley_2586_2026.htm",
+    "url2": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_0920_2023.htm",
+    "ambasNormasAduaneras": true
+  },
+  {
+    "id": "d-silencio-positivo-aduanero",
+    "caso": "D",
+    "regla": "Silencio positivo aduanero",
+    "cita": "Vencido el plazo para decidir de fondo o resolver la reconsideración, \"dará lugar a la ocurrencia del silencio administrativo positivo\"",
+    "norma": "Ley 2586 art. 96; DL 920 art. 138",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/ley_2586_2026.htm",
+    "url2": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_0920_2023.htm",
+    "ambasNormasAduaneras": true
+  },
+  {
+    "id": "d-caducidad-y-prescripcion-aduanera",
+    "caso": "D",
+    "regla": "Caducidad y prescripción aduanera",
+    "cita": "Facultad sancionatoria: \"caduca en el término de tres (3) años contados a partir de la comisión del hecho\". Cobro de la sanción: prescribe en 5 años desde la ejecutoria",
+    "norma": "Ley 2586 arts. 20, 21; DL 920 arts. 25, 26",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/ley_2586_2026.htm",
+    "url2": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_0920_2023.htm",
+    "ambasNormasAduaneras": true
+  },
+  {
+    "id": "d-allanamiento-cambio-en-la-ley-2586",
+    "caso": "D",
+    "regla": "Allanamiento (cambio en la Ley 2586)",
+    "cita": "Ley 2586: \"Sin sanción\" si reconoce sin intervención antes del requerimiento especial aduanero (no aplica a gravísimas); 20 % antes del requerimiento; 40 % después y antes de la decisión de fondo; 60 % dentro del término del recurso. DL 920: 20 %, 40 % y 60 %, sin el escalón \"sin sanción\"",
+    "norma": "Ley 2586 art. 19; DL 920 art. 24",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/ley_2586_2026.htm",
+    "url2": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_0920_2023.htm",
+    "ambasNormasAduaneras": true
+  },
+  {
+    "id": "d-transito-normativo",
+    "caso": "D",
+    "regla": "Tránsito normativo",
+    "cita": "Operaciones iniciadas bajo el DL 920 se rigen por la norma vigente a su inicio, \"sin perjuicio de la aplicación del principio de favorabilidad\"; procesos en curso, por las normas vigentes al iniciarse",
+    "norma": "Ley 2586 art. 112",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/ley_2586_2026.htm"
+  },
+  {
+    "id": "d-cambiario-infraccion-y-responsabilidad",
+    "caso": "D",
+    "regla": "Cambiario: infracción y responsabilidad",
+    "cita": "\"contravención administrativa de las disposiciones constitutivas del régimen cambiario\" (art. 2); la responsabilidad \"es objetiva\" (art. 32)",
+    "norma": "DL 2245 de 2011, arts. 2, 32",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_2245_2011.htm"
+  },
+  {
+    "id": "d-cambiario-prescripcion-y-traslado",
+    "caso": "D",
+    "regla": "Cambiario: prescripción y traslado",
+    "cita": "Acto de formulación de cargos notificado \"dentro de los cinco (5) años siguientes a la fecha en que ocurrieron los hechos\" (art. 5). Traslado de \"dos (2) meses\", \"única oportunidad\" para descargos (art. 21)",
+    "norma": "DL 2245, arts. 5, 21",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_2245_2011.htm"
+  },
+  {
+    "id": "d-cambiario-recurso-y-silencio",
+    "caso": "D",
+    "regla": "Cambiario: recurso y silencio",
+    "cita": "Reconsideración \"dentro del mes siguiente a la notificación\" (art. 26); se resuelve en \"siete (7) meses\" (art. 28); si vence, \"se entenderá fallado este a favor del recurrente\" (art. 30)",
+    "norma": "DL 2245, arts. 26, 28, 30",
+    "url": "https://normograma.dian.gov.co/dian/compilacion/docs/decreto_2245_2011.htm"
+  },
+  {
+    "id": "t-peticion-termino-general",
+    "caso": "T",
+    "regla": "Petición: término general",
+    "cita": "\"toda petición deberá resolverse dentro de los quince (15) días siguientes a su recepción\"",
+    "norma": "CPACA 14 (sust. L. 1755/2015)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011.html"
+  },
+  {
+    "id": "t-peticion-de-documentos-e-informacion",
+    "caso": "T",
+    "regla": "Petición de documentos e información",
+    "cita": "\"dentro de los diez (10) días\"; si no se responde, \"se entenderá… aceptada\", con copias en 3 días",
+    "norma": "CPACA 14 num. 1",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011.html"
+  },
+  {
+    "id": "t-consultas",
+    "caso": "T",
+    "regla": "Consultas",
+    "cita": "\"dentro de los treinta (30) días\"",
+    "norma": "CPACA 14 num. 2",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011.html"
+  },
+  {
+    "id": "t-prorroga",
+    "caso": "T",
+    "regla": "Prórroga",
+    "cita": "Informar antes del vencimiento, con plazo razonable \"que no podrá exceder del doble del inicialmente previsto\"",
+    "norma": "CPACA 14 par.",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011.html"
+  },
+  {
+    "id": "t-peticion-incompleta",
+    "caso": "T",
+    "regla": "Petición incompleta",
+    "cita": "Requerir \"dentro de los diez (10) días siguientes a la fecha de radicación para que la complete en el término máximo de un (1) mes\"; si no cumple, desistimiento tácito por acto motivado",
+    "norma": "CPACA 17 (L. 1755)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011.html"
+  },
+  {
+    "id": "t-funcionario-sin-competencia",
+    "caso": "T",
+    "regla": "Funcionario sin competencia",
+    "cita": "Informar y remitir \"dentro de los cinco (5) días siguientes al de la recepción, si obró por escrito\"; el término corre desde la recepción por el competente",
+    "norma": "CPACA 21 (L. 1755)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011.html"
+  },
+  {
+    "id": "t-citacion-y-aviso",
+    "caso": "T",
+    "regla": "Citación y aviso",
+    "cita": "Citación \"dentro de los cinco (5) días siguientes a la expedición del acto\". Si no comparece en 5 días, aviso; la notificación queda surtida \"al finalizar el día siguiente al de la entrega del aviso\"",
+    "norma": "CPACA 68, 69",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr001.html"
+  },
+  {
+    "id": "t-requisitos-de-la-notificacion-personal",
+    "caso": "T",
+    "regla": "Requisitos de la notificación personal",
+    "cita": "Copia íntegra del acto, recursos, autoridades y plazos; \"El incumplimiento de cualquiera de estos requisitos invalidará la notificación\"",
+    "norma": "CPACA 67",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr001.html"
+  },
+  {
+    "id": "t-recursos-oportunidad",
+    "caso": "T",
+    "regla": "Recursos: oportunidad",
+    "cita": "Reposición y apelación \"dentro de los diez (10) días siguientes\" a la notificación. La apelación, cuando procede, \"será obligatoria para acceder a la jurisdicción\"; reposición y queja no lo son",
+    "norma": "CPACA 74, 76",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr001.html"
+  },
+  {
+    "id": "t-silencio-negativo",
+    "caso": "T",
+    "regla": "Silencio negativo",
+    "cita": "Petición: \"Transcurridos tres (3) meses… se entenderá que esta es negativa\" (83). Recursos: \"dos (2) meses\" (86)",
+    "norma": "CPACA 83, 86",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr001.html",
+    "url2": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2220_2022_pr002.html"
+  },
+  {
+    "id": "t-firmeza-del-acto",
+    "caso": "T",
+    "regla": "Firmeza del acto",
+    "cita": "Desde el día siguiente a la notificación si no hay recursos, a la decisión de los recursos, al vencimiento sin interponerlos, etc.",
+    "norma": "CPACA 87",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr002.html"
+  },
+  {
+    "id": "t-revocatoria-directa",
+    "caso": "T",
+    "regla": "Revocatoria directa",
+    "cita": "Causales (93). Procede \"siempre que no se haya notificado auto admisorio de la demanda\" y se resuelve en \"dos (2) meses\", sin recurso (95). Un acto particular no se revoca \"sin el consentimiento previo, expreso y escrito del respectivo titular\" (97)",
+    "norma": "CPACA 93, 95, 97",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1437_2011_pr002.html"
+  },
+  {
+    "id": "t-disciplinario-prescripcion",
+    "caso": "T",
+    "regla": "Disciplinario: prescripción",
+    "cita": "\"La acción disciplinaria prescribirá en cinco (5) años\"; se interrumpe con la notificación del fallo de primera instancia. Faltas del art. 52: 12 años",
+    "norma": "Ley 1952 de 2019, art. 33 (mod. L. 2094/2021)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1952_2019.html"
+  },
+  {
+    "id": "t-disciplinario-dolo-y-culpa",
+    "caso": "T",
+    "regla": "Disciplinario: dolo y culpa",
+    "cita": "Dolo: conoce los hechos, su ilicitud \"y quiere su realización\" (28). \"La culpa leve no será sancionable\" (29)",
+    "norma": "Ley 1952, arts. 28, 29",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1952_2019.html"
+  },
+  {
+    "id": "t-disciplinario-sanciones",
+    "caso": "T",
+    "regla": "Disciplinario: sanciones",
+    "cita": "Gravísima dolosa: destitución e inhabilidad de 10 a 20 años. Gravísima con culpa gravísima: 8 a 10 años. Grave dolosa: suspensión de 3 a 18 meses. Grave culposa: suspensión de 1 a 12 meses. Leve dolosa: multa de 10 a 180 días. Leve culposa: amonestación escrita",
+    "norma": "Ley 1952, art. 48 (mod. L. 2094/2021)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1952_2019_pr001.html"
+  },
+  {
+    "id": "t-conflicto-de-intereses",
+    "caso": "T",
+    "regla": "Conflicto de intereses",
+    "cita": "\"deberá declararse impedido para actuar en un asunto cuando tenga interés particular y directo\", también por cónyuge o parientes hasta el cuarto grado de consanguinidad, segundo de afinidad o primero civil",
+    "norma": "Ley 1952, art. 44",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1952_2019_pr001.html"
+  },
+  {
+    "id": "t-terminos-de-la-actuacion-disciplinaria",
+    "caso": "T",
+    "regla": "Términos de la actuación disciplinaria",
+    "cita": "Indagación previa: \"seis (6) meses\" (208). Investigación: \"seis (6) meses\", prorrogable por otro tanto (213)",
+    "norma": "Ley 1952, arts. 208, 213 (mod. L. 2094/2021)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1952_2019_pr005.html"
+  }
+]

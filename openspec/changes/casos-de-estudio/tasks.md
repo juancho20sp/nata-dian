@@ -2,8 +2,8 @@
 
 ## 1. Registro de reglas
 
-- [ ] 1.1 Crear la colección `reglas` (`src/content.config.ts`) y `src/content/reglas.json` con todas las filas "Verificado" de `fuentes/investigacion-casos.md` (A, B, C, D y tronco común; `otraNorma` en aduanas cuando coinciden); verificar con `tests/reglas.test.ts` que cada cita está en una fila "Verificado", que las URL son de dominios oficiales y que los id son únicos
-- [ ] 1.2 Volver a comprobar contra el texto oficial descargado (Senado o normograma) una muestra de al menos 2 reglas por caso que no estaban en la verificación previa, y anotar el resultado en la sección "Alertas" de la investigación; verificar que ninguna difiere, o corregir la regla y dejar constancia
+- [x] 1.1 Crear la colección `reglas` (`src/content.config.ts`) y `src/content/reglas.json` con todas las filas "Verificado" de `fuentes/investigacion-casos.md` (A, B, C, D y tronco común; `otraNorma` en aduanas cuando coinciden); verificar con `tests/reglas.test.ts` que cada cita está en una fila "Verificado", que las URL son de dominios oficiales y que los id son únicos
+- [x] 1.2 Volver a comprobar contra el texto oficial descargado (Senado o normograma) una muestra de al menos 2 reglas por caso que no estaban en la verificación previa, y anotar el resultado en la sección "Alertas" de la investigación; verificar que ninguna difiere, o corregir la regla y dejar constancia
 
 ## 2. Correcciones
 
