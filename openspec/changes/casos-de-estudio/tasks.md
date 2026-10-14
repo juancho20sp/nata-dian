@@ -30,8 +30,8 @@
 
 ## 6. Verificación integral
 
-- [ ] 6.1 Correr `pnpm validar`, `pnpm test` y `pnpm build` sin errores ni advertencias, y comprobar que todo enlace "Ver el texto oficial" usa un dominio oficial
-- [ ] 6.2 Recorrer `/repasar/casos`, `/repasar/terminos` y una sesión con tarjetas de reglas a 360 y 1280 px, en claro y oscuro, con teclado, sin scroll horizontal y con el rótulo de caso elaborado visible
+- [x] 6.1 Correr `pnpm validar`, `pnpm test` y `pnpm build` sin errores ni advertencias, y comprobar que todo enlace "Ver el texto oficial" usa un dominio oficial
+- [x] 6.2 Recorrer `/repasar/casos`, `/repasar/terminos` y una sesión con tarjetas de reglas a 360 y 1280 px, en claro y oscuro, con teclado, sin scroll horizontal y con el rótulo de caso elaborado visible
 
 ## Workflow follow-up
 
