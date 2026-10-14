@@ -7,7 +7,7 @@
 
 ## 2. Correcciones
 
-- [ ] 2.1 Corregir la duración a cinco (5) horas en `esencial.json`, `paginas/estructura-prueba.md`, `paginas/dia-prueba.md`, la tarjeta `prueba-duracion`, el dato clave de Inicio, el comentario de `FIN_PRUEBA` y los simulacros del plan por defecto; ampliar `tests/esencial.test.ts` y `tests/tarjetas.test.ts` para aceptar las citas oficiales de las Alertas; verificar que `pnpm test` pasa y que `grep "4 horas" dist` no encuentra la duración de la prueba
+- [x] 2.1 Corregir la duración a cinco (5) horas en `esencial.json`, `paginas/estructura-prueba.md`, `paginas/dia-prueba.md`, la tarjeta `prueba-duracion`, el dato clave de Inicio, el comentario de `FIN_PRUEBA` y los simulacros del plan por defecto; ampliar `tests/esencial.test.ts` y `tests/tarjetas.test.ts` para aceptar las citas oficiales de las Alertas; verificar que `pnpm test` pasa y que `grep "4 horas" dist` no encuentra la duración de la prueba
 - [ ] 2.2 Agregar `'Vigencia'` a `AVISOS` y citar la Ley 2586 de 2026 junto al Decreto Ley 920 de 2023, con su aviso, en `normativa.json`, `planes/caso-d-aduanas.json`, `paginas/cargo-gestor.md` y la tarjeta `ac-sanciones`; verificar con `pnpm validar` y en `/normativa` que el área Aduanero muestra ambas normas y el aviso
 
 ## 3. Tarjetas de reglas
