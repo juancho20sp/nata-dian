@@ -36,6 +36,10 @@ import { ruta } from '../../lib/ruta';
       <button type="button" class="boton boton-primario w-full" data-respuesta="si">La sabía</button>
     </div>
     <p class="mt-3 text-sm" data-ver-sitio hidden><a href="#">Ver en el sitio →</a></p>
+    <div class="mt-3 text-sm" data-norma hidden>
+      <p><span class="font-semibold" data-norma-texto></span> · <a href="#" rel="noopener" data-norma-enlace>Ver el texto oficial →</a></p>
+      <p class="mt-2 rounded px-3 py-2 bg-aviso-fondo text-aviso-texto" data-vigencia hidden></p>
+    </div>
   </div>
 
   <div id="fin" class="tarjeta" hidden>
@@ -59,6 +63,7 @@ import { ruta } from '../../lib/ruta';
   const boton = sesion.querySelector<HTMLButtonElement>('[data-tarjeta]')!;
   const respuestas = sesion.querySelector<HTMLElement>('[data-respuestas]')!;
   const verSitio = sesion.querySelector<HTMLElement>('[data-ver-sitio]')!;
+  const normaCaja = sesion.querySelector<HTMLElement>('[data-norma]')!;
   const anuncio = sesion.querySelector<HTMLElement>('[data-anuncio]')!;
   document.getElementById('aviso-almacen')!.hidden = e.guarda;
 
@@ -117,6 +122,7 @@ import { ruta } from '../../lib/ruta';
     sesion.querySelector<HTMLElement>('[data-pista]')!.hidden = false;
     respuestas.hidden = true;
     verSitio.hidden = true;
+    normaCaja.hidden = true;
     anuncio.textContent = '';
     pintarMeta();
   }
@@ -133,6 +139,14 @@ import { ruta } from '../../lib/ruta';
     if (t.enlace) {
       verSitio.querySelector('a')!.setAttribute('href', t.enlace);
       verSitio.hidden = false;
+    }
+    if (t.norma && t.urlOficial) {
+      normaCaja.querySelector('[data-norma-texto]')!.textContent = t.norma;
+      normaCaja.querySelector('[data-norma-enlace]')!.setAttribute('href', t.urlOficial);
+      const vigencia = normaCaja.querySelector<HTMLElement>('[data-vigencia]')!;
+      vigencia.textContent = t.aviso ?? '';
+      vigencia.hidden = !t.aviso;
+      normaCaja.hidden = false;
     }
     anuncio.textContent = `Respuesta: ${t.reverso}`;
     // Con respuestas largas, los botones pueden quedar debajo de la barra inferior.

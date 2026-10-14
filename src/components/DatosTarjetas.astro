@@ -3,14 +3,25 @@
 import { getCollection } from 'astro:content';
 import { ruta } from '../lib/ruta';
 
-const tarjetas = (await getCollection('tarjetas')).map(({ data: t }) => ({
+const VIGENCIA =
+  'El Decreto Ley 920 de 2023 fue derogado por la Ley 2586 de 2026 (19 de junio de 2026); la prueba solo incluye normas expedidas antes de esa fecha. Se citan ambas cuando coinciden.';
+const reglas = new Map((await getCollection('reglas')).map((e) => [e.data.id, e.data]));
+
+const tarjetas = (await getCollection('tarjetas')).map(({ data: t }) => {
+  const regla = 'regla' in t.fuente ? reglas.get(t.fuente.regla) : undefined;
+  if ('regla' in t.fuente && !regla) throw new Error(`La tarjeta ${t.id} remite a una regla inexistente: ${t.fuente.regla}`);
+  return {
   id: t.id,
   mazo: t.mazo,
   frente: t.frente,
   reverso: t.reverso,
   quiz: t.quiz,
   enlace: 'ruta' in t.fuente ? ruta(t.fuente.ruta) + (t.fuente.ancla ? `#${t.fuente.ancla}` : '') : undefined,
-}));
+  norma: regla?.norma,
+  urlOficial: regla?.url,
+  aviso: regla?.ambasNormasAduaneras ? VIGENCIA : undefined,
+  };
+});
 ---
 
 <script type="application/json" id="datos-tarjetas" set:html={JSON.stringify(tarjetas).replace(/</g, '\\u003c')} />

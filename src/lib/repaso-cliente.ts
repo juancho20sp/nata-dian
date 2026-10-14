@@ -17,6 +17,10 @@ export interface Tarjeta {
   quiz: boolean;
   /** Página y sección de donde sale (solo tarjetas del dossier). */
   enlace?: string;
+  /** Norma y artículo, URL del texto oficial y aviso de vigencia (solo tarjetas de reglas). */
+  norma?: string;
+  urlOficial?: string;
+  aviso?: string;
 }
 
 export interface EstadoRepaso {

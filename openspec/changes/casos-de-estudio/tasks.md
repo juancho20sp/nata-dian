@@ -14,7 +14,7 @@
 
 - [x] 3.1 Ampliar `MAZOS` con los cinco mazos de reglas y la `fuente` de tarjeta con `{ regla }`; dividir `tests/tarjetas.test.ts` (dossier o cita oficial frente a cita de la regla); verificar que un reverso que no está en la cita de su regla hace fallar la prueba
 - [x] 3.2 Escribir de 60 a 80 tarjetas de reglas (al menos 10 por mazo y al menos 3 aptas para quiz con reversos distintos), con frentes que no afirmen nada fuera de la cita; verificar con `pnpm test`
-- [ ] 3.3 Mostrar en la sesión de tarjetas la norma, "Ver el texto oficial" y el aviso de vigencia aduanera para las tarjetas de reglas (`DatosTarjetas.astro` y `repasar/tarjetas.astro`); verificar en el navegador con una tarjeta del Caso A y otra del Caso D
+- [x] 3.3 Mostrar en la sesión de tarjetas la norma, "Ver el texto oficial" y el aviso de vigencia aduanera para las tarjetas de reglas (`DatosTarjetas.astro` y `repasar/tarjetas.astro`); verificar en el navegador con una tarjeta del Caso A y otra del Caso D
 
 ## 4. Casos de práctica
 
