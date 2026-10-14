@@ -31,8 +31,8 @@
 
 ## 6. Verificación integral
 
-- [ ] 6.1 Correr `pnpm validar`, `pnpm test` y `pnpm build` sin errores ni advertencias, y comprobar que la `fuente` de cada tarjeta lleva a una página existente con su ancla presente en el HTML construido
-- [ ] 6.2 Recorrer en `pnpm preview` los flujos 5 y 6 de EXPERIENCE.md a 360 y 1280 px, en claro y oscuro, con teclado, y sin scroll horizontal en ninguna página de Repasar
+- [x] 6.1 Correr `pnpm validar`, `pnpm test` y `pnpm build` sin errores ni advertencias, y comprobar que la `fuente` de cada tarjeta lleva a una página existente con su ancla presente en el HTML construido
+- [x] 6.2 Recorrer en `pnpm preview` los flujos 5 y 6 de EXPERIENCE.md a 360 y 1280 px, en claro y oscuro, con teclado, y sin scroll horizontal en ninguna página de Repasar
 
 ## Workflow follow-up
 
