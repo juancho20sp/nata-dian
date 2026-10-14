@@ -172,6 +172,22 @@ const urlOficial = z.url().refine(
   'La URL debe ser de un dominio oficial',
 );
 
+/** Ids de las copias del texto oficial en fuentes/normas/. */
+export const NORMAS_COPIADAS = [
+  'et',
+  'cpaca',
+  'ley-1952-2019',
+  'ley-2220-2022',
+  'ley-2010-2019',
+  'ley-1116-2006',
+  'ley-1609-2013',
+  'decreto-1165-2019',
+  'dl-920-2023',
+  'ley-2586-2026',
+  'dl-2245-2011',
+  'dl-927-2023',
+] as const;
+
 /**
  * Reglas verificadas contra el texto oficial de la norma, copiadas de las filas
  * "Verificado" de fuentes/investigacion-casos.md (ver tests/reglas.test.ts).
@@ -180,8 +196,8 @@ const reglas = defineCollection({
   loader: file('src/content/reglas.json'),
   schema: z.object({
     id: idEstable,
-    /** A fiscalización, B cobranzas, C jurídica, D aduanas y cambiario, T tronco común. */
-    caso: z.enum(['A', 'B', 'C', 'D', 'T']),
+    /** A fiscalización, B cobranzas, C jurídica, D aduanas y cambiario, T tronco común, CD carrera y disciplinario. */
+    caso: z.enum(['A', 'B', 'C', 'D', 'T', 'CD']),
     regla: z.string(),
     cita: z.string().min(5),
     norma: z.string(),
@@ -189,6 +205,10 @@ const reglas = defineCollection({
     url2: urlOficial.optional(),
     /** Texto igual en la Ley 2586 de 2026 y en el Decreto Ley 920 de 2023. */
     ambasNormasAduaneras: z.boolean().optional(),
+    /** De dónde salió: una fila "Verificado" de la investigación o directamente la copia oficial. */
+    origen: z.enum(['investigacion', 'copia']),
+    /** Artículos que cita, para verificar la cita contra la copia oficial (fuentes/normas/). */
+    articulos: z.array(z.object({ norma: z.enum(NORMAS_COPIADAS), numero: z.string().regex(/^\d+(-\d+)?$/) })).min(1),
   }),
 });
 
@@ -206,6 +226,7 @@ export const MAZOS = [
   'Caso C: jurídica',
   'Caso D: aduanas y cambiario',
   'Procedimiento administrativo',
+  'Carrera y disciplinario',
 ] as const;
 
 /** Tarjetas de repaso: el reverso es siempre un fragmento literal del dossier (ver tests/tarjetas.test.ts). */
@@ -257,4 +278,20 @@ const terminos = defineCollection({
   }),
 });
 
-export const collections = { planes, normativa, recursos, ponderacion, fuentes, paginas, esencial, tarjetas, reglas, casos, terminos };
+/**
+ * Índice de artículos de las normas copiadas (scripts/indexar-normas.py): nivel 1 decide casos,
+ * 2 contexto, 3 no se estudia. Un nivel 1 sin tarjeta registra su razón (tests/indice-normas.test.ts).
+ */
+const indiceNormas = defineCollection({
+  loader: file('src/content/indice-normas.json'),
+  schema: z.object({
+    id: z.string(),
+    norma: z.enum(NORMAS_COPIADAS),
+    numero: z.string().regex(/^\d+(-\d+)?$/),
+    nivel: z.union([z.literal(1), z.literal(2), z.literal(3)]),
+    tema: z.string(),
+    razon: z.string().optional(),
+  }),
+});
+
+export const collections = { planes, normativa, recursos, ponderacion, fuentes, paginas, esencial, tarjetas, reglas, casos, terminos, indiceNormas };

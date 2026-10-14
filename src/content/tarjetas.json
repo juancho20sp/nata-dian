@@ -823,7 +823,7 @@
     "id": "ra-inexactitud",
     "mazo": "Caso A: fiscalización",
     "frente": "¿Cuál es la sanción general por inexactitud?",
-    "reverso": "100 % de la diferencia",
+    "reverso": "ciento por ciento (100%) de la diferencia",
     "quiz": false,
     "fuente": {
       "regla": "a-inexactitud"
@@ -923,7 +923,7 @@
     "id": "rb-inembargable",
     "mazo": "Caso B: cobranzas",
     "frente": "¿Qué monto es inembargable para una persona natural?",
-    "reverso": "25 SMMLV en la cuenta de ahorros más antigua",
+    "reverso": "veinticinco (25) salarios mínimos legales mensuales vigentes",
     "quiz": true,
     "fuente": {
       "regla": "b-inembargabilidad"
@@ -953,7 +953,7 @@
     "id": "rb-facilidades",
     "mazo": "Caso B: cobranzas",
     "frente": "¿A qué plazo máximo pueden otorgarse facilidades de pago con garantía?",
-    "reverso": "Hasta 5 años con garantía",
+    "reverso": "hasta por cinco (5) años",
     "quiz": true,
     "fuente": {
       "regla": "b-facilidades-de-pago"
@@ -1103,7 +1103,7 @@
     "id": "rc-per-saltum",
     "mazo": "Caso C: jurídica",
     "frente": "Per saltum tributario: con el requerimiento especial atendido en debida forma, ¿qué se puede hacer?",
-    "reverso": "demanda directa contra la liquidación oficial en 4 meses",
+    "reverso": "acudir directamente ante la jurisdicción contencioso administrativa dentro de los cuatro (4) meses siguientes a la notificación de la liquidación oficial",
     "quiz": false,
     "fuente": {
       "regla": "c-per-saltum-tributario"
@@ -1363,7 +1363,7 @@
     "id": "rt-apelacion",
     "mazo": "Procedimiento administrativo",
     "frente": "¿Es obligatoria la apelación para acceder a la jurisdicción?",
-    "reverso": "será obligatoria para acceder a la jurisdicción",
+    "reverso": "cuando proceda será obligatorio para acceder a la jurisdicción",
     "quiz": false,
     "fuente": {
       "regla": "t-recursos-oportunidad"
@@ -1427,6 +1427,1766 @@
     "quiz": false,
     "fuente": {
       "regla": "t-conflicto-de-intereses"
+    }
+  },
+  {
+    "id": "r2586-clases-infracciones",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Ley 2586: ¿cómo se clasifican las infracciones aduaneras?",
+    "reverso": "se clasifican en leves, graves y gravísimas",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-14"
+    }
+  },
+  {
+    "id": "r2586-cancelacion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Ley 2586: ¿qué es la sanción de cancelación?",
+    "reverso": "cese definitivo de la autorización, inscripción o habilitación",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-14"
+    }
+  },
+  {
+    "id": "r2586-suspension",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Ley 2586: ¿qué es la sanción de suspensión?",
+    "reverso": "cese temporal de la autorización, inscripción o habilitación",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-14"
+    }
+  },
+  {
+    "id": "r2586-concurso-multas",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Un mismo hecho genera varias infracciones, todas con multa: ¿qué multa se impone?",
+    "reverso": "se impondrá la más alta incrementada en un veinte por ciento (20%)",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-17"
+    }
+  },
+  {
+    "id": "r2586-errores-formales",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Ley 2586: ¿cómo se califican los errores de transcripción de la información de los documentos de viaje?",
+    "reverso": "Son errores formales no sancionables",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-22"
+    }
+  },
+  {
+    "id": "r2586-exoneracion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Ley 2586: nombre las dos primeras causales de exoneración de responsabilidad aduanera",
+    "reverso": "1. Fuerza mayor. 2. Caso fortuito.",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-23"
+    }
+  },
+  {
+    "id": "r2586-no-presentadas",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Ley 2586: mercancías no presentadas a la autoridad aduanera, ¿qué procede?",
+    "reverso": "Dará lugar a la aprehensión y decomiso de las mercancías",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-26"
+    }
+  },
+  {
+    "id": "r2586-no-aprehensible",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Si no es posible aprehender la mercancía porque no fue puesta a disposición, ¿qué sanción procede?",
+    "reverso": "una sanción de multa equivalente al ciento por ciento (100%) del valor en aduanas",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-2586-29"
+    }
+  },
+  {
+    "id": "r2586-carga-prueba",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Proceso aduanero: ¿qué le incumbe probar al interesado?",
+    "reverso": "le incumbe probar los supuestos de hecho de las normas jurídicas cuya aplicación pretende",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-36"
+    }
+  },
+  {
+    "id": "r2586-momentos-prueba",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Proceso aduanero: ¿en qué momentos se solicitan las pruebas?",
+    "reverso": "en el de la aprehensión, o con el Escrito de Objeción a la aprehensión, o con la respuesta al Requerimiento Especial Aduanero, en el recurso de reconsideración",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-36"
+    }
+  },
+  {
+    "id": "r2586-inicio-decomiso",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Con qué se inicia el proceso de decomiso?",
+    "reverso": "el acta de aprehensión y con su notificación se inicia el proceso de decomiso",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-40"
+    }
+  },
+  {
+    "id": "r2586-garantia-reemplazo",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Qué garantía permite entregar la mercancía aprehendida antes de la decisión de fondo?",
+    "reverso": "una garantía equivalente al cien por ciento (100%) del valor FOB o del avalúo de la misma",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-2586-43"
+    }
+  },
+  {
+    "id": "r2586-decomiso-directo-que-es",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Qué es el decomiso directo?",
+    "reverso": "es el que se realiza simultáneamente con la aprehensión",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-48"
+    }
+  },
+  {
+    "id": "r2586-decomiso-directo-valor",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Decomiso directo: ¿hasta qué valor de mercancía procede, sin importar su naturaleza?",
+    "reverso": "inferior o igual a quinientas Unidades de Valor Tributario (500 UVT)",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-2586-48"
+    }
+  },
+  {
+    "id": "r2586-rescate",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Subsanados los motivos de la aprehensión, ¿qué verifica la autoridad aduanera para entregar la mercancía?",
+    "reverso": "la correcta liquidación y pago del rescate",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-52"
+    }
+  },
+  {
+    "id": "r2586-cierre",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Mercancía no amparada en un establecimiento con avalúo superior a 500 UVT: ¿qué sanción se impone en el acto de decomiso?",
+    "reverso": "la sanción de cierre del establecimiento de comercio",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-55"
+    }
+  },
+  {
+    "id": "r2586-rea-inicio",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Con qué se inicia formalmente el proceso administrativo sancionatorio o de liquidación oficial aduanera?",
+    "reverso": "Con la notificación del Requerimiento Especial Aduanero",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-66"
+    }
+  },
+  {
+    "id": "r2586-rea-expedicion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿En qué plazo se expide el requerimiento especial aduanero?",
+    "reverso": "a más tardar dentro de los treinta (30) días hábiles siguientes a la fecha en que se haya establecido la presunta comisión de una infracción administrativa aduanera",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-2586-67"
+    }
+  },
+  {
+    "id": "r2586-pruebas-rea",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Vencido el término de respuesta al requerimiento especial aduanero, ¿en qué plazo se ordenan las pruebas?",
+    "reverso": "dentro de los diez (10) días hábiles siguientes",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-2586-71"
+    }
+  },
+  {
+    "id": "r2586-pago",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿En qué plazo se acredita el pago tras la ejecutoria de la liquidación oficial o la resolución sancionatoria?",
+    "reverso": "Dentro de los diez (10) días hábiles siguientes a la ejecutoria",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-2586-75"
+    }
+  },
+  {
+    "id": "r2586-requisitos-reconsideracion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Reconsideración aduanera: ¿cómo debe formularse?",
+    "reverso": "Formularse por escrito, con expresión concreta de los motivos de inconformidad",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-91"
+    }
+  },
+  {
+    "id": "r2586-inadmision",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿En qué plazo se inadmite la reconsideración aduanera que no cumple los requisitos?",
+    "reverso": "dentro de los diez (10) días hábiles siguientes al recibo del recurso y del expediente",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-92"
+    }
+  },
+  {
+    "id": "r2586-revocatoria",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Por qué norma se rige la revocatoria directa de los actos aduaneros?",
+    "reverso": "se regirá por las disposiciones del Código de Procedimiento Administrativo y de lo Contencioso Administrativo, con excepción de su notificación",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-97"
+    }
+  },
+  {
+    "id": "r2586-firmeza",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Acto aduanero: si vence el término sin interponer recursos, ¿qué pasa?",
+    "reverso": "Cuando vencido el término para interponer los recursos, no se hayan interpuesto o no se presenten en debida forma",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-98"
+    }
+  },
+  {
+    "id": "r2586-citacion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Notificación aduanera: ¿en qué plazo se envía la citación?",
+    "reverso": "Dentro de los cinco (5) días hábiles siguientes a la expedición del acto administrativo",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-2586-106"
+    }
+  },
+  {
+    "id": "r2586-comparecer",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Citado a notificación personal en un proceso aduanero, ¿en qué plazo debe comparecer?",
+    "reverso": "dentro del término de los diez (10) días hábiles siguientes",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-2586-106"
+    }
+  },
+  {
+    "id": "r2586-correo",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Notificación aduanera por correo físico: ¿cuándo se entiende surtida?",
+    "reverso": "se entenderá surtida en la fecha de recibo del acto administrativo",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-108"
+    }
+  },
+  {
+    "id": "r2586-devueltas",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Actuación aduanera notificada por correo y devuelta: ¿cómo se notifica?",
+    "reverso": "serán notificadas por el término de cinco (5) días hábiles mediante aviso en el sitio web",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2586-109"
+    }
+  },
+  {
+    "id": "r1165-importador-responsable",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Quién debe acreditar la legal introducción de las mercancías al territorio aduanero nacional?",
+    "reverso": "El importador será responsable de acreditar la legal introducción de las mercancías",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-1165-8"
+    }
+  },
+  {
+    "id": "r1165-anticipada",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Declaración anticipada obligatoria de importación: ¿con qué antelación mínima se presenta, por regla general?",
+    "reverso": "con una antelación mínima de 5 días calendario",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-1165-175"
+    }
+  },
+  {
+    "id": "r1165-no-aceptacion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿La no aceptación de la declaración de importación suspende el término de permanencia en depósito?",
+    "reverso": "La no aceptación de la Declaración no suspende el término de permanencia de la mercancía en depósito",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-1165-179"
+    }
+  },
+  {
+    "id": "r1165-inspeccion-o-levante",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Pagados los tributos, ¿qué situaciones puede determinar la aduana?",
+    "reverso": "1. Autorizar el levante automático de la mercancía. 2. La inspección documental, o 3. La inspección física de la mercancía",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-1165-181"
+    }
+  },
+  {
+    "id": "r1165-termino-inspeccion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿En qué plazo debe concluirse la inspección aduanera?",
+    "reverso": "concluirse a más tardar el día siguiente en que se ordene su práctica",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-1165-183"
+    }
+  },
+  {
+    "id": "r1165-sin-efecto",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Qué efecto tiene la declaración de importación en la que no consta la autorización de levante?",
+    "reverso": "No producirá efecto alguno",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-1165-189"
+    }
+  },
+  {
+    "id": "r1165-rescate-abandono",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Rescate de mercancía en abandono: ¿cuánto se paga por concepto de rescate?",
+    "reverso": "el diez por ciento (10%) del valor en aduana de la mercancía",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-1165-293"
+    }
+  },
+  {
+    "id": "r1165-modificacion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Genera sanción la modificación de la declaración de importación en los eventos del Título?",
+    "reverso": "sin que se genere sanción alguna",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-1165-297"
+    }
+  },
+  {
+    "id": "r1165-resolucion-anticipada",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿En qué plazo se expide la resolución anticipada?",
+    "reverso": "dentro de los dos (2) meses contados a partir de la fecha de radicación de la solicitud",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-1165-300"
+    }
+  },
+  {
+    "id": "r1165-clasificacion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿En qué plazo se expide la resolución de clasificación arancelaria ordinaria?",
+    "reverso": "dos (2) meses contados a partir de la fecha de la radicación de la solicitud",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-1165-305"
+    }
+  },
+  {
+    "id": "r1165-medidas-cautelares",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Qué son las medidas cautelares aduaneras?",
+    "reverso": "dirigidas a limitar o impedir temporalmente el ejercicio de los derechos de disposición o administración sobre mercancías o pruebas de interés para un proceso",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-1165-596"
+    }
+  },
+  {
+    "id": "r1165-devolucion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿En qué plazo se pide la devolución de un pago en exceso de tributos aduaneros?",
+    "reverso": "a más tardar dentro de los seis (6) meses siguientes a la fecha en que se realizó el pago",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-1165-730"
+    }
+  },
+  {
+    "id": "r2245-cargos-recurso",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Cambiario: ¿procede recurso contra el acto de formulación de cargos?",
+    "reverso": "mediante acto administrativo motivado contra el cual no procede recurso alguno",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2245-11"
+    }
+  },
+  {
+    "id": "r2245-correo",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Cambiario: ¿cuándo se entiende surtida la notificación por correo?",
+    "reverso": "se entenderá surtida en la fecha de recibo del acto administrativo",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2245-16"
+    }
+  },
+  {
+    "id": "r2245-devueltas",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Cambiario: actuación notificada por correo y devuelta, ¿cómo se notifica?",
+    "reverso": "serán notificadas mediante aviso en el portal web de la DIAN",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2245-18"
+    }
+  },
+  {
+    "id": "r2245-reconocimiento",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Cambiario: ¿quién puede hacer válidamente el reconocimiento de la infracción para la sanción reducida?",
+    "reverso": "sólo será válido si lo efectúa directamente el investigado o su apoderado expresamente facultado para el efecto",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2245-23"
+    }
+  },
+  {
+    "id": "r2245-pruebas",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Cambiario: ¿cuánto puede durar la práctica de pruebas en el territorio nacional?",
+    "reverso": "que no podrá exceder de cuatro (4) meses",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-2245-24"
+    }
+  },
+  {
+    "id": "r2245-archivo",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Cambiario: ¿procede recurso contra el auto de archivo o la resolución que termina la investigación?",
+    "reverso": "no procederá ningún recurso",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-2245-27"
+    }
+  },
+  {
+    "id": "r2245-prescripcion-cobro",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Cambiario: ¿en cuánto prescribe la acción de cobro de las sanciones?",
+    "reverso": "prescribe en el término de cinco (5) años contados a partir de la ejecutoria de la providencia que la impuso",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-2245-37"
+    }
+  },
+  {
+    "id": "r927-vacancias",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Carrera DIAN: ¿cómo se proveen las vacancias definitivas?",
+    "reverso": "a través de concurso realizado por la Comisión Nacional del Servicio Civil",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-927-25"
+    }
+  },
+  {
+    "id": "r927-concurso",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Carrera DIAN: ¿cómo se hacen el ingreso y el ascenso?",
+    "reverso": "se hará por concurso público",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-927-28"
+    }
+  },
+  {
+    "id": "r927-etapas",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Carrera DIAN: ¿cuáles son las etapas del proceso de selección?",
+    "reverso": "(i) la convocatoria; (ii) el reclutamiento; (iii) la aplicación y evaluación de las pruebas de selección; (iv) la conformación de la lista de elegibles y (v) la vinculación a la carrera en período de prueba",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-927-32"
+    }
+  },
+  {
+    "id": "r927-lista-vigencia",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Carrera DIAN: ¿cuánto dura la lista de elegibles?",
+    "reverso": "tendrá una vigencia de un (1) año, contado a partir de su firmeza",
+    "quiz": true,
+    "fuente": {
+      "regla": "cd-927-36"
+    }
+  },
+  {
+    "id": "r927-lista-orden",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Carrera DIAN: ¿en qué orden se usa la lista de elegibles?",
+    "reverso": "en estricto orden descendente",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-927-36"
+    }
+  },
+  {
+    "id": "r927-reclamaciones",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Concurso DIAN: ¿qué procede contra las decisiones que afectan individualmente a un inscrito?",
+    "reverso": "solamente procederá la reclamación en única instancia ante la Comisión Nacional del Servicio Civil",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-927-37"
+    }
+  },
+  {
+    "id": "r927-evaluacion",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Carrera DIAN: ¿con qué periodicidad se evalúa el desempeño?",
+    "reverso": "efectuada anualmente",
+    "quiz": true,
+    "fuente": {
+      "regla": "cd-927-47"
+    }
+  },
+  {
+    "id": "r927-categorias",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Carrera DIAN: ¿cuáles son las categorías de la evaluación del desempeño?",
+    "reverso": "(i) bueno, (ii) aceptable o (iii) insuficiente",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-927-49"
+    }
+  },
+  {
+    "id": "r927-insubsistencia",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Carrera DIAN: ¿qué pasa si el empleado obtiene calificación insuficiente en la evaluación definitiva?",
+    "reverso": "deberá declararse insubsistente en forma motivada",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-927-53"
+    }
+  },
+  {
+    "id": "r927-libre-nombramiento",
+    "mazo": "Carrera y disciplinario",
+    "frente": "DIAN: ¿cómo se declara insubsistente un nombramiento ordinario de libre nombramiento y remoción?",
+    "reverso": "mediante acto administrativo no motivado",
+    "quiz": true,
+    "fuente": {
+      "regla": "cd-927-134"
+    }
+  },
+  {
+    "id": "r927-ingreso",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Concurso de ingreso DIAN: ¿quiénes participan?",
+    "reverso": "todos los ciudadanos que reúnan los requisitos de los empleos ofertados",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-927-29"
+    }
+  },
+  {
+    "id": "r1116-solicitud",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Ley 1116: desde la presentación de la solicitud de reorganización, ¿qué se prohíbe a los administradores, entre otras cosas?",
+    "reverso": "efectuar compensaciones, pagos, arreglos",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-1116-17"
+    }
+  },
+  {
+    "id": "r1116-liquidacion",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Ley 1116: ¿qué produce, en primer lugar, la declaración judicial de liquidación?",
+    "reverso": "La disolución de la persona jurídica",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-1116-50"
+    }
+  },
+  {
+    "id": "r1116-garantes",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Iniciada la insolvencia, si el acreedor guarda silencio, ¿qué pasa con la ejecución contra los garantes o deudores solidarios?",
+    "reverso": "continuará la ejecución contra los garantes o deudores solidarios",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-1116-70"
+    }
+  },
+  {
+    "id": "r1116-posteriores",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Ley 1116: ¿qué son las obligaciones causadas después del inicio de la insolvencia?",
+    "reverso": "son gastos de administración",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-1116-71"
+    }
+  },
+  {
+    "id": "r1116-posteriores-coactivo",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Pueden cobrarse coactivamente las obligaciones causadas después del inicio de la insolvencia?",
+    "reverso": "podrá exigirse coactivamente su cobro",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-1116-71"
+    }
+  },
+  {
+    "id": "r1116-prescripcion",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Ley 1116: ¿qué pasa con la prescripción desde el inicio de la reorganización o la liquidación judicial?",
+    "reverso": "queda interrumpido el término de prescripción y no operará la caducidad de las acciones",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-1116-72"
+    }
+  },
+  {
+    "id": "rcp-impedimento-tramite",
+    "mazo": "Procedimiento administrativo",
+    "frente": "Servidor impedido en una actuación administrativa: ¿en qué plazo envía la actuación al superior?",
+    "reverso": "dentro de los tres (3) días siguientes a su conocimiento",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-cpaca-12"
+    }
+  },
+  {
+    "id": "rcp-reserva",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Procede recurso contra la decisión que rechaza una petición de información por reserva legal?",
+    "reverso": "no procede recurso",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-cpaca-25"
+    }
+  },
+  {
+    "id": "rcp-insistencia",
+    "mazo": "Procedimiento administrativo",
+    "frente": "Insistencia ante una autoridad nacional que invoca reserva: ¿quién decide?",
+    "reverso": "al Tribunal Administrativo con jurisdicción en el lugar donde se encuentren los documentos",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-cpaca-26"
+    }
+  },
+  {
+    "id": "rcp-conceptos",
+    "mazo": "Procedimiento administrativo",
+    "frente": "Regla general del CPACA: ¿son obligatorios los conceptos que responden consultas?",
+    "reverso": "no serán de obligatorio cumplimiento o ejecución",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-cpaca-28"
+    }
+  },
+  {
+    "id": "rcp-pruebas-recurso",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Proceden recursos contra el acto que decide la solicitud de pruebas en la actuación administrativa?",
+    "reverso": "Contra el acto que decida la solicitud de pruebas no proceden recursos",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-cpaca-40"
+    }
+  },
+  {
+    "id": "rcp-periodo-probatorio",
+    "mazo": "Procedimiento administrativo",
+    "frente": "Procedimiento sancionatorio del CPACA: ¿cuánto dura como máximo el período probatorio (regla general)?",
+    "reverso": "un término no mayor a treinta (30) días",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-cpaca-48"
+    }
+  },
+  {
+    "id": "rcp-alegatos",
+    "mazo": "Procedimiento administrativo",
+    "frente": "Procedimiento sancionatorio del CPACA: vencido el período probatorio, ¿cuánto tiene el investigado para alegar?",
+    "reverso": "por diez (10) días",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-cpaca-48"
+    }
+  },
+  {
+    "id": "rcp-caducidad-sancionatoria",
+    "mazo": "Procedimiento administrativo",
+    "frente": "CPACA (regla general): ¿en cuánto caduca la facultad sancionatoria?",
+    "reverso": "caduca a los tres (3) años de ocurrido el hecho, la conducta u omisión",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-cpaca-52"
+    }
+  },
+  {
+    "id": "rcp-notificacion-electronica",
+    "mazo": "Procedimiento administrativo",
+    "frente": "CPACA: ¿cuándo pueden las autoridades notificar por medios electrónicos?",
+    "reverso": "siempre que el administrado haya aceptado este medio de notificación",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-cpaca-56"
+    }
+  },
+  {
+    "id": "rcp-conducta-concluyente",
+    "mazo": "Procedimiento administrativo",
+    "frente": "Notificación irregular: ¿cuándo produce efectos la decisión de todos modos?",
+    "reverso": "a menos que la parte interesada revele que conoce el acto, consienta la decisión o interponga los recursos legales",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-cpaca-72"
+    }
+  },
+  {
+    "id": "rcp-improcedencia",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Proceden recursos contra los actos de trámite?",
+    "reverso": "No habrá recurso contra los actos de carácter general, ni contra los de trámite, preparatorios, o de ejecución",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-cpaca-75"
+    }
+  },
+  {
+    "id": "rcp-queja",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Qué recurso procede contra el rechazo del recurso de apelación?",
+    "reverso": "procederá el de queja",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-cpaca-78"
+    }
+  },
+  {
+    "id": "rcp-silencio-positivo",
+    "mazo": "Procedimiento administrativo",
+    "frente": "CPACA: ¿cuándo el silencio de la administración equivale a decisión positiva?",
+    "reverso": "Solamente en los casos expresamente previstos en disposiciones legales especiales",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-cpaca-84"
+    }
+  },
+  {
+    "id": "rcp-presuncion-legalidad",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Hasta cuándo se presumen legales los actos administrativos?",
+    "reverso": "mientras no hayan sido anulados por la Jurisdicción de lo Contencioso Administrativo",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-cpaca-88"
+    }
+  },
+  {
+    "id": "rcp-ejecutoriedad",
+    "mazo": "Procedimiento administrativo",
+    "frente": "Cite una causal de pérdida de ejecutoriedad del acto administrativo.",
+    "reverso": "Cuando sean suspendidos provisionalmente sus efectos por la Jurisdicción de lo Contencioso Administrativo",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-cpaca-91"
+    }
+  },
+  {
+    "id": "rcp-revocacion-improcedente",
+    "mazo": "Procedimiento administrativo",
+    "frente": "Revocación directa a solicitud de parte por la causal 1: ¿cuándo no procede?",
+    "reverso": "cuando el peticionario haya interpuesto los recursos de que dichos actos sean susceptibles",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-cpaca-94"
+    }
+  },
+  {
+    "id": "rcc-extension",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿A quiénes deben extender las autoridades los efectos de una sentencia de unificación del Consejo de Estado?",
+    "reverso": "a quienes lo soliciten y acrediten los mismos supuestos fácticos y jurídicos",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-cpaca-102"
+    }
+  },
+  {
+    "id": "rcc-reparacion",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Qué se demanda con el medio de control de reparación directa?",
+    "reverso": "la reparación del daño antijurídico producido por la acción u omisión de los agentes del Estado",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-cpaca-140"
+    }
+  },
+  {
+    "id": "rcc-rechazo",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Qué pasa con la demanda si operó la caducidad?",
+    "reverso": "Se rechazará la demanda y se ordenará la devolución de los anexos",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-cpaca-169"
+    }
+  },
+  {
+    "id": "rcc-inadmision",
+    "mazo": "Caso C: jurídica",
+    "frente": "Demanda inadmitida: ¿en qué plazo debe corregirla el demandante?",
+    "reverso": "en el plazo de diez (10) días",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-cpaca-170"
+    }
+  },
+  {
+    "id": "rcc-contestacion",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Cuándo puede el demandado contestar la demanda?",
+    "reverso": "Durante el término de traslado",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-cpaca-175"
+    }
+  },
+  {
+    "id": "rcc-audiencia-inicial",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Cuándo se realiza la audiencia inicial?",
+    "reverso": "dentro del mes siguiente al vencimiento del término de traslado de la demanda",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-cpaca-180"
+    }
+  },
+  {
+    "id": "rcc-recursos-cautelares",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿En qué término se resuelven los recursos contra el auto que decide medidas cautelares?",
+    "reverso": "en un término máximo de veinte (20) días",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-cpaca-236"
+    }
+  },
+  {
+    "id": "rcc-reposicion",
+    "mazo": "Caso C: jurídica",
+    "frente": "Proceso contencioso: ¿contra qué procede el recurso de reposición?",
+    "reverso": "procede contra todos los autos, salvo norma legal en contrario",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-cpaca-242"
+    }
+  },
+  {
+    "id": "rcc-apelacion",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Es apelable el auto que rechaza la demanda?",
+    "reverso": "Son apelables las sentencias de primera instancia y los siguientes autos",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-cpaca-243"
+    }
+  },
+  {
+    "id": "rcc-revision",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿En qué término se interpone el recurso extraordinario de revisión (regla general)?",
+    "reverso": "dentro del año siguiente a la ejecutoria de la respectiva sentencia",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-cpaca-251"
+    }
+  },
+  {
+    "id": "rcc-unificacion",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Qué son sentencias de unificación jurisprudencial, entre otras?",
+    "reverso": "las que profiera o haya proferido el Consejo de Estado por importancia jurídica o trascendencia económica o social",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-cpaca-270"
+    }
+  },
+  {
+    "id": "r2220-conciliables",
+    "mazo": "Caso C: jurídica",
+    "frente": "Regla general: ¿qué asuntos son conciliables en lo contencioso administrativo?",
+    "reverso": "todos los conflictos que puedan ser conocidos por la Jurisdicción de lo Contencioso Administrativo, siempre que la conciliación no esté expresamente prohibida por la ley",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-2220-89"
+    }
+  },
+  {
+    "id": "r2220-facultativa",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Es obligatoria la conciliación prejudicial si el demandante pide medidas cautelares de carácter patrimonial?",
+    "reverso": "Será facultativo agotar la conciliación extrajudicial",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-2220-93"
+    }
+  },
+  {
+    "id": "r2220-suspende",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Qué efecto tiene en la caducidad presentar la solicitud de conciliación ante el Ministerio Público?",
+    "reverso": "suspende el término de caducidad del medio de control",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-2220-96"
+    }
+  },
+  {
+    "id": "r2220-rechazo",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Cuándo rechaza de plano el Ministerio Público la solicitud de conciliación, por ejemplo?",
+    "reverso": "Cuando se haya admitido la demanda formulada con base en los mismos hechos y pretensiones",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-2220-103"
+    }
+  },
+  {
+    "id": "r2220-justificar",
+    "mazo": "Caso C: jurídica",
+    "frente": "Inasistencia a la audiencia de conciliación por fuerza mayor: ¿en qué plazo se informa?",
+    "reverso": "dentro de los tres (3) días siguientes a la fecha en que se celebró la audiencia",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-2220-110"
+    }
+  },
+  {
+    "id": "r2220-indicio",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Qué consecuencia puede tener no asistir a la audiencia de conciliación sin justificar?",
+    "reverso": "su conducta podrá ser considerada como indicio grave en contra",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-2220-110"
+    }
+  },
+  {
+    "id": "r2220-reposicion",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Qué recurso procede contra las decisiones del agente del Ministerio Público en la conciliación extrajudicial?",
+    "reverso": "solo procede el recurso de reposición dentro de los tres (3) días siguientes a su comunicación",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-2220-114"
+    }
+  },
+  {
+    "id": "r2220-repeticion",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Quién estudia la procedencia de la acción de repetición en la entidad?",
+    "reverso": "Los Comités de Conciliación de las entidades públicas",
+    "quiz": false,
+    "fuente": {
+      "regla": "c-2220-125"
+    }
+  },
+  {
+    "id": "r1952-exclusion",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Nombre las dos primeras causales de exclusión de la responsabilidad disciplinaria.",
+    "reverso": "1. Por fuerza mayor. 2. En caso fortuito.",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-1952-31"
+    }
+  },
+  {
+    "id": "r1952-prescripcion-sancion",
+    "mazo": "Carrera y disciplinario",
+    "frente": "¿En cuánto prescribe la sanción disciplinaria y desde cuándo?",
+    "reverso": "prescribe en un término de cinco (5) años, contados a partir de la ejecutoria del fallo",
+    "quiz": true,
+    "fuente": {
+      "regla": "cd-1952-36"
+    }
+  },
+  {
+    "id": "r1952-faltas",
+    "mazo": "Carrera y disciplinario",
+    "frente": "¿Cómo se clasifican las faltas disciplinarias?",
+    "reverso": "1. Gravísimas. 2. Graves. 3. Leves.",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-1952-46"
+    }
+  },
+  {
+    "id": "r1952-impedimento",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Disciplinario: ¿cuándo debe declararse impedido el servidor en quien concurre una causal?",
+    "reverso": "debe declararse inmediatamente impedido, una vez la advierta",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-1952-105"
+    }
+  },
+  {
+    "id": "r1952-recursos",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Disciplinario: ¿hasta cuándo se interponen reposición y apelación?",
+    "reverso": "hasta el vencimiento de los cinco (5) días siguientes a la notificación respectiva",
+    "quiz": true,
+    "fuente": {
+      "regla": "cd-1952-131"
+    }
+  },
+  {
+    "id": "r1952-estrados",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Disciplinario: decisión notificada en estrados, ¿cuándo se interponen los recursos?",
+    "reverso": "deberán interponerse y sustentarse en el curso de la audiencia o diligencia",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-1952-131"
+    }
+  },
+  {
+    "id": "r1952-apelacion",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Disciplinario: ¿procede apelación contra la decisión de archivo?",
+    "reverso": "El recurso de apelación procede únicamente contra las siguientes decisiones: la decisión que niega pruebas en etapa de juicio, la decisión de archivo",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-1952-134"
+    }
+  },
+  {
+    "id": "r1952-confesion",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Disciplinario: ¿hasta cuándo procede la confesión en la etapa de investigación?",
+    "reverso": "hasta antes de la ejecutoria del auto de cierre",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-1952-162"
+    }
+  },
+  {
+    "id": "r1952-suspension-provisional",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Disciplinario: ¿en qué faltas procede la suspensión provisional del servidor?",
+    "reverso": "por faltas calificadas como gravísimas o graves",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-1952-217"
+    }
+  },
+  {
+    "id": "r1952-archivo",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Disciplinario: ¿qué efecto tiene el archivo definitivo?",
+    "reverso": "hará tránsito a cosa juzgada",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-1952-224"
+    }
+  },
+  {
+    "id": "r1952-apelacion-fallo",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Disciplinario: ¿cuándo se interpone la apelación contra el fallo de primera instancia?",
+    "reverso": "deberá interponerse en la misma diligencia",
+    "quiz": false,
+    "fuente": {
+      "regla": "cd-1952-233"
+    }
+  },
+  {
+    "id": "r1952-multa",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Multa disciplinaria a quien sigue en la misma entidad: ¿en qué plazo puede descontarse?",
+    "reverso": "durante los doce meses siguientes a su imposición",
+    "quiz": true,
+    "fuente": {
+      "regla": "cd-1952-237"
+    }
+  },
+  {
+    "id": "rt-sancion-gravisima-dolosa",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Disciplinario: ¿qué sanción corresponde a una falta gravísima dolosa?",
+    "reverso": "Destitución e inhabilidad general de diez (10) a veinte (20) años",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-disciplinario-sanciones"
+    }
+  },
+  {
+    "id": "rt-sancion-grave-dolosa",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Disciplinario: ¿qué sanción corresponde a una falta grave dolosa?",
+    "reverso": "Suspensión en el ejercicio del cargo de tres (3) a dieciocho (18) meses e inhabilidad especial por el mismo término",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-disciplinario-sanciones"
+    }
+  },
+  {
+    "id": "rt-sancion-leve-culposa",
+    "mazo": "Carrera y disciplinario",
+    "frente": "Disciplinario: ¿qué sanción corresponde a una falta leve culposa?",
+    "reverso": "Amonestación escrita",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-disciplinario-sanciones"
+    }
+  },
+  {
+    "id": "rd-pruebas-decomiso",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Decomiso: ¿en qué plazo se profiere el auto de pruebas?",
+    "reverso": "dentro de los veinte (20) días hábiles siguientes",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-pruebas-en-el-decomiso"
+    }
+  },
+  {
+    "id": "ra-extemporaneidad",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Declaración extemporánea antes del emplazamiento: ¿qué sanción por mes o fracción de retardo?",
+    "reverso": "cinco por ciento (5%) del total del impuesto a cargo",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-extemporaneidad"
+    }
+  },
+  {
+    "id": "ra-extemporaneidad-emplazamiento",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Declaración extemporánea después del emplazamiento: ¿qué sanción por mes o fracción de retardo?",
+    "reverso": "diez por ciento (10%) del total del impuesto a cargo",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-extemporaneidad"
+    }
+  },
+  {
+    "id": "ra-correccion-10",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Corrección tras el vencimiento del plazo y antes del emplazamiento para corregir: ¿qué sanción?",
+    "reverso": "El diez por ciento (10%) del mayor valor a pagar o del menor saldo a su favor",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-sancion-por-correccion"
+    }
+  },
+  {
+    "id": "ra-no-declarar-renta",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Sanción por no declarar renta: ¿cuál es la base, en regla general?",
+    "reverso": "veinte por ciento (20%) del valor de las consignaciones bancarias o ingresos brutos",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-sancion-por-no-declarar"
+    }
+  },
+  {
+    "id": "ra-gradualidad-50",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Gradualidad: sanción liquidada por el contribuyente sin reincidencia en los dos años anteriores, ¿a cuánto se reduce?",
+    "reverso": "al cincuenta por ciento (50%) del monto previsto en la ley",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-gradualidad"
+    }
+  },
+  {
+    "id": "ra-beneficio-auditoria",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Beneficio de auditoría: con un incremento del impuesto neto de renta de al menos 35 %, ¿en cuánto queda en firme la declaración?",
+    "reverso": "dentro de los seis (6) meses siguientes a la fecha de su presentación",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-beneficio-de-auditoria-firmeza-abreviada"
+    }
+  },
+  {
+    "id": "rb-excepcion-pago",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Cobro coactivo: ¿qué excepciones puede proponer el deudor? (cite la primera y la segunda)",
+    "reverso": "1. El pago efectivo. 2. La existencia de acuerdo de pago",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-excepciones-lista-cerrada"
+    }
+  },
+  {
+    "id": "rb-excepcion-solidario",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Mandamiento de pago contra un deudor solidario: ¿qué excepción adicional puede proponer, entre otras?",
+    "reverso": "La calidad de deudor solidario",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-excepciones-lista-cerrada"
+    }
+  },
+  {
+    "id": "rb-ejecutoria-sin-recurso",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Cobro coactivo: ¿cuándo queda ejecutoriado un acto contra el que se interpusieron recursos?",
+    "reverso": "Cuando los recursos interpuestos en la vía gubernativa o las acciones de restablecimiento del derecho o de revisión de impuestos se hayan decidido en forma definitiva",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-ejecutoria-del-titulo"
+    }
+  },
+  {
+    "id": "rb-inembargable-juridicas",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Embargo de cuentas de ahorro de una persona jurídica: ¿hay límite de inembargabilidad?",
+    "reverso": "no existe límite de inembargabilidad",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-inembargabilidad"
+    }
+  },
+  {
+    "id": "ret-no-presentada",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Declaración sin identificación del declarante: ¿qué efecto tiene?",
+    "reverso": "No se entenderá cumplido el deber de presentar la declaración tributaria",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-et-580"
+    }
+  },
+  {
+    "id": "ret-correccion-recurso",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Puede corregirse la declaración dentro del término para interponer la reconsideración?",
+    "reverso": "habrá lugar a efectuar la corrección de la declaración dentro del término para interponer el recurso de reconsideración",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-et-590"
+    }
+  },
+  {
+    "id": "ret-intereses",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Cómo se liquidan los intereses moratorios tributarios?",
+    "reverso": "por cada día calendario de retardo en el pago",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-et-634"
+    }
+  },
+  {
+    "id": "ret-correccion-aritmetica-sancion",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Liquidación de corrección aritmética con mayor valor a pagar: ¿qué sanción?",
+    "reverso": "una sanción equivalente al treinta por ciento (30%) del mayor valor a pagar",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-et-646"
+    }
+  },
+  {
+    "id": "ret-clausura",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Sanción de clausura por no expedir factura: ¿por cuántos días, en el primer caso?",
+    "reverso": "Por un término de tres (3) días",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-et-657"
+    }
+  },
+  {
+    "id": "ret-atender-requerimientos",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Deben los no contribuyentes atender los requerimientos de información de la DIAN?",
+    "reverso": "deberán atender los requerimientos de informaciones y pruebas",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-et-686"
+    }
+  },
+  {
+    "id": "ret-renta-ventas",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Puede un mismo requerimiento especial referirse a renta y a ventas?",
+    "reverso": "Un mismo requerimiento especial podrá referirse tanto a modificaciones del impuesto de renta como del impuesto de ventas",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-et-696"
+    }
+  },
+  {
+    "id": "ret-correspondencia",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿A qué hechos debe contraerse la liquidación de revisión?",
+    "reverso": "a los hechos que hubieren sido contemplados en el requerimiento especial o en su ampliación",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-et-711"
+    }
+  },
+  {
+    "id": "ret-hechos-aceptados",
+    "mazo": "Caso A: fiscalización",
+    "frente": "En la reconsideración, ¿puede el recurrente objetar los hechos que aceptó al responder el requerimiento especial?",
+    "reverso": "no podrá objetar los hechos aceptados por él expresamente",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-et-723"
+    }
+  },
+  {
+    "id": "ret-auto-inadmisorio",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Qué recurso procede contra el auto que inadmite la reconsideración, y en qué plazo?",
+    "reverso": "únicamente recurso de reposición dentro de los cinco (5) días siguientes a su notificación",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-et-728"
+    }
+  },
+  {
+    "id": "ret-recurso-clausura",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Qué recurso procede contra la resolución que impone la clausura del establecimiento?",
+    "reverso": "el recurso de reposición ante el mismo funcionario que la profirió, dentro de los diez (10) días siguientes a su notificación",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-et-735"
+    }
+  },
+  {
+    "id": "ret-revocatoria-procede",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Cuándo procede la revocatoria directa de un acto tributario?",
+    "reverso": "cuando el contribuyente no hubiere interpuesto los recursos por la vía gubernativa",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-et-736"
+    }
+  },
+  {
+    "id": "ret-revocatoria-termino",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Cuál es el término para ejercitar la revocatoria directa en materia tributaria?",
+    "reverso": "dos (2) años a partir de la ejecutoria del correspondiente acto administrativo",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-et-736"
+    }
+  },
+  {
+    "id": "ret-revocatoria-fallo",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿En qué término debe fallarse la solicitud de revocatoria directa y qué pasa si no se decide?",
+    "reverso": "dentro del término de un (1) año contado a partir de su petición en debida forma. Si dentro de éste término no se profiere decisión, se entenderá resuelta a favor del solicitante",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-et-738-1"
+    }
+  },
+  {
+    "id": "ret-recurso-equivocado",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Si el contribuyente interpone un recurso sin sus requisitos pero cumple los de otro, ¿qué hace el funcionario?",
+    "reverso": "resolverá este último si es competente, o lo enviará a quien deba fallarlo",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-et-741"
+    }
+  },
+  {
+    "id": "ret-dudas-probatorias",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿A favor de quién se resuelven las dudas por vacíos probatorios al liquidar o fallar recursos, si no hay modo de eliminarlas?",
+    "reverso": "a favor del contribuyente",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-et-745"
+    }
+  },
+  {
+    "id": "ret-presuncion-veracidad",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Cuándo deja de presumirse cierto lo consignado en la declaración tributaria?",
+    "reverso": "sobre tales hechos, no se haya solicitado una comprobación especial, ni la ley la exija",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-et-745"
+    }
+  },
+  {
+    "id": "rbt-solidaridad-herederos",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Cómo responden los herederos y legatarios por las deudas tributarias del causante?",
+    "reverso": "a prorrata de sus respectivas cuotas hereditarias o legados y sin perjuicio del beneficio de inventario",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-et-793"
+    }
+  },
+  {
+    "id": "rbt-solidaridad-socios-disuelta",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Hasta dónde responden los socios de una sociedad disuelta por sus tributos?",
+    "reverso": "hasta concurrencia del valor recibido en la liquidación social",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-et-793"
+    }
+  },
+  {
+    "id": "rbt-termino-devolucion",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Hasta cuándo puede pedirse la devolución o compensación de un saldo a favor?",
+    "reverso": "a más tardar dos años después de la fecha de vencimiento del término para declarar",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-et-816"
+    }
+  },
+  {
+    "id": "rbt-pago-prescrita",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Puede pedirse la devolución de lo pagado sobre una obligación tributaria prescrita?",
+    "reverso": "no puede ser materia de repetición, aunque el pago se hubiere efectuado sin conocimiento de la prescripción",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-et-819"
+    }
+  },
+  {
+    "id": "rbt-acuerdo-pago",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Qué efecto tiene celebrar un acuerdo de pago dentro del cobro coactivo?",
+    "reverso": "se suspenderá el procedimiento y se podrán levantar las medidas preventivas que hubieren sido decretadas",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-et-841"
+    }
+  },
+  {
+    "id": "rbt-irregularidades-cobro",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Hasta cuándo pueden subsanarse las irregularidades procesales del cobro coactivo?",
+    "reverso": "en cualquier tiempo, de plano, antes de que se profiera la actuación que aprueba el remate de los bienes",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-et-849-1"
+    }
+  },
+  {
+    "id": "rbt-irregularidad-saneada",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Cuándo se considera saneada una irregularidad en el cobro coactivo?",
+    "reverso": "cuando a pesar de ella el deudor actúa en el proceso y no la alega, y en todo caso cuando el acto cumplió su finalidad y no se violó el derecho de defensa",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-et-849-1"
+    }
+  },
+  {
+    "id": "rbt-termino-devolver",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿En qué término debe la DIAN devolver los saldos a favor de renta e IVA?",
+    "reverso": "dentro de los cincuenta (50) días siguientes a la fecha de la solicitud de devolución presentada oportunamente y en debida forma",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-et-855"
+    }
+  },
+  {
+    "id": "rbt-devolucion-garantia",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Si con la solicitud de devolución se presenta garantía, ¿en qué término debe entregarse el cheque, título o giro?",
+    "reverso": "dentro de los veinte (20) días siguientes",
+    "quiz": true,
+    "fuente": {
+      "regla": "b-et-855"
+    }
+  },
+  {
+    "id": "rbt-rechazo-devolucion",
+    "mazo": "Caso B: cobranzas",
+    "frente": "Nombre dos causales de rechazo definitivo de una solicitud de devolución.",
+    "reverso": "Cuando fueren presentadas extemporáneamente. 2. Cuando el saldo materia de la solicitud ya haya sido objeto de devolución, compensación o imputación anterior",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-et-857"
+    }
+  },
+  {
+    "id": "rd-ley-marco-conceptos",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Qué naturaleza tienen las circulares y conceptos frente a la Ley Marco de Aduanas (Ley 1609)?",
+    "reverso": "su naturaleza será de criterios auxiliares de interpretación",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-ley-marco-reparto-de-competencias"
+    }
+  },
+  {
+    "id": "rd-ley-marco-vigencia",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Cuándo entran en vigencia los decretos y resoluciones que desarrollan la Ley 1609 de 2013?",
+    "reverso": "en un plazo no menor a quince (15) días comunes y no mayor a noventa (90) días comunes después de su publicación en el Diario Oficial",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-ley-marco-reparto-de-competencias"
+    }
+  },
+  {
+    "id": "rd-ley-marco-favorabilidad",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Según la Ley 1609, ¿cómo aplica la autoridad aduanera el principio de favorabilidad en el proceso sancionatorio y de decomiso?",
+    "reverso": "aplicará oficiosamente las normas que favorezcan al interesado aun cuando no haya sido solicitada o alegada",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-ley-marco-reparto-de-competencias"
+    }
+  },
+  {
+    "id": "rc-doctrina-obligatoria",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Qué carácter tienen los conceptos de la DIAN para sus empleados?",
+    "reverso": "tendrán carácter obligatorio para los mismos",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-obligatoriedad-de-la-doctrina-dian"
+    }
+  },
+  {
+    "id": "rc-doctrina-contribuyente",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Con base en qué pueden sustentar los contribuyentes sus actuaciones, aunque haya doctrina DIAN en contra?",
+    "reverso": "con base en la ley",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-obligatoriedad-de-la-doctrina-dian"
+    }
+  },
+  {
+    "id": "ra-suspension-inspeccion",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Por cuánto tiempo se suspende el término para notificar el requerimiento especial cuando se practica inspección de oficio?",
+    "reverso": "por el término de tres meses",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-suspension-del-termino-del-requerimiento"
+    }
+  },
+  {
+    "id": "ra-correccion-aumenta",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Hasta cuándo puede corregirse la declaración para aumentar el impuesto o disminuir el saldo a favor?",
+    "reverso": "dentro de los tres (3) años siguientes al vencimiento del plazo para declarar y antes de que se les haya notificado requerimiento especial o pliego de cargos",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-correccion-voluntaria"
+    }
+  },
+  {
+    "id": "ra-correccion-disminuye",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿En qué término se solicita la corrección que disminuye el valor a pagar o aumenta el saldo a favor?",
+    "reverso": "dentro del año siguiente al vencimiento del término",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-correccion-voluntaria"
+    }
+  },
+  {
+    "id": "ra-prescripcion-sancion-independiente",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Si la sanción se impone en resolución independiente, ¿en qué término debe formularse el pliego de cargos?",
+    "reverso": "dentro de los dos años siguientes",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-prescripcion-de-la-facultad-sancionatoria"
+    }
+  },
+  {
+    "id": "ra-requisito-motivos",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Qué debe expresar el escrito del recurso de reconsideración sobre los motivos?",
+    "reverso": "expresión concreta de los motivos de inconformidad",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-requisitos-del-recurso"
+    }
+  },
+  {
+    "id": "ra-inadmision-auto",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿En qué término debe dictarse el auto que admite o inadmite el recurso de reconsideración?",
+    "reverso": "dentro del mes siguiente a la interposición",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-inadmision-del-recurso"
+    }
+  },
+  {
+    "id": "ra-formas-notificacion",
+    "mazo": "Caso A: fiscalización",
+    "frente": "¿Cómo deben notificarse las actuaciones de la administración de impuestos?",
+    "reverso": "deben notificarse de manera electrónica, personalmente o a través de la red oficial de correos",
+    "quiz": false,
+    "fuente": {
+      "regla": "a-notificacion"
+    }
+  },
+  {
+    "id": "ra-correo-devuelto",
+    "mazo": "Caso A: fiscalización",
+    "frente": "Si el correo devuelve la notificación, ¿desde cuándo corre el término para el contribuyente?",
+    "reverso": "desde el día hábil siguiente a la publicación del aviso",
+    "quiz": true,
+    "fuente": {
+      "regla": "a-correo-devuelto"
+    }
+  },
+  {
+    "id": "rb-titulos-liquidaciones-oficiales",
+    "mazo": "Caso B: cobranzas",
+    "frente": "¿Prestan mérito ejecutivo las liquidaciones oficiales que no están en firme?",
+    "reverso": "Las liquidaciones oficiales ejecutoriadas",
+    "quiz": false,
+    "fuente": {
+      "regla": "b-titulos-ejecutivos"
+    }
+  },
+  {
+    "id": "rc-nulidad-simple-general",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Contra qué actos procede, por regla general, el medio de control de nulidad simple?",
+    "reverso": "actos administrativos de carácter general",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-nulidad-simple"
+    }
+  },
+  {
+    "id": "rc-nulidad-restablecimiento",
+    "mazo": "Caso C: jurídica",
+    "frente": "¿Qué pide quien se crea lesionado en un derecho subjetivo por un acto particular?",
+    "reverso": "que se declare la nulidad del acto administrativo particular, expreso o presunto, y se le restablezca el derecho",
+    "quiz": true,
+    "fuente": {
+      "regla": "c-nulidad-y-restablecimiento"
+    }
+  },
+  {
+    "id": "rd-correccion-declaracion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿Cuántas veces puede corregirse voluntariamente la declaración de importación por los errores permitidos?",
+    "reverso": "por una sola vez",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-correccion-voluntaria-de-la-declaracion"
+    }
+  },
+  {
+    "id": "rd-legalizacion-formas",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "¿De qué formas puede declararse en legalización la mercancía con obligación incumplida que da lugar a aprehensión?",
+    "reverso": "en forma voluntaria o provocada",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-legalizacion"
+    }
+  },
+  {
+    "id": "rd-decision-fondo-2586",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Según la Ley 2586, ¿qué término tiene la autoridad para expedir y notificar el acto que decide de fondo?",
+    "reverso": "setenta (70) días hábiles para expedir y notificar el acto administrativo que decida de fondo",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-decision-de-fondo-sancion-o-liquidacion"
+    }
+  },
+  {
+    "id": "rd-transito-favorabilidad",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Las operaciones iniciadas bajo el DL 920 se rigen por la norma vigente a su inicio, ¿con qué salvedad?",
+    "reverso": "sin perjuicio de la aplicación del principio de favorabilidad",
+    "quiz": true,
+    "fuente": {
+      "regla": "d-transito-normativo"
+    }
+  },
+  {
+    "id": "rt-notificacion-requisitos",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Qué efecto tiene omitir uno de los requisitos de la notificación personal?",
+    "reverso": "El incumplimiento de cualquiera de estos requisitos invalidará la notificación",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-requisitos-de-la-notificacion-personal"
+    }
+  },
+  {
+    "id": "rt-firmeza-sin-recurso",
+    "mazo": "Procedimiento administrativo",
+    "frente": "¿Desde cuándo queda en firme un acto contra el que no procede ningún recurso?",
+    "reverso": "desde el día siguiente al de su notificación, comunicación o publicación según el caso",
+    "quiz": true,
+    "fuente": {
+      "regla": "t-firmeza-del-acto"
+    }
+  },
+  {
+    "id": "rcd-indagacion-investigacion",
+    "mazo": "Carrera y disciplinario",
+    "frente": "¿Cuánto dura la indagación previa disciplinaria en la Ley 1952?",
+    "reverso": "seis (6) meses",
+    "quiz": false,
+    "fuente": {
+      "regla": "t-terminos-de-la-actuacion-disciplinaria"
+    }
+  },
+  {
+    "id": "rd-allanamiento-sin-sancion",
+    "mazo": "Caso D: aduanas y cambiario",
+    "frente": "Según la Ley 2586, ¿qué sanción tiene quien reconoce la infracción sin intervención de la autoridad, antes del requerimiento especial aduanero (salvo gravísimas)?",
+    "reverso": "Sin sanción",
+    "quiz": false,
+    "fuente": {
+      "regla": "d-allanamiento-cambio-en-la-ley-2586"
     }
   }
 ]

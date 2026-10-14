@@ -28,6 +28,11 @@
    - En la primera revisión: ET 705, 707, 720, 732 y 734 (Senado).
    - En la segunda: ET 710 y 714 (caso A); ET 817 y 830 (caso B); CPACA 164 y Ley 2220 art. 90 (caso C); Ley 2586 art. 47 y DL 920 art. 90 (decomiso), y Ley 2586, objeción a la aprehensión (caso D); CPACA 14 y 76 (tronco común). Fuentes: Senado y normograma DIAN.
 
+5. **Tercera verificación (14-oct-2026, contra copias completas del texto oficial).** Al guardar copias de las normas en `fuentes/normas/` y comparar cada cita de forma automática:
+   - **Error de transcripción corregido:** CPACA art. 76 dice que la apelación "cuando proceda será obligatorio para acceder a la jurisdicción" (concuerda con *recurso*); la tabla de abajo decía "obligatoria". El sitio usa ya el texto exacto.
+   - **Paráfrasis reemplazadas:** 17 filas resumían la norma sin cita literal (sanciones del ET 641-648, gradualidad 640, excepciones 831, ejecutoria 829, facilidades 814, inembargabilidad 837-1, per saltum 720 par., nulidad CPACA 137, firmeza CPACA 87, sanciones Ley 1952 art. 48, pruebas en el decomiso Ley 2586 art. 46, entre otras). En el sitio se reemplazaron por citas literales del artículo.
+   - **Notas editoriales dentro de citas:** "CONDICIONALMENTE exequible" (Ley 2010 art. 131) y "<2024, 2025, 2026>" (ET 689-3) son anotaciones de la compilación, no texto de la norma; se quitaron de las citas.
+
 ---
 
 ## 1. Formato de los exámenes anteriores y ejemplos oficiales

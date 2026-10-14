@@ -1,0 +1,125 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Plegable from '../../components/Plegable.astro';
+import { ruta } from '../../lib/ruta';
+
+interface Copia {
+  id: string;
+  titulo: string;
+  fuentes: string[];
+  consultado: string;
+  articulos: { numero: string }[];
+}
+
+// Copias del texto oficial (solo se leen en el build)
+const copias = Object.values(import.meta.glob<Copia>('../../../fuentes/normas/*.json', { eager: true, import: 'default' }));
+const indice = (await getCollection('indiceNormas')).map((e) => e.data);
+const reglas = (await getCollection('reglas')).map((e) => e.data);
+const tarjetas = (await getCollection('tarjetas')).map((e) => e.data);
+
+// Tarjetas por artículo: una tarjeta cubre los artículos que cita su regla.
+const tarjetasPorRegla = new Map<string, number>();
+for (const t of tarjetas) if ('regla' in t.fuente) tarjetasPorRegla.set(t.fuente.regla, (tarjetasPorRegla.get(t.fuente.regla) ?? 0) + 1);
+const tarjetasPorArticulo = new Map<string, number>();
+for (const r of reglas) {
+  const n = tarjetasPorRegla.get(r.id) ?? 0;
+  for (const a of r.articulos) tarjetasPorArticulo.set(`${a.norma}:${a.numero}`, (tarjetasPorArticulo.get(`${a.norma}:${a.numero}`) ?? 0) + n);
+}
+
+const ORDEN = ['et', 'cpaca', 'ley-2220-2022', 'ley-2010-2019', 'ley-1116-2006', 'ley-1609-2013', 'decreto-1165-2019', 'ley-2586-2026', 'dl-920-2023', 'dl-2245-2011', 'ley-1952-2019', 'dl-927-2023'];
+const normas = copias
+  .sort((a, b) => ORDEN.indexOf(a.id) - ORDEN.indexOf(b.id))
+  .map((c) => {
+    const entradas = indice.filter((e) => e.norma === c.id).map((e) => ({ ...e, tarjetas: tarjetasPorArticulo.get(`${e.norma}:${e.numero}`) ?? 0 }));
+    const n1 = entradas.filter((e) => e.nivel === 1);
+    return {
+      ...c,
+      total: c.articulos.length,
+      nivel1: n1,
+      nivel2: entradas.filter((e) => e.nivel === 2),
+      nivel3: entradas.filter((e) => e.nivel === 3).length,
+      conTarjeta: n1.filter((e) => e.tarjetas > 0).length,
+      tarjetas: entradas.reduce((s, e) => s + e.tarjetas, 0),
+    };
+  });
+const fecha = (iso: string) => iso.split('-').reverse().join('/');
+---
+
+<Base titulo="Cobertura de las normas" descripcion="Qué parte de cada norma enlazada cubre el sitio con tarjetas y qué leer directamente en el texto oficial.">
+  <nav aria-label="Migas" class="no-imprimir text-sm mb-1">
+    <a href={ruta('/normativa')}>← Normativa</a>
+  </nav>
+  <h1 class="text-2xl font-bold mb-2">Cobertura de las normas</h1>
+  <p class="text-suave mb-4 max-w-[42rem]">
+    Cada norma enlazada tiene su índice completo de artículos. <strong>Nivel 1</strong>: deciden casos (términos, competencias,
+    recursos, nulidades, caducidad, prescripción, sanciones) y tienen tarjeta o una razón por la que no.
+    <strong>Nivel 2</strong>: contexto; se leen en el texto oficial. <strong>Nivel 3</strong>: no se estudian (derogados,
+    vigencias, temas ajenos al cargo). Las citas de las tarjetas se verifican contra copias del texto oficial.
+  </p>
+
+  <ul class="space-y-2 mb-6" aria-label="Resumen por norma">
+    {
+      normas.map((n) => (
+        <li class="tarjeta">
+          <a href={`#${n.id}`} class="font-semibold">
+            {n.titulo}
+          </a>
+          <p class="text-sm text-suave tabular-nums mt-1">
+            {n.total} artículos · nivel 1: {n.nivel1.length} · nivel 2: {n.nivel2.length} · nivel 3: {n.nivel3}
+          </p>
+          <p class="text-sm tabular-nums">
+            {n.nivel1.length > 0 ? `${n.conTarjeta} de ${n.nivel1.length} artículos de nivel 1 con tarjeta · ${n.tarjetas} tarjetas` : `${n.tarjetas} tarjetas`}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    normas.map((n) => (
+      <Plegable id={n.id} titulo={n.titulo} resumen={`${n.conTarjeta} de ${n.nivel1.length} de nivel 1 con tarjeta · consultado el ${fecha(n.consultado)}`}>
+        <p class="text-sm mb-3">
+          Texto oficial:{' '}
+          {n.fuentes.slice(0, 1).map((u) => (
+            <a href={u} rel="noopener">
+              {new URL(u).hostname}
+            </a>
+          ))}
+          {n.fuentes.length > 1 && <span class="text-suave"> ({n.fuentes.length} páginas)</span>}
+        </p>
+        {n.nivel1.length > 0 ? (
+          <>
+            <h3 class="font-semibold mb-1">Nivel 1</h3>
+            <ul class="lista-cobertura">
+              {n.nivel1.map((e) => (
+                <li>
+                  <span class="font-semibold tabular-nums">Art. {e.numero}</span> {e.tema}
+                  <span class="block text-sm text-suave">
+                    {e.tarjetas > 0 ? `${e.tarjetas} ${e.tarjetas === 1 ? 'tarjeta' : 'tarjetas'}` : `Sin tarjeta: ${e.razon ?? 'pendiente'}`}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <p class="text-sm text-suave">Esta norma no tiene artículos de nivel 1.</p>
+        )}
+        {n.nivel2.length > 0 && (
+          <details class="mt-3">
+            <summary class="cursor-pointer font-semibold">Nivel 2 ({n.nivel2.length} artículos de contexto)</summary>
+            <ul class="lista-cobertura mt-2">
+              {n.nivel2.map((e) => (
+                <li>
+                  <span class="tabular-nums">Art. {e.numero}</span> {e.tema}
+                  {e.tarjetas > 0 && <span class="text-sm text-suave"> · {e.tarjetas} {e.tarjetas === 1 ? 'tarjeta' : 'tarjetas'}</span>}
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
+        <p class="text-sm text-suave mt-3">Nivel 3: {n.nivel3} artículos (derogados, vigencias o fuera del cargo).</p>
+      </Plegable>
+    ))
+  }
+</Base>

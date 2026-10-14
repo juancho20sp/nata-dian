@@ -6,6 +6,7 @@ import LoEsencial from '../components/LoEsencial.astro';
 import Plegable from '../components/Plegable.astro';
 import Chips from '../components/Chips.astro';
 import { TODOS, tiposDeEmpleo } from '../lib/filtros';
+import { ruta } from '../lib/ruta';
 
 const areas = (await getCollection('normativa')).map((e) => e.data);
 const tipos = tiposDeEmpleo(areas);
@@ -55,6 +56,10 @@ const paraQuien = (empleos: string[]) => (empleos.includes(TODOS) ? 'Para todos 
   </div>
 
   <h2 class="text-xl font-bold mt-8 mb-2">Contexto</h2>
+  <p class="mb-3">
+    <a href={ruta('/normativa/cobertura')}>Cobertura de las normas →</a>
+    <span class="block text-sm text-suave">Qué artículos de cada norma enlazada tienen tarjetas y cuáles leer en el texto oficial.</span>
+  </p>
   <Prosa pagina="normativa-intro" id="origen" titulo="De dónde sale esta lista" />
   <Prosa pagina="contexto-normativo" id="contexto" />
 </Base>
