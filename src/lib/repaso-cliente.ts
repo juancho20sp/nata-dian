@@ -6,7 +6,7 @@
 import { CLAVES, almacenDisponible, escribir, leer } from './almacen';
 import { FECHA_PRUEBA, fechaEnColombia } from './fechas';
 import { avanceDeHoy, metaValida, racha, sumar, type Meta, type Racha, type Registro } from './racha';
-import { estadosVigentes, responder, tocaHoy, type Estados } from './repaso';
+import { estadosVigentes, limiteValido, responder, seleccionDelDia, type Estados, type LimiteNuevas } from './repaso';
 import { MAZO_PROPIAS, propiasValidas, type TarjetaPropia } from './tarjetas-propias';
 
 export interface Tarjeta {
@@ -29,6 +29,8 @@ export interface EstadoRepaso {
   estados: Estados;
   registro: Registro;
   meta: Meta;
+  /** Máximo de tarjetas nuevas por día (10, 25 o 50). */
+  nuevas: LimiteNuevas;
   /** false si el navegador no guarda nada. */
   guarda: boolean;
 }
@@ -62,6 +64,7 @@ export function cargar(): EstadoRepaso {
     estados: estadosVigentes(leer<unknown>(CLAVES.tarjetasEstado, {}), ids),
     registro: registroGuardado && typeof registroGuardado === 'object' ? (registroGuardado as Registro) : {},
     meta: metaValida(leer<unknown>(CLAVES.repasoMeta, null)),
+    nuevas: limiteValido(leer<unknown>(CLAVES.repasoNuevas, null)),
     guarda: almacenDisponible(),
   };
 }
@@ -71,8 +74,17 @@ export function todas(e: EstadoRepaso): Tarjeta[] {
   return [...e.dossier, ...e.propias.map((p) => ({ ...p, mazo: MAZO_PROPIAS, quiz: false }))];
 }
 
+/**
+ * Tarjetas de hoy: las que tienen historial y tocan hoy, las propias que tocan, y como
+ * máximo `e.nuevas` tarjetas nuevas del sitio por día (intercaladas entre mazos).
+ */
 export function paraHoy(e: EstadoRepaso, dia: string = hoy()): Tarjeta[] {
-  return todas(e).filter((t) => tocaHoy(e.estados[t.id], dia));
+  return seleccionDelDia(todas(e), e.estados, dia, e.nuevas, new Set(e.propias.map((p) => p.id)));
+}
+
+export function guardarNuevas(e: EstadoRepaso, nuevas: LimiteNuevas): void {
+  e.nuevas = nuevas;
+  escribir(CLAVES.repasoNuevas, nuevas);
 }
 
 /** Respuesta en Tarjetas: mueve la tarjeta de caja y suma 1 a la meta de hoy. */

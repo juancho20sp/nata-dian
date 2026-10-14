@@ -12,6 +12,7 @@ export const CLAVES = {
   repasoMeta: 'dian2676:repaso:meta',
   repasoDias: 'dian2676:repaso:dias',
   casosAvance: 'dian2676:casos:avance',
+  repasoNuevas: 'dian2676:repaso:nuevas',
 } as const;
 
 /** true si el navegador deja escribir en localStorage (falla en modo privado o con datos bloqueados). */

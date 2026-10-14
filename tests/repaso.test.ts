@@ -12,7 +12,7 @@ describe('responder', () => {
   });
 
   it('una tarjeta sin estado que se acierta pasa a la caja 2', () => {
-    expect(responder(undefined, true, '2026-10-13')).toEqual({ caja: 2, proxima: '2026-10-15' });
+    expect(responder(undefined, true, '2026-10-13')).toEqual({ caja: 2, proxima: '2026-10-15', inicio: '2026-10-13' });
   });
 
   it('la caja 5 no sube más', () => {

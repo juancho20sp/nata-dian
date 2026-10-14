@@ -8,6 +8,8 @@ export interface EstadoTarjeta {
   caja: number;
   /** Próxima fecha de repaso. */
   proxima: string;
+  /** Fecha de la primera respuesta (los estados guardados antes de existir este campo no lo tienen). */
+  inicio?: string;
 }
 
 export type Estados = Record<string, EstadoTarjeta>;
@@ -29,7 +31,8 @@ export function limitarAntesDeLaPrueba(fecha: string, hoy: string): string {
 export function responder(estado: EstadoTarjeta | undefined, sabia: boolean, hoy: string): EstadoTarjeta {
   const actual = estado?.caja ?? 1;
   const caja = sabia ? Math.min(actual + 1, CAJA_MAXIMA) : 1;
-  return { caja, proxima: limitarAntesDeLaPrueba(sumarDias(hoy, INTERVALOS[caja - 1]!), hoy) };
+  const inicio = estado ? estado.inicio : hoy;
+  return { caja, proxima: limitarAntesDeLaPrueba(sumarDias(hoy, INTERVALOS[caja - 1]!), hoy), ...(inicio ? { inicio } : {}) };
 }
 
 /** Una tarjeta sin historial está en la caja 1 y toca hoy. */
@@ -62,10 +65,86 @@ export function estadosVigentes(guardados: unknown, ids: readonly string[]): Est
   const salida: Estados = {};
   for (const [id, e] of Object.entries(guardados as Record<string, unknown>)) {
     if (!validos.has(id) || !e || typeof e !== 'object') continue;
-    const { caja, proxima } = e as Partial<EstadoTarjeta>;
+    const { caja, proxima, inicio } = e as Partial<EstadoTarjeta>;
     if (typeof caja === 'number' && caja >= 1 && caja <= CAJA_MAXIMA && typeof proxima === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(proxima)) {
-      salida[id] = { caja: Math.trunc(caja), proxima };
+      salida[id] = { caja: Math.trunc(caja), proxima, ...(typeof inicio === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(inicio) ? { inicio } : {}) };
     }
   }
   return salida;
+}
+
+// ── Límite diario de tarjetas nuevas ─────────────────────────────────────────
+
+export const LIMITES_NUEVAS = [10, 25, 50] as const;
+export type LimiteNuevas = (typeof LIMITES_NUEVAS)[number];
+export const LIMITE_NUEVAS_POR_DEFECTO: LimiteNuevas = 25;
+
+export function limiteValido(valor: unknown): LimiteNuevas {
+  return (LIMITES_NUEVAS as readonly unknown[]).includes(valor) ? (valor as LimiteNuevas) : LIMITE_NUEVAS_POR_DEFECTO;
+}
+
+/** Cuántas tarjetas se empezaron hoy (primera respuesta con fecha de hoy). */
+export function iniciadasHoy(estados: Estados, hoy: string): number {
+  return Object.values(estados).filter((e) => e.inicio === hoy).length;
+}
+
+/** Semilla numérica de una fecha ISO, para que el orden de las nuevas sea el mismo todo el día. */
+function semilla(texto: string): number {
+  let h = 2166136261;
+  for (const c of texto) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+  return h >>> 0;
+}
+
+function azar(semilla_: number): () => number {
+  let a = semilla_;
+  return () => {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/**
+ * Tarjetas sin historial ordenadas para hoy: mezcla determinista por mazo (semilla = fecha)
+ * e intercaladas entre mazos, para que ningún mazo acapare las nuevas del día.
+ */
+export function nuevasIntercaladas<T extends { id: string; mazo: string }>(tarjetas: readonly T[], estados: Estados, hoy: string): T[] {
+  const r = azar(semilla(hoy));
+  const porMazo = new Map<string, T[]>();
+  for (const t of tarjetas) if (!estados[t.id]) porMazo.set(t.mazo, [...(porMazo.get(t.mazo) ?? []), t]);
+  const colas = [...porMazo.keys()].sort().map((m) => {
+    const lista = [...porMazo.get(m)!];
+    for (let i = lista.length - 1; i > 0; i--) {
+      const j = Math.floor(r() * (i + 1));
+      [lista[i], lista[j]] = [lista[j]!, lista[i]!];
+    }
+    return lista;
+  });
+  const salida: T[] = [];
+  while (colas.some((c) => c.length > 0)) for (const c of colas) if (c.length > 0) salida.push(c.shift()!);
+  return salida;
+}
+
+/**
+ * Tarjetas de hoy: las que tienen historial y tocan hoy, las exentas del límite que tocan
+ * (p. ej. las propias) y como máximo `limite` nuevas por día, contando las ya empezadas hoy.
+ */
+export function seleccionDelDia<T extends { id: string; mazo: string }>(
+  tarjetas: readonly T[],
+  estados: Estados,
+  hoy: string,
+  limite: number,
+  exentas: ReadonlySet<string> = new Set(),
+): T[] {
+  const conHistorial = tarjetas.filter((t) => estados[t.id] && tocaHoy(estados[t.id], hoy));
+  const nuevasExentas = tarjetas.filter((t) => !estados[t.id] && exentas.has(t.id));
+  const cupo = Math.max(0, limite - iniciadasHoy(estados, hoy));
+  const nuevas = nuevasIntercaladas(
+    tarjetas.filter((t) => !exentas.has(t.id)),
+    estados,
+    hoy,
+  ).slice(0, cupo);
+  return [...conHistorial, ...nuevasExentas, ...nuevas];
 }

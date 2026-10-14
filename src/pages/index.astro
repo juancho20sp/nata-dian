@@ -129,7 +129,7 @@ const datosPlanes = JSON.stringify(
   import { FECHA_PRUEBA, cuentaRegresiva, fasePrueba, fechaEnColombia, type RangoSemana } from '../lib/fechas';
   import { planDestino } from '../lib/plan-elegido';
   import { metaValida, racha, type Registro } from '../lib/racha';
-  import { estadosVigentes, tocaHoy } from '../lib/repaso';
+  import { estadosVigentes, limiteValido, seleccionDelDia } from '../lib/repaso';
   import { propiasValidas } from '../lib/tarjetas-propias';
 
   // Cuenta regresiva
@@ -170,11 +170,19 @@ const datosPlanes = JSON.stringify(
     } catch {
       /* sin tarjetas */
     }
-    ids = [...ids, ...propiasValidas(leer<unknown>(CLAVES.tarjetasPropias, [])).map((t) => t.id)];
+    const propias = propiasValidas(leer<unknown>(CLAVES.tarjetasPropias, [])).map((t) => t.id);
+    ids = [...ids, ...propias];
     const estados = estadosVigentes(leer<unknown>(CLAVES.tarjetasEstado, {}), ids);
     const registroGuardado = leer<unknown>(CLAVES.repasoDias, {});
     const registro = registroGuardado && typeof registroGuardado === 'object' ? (registroGuardado as Registro) : {};
-    const n = ids.filter((id) => tocaHoy(estados[id], diaHoy)).length;
+    // Misma selección que la sesión (límite de nuevas incluido); el mazo no cambia el conteo.
+    const n = seleccionDelDia(
+      ids.map((id) => ({ id, mazo: '' })),
+      estados,
+      diaHoy,
+      limiteValido(leer<unknown>(CLAVES.repasoNuevas, null)),
+      new Set(propias),
+    ).length;
     const d = racha(registro, metaValida(leer<unknown>(CLAVES.repasoMeta, null)), diaHoy).dias;
     lineaRepaso.querySelector('[data-texto-repaso]')!.textContent =
       `Hoy: ${n} ${n === 1 ? 'tarjeta' : 'tarjetas'} para repasar · racha de ${d} ${d === 1 ? 'día' : 'días'}`;

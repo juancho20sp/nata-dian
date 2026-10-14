@@ -5,6 +5,7 @@ import Chips from '../../components/Chips.astro';
 import DatosTarjetas from '../../components/DatosTarjetas.astro';
 import { MAZOS } from '../../content.config';
 import { METAS, META_POR_DEFECTO } from '../../lib/racha';
+import { LIMITES_NUEVAS, LIMITE_NUEVAS_POR_DEFECTO } from '../../lib/repaso';
 import { MAZO_PROPIAS } from '../../lib/tarjetas-propias';
 import { ruta } from '../../lib/ruta';
 
@@ -59,6 +60,17 @@ const enlaceMazo = (m: string) => `${ruta('/repasar/tarjetas')}?mazo=${encodeURI
       <a href={ruta('/repasar/terminos')} class="boton w-full">Términos por caso</a>
     </div>
 
+    <section aria-labelledby="titulo-nuevas" class="mb-6">
+      <h2 id="titulo-nuevas" class="text-sm font-semibold mb-1.5">Tarjetas nuevas por día</h2>
+      <Chips
+        id="chips-nuevas"
+        etiqueta="Tarjetas nuevas por día"
+        activo={String(LIMITE_NUEVAS_POR_DEFECTO)}
+        opciones={LIMITES_NUEVAS.map((n) => ({ valor: String(n), texto: String(n) }))}
+      />
+      <p class="text-xs text-suave mt-1.5">Las que ya empezó vuelven según su caja; este número solo limita las que ve por primera vez. Al repasar un mazo concreto no hay límite.</p>
+    </section>
+
     <section aria-labelledby="titulo-mazos">
       <h2 id="titulo-mazos" class="text-xl font-bold mb-3">Mazos</h2>
       <ul class="space-y-2" id="lista-mazos">
@@ -86,8 +98,8 @@ const enlaceMazo = (m: string) => `${ruta('/repasar/tarjetas')}?mazo=${encodeURI
 <script>
   import { alCambiarChip, marcarChip } from '../../lib/chips';
   import { metaValida } from '../../lib/racha';
-  import { resumenMazo } from '../../lib/repaso';
-  import { cargar, guardarMeta, hoy, paraHoy, pasoLaPrueba, resumenMeta, textoRacha, todas } from '../../lib/repaso-cliente';
+  import { limiteValido, resumenMazo } from '../../lib/repaso';
+  import { cargar, guardarMeta, guardarNuevas, hoy, paraHoy, pasoLaPrueba, resumenMeta, textoRacha, todas } from '../../lib/repaso-cliente';
 
   const raiz = document.getElementById('repasar')!;
   const e = cargar();
@@ -112,13 +124,16 @@ const enlaceMazo = (m: string) => `${ruta('/repasar/tarjetas')}?mazo=${encodeURI
 
   function pintarMazos() {
     const lista = todas(e);
+    // "Para hoy" sale de la misma selección diaria que usa la sesión (con el límite de nuevas).
+    const deHoy = paraHoy(e, dia);
     for (const li of document.querySelectorAll<HTMLElement>('#lista-mazos [data-mazo]')) {
       const ids = lista.filter((t) => t.mazo === li.dataset.mazo).map((t) => t.id);
       const r = resumenMazo(ids, e.estados, dia);
-      li.querySelector('[data-cuentas]')!.textContent = `${r.total} ${r.total === 1 ? 'tarjeta' : 'tarjetas'} · ${r.paraHoy} para hoy · ${r.dominadas} ${r.dominadas === 1 ? 'dominada' : 'dominadas'}`;
+      const hoyMazo = deHoy.filter((t) => t.mazo === li.dataset.mazo).length;
+      li.querySelector('[data-cuentas]')!.textContent = `${r.total} ${r.total === 1 ? 'tarjeta' : 'tarjetas'} · ${hoyMazo} para hoy · ${r.dominadas} ${r.dominadas === 1 ? 'dominada' : 'dominadas'}`;
       li.querySelector<HTMLElement>('[data-enlace-mazo]')!.hidden = r.total === 0;
     }
-    const n = paraHoy(e, dia).length;
+    const n = deHoy.length;
     document.querySelector('[data-boton-tarjetas]')!.textContent = n > 0 ? `Repasar tarjetas (${n} para hoy)` : 'Repasar tarjetas';
   }
 
@@ -128,6 +143,12 @@ const enlaceMazo = (m: string) => `${ruta('/repasar/tarjetas')}?mazo=${encodeURI
   alCambiarChip(grupoMeta, (valor) => {
     guardarMeta(e, metaValida(Number(valor)));
     pintarMeta();
+  });
+  const grupoNuevas = document.getElementById('chips-nuevas')!;
+  marcarChip(grupoNuevas, String(e.nuevas));
+  alCambiarChip(grupoNuevas, (valor) => {
+    guardarNuevas(e, limiteValido(Number(valor)));
+    pintarMazos();
   });
   pintarMeta();
   pintarMazos();
