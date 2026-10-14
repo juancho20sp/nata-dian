@@ -49,6 +49,7 @@ Los 6 destinos van en la barra con etiquetas cortas: Inicio, Prueba, Normas, Con
 | `/repasar/mis-tarjetas` | Crear, editar y borrar tarjetas propias | Nuevo |
 | `/repasar/casos` | Casos de práctica A/B/C por caso, con explicación y artículo | Nuevo (casos) |
 | `/repasar/terminos` | Líneas de tiempo de términos por caso | Nuevo (casos) |
+| `/normativa/cobertura` | Índice de artículos de cada norma enlazada, con su nivel, sus tarjetas y el enlace al texto oficial | Nuevo (normas) |
 | `/planes/[slug]` | Vista completa e imprimible de un plan | Se conserva para imprimir y compartir |
 
 Rutas anteriores (`/hoy`, `/planes`, `/recursos`, `/fuentes`) redirigen a la nueva ubicación. `/fuentes` sigue existiendo, enlazada desde el pie.
@@ -68,6 +69,8 @@ Rutas anteriores (`/hoy`, `/planes`, `/recursos`, `/fuentes`) redirigen a la nue
 **Mazos.** Tarjetas del dossier, agrupadas en mazos: La prueba (datos del examen y del día), Tronco común (tema → norma), Procedimiento tributario (concepto → artículos del ET), Cobro, Aduanero y cambiario, y Contexto (cambios normativos y datos que los blogs repiten mal). Más **Mis tarjetas**, que escribe el usuario y viven solo en su dispositivo. El reverso de una tarjeta del dossier es siempre un fragmento literal del dossier; el frente es una pregunta que lo pide. [ASSUMPTION] Los mazos y su número (unas 40 a 60 tarjetas).
 
 **Sustancia de los casos (actualización).** Además de los mazos del dossier, mazos de reglas por caso (A fiscalización, B cobranzas, C jurídica, D aduanas y cambiario, y Procedimiento administrativo del tronco común) salidos de `fuentes/investigacion-casos.md`, solo con reglas Verificado contra el texto oficial de la norma; cada tarjeta muestra la norma y enlaza a su texto oficial. **Casos de práctica**: situación, pregunta y tres opciones como en la GOA, escritos para el sitio y rotulados "Caso de práctica elaborado para este sitio; no es una pregunta de la prueba". Tras responder, explicación con el artículo. **Términos**: por caso, la secuencia de actos con su plazo (p. ej. requerimiento especial → respuesta 3 meses → liquidación de revisión 6 meses → reconsideración 2 meses → fallo 1 año). Los cuatro casos pesan igual. [ASSUMPTION] Rutas `/repasar/casos` y `/repasar/terminos`.
+
+**Normas enlazadas (actualización).** Cada norma oficial enlazada tiene un índice completo de artículos en `/normativa/cobertura`, con el nivel de cada artículo (1: decide casos; 2: contexto; 3: no se estudia) y cuántas tarjetas lo cubren. Las tarjetas salen de copias del texto oficial guardadas en el repositorio y verificadas automáticamente. Repasar limita las tarjetas nuevas por día. [ASSUMPTION] Niveles, límite diario y reparto por mazos.
 
 **Repetición espaciada.** Cajas Leitner 1 a 5. Acertar sube una caja; fallar vuelve a la caja 1. Intervalos 1, 2, 4, 7 y 14 días [ASSUMPTION], recortados para que del 5 al 7 de noviembre todas las tarjetas vuelvan una vez ("repaso final"). Una tarjeta "domina" cuando llega a la caja 5.
 
