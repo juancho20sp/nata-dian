@@ -26,7 +26,7 @@
 
 - [x] 5.1 Crear `src/content/terminos.json` y `/repasar/terminos` (cinco plegables con `ol`, anclas `#caso-a` a `#caso-d` y `#tronco`); verificar con Vitest que cada plazo aparece en la cita de su regla y, en el navegador, el orden del Caso A
 - [x] 5.2 Agregar "Términos del caso" en los planes de caso y los accesos a Casos de práctica y Términos en `/repasar`; verificar que `/planes/caso-b-cobranzas` lleva a `/repasar/terminos#caso-b` con la sección abierta
-- [ ] 5.3 Actualizar el README (reglas verificadas, regla de cita, casos de práctica, términos, la nueva clave de almacenamiento y la política de fuentes); verificar que cada archivo citado existe
+- [x] 5.3 Actualizar el README (reglas verificadas, regla de cita, casos de práctica, términos, la nueva clave de almacenamiento y la política de fuentes); verificar que cada archivo citado existe
 
 ## 6. Verificación integral
 
