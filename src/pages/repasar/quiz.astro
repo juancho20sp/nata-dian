@@ -1,0 +1,201 @@
+---
+import Base from '../../layouts/Base.astro';
+import DatosTarjetas from '../../components/DatosTarjetas.astro';
+import { ruta } from '../../lib/ruta';
+---
+
+<Base titulo="Quiz" sinIndice>
+  <DatosTarjetas />
+  <nav aria-label="Migas" class="no-imprimir text-sm mb-1">
+    <a href={ruta('/repasar')}>← Repasar</a>
+  </nav>
+  <h1 class="text-2xl font-bold mb-1">Quiz</h1>
+  <p class="text-suave text-sm mb-3">Diez preguntas con tres opciones, como en la prueba.</p>
+
+  <noscript><p class="tarjeta">El quiz necesita JavaScript.</p></noscript>
+  <p class="tarjeta border-l-4 border-l-aviso-borde mb-3 text-sm" id="aviso-almacen" hidden>Este navegador no guarda el avance.</p>
+
+  <div id="quiz" hidden>
+    <div class="flex flex-wrap items-baseline justify-between gap-2 text-sm mb-2">
+      <p class="tabular-nums font-semibold" data-contador></p>
+      <p class="tabular-nums text-suave" data-meta></p>
+    </div>
+    <p class="text-sm font-semibold text-exito mb-2" data-cumplida hidden>Meta de hoy cumplida.</p>
+
+    <fieldset class="tarjeta">
+      <legend class="sr-only">Pregunta</legend>
+      <p class="tarjeta-repaso-etiqueta" data-mazo></p>
+      <p class="text-lg font-bold leading-snug mt-1" id="pregunta" data-pregunta></p>
+      <ul class="mt-4 space-y-2" aria-labelledby="pregunta">
+        {
+          ['A', 'B', 'C'].map((letra, i) => (
+            <li>
+              <button type="button" class="opcion-quiz" data-opcion={i}>
+                <span class="opcion-letra" aria-hidden="true">
+                  {letra}
+                </span>
+                <span class="sr-only">{letra}:</span>
+                <span class="flex-1 text-left" data-texto />
+                <span class="opcion-marca" data-marca />
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </fieldset>
+    <p class="sr-only" aria-live="assertive" data-anuncio></p>
+    <p class="hidden sm:block text-xs text-suave mt-2">Teclado: 1, 2, 3 o A, B, C para responder; Enter para seguir.</p>
+    <div class="mt-4 scroll-mb-24" data-siguiente-caja hidden>
+      <button type="button" class="boton boton-primario w-full sm:w-auto" data-siguiente>Siguiente</button>
+    </div>
+  </div>
+
+  <div id="resultado" hidden>
+    <div class="tarjeta">
+      <p class="text-sm text-suave">Resultado</p>
+      <p class="text-3xl font-bold tabular-nums" data-puntaje tabindex="-1"></p>
+      <p class="mt-1 text-suave" data-comentario></p>
+    </div>
+    <section class="mt-4" data-falladas-caja hidden>
+      <h2 class="text-lg font-bold mb-2">Para repasar</h2>
+      <ul class="space-y-2" data-falladas></ul>
+      <p class="text-sm text-suave mt-2">Estas tarjetas vuelven mañana.</p>
+    </section>
+    <p class="mt-4 flex flex-wrap gap-3">
+      <button type="button" class="boton boton-primario" data-otro>Otro quiz</button>
+      <a href={ruta('/repasar')} class="boton">Volver a Repasar</a>
+    </p>
+  </div>
+
+  <div id="sin-preguntas" class="tarjeta" hidden>
+    <p>No hay suficientes tarjetas para armar un quiz.</p>
+  </div>
+</Base>
+
+<script>
+  import { armarQuiz, type PreguntaQuiz } from '../../lib/quiz';
+  import { cargar, hoy, pasoLaPrueba, responderQuiz, resumenMeta } from '../../lib/repaso-cliente';
+
+  const LETRAS = ['A', 'B', 'C'];
+  const e = cargar();
+  const dia = hoy();
+  const quiz = document.getElementById('quiz')!;
+  const resultado = document.getElementById('resultado')!;
+  const opciones = [...quiz.querySelectorAll<HTMLButtonElement>('[data-opcion]')];
+  const anuncio = quiz.querySelector<HTMLElement>('[data-anuncio]')!;
+  const cajaSiguiente = quiz.querySelector<HTMLElement>('[data-siguiente-caja]')!;
+  const botonSiguiente = quiz.querySelector<HTMLButtonElement>('[data-siguiente]')!;
+  document.getElementById('aviso-almacen')!.hidden = e.guarda;
+
+  let preguntas: PreguntaQuiz[] = [];
+  let i = 0;
+  let respondida = false;
+  let aciertos = 0;
+  let falladas: PreguntaQuiz[] = [];
+
+  function pintarMeta() {
+    const r = resumenMeta(e, dia);
+    const oculta = pasoLaPrueba(dia);
+    quiz.querySelector('[data-meta]')!.textContent = oculta ? '' : `Meta de hoy: ${Math.min(r.avance, r.meta)} de ${r.meta}`;
+    quiz.querySelector<HTMLElement>('[data-cumplida]')!.hidden = oculta || !r.cumplida;
+  }
+
+  function mostrar() {
+    const p = preguntas[i];
+    if (!p) return terminar();
+    respondida = false;
+    quiz.querySelector('[data-contador]')!.textContent = `Pregunta ${i + 1} de ${preguntas.length}`;
+    quiz.querySelector('[data-mazo]')!.textContent = p.mazo;
+    quiz.querySelector('[data-pregunta]')!.textContent = p.pregunta;
+    opciones.forEach((b, k) => {
+      b.disabled = false;
+      b.classList.remove('correcta', 'incorrecta');
+      b.querySelector('[data-texto]')!.textContent = p.opciones[k]!;
+      b.querySelector('[data-marca]')!.textContent = '';
+    });
+    cajaSiguiente.hidden = true;
+    anuncio.textContent = '';
+    pintarMeta();
+  }
+
+  function elegir(k: number) {
+    const p = preguntas[i];
+    if (!p || respondida) return;
+    respondida = true;
+    const acerto = k === p.correcta;
+    if (acerto) aciertos++;
+    else falladas.push(p);
+    opciones.forEach((b) => (b.disabled = true));
+    opciones[p.correcta]!.classList.add('correcta');
+    opciones[p.correcta]!.querySelector('[data-marca]')!.textContent = 'Correcta';
+    if (!acerto) {
+      opciones[k]!.classList.add('incorrecta');
+      opciones[k]!.querySelector('[data-marca]')!.textContent = 'Su respuesta';
+    }
+    anuncio.textContent = acerto ? 'Correcta.' : `La correcta era ${LETRAS[p.correcta]}: ${p.opciones[p.correcta]}.`;
+    responderQuiz(e, p.id, acerto, dia);
+    pintarMeta();
+    cajaSiguiente.hidden = false;
+    cajaSiguiente.scrollIntoView({ block: 'nearest' });
+    botonSiguiente.focus({ preventScroll: true });
+  }
+
+  function terminar() {
+    quiz.hidden = true;
+    resultado.hidden = false;
+    resultado.querySelector('[data-puntaje]')!.textContent = `${aciertos} de ${preguntas.length}`;
+    resultado.querySelector('[data-comentario]')!.textContent =
+      falladas.length === 0 ? 'Sin errores en este quiz.' : `${falladas.length === 1 ? 'Una pregunta' : `${falladas.length} preguntas`} para repasar.`;
+    const lista = resultado.querySelector<HTMLElement>('[data-falladas]')!;
+    lista.replaceChildren(
+      ...falladas.map((p) => {
+        const li = document.createElement('li');
+        li.className = 'tarjeta';
+        const q = document.createElement('p');
+        q.className = 'font-semibold';
+        q.textContent = p.pregunta;
+        const r = document.createElement('p');
+        r.className = 'mt-1';
+        r.textContent = `Respuesta: ${p.opciones[p.correcta]}`;
+        li.append(q, r);
+        return li;
+      }),
+    );
+    resultado.querySelector<HTMLElement>('[data-falladas-caja]')!.hidden = falladas.length === 0;
+    resultado.querySelector<HTMLElement>('[data-puntaje]')!.focus();
+  }
+
+  function empezar() {
+    preguntas = armarQuiz(e.dossier, e.estados, dia);
+    i = 0;
+    aciertos = 0;
+    falladas = [];
+    resultado.hidden = true;
+    if (preguntas.length === 0) {
+      document.getElementById('sin-preguntas')!.hidden = false;
+      return;
+    }
+    quiz.hidden = false;
+    mostrar();
+  }
+
+  opciones.forEach((b, k) => b.addEventListener('click', () => elegir(k)));
+  botonSiguiente.addEventListener('click', () => {
+    i++;
+    mostrar();
+    if (preguntas[i]) opciones[0]!.focus();
+  });
+  resultado.querySelector('[data-otro]')!.addEventListener('click', empezar);
+  document.addEventListener('keydown', (ev) => {
+    if (quiz.hidden || ev.altKey || ev.ctrlKey || ev.metaKey) return;
+    if ((ev.target as HTMLElement).closest('input, textarea, select, dialog')) return;
+    const tecla = ev.key.toLowerCase();
+    const k = ['1', '2', '3'].indexOf(tecla) >= 0 ? Number(tecla) - 1 : ['a', 'b', 'c'].indexOf(tecla);
+    if (k >= 0 && !respondida) {
+      ev.preventDefault();
+      elegir(k);
+    }
+  });
+
+  empezar();
+</script>

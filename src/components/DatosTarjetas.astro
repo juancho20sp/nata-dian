@@ -1,0 +1,16 @@
+---
+/** Incrusta las tarjetas del dossier como JSON para los scripts de Repasar (con el enlace ya armado con `base`). */
+import { getCollection } from 'astro:content';
+import { ruta } from '../lib/ruta';
+
+const tarjetas = (await getCollection('tarjetas')).map(({ data: t }) => ({
+  id: t.id,
+  mazo: t.mazo,
+  frente: t.frente,
+  reverso: t.reverso,
+  quiz: t.quiz,
+  enlace: ruta(t.fuente.ruta) + (t.fuente.ancla ? `#${t.fuente.ancla}` : ''),
+}));
+---
+
+<script type="application/json" id="datos-tarjetas" set:html={JSON.stringify(tarjetas).replace(/</g, '\\u003c')} />

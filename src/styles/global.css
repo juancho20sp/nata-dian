@@ -415,3 +415,166 @@ a {
 .chips-desplazables > .chip {
   scroll-snap-align: start;
 }
+
+/* Repasar: meta diaria */
+.meta-barra {
+  height: 0.6rem;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: var(--superficie-2);
+  border: 1px solid var(--borde);
+}
+.meta-relleno {
+  height: 100%;
+  background: var(--exito);
+  transition: width 200ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  .meta-relleno {
+    transition: none;
+  }
+}
+
+/* Repasar: tarjeta */
+.tarjeta-repaso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 14rem;
+  padding: 1.25rem;
+  text-align: center;
+  background: var(--superficie);
+  color: var(--texto);
+  border: 1px solid var(--borde);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: border-color 150ms, background-color 150ms;
+}
+.tarjeta-repaso:focus-visible {
+  outline: 3px solid var(--primario);
+  outline-offset: 2px;
+}
+.tarjeta-repaso.volteada {
+  border-color: var(--primario);
+  background: var(--primario-suave);
+  cursor: default;
+}
+.tarjeta-repaso-etiqueta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--texto-suave);
+}
+.tarjeta-repaso-texto {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.tarjeta-repaso-reverso {
+  font-size: 1.1rem;
+  line-height: 1.45;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--borde);
+  width: 100%;
+}
+.tarjeta-repaso-reverso:not([hidden]) {
+  animation: aparecer 150ms ease-out;
+}
+.tarjeta-repaso-pista {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta-repaso,
+  .tarjeta-repaso-reverso:not([hidden]) {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Repasar: quiz */
+.opcion-quiz {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--borde);
+  border-radius: 0.5rem;
+  background: var(--superficie);
+  color: var(--texto);
+  cursor: pointer;
+}
+.opcion-quiz:hover:not(:disabled) {
+  border-color: var(--primario);
+}
+.opcion-quiz:focus-visible {
+  outline: 3px solid var(--primario);
+  outline-offset: 2px;
+}
+.opcion-quiz:disabled {
+  cursor: default;
+}
+.opcion-letra {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  border: 2px solid var(--borde);
+  font-weight: 700;
+}
+.opcion-marca {
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.opcion-quiz.correcta {
+  border: 2px solid var(--exito);
+}
+.opcion-quiz.correcta .opcion-letra,
+.opcion-quiz.correcta .opcion-marca {
+  color: var(--exito);
+  border-color: var(--exito);
+}
+.opcion-quiz.incorrecta {
+  border: 2px solid var(--aviso-borde);
+}
+.opcion-quiz.incorrecta .opcion-letra,
+.opcion-quiz.incorrecta .opcion-marca {
+  color: var(--aviso-texto);
+  border-color: var(--aviso-borde);
+}
+
+/* Campos de texto */
+.campo {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--borde);
+  border-radius: 0.5rem;
+  background: var(--superficie);
+  color: var(--texto);
+  font: inherit;
+  line-height: 1.45;
+  resize: vertical;
+}
+.campo:focus-visible {
+  outline: 3px solid var(--primario);
+  outline-offset: 1px;
+}
+.campo[aria-invalid='true'] {
+  border-color: var(--aviso-borde);
+}

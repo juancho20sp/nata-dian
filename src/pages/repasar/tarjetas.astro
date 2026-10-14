@@ -1,0 +1,171 @@
+---
+import Base from '../../layouts/Base.astro';
+import DatosTarjetas from '../../components/DatosTarjetas.astro';
+import { ruta } from '../../lib/ruta';
+---
+
+<Base titulo="Tarjetas" sinIndice>
+  <DatosTarjetas />
+  <nav aria-label="Migas" class="no-imprimir text-sm mb-1">
+    <a href={ruta('/repasar')}>← Repasar</a>
+  </nav>
+  <h1 class="text-2xl font-bold mb-1">Tarjetas</h1>
+  <p class="text-suave text-sm mb-3" id="subtitulo">Las que tocan hoy.</p>
+
+  <noscript><p class="tarjeta">El repaso necesita JavaScript.</p></noscript>
+  <p class="tarjeta border-l-4 border-l-aviso-borde mb-3 text-sm" id="aviso-almacen" hidden>Este navegador no guarda el avance.</p>
+
+  <div id="sesion" data-base-repasar={ruta('/repasar')} hidden>
+    <div class="flex flex-wrap items-baseline justify-between gap-2 text-sm mb-2">
+      <p class="tabular-nums font-semibold" data-contador></p>
+      <p class="tabular-nums text-suave" data-meta></p>
+    </div>
+    <p class="text-sm font-semibold text-exito mb-2" data-cumplida hidden>Meta de hoy cumplida.</p>
+
+    <button type="button" class="tarjeta-repaso" aria-pressed="false" aria-describedby="ayuda-teclas" data-tarjeta>
+      <span class="tarjeta-repaso-etiqueta" data-etiqueta></span>
+      <span class="tarjeta-repaso-texto" data-frente></span>
+      <span class="tarjeta-repaso-reverso" data-reverso hidden></span>
+      <span class="tarjeta-repaso-pista" data-pista>Toque para ver la respuesta</span>
+    </button>
+    <p class="sr-only" aria-live="polite" data-anuncio></p>
+    <p id="ayuda-teclas" class="hidden sm:block text-xs text-suave mt-2">Teclado: Espacio o Enter voltea; 1 = no la sabía, 2 = la sabía.</p>
+
+    <div class="grid grid-cols-2 gap-3 mt-4 scroll-mb-24" data-respuestas hidden>
+      <button type="button" class="boton w-full" data-respuesta="no">No la sabía</button>
+      <button type="button" class="boton boton-primario w-full" data-respuesta="si">La sabía</button>
+    </div>
+    <p class="mt-3 text-sm" data-ver-sitio hidden><a href="#">Ver en el sitio →</a></p>
+  </div>
+
+  <div id="fin" class="tarjeta" hidden>
+    <p class="text-xl font-bold" data-fin-titulo></p>
+    <p class="mt-1 text-suave" data-fin-texto></p>
+    <p class="mt-4 flex flex-wrap gap-3">
+      <a href={ruta('/repasar/quiz')} class="boton boton-primario">Hacer un quiz</a>
+      <a href={ruta('/repasar')} class="boton">Ver los mazos</a>
+    </p>
+  </div>
+</Base>
+
+<script>
+  import { cargar, hoy, pasoLaPrueba, paraHoy, responderTarjeta, resumenMeta, todas, type Tarjeta } from '../../lib/repaso-cliente';
+  import { tocaHoy } from '../../lib/repaso';
+
+  const e = cargar();
+  const dia = hoy();
+  const sesion = document.getElementById('sesion')!;
+  const fin = document.getElementById('fin')!;
+  const boton = sesion.querySelector<HTMLButtonElement>('[data-tarjeta]')!;
+  const respuestas = sesion.querySelector<HTMLElement>('[data-respuestas]')!;
+  const verSitio = sesion.querySelector<HTMLElement>('[data-ver-sitio]')!;
+  const anuncio = sesion.querySelector<HTMLElement>('[data-anuncio]')!;
+  document.getElementById('aviso-almacen')!.hidden = e.guarda;
+
+  // ?mazo=X: todas las tarjetas del mazo (primero las que tocan hoy); sin mazo, las que tocan hoy.
+  const mazo = new URLSearchParams(location.search).get('mazo');
+  let cola: Tarjeta[];
+  if (mazo && todas(e).some((t) => t.mazo === mazo)) {
+    cola = todas(e)
+      .filter((t) => t.mazo === mazo)
+      .sort((a, b) => Number(!tocaHoy(e.estados[a.id], dia)) - Number(!tocaHoy(e.estados[b.id], dia)));
+    document.getElementById('subtitulo')!.textContent = `Mazo: ${mazo}.`;
+  } else {
+    // Mezcla los mazos y luego ordena por caja (sort es estable): primero lo menos sabido.
+    cola = mezclar(paraHoy(e, dia)).sort((a, b) => (e.estados[a.id]?.caja ?? 1) - (e.estados[b.id]?.caja ?? 1));
+  }
+
+  let i = 0;
+  let volteada = false;
+
+  function mezclar<T>(lista: T[]): T[] {
+    for (let j = lista.length - 1; j > 0; j--) {
+      const k = Math.floor(Math.random() * (j + 1));
+      [lista[j], lista[k]] = [lista[k]!, lista[j]!];
+    }
+    return lista;
+  }
+
+  function pintarMeta() {
+    const r = resumenMeta(e, dia);
+    const oculta = pasoLaPrueba(dia);
+    sesion.querySelector('[data-meta]')!.textContent = oculta ? '' : `Meta de hoy: ${Math.min(r.avance, r.meta)} de ${r.meta}`;
+    sesion.querySelector<HTMLElement>('[data-cumplida]')!.hidden = oculta || !r.cumplida;
+  }
+
+  function terminar(vacia: boolean) {
+    sesion.hidden = true;
+    fin.hidden = false;
+    fin.querySelector('[data-fin-titulo]')!.textContent = vacia ? 'No hay tarjetas para hoy.' : 'Sesión terminada.';
+    fin.querySelector('[data-fin-texto]')!.textContent = vacia
+      ? 'Puede repasar un mazo igual o hacer un quiz.'
+      : `Respondió ${cola.length} ${cola.length === 1 ? 'tarjeta' : 'tarjetas'}. Las que no sabía vuelven mañana.`;
+  }
+
+  function mostrar() {
+    const t = cola[i];
+    if (!t) return terminar(cola.length === 0);
+    volteada = false;
+    boton.setAttribute('aria-pressed', 'false');
+    boton.classList.remove('volteada');
+    sesion.querySelector('[data-contador]')!.textContent = `Tarjeta ${i + 1} de ${cola.length}`;
+    sesion.querySelector('[data-etiqueta]')!.textContent = t.mazo;
+    sesion.querySelector('[data-frente]')!.textContent = t.frente;
+    const reverso = sesion.querySelector<HTMLElement>('[data-reverso]')!;
+    reverso.textContent = t.reverso;
+    reverso.hidden = true;
+    sesion.querySelector<HTMLElement>('[data-pista]')!.hidden = false;
+    respuestas.hidden = true;
+    verSitio.hidden = true;
+    anuncio.textContent = '';
+    pintarMeta();
+  }
+
+  function voltear() {
+    const t = cola[i];
+    if (!t || volteada) return;
+    volteada = true;
+    boton.setAttribute('aria-pressed', 'true');
+    boton.classList.add('volteada');
+    sesion.querySelector<HTMLElement>('[data-reverso]')!.hidden = false;
+    sesion.querySelector<HTMLElement>('[data-pista]')!.hidden = true;
+    respuestas.hidden = false;
+    if (t.enlace) {
+      verSitio.querySelector('a')!.setAttribute('href', t.enlace);
+      verSitio.hidden = false;
+    }
+    anuncio.textContent = `Respuesta: ${t.reverso}`;
+    // Con respuestas largas, los botones pueden quedar debajo de la barra inferior.
+    respuestas.scrollIntoView({ block: 'nearest' });
+  }
+
+  function responder(sabia: boolean) {
+    const t = cola[i];
+    if (!t || !volteada) return;
+    responderTarjeta(e, t.id, sabia, dia);
+    i++;
+    mostrar();
+    if (cola[i]) boton.focus();
+  }
+
+  boton.addEventListener('click', voltear);
+  respuestas.addEventListener('click', (ev) => {
+    const r = (ev.target as HTMLElement).closest<HTMLElement>('[data-respuesta]');
+    if (r) responder(r.dataset.respuesta === 'si');
+  });
+  document.addEventListener('keydown', (ev) => {
+    if (sesion.hidden || ev.altKey || ev.ctrlKey || ev.metaKey) return;
+    const objetivo = ev.target as HTMLElement;
+    if (objetivo.closest('input, textarea, select, dialog')) return;
+    if ((ev.key === ' ' || ev.key === 'Enter') && !volteada) {
+      // El botón de la tarjeta ya voltea con su propio clic.
+      if (objetivo === boton) return;
+      ev.preventDefault();
+      voltear();
+    } else if (ev.key === '1') responder(false);
+    else if (ev.key === '2') responder(true);
+  });
+
+  sesion.hidden = false;
+  mostrar();
+</script>

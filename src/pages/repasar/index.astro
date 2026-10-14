@@ -1,0 +1,132 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Chips from '../../components/Chips.astro';
+import DatosTarjetas from '../../components/DatosTarjetas.astro';
+import { MAZOS } from '../../content.config';
+import { METAS, META_POR_DEFECTO } from '../../lib/racha';
+import { MAZO_PROPIAS } from '../../lib/tarjetas-propias';
+import { ruta } from '../../lib/ruta';
+
+const tarjetas = (await getCollection('tarjetas')).map((e) => e.data);
+const mazos = [...MAZOS.map((m) => ({ nombre: m, total: tarjetas.filter((t) => t.mazo === m).length })), { nombre: MAZO_PROPIAS, total: 0 }];
+const enlaceMazo = (m: string) => `${ruta('/repasar/tarjetas')}?mazo=${encodeURIComponent(m)}`;
+---
+
+<Base titulo="Repasar" descripcion="Tarjetas con repetición espaciada y quiz de normas con tres opciones, con datos del dossier.">
+  <DatosTarjetas />
+  <h1 class="text-3xl font-bold mb-2">Repasar</h1>
+  <p class="text-suave mb-4">Tarjetas que vuelven según lo que recuerde, y un quiz con el formato A, B, C de la prueba.</p>
+
+  <noscript>
+    <p class="tarjeta mb-4">
+      El repaso necesita JavaScript. Mientras tanto, puede consultar <a href={ruta('/prueba')}>La prueba</a>,
+      <a href={ruta('/normativa')}>Normativa</a> y <a href={ruta('/convocatoria')}>Convocatoria</a>.
+    </p>
+  </noscript>
+
+  <p class="tarjeta border-l-4 border-l-aviso-borde mb-4 text-sm" id="aviso-almacen" hidden>Este navegador no guarda el avance.</p>
+
+  <div id="repasar" hidden>
+    <section aria-labelledby="titulo-meta" class="tarjeta mb-4" id="bloque-meta">
+      <div class="flex flex-wrap items-baseline justify-between gap-2">
+        <h2 id="titulo-meta" class="text-lg font-bold">Meta de hoy</h2>
+        <p class="tabular-nums text-suave" data-avance aria-live="polite">0 de {META_POR_DEFECTO}</p>
+      </div>
+      <div class="meta-barra mt-2" role="progressbar" aria-labelledby="titulo-meta" aria-valuemin="0" aria-valuemax={META_POR_DEFECTO} aria-valuenow="0">
+        <div class="meta-relleno" style="width: 0%" data-relleno></div>
+      </div>
+      <p class="mt-2 font-semibold text-exito" data-cumplida hidden>Meta de hoy cumplida.</p>
+      <p class="mt-3"><span class="text-2xl font-bold tabular-nums" data-racha>0 días</span> <span class="text-suave">de racha</span></p>
+      <p class="text-sm text-suave mt-1" data-gracia hidden>Le faltó un día esta semana; la racha sigue.</p>
+
+      <div class="mt-4">
+        <p class="text-sm font-semibold mb-1.5" id="etiqueta-meta">Respuestas por día</p>
+        <Chips
+          id="chips-meta"
+          etiqueta="Meta diaria"
+          activo={String(META_POR_DEFECTO)}
+          opciones={METAS.map((m) => ({ valor: String(m), texto: String(m) }))}
+        />
+        <p class="text-xs text-suave mt-1.5">La racha se calcula con la meta actual.</p>
+      </div>
+    </section>
+
+    <div class="grid gap-3 sm:grid-cols-2 mb-6">
+      <a href={ruta('/repasar/tarjetas')} class="boton boton-primario w-full" data-boton-tarjetas>Repasar tarjetas</a>
+      <a href={ruta('/repasar/quiz')} class="boton w-full">Hacer un quiz</a>
+    </div>
+
+    <section aria-labelledby="titulo-mazos">
+      <h2 id="titulo-mazos" class="text-xl font-bold mb-3">Mazos</h2>
+      <ul class="space-y-2" id="lista-mazos">
+        {
+          mazos.map((m) => (
+            <li class="tarjeta flex flex-wrap items-center justify-between gap-x-4 gap-y-2" data-mazo={m.nombre}>
+              <div>
+                <p class="font-semibold">{m.nombre}</p>
+                <p class="text-sm text-suave tabular-nums" data-cuentas>
+                  {m.total} tarjetas
+                </p>
+              </div>
+              <a href={enlaceMazo(m.nombre)} class="boton text-sm" data-enlace-mazo>
+                Repasar este mazo
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-4"><a href={ruta('/repasar/mis-tarjetas')}>Crear y editar mis tarjetas →</a></p>
+    </section>
+  </div>
+</Base>
+
+<script>
+  import { alCambiarChip, marcarChip } from '../../lib/chips';
+  import { metaValida } from '../../lib/racha';
+  import { resumenMazo } from '../../lib/repaso';
+  import { cargar, guardarMeta, hoy, paraHoy, pasoLaPrueba, resumenMeta, textoRacha, todas } from '../../lib/repaso-cliente';
+
+  const raiz = document.getElementById('repasar')!;
+  const e = cargar();
+  const dia = hoy();
+  raiz.hidden = false;
+  document.getElementById('aviso-almacen')!.hidden = e.guarda;
+
+  const bloqueMeta = document.getElementById('bloque-meta')!;
+  const grupoMeta = document.getElementById('chips-meta')!;
+
+  function pintarMeta() {
+    const r = resumenMeta(e, dia);
+    bloqueMeta.querySelector('[data-avance]')!.textContent = `${Math.min(r.avance, r.meta)} de ${r.meta}`;
+    const barra = bloqueMeta.querySelector<HTMLElement>('[role="progressbar"]')!;
+    barra.setAttribute('aria-valuemax', String(r.meta));
+    barra.setAttribute('aria-valuenow', String(Math.min(r.avance, r.meta)));
+    bloqueMeta.querySelector<HTMLElement>('[data-relleno]')!.style.width = `${Math.min(100, Math.round((r.avance / r.meta) * 100))}%`;
+    bloqueMeta.querySelector<HTMLElement>('[data-cumplida]')!.hidden = !r.cumplida;
+    bloqueMeta.querySelector('[data-racha]')!.textContent = textoRacha(r.racha);
+    bloqueMeta.querySelector<HTMLElement>('[data-gracia]')!.hidden = !r.racha.graciaUsada;
+  }
+
+  function pintarMazos() {
+    const lista = todas(e);
+    for (const li of document.querySelectorAll<HTMLElement>('#lista-mazos [data-mazo]')) {
+      const ids = lista.filter((t) => t.mazo === li.dataset.mazo).map((t) => t.id);
+      const r = resumenMazo(ids, e.estados, dia);
+      li.querySelector('[data-cuentas]')!.textContent = `${r.total} ${r.total === 1 ? 'tarjeta' : 'tarjetas'} · ${r.paraHoy} para hoy · ${r.dominadas} ${r.dominadas === 1 ? 'dominada' : 'dominadas'}`;
+      li.querySelector<HTMLElement>('[data-enlace-mazo]')!.hidden = r.total === 0;
+    }
+    const n = paraHoy(e, dia).length;
+    document.querySelector('[data-boton-tarjetas]')!.textContent = n > 0 ? `Repasar tarjetas (${n} para hoy)` : 'Repasar tarjetas';
+  }
+
+  // Después de la prueba, sin meta ni racha.
+  bloqueMeta.hidden = pasoLaPrueba(dia);
+  marcarChip(grupoMeta, String(e.meta));
+  alCambiarChip(grupoMeta, (valor) => {
+    guardarMeta(e, metaValida(Number(valor)));
+    pintarMeta();
+  });
+  pintarMeta();
+  pintarMazos();
+</script>

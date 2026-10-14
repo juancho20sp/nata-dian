@@ -18,11 +18,11 @@
 
 ## 4. Páginas de Repasar
 
-- [ ] 4.1 Crear `/repasar` (meta 10/20/30 con 20 por defecto, avance de hoy, racha con el texto del día de gracia, mazos con total, para hoy y dominadas, accesos a Tarjetas y Quiz, aviso sin almacenamiento, mensaje sin JavaScript); verificar en el navegador la primera visita (0 de 20) y el cambio de meta
-- [ ] 4.2 Crear `/repasar/tarjetas` (filtro `?mazo=`, volteo con toque, Espacio o Enter, respuesta con botones o teclas 1 y 2, contador "N de M", "Meta de hoy cumplida.", "No hay tarjetas para hoy.", enlace "Ver en el sitio", anuncio `aria-live`, sin animación con reduced motion); verificar en el navegador con el reloj fijo que acertar y fallar mueven la tarjeta de caja y que el avance se conserva al recargar
-- [ ] 4.3 Crear `/repasar/quiz` (10 preguntas, opciones A/B/C con teclas, marcas "Correcta" y "Su respuesta", resultado con falladas, "Otro quiz", falladas a la caja 1, cada respuesta suma a la meta); verificar en el navegador un quiz completo con una respuesta incorrecta
-- [ ] 4.4 Crear `/repasar/mis-tarjetas` (crear, editar, borrar con confirmación, validación con mensaje por campo) e incluir las propias en la sesión de tarjetas y en el resumen; verificar en el navegador crear, recargar, repasar y borrar una tarjeta propia
-- [ ] 4.5 Verificar el tono: ningún texto de Repasar tiene signos de exclamación, emojis ni reproches (búsqueda en `src/pages/repasar/` y en los textos de los scripts)
+- [x] 4.1 Crear `/repasar` (meta 10/20/30 con 20 por defecto, avance de hoy, racha con el texto del día de gracia, mazos con total, para hoy y dominadas, accesos a Tarjetas y Quiz, aviso sin almacenamiento, mensaje sin JavaScript); verificar en el navegador la primera visita (0 de 20) y el cambio de meta
+- [x] 4.2 Crear `/repasar/tarjetas` (filtro `?mazo=`, volteo con toque, Espacio o Enter, respuesta con botones o teclas 1 y 2, contador "N de M", "Meta de hoy cumplida.", "No hay tarjetas para hoy.", enlace "Ver en el sitio", anuncio `aria-live`, sin animación con reduced motion); verificar en el navegador con el reloj fijo que acertar y fallar mueven la tarjeta de caja y que el avance se conserva al recargar
+- [x] 4.3 Crear `/repasar/quiz` (10 preguntas, opciones A/B/C con teclas, marcas "Correcta" y "Su respuesta", resultado con falladas, "Otro quiz", falladas a la caja 1, cada respuesta suma a la meta); verificar en el navegador un quiz completo con una respuesta incorrecta
+- [x] 4.4 Crear `/repasar/mis-tarjetas` (crear, editar, borrar con confirmación, validación con mensaje por campo) e incluir las propias en la sesión de tarjetas y en el resumen; verificar en el navegador crear, recargar, repasar y borrar una tarjeta propia
+- [x] 4.5 Verificar el tono: ningún texto de Repasar tiene signos de exclamación, emojis ni reproches (búsqueda en `src/pages/repasar/` y en los textos de los scripts)
 
 ## 5. Inicio y documentación
 

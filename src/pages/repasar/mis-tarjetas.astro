@@ -1,0 +1,159 @@
+---
+import Base from '../../layouts/Base.astro';
+import DatosTarjetas from '../../components/DatosTarjetas.astro';
+import { MAX_CARACTERES } from '../../lib/tarjetas-propias';
+import { ruta } from '../../lib/ruta';
+---
+
+<Base titulo="Mis tarjetas" sinIndice>
+  <DatosTarjetas />
+  <nav aria-label="Migas" class="no-imprimir text-sm mb-1">
+    <a href={ruta('/repasar')}>← Repasar</a>
+  </nav>
+  <h1 class="text-2xl font-bold mb-1">Mis tarjetas</h1>
+  <p class="text-suave text-sm mb-4">
+    Escriba sus propias tarjetas mientras estudia una norma. Se guardan solo en este navegador y entran en el repaso diario.
+  </p>
+
+  <noscript><p class="tarjeta">Crear tarjetas necesita JavaScript.</p></noscript>
+  <p class="tarjeta border-l-4 border-l-aviso-borde mb-3 text-sm" id="aviso-almacen" hidden>Este navegador no guarda el avance.</p>
+
+  <form id="form-tarjeta" class="tarjeta space-y-3" novalidate hidden>
+    <h2 class="text-lg font-bold" data-titulo-form>Nueva tarjeta</h2>
+    <div>
+      <label for="campo-frente" class="block font-semibold mb-1">Frente (pregunta)</label>
+      <textarea id="campo-frente" name="frente" rows="2" maxlength={MAX_CARACTERES} class="campo" aria-describedby="error-frente"></textarea>
+      <p id="error-frente" class="text-sm text-aviso-texto mt-1" hidden></p>
+    </div>
+    <div>
+      <label for="campo-reverso" class="block font-semibold mb-1">Reverso (respuesta)</label>
+      <textarea id="campo-reverso" name="reverso" rows="3" maxlength={MAX_CARACTERES} class="campo" aria-describedby="error-reverso"></textarea>
+      <p id="error-reverso" class="text-sm text-aviso-texto mt-1" hidden></p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <button type="submit" class="boton boton-primario" data-guardar>Guardar tarjeta</button>
+      <button type="button" class="boton" data-cancelar hidden>Cancelar</button>
+    </div>
+    <p class="sr-only" aria-live="polite" data-estado></p>
+  </form>
+
+  <section aria-labelledby="titulo-lista" class="mt-6" id="seccion-lista" hidden>
+    <h2 id="titulo-lista" class="text-xl font-bold mb-3">Guardadas <span class="text-suave font-normal tabular-nums" data-total></span></h2>
+    <p class="text-suave" data-vacia>Todavía no hay tarjetas propias.</p>
+    <ul class="space-y-2" id="lista-propias"></ul>
+    <p class="mt-4" data-repasar hidden>
+      <a href={`${ruta('/repasar/tarjetas')}?mazo=${encodeURIComponent('Mis tarjetas')}`} class="boton">Repasar mis tarjetas</a>
+    </p>
+  </section>
+</Base>
+
+<script>
+  import { cargar, guardarPropias } from '../../lib/repaso-cliente';
+  import { crear, type TarjetaPropia } from '../../lib/tarjetas-propias';
+
+  const e = cargar();
+  const form = document.getElementById('form-tarjeta') as HTMLFormElement;
+  const frente = document.getElementById('campo-frente') as HTMLTextAreaElement;
+  const reverso = document.getElementById('campo-reverso') as HTMLTextAreaElement;
+  const errorFrente = document.getElementById('error-frente')!;
+  const errorReverso = document.getElementById('error-reverso')!;
+  const estado = form.querySelector<HTMLElement>('[data-estado]')!;
+  const cancelar = form.querySelector<HTMLButtonElement>('[data-cancelar]')!;
+  const seccion = document.getElementById('seccion-lista')!;
+  const lista = document.getElementById('lista-propias')!;
+  let editando: string | null = null;
+
+  document.getElementById('aviso-almacen')!.hidden = e.guarda;
+  form.hidden = false;
+  seccion.hidden = false;
+
+  function mostrarError(campo: HTMLTextAreaElement, nodo: HTMLElement, mensaje?: string) {
+    nodo.textContent = mensaje ?? '';
+    nodo.hidden = !mensaje;
+    campo.setAttribute('aria-invalid', String(!!mensaje));
+  }
+
+  function limpiar() {
+    editando = null;
+    form.reset();
+    mostrarError(frente, errorFrente);
+    mostrarError(reverso, errorReverso);
+    form.querySelector('[data-titulo-form]')!.textContent = 'Nueva tarjeta';
+    form.querySelector('[data-guardar]')!.textContent = 'Guardar tarjeta';
+    cancelar.hidden = true;
+  }
+
+  function boton(texto: string, clase: string, accion: () => void): HTMLButtonElement {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = `boton text-sm ${clase}`;
+    b.textContent = texto;
+    b.addEventListener('click', accion);
+    return b;
+  }
+
+  function pintarLista() {
+    seccion.querySelector('[data-total]')!.textContent = e.propias.length ? `(${e.propias.length})` : '';
+    seccion.querySelector<HTMLElement>('[data-vacia]')!.hidden = e.propias.length > 0;
+    seccion.querySelector<HTMLElement>('[data-repasar]')!.hidden = e.propias.length === 0;
+    lista.replaceChildren(
+      ...e.propias.map((t) => {
+        const li = document.createElement('li');
+        li.className = 'tarjeta';
+        const f = document.createElement('p');
+        f.className = 'font-semibold';
+        f.textContent = t.frente;
+        const r = document.createElement('p');
+        r.className = 'mt-1 text-suave';
+        r.textContent = t.reverso;
+        const acciones = document.createElement('div');
+        acciones.className = 'mt-3 flex flex-wrap gap-2';
+        acciones.append(
+          boton('Editar', '', () => {
+            editando = t.id;
+            frente.value = t.frente;
+            reverso.value = t.reverso;
+            form.querySelector('[data-titulo-form]')!.textContent = 'Editar tarjeta';
+            form.querySelector('[data-guardar]')!.textContent = 'Guardar cambios';
+            cancelar.hidden = false;
+            frente.focus();
+          }),
+          boton('Borrar', '', () => {
+            if (!window.confirm('¿Borrar esta tarjeta? No se puede deshacer.')) return;
+            guardarPropias(
+              e,
+              e.propias.filter((p) => p.id !== t.id),
+            );
+            if (editando === t.id) limpiar();
+            estado.textContent = 'Tarjeta borrada.';
+            pintarLista();
+          }),
+        );
+        li.append(f, r, acciones);
+        return li;
+      }),
+    );
+  }
+
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const resultado = crear(frente.value, reverso.value, editando ?? undefined);
+    if ('errores' in resultado) {
+      mostrarError(frente, errorFrente, resultado.errores.frente);
+      mostrarError(reverso, errorReverso, resultado.errores.reverso);
+      (resultado.errores.frente ? frente : reverso).focus();
+      return;
+    }
+    const nuevas: TarjetaPropia[] = editando
+      ? e.propias.map((p) => (p.id === editando ? resultado : p))
+      : [...e.propias, resultado];
+    guardarPropias(e, nuevas);
+    estado.textContent = editando ? 'Cambios guardados.' : 'Tarjeta guardada. Toca repasarla hoy.';
+    limpiar();
+    pintarLista();
+    frente.focus();
+  });
+  cancelar.addEventListener('click', limpiar);
+
+  pintarLista();
+</script>
