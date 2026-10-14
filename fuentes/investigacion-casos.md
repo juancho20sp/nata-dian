@@ -23,10 +23,10 @@
    - La GOA 2676 dice que solo entran normas "vigentes y [que] fueron expedidas antes del 19 de junio de 2026" (GOA 2676, p. 11). La Ley 2586 se expidió el **mismo** 19 de junio, así que en sentido literal no es "anterior". Es posible que el examen se haya construido sobre el DL 920. Esto es una inferencia y no está confirmado.
    - **Consecuencia práctica:** los términos procesales que más se preguntan (objeción a la aprehensión, respuesta al requerimiento especial aduanero, decisión de fondo, reconsideración, silencio positivo, caducidad) son **idénticos** en ambas normas. Las tarjetas deben enseñar el término y citar las dos normas.
 2. **Duración de la prueba.** La GOA oficial 2676 dice: "El aspirante dispondrá de cinco (5) horas para responder las pruebas escritas, es decir, la sesión terminará a la 1:00 p.m." (GOA 2676, p. 23). El dossier dice 4 horas, pero de 8:00 a. m. a 1:00 p. m. son 5. **Verificado.**
+3. **Estructura del ítem en 2676:** "Por cada caso habrá un enunciado con sus respectivas opciones de respuesta" (GOA 2676, p. 12). Antes era distinto: en 1461 eran de 3 a 5 preguntas por caso y en 2667, tres enunciados por caso. Las tarjetas de práctica para 2676 deberían ser **caso corto, una pregunta y tres opciones**. **Verificado.**
 4. **Segunda verificación (13-oct-2026, al construir las tarjetas).** Se volvieron a descargar los textos oficiales y se buscó la cita literal de una muestra de reglas por caso. Coincidieron las 16, sin diferencias:
    - En la primera revisión: ET 705, 707, 720, 732 y 734 (Senado).
    - En la segunda: ET 710 y 714 (caso A); ET 817 y 830 (caso B); CPACA 164 y Ley 2220 art. 90 (caso C); Ley 2586 art. 47 y DL 920 art. 90 (decomiso), y Ley 2586, objeción a la aprehensión (caso D); CPACA 14 y 76 (tronco común). Fuentes: Senado y normograma DIAN.
-3. **Estructura del ítem en 2676:** "Por cada caso habrá un enunciado con sus respectivas opciones de respuesta" (GOA 2676, p. 12). Antes era distinto: en 1461 eran de 3 a 5 preguntas por caso y en 2667, tres enunciados por caso. Las tarjetas de práctica para 2676 deberían ser **caso corto, una pregunta y tres opciones**. **Verificado.**
 
 ---
 
